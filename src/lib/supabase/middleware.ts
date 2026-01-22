@@ -1,3 +1,4 @@
+import { Database } from '@/types/supabase'
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
@@ -10,7 +11,7 @@ export async function updateSession(request: NextRequest) {
   })
 
 
-  const supabase = createServerClient(
+  const supabase = createServerClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
@@ -39,7 +40,7 @@ export async function updateSession(request: NextRequest) {
   // Cenario A: Usuário NÃO está logado
   if (!user) {
     // Se ele tentar acessar /dashboard ou a raiz /, manda pro Login
-    if (path.startsWith('/my-rooms') || path === '/') {
+    if (path.startsWith('/dashboard') || path === '/') {
       return NextResponse.redirect(new URL('/login', request.url))
     }
   }
@@ -48,7 +49,7 @@ export async function updateSession(request: NextRequest) {
   if (user) {
     // Se ele tentar acessar /login ou a raiz /, manda pro Dashboard
     if (path.startsWith('/login') || path === '/') {
-      return NextResponse.redirect(new URL('/my-rooms', request.url))
+      return NextResponse.redirect(new URL('/dashboard', request.url))
     }
   }
 

@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { loginSchema, LoginSchema } from './schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Input from '@/components/Input/Input';
-import { CnButton } from '@root/components/ui/button';
-import { loginAction } from '../actions';
+import { CnButton } from '@/components/ui/button';
+import { loginAction } from '../../../src/actions/auth';
 import { LoaderCircle } from 'lucide-react';
 import { useState } from 'react';
 
@@ -17,15 +17,12 @@ export default function LoginForm() {
   });
 
   const onSubmit = async (data: LoginSchema) => {
-    console.log(data)
     const response = await loginAction(data)
 
     if(!response.success) {
         setServerError(response.message)
-        console.log(response);
         
     } 
-    console.log(response)
   }
 
   const onError = (errors: any) => {
@@ -34,13 +31,13 @@ export default function LoginForm() {
   
 
   return (
-        <form onSubmit={handleSubmit(onSubmit, onError)} className='gap-2 grid'>
+        <form onSubmit={handleSubmit(onSubmit, onError)} className='gap-2 grid w-full'>
             <Input {...register('email')} error={errors.email?.message} name="email" label="E-mail" type="email" />
             <Input {...register('password')} error={errors.password?.message} name="password" label="Senha" type="password" />
             {serverError && <p className='text-red-500 text-sm text-center'>{serverError}</p>}
             <CnButton 
             type="submit" 
-            className='cursor-pointer mt-4 w-full bg-linear-to-tr to-secondary-300 from-primary-300 text-black-custom hover:saturate-150 duration-200'>
+            className='cursor-pointer text-lg md:text-xl mt-4 w-full bg-linear-to-tr to-secondary-300 from-primary-300 text-black-custom hover:saturate-150 duration-200'>
             {isLoading? <LoaderCircle className='spin-in'/> : 'Entrar'}
             </CnButton>
         </form>
