@@ -1,3 +1,5 @@
+import { SubscriptionStatus } from "@/types/entities"
+
 export function formatPrice(price: number): string {
   return new Intl.NumberFormat('pt-BR', {
     minimumFractionDigits: 2,
@@ -30,3 +32,17 @@ export function formatPriority(priority: number | null): string {
       return ''
   }
 }
+
+export function formatSubscriptionStatus(status: SubscriptionStatus): string {
+  switch (status) {
+    case 'ACTIVE':
+      return 'Ativo'
+    case 'EXPIRED':
+      return 'Expirado'
+    case 'CANCELED':
+      return 'Cancelado'
+    default:
+      return ''
+  }
+}
+

@@ -17,9 +17,10 @@ interface DatePickerProps {
     onDateChange?: (date: Date) => void
     variant?: 'default' | 'secondary'
     label?: string
+    error?: string
 }
 
-export function DatePicker({ initialDate, onDateChange, variant = 'default', label }: DatePickerProps) {
+export function DatePicker({ initialDate, onDateChange, variant = 'default', label, error }: DatePickerProps) {
     const [date, setDate] = React.useState<Date | undefined>(initialDate)
 
     // Função auxiliar para garantir que o onDateChange seja chamado
@@ -41,6 +42,7 @@ export function DatePicker({ initialDate, onDateChange, variant = 'default', lab
                 <div className="w-full items-center grid gap-2 relative">
                     {label && <Label className='text-lg md:text-xl' htmlFor="select">{label}</Label>}
                     <Button
+                        type="button"
                         variant="outline"
                         data-empty={!date}
                         className={`data-[empty=true]:text-muted-foreground justify-between text-left font-normal text-lg md:text-xl ${variantClasses[variant]}`}
@@ -52,6 +54,7 @@ export function DatePicker({ initialDate, onDateChange, variant = 'default', lab
                         )}
                         <ChevronDownIcon />
                     </Button>
+                    {error && <span className="text-sm md:text-base text-red-500 text-start mb-1">{error}</span>}
                 </div>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0" align="start">

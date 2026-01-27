@@ -2,7 +2,7 @@ import { CnInput } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
 type InputProps = {
-  type?: 'email' | 'password' | 'text' | 'number' | 'tel' | 'url' | 'search'
+  type?: 'email' | 'password' | 'text' | 'number' | 'tel' | 'url' | 'search' | 'date'
   placeholder?: string
   label?: string
   name?: string

@@ -9,6 +9,7 @@ import Select from '@/components/Select/Select'
 import Button from '@/components/Button/Button'
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Separator } from '@radix-ui/react-separator'
+import { useProfile } from '@/hooks/useProfile'
 
 
 type ProfileFormProps = {
@@ -16,6 +17,8 @@ type ProfileFormProps = {
 }
 
 export default function ProfileForm({ user }: ProfileFormProps) {
+
+    const { handleUpdateProfile } = useProfile(user.id)
 
     const gender = [
         { value: 'MALE', label: 'Masculino' },
@@ -37,7 +40,7 @@ export default function ProfileForm({ user }: ProfileFormProps) {
     })
 
     const onSubmit = (data: EditProfileSchema) => {
-        console.log(data)
+        handleUpdateProfile(data)
     }
 
     const onError = (errors: any) => {
@@ -65,7 +68,7 @@ export default function ProfileForm({ user }: ProfileFormProps) {
                     <Input {...register('username')} error={errors.username?.message} name="username" label="Usuário" variant='secondary' type="text" />
                 </div>
                 <div className='flex flex-col md:flex-row gap-4'>
-                    <DatePicker initialDate={user.birthday ? new Date(user.birthday) : undefined} onDateChange={(date) => setValue('birthday', date?.toISOString().split('T')[0] ?? null)} variant='secondary' label='Data de nascimento' />
+                    <Input {...register('birthday')} error={errors.birthday?.message} name="birthday" label="Data de nascimento" variant='secondary' type="date" />
                     <Select onChange={(value) => setValue('gender', value as Gender)} error={errors.gender?.message} placeholder="Gênero" variant='secondary' values={gender} defaultValue={genderValue} />
                 </div>
                 <Button type='submit' variant='contained' className="w-full md:w-1/3 self-center py-3 text-lg md:text-xl mt-4">Salvar</Button>

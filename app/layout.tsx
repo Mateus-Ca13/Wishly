@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Afacad, Leckerli_One } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
+import { ScrollToTop } from "@/components/ScrollToTop/ScrollToTop";
 
 const leckerliOneFont = Leckerli_One({
   weight: ['400'],
@@ -42,6 +43,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
       >
         {children}
         <Toaster position="top-center" toastOptions={{ className: 'font-afacad! text-base!' }} richColors={true} />
+        <ScrollToTop />
       </body>
     </html>
   );

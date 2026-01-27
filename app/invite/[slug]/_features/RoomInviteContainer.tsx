@@ -27,7 +27,7 @@ export default function RoomInviteContainer({ room, currentUser }: RoomInviteCon
 
     return (
         <div className='flex flex-col items-center text-center justify-center bg-white rounded-lg p-8 border-gray-200 border shadow-lg'>
-            <h2 className='md:text-3xl text-xl font-semibold gradient-text'>Convite para sala</h2>
+            <h2 className='md:text-3xl text-xl font-semibold text-gradient'>Convite para sala</h2>
             <p className='md:text-lg text-base'>Você foi convidado para participar da sala</p>
 
             <h2 className='md:text-2xl text-lg font-semibold mt-4'>{room.name}</h2>

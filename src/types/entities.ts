@@ -50,10 +50,15 @@ interface Subscription {
     id: number
     user_id: string
     plan_id: number
-    created_at: string
-    updated_at: string
+    started_at: string
+    ends_at: string | null
+    status: SubscriptionStatus
     plan: Plan
 }
+
+const SubscriptionStatusOptions = ["ACTIVE", "EXPIRED", "CANCELED"] as const
+const SubscriptionStatusEnum = z.enum(SubscriptionStatusOptions)
+type SubscriptionStatus = z.infer<typeof SubscriptionStatusEnum>;
 
 interface Plan {
     id: number
@@ -62,11 +67,11 @@ interface Plan {
     display_name: string
     description: string
     max_items_per_wishlist: number
-    max_rooms_per_room: number
+    max_members_per_room: number
     max_rooms: number
 }
 
-export type { Reservation, Item, ItemWithoutReservation, Profile, Room, Subscription, Plan, Gender }
+export type { Reservation, Item, ItemWithoutReservation, Profile, Room, Subscription, Plan, Gender, SubscriptionStatus }
 
-export { GenderEnum, GenderOptions }
+export { GenderOptions, SubscriptionStatusOptions }
 

@@ -1,7 +1,13 @@
-import React from 'react'
 
-export default function SubscriptionsPage() {
+import SubscriptionsContainer from './_features/SubscriptionsContainer'
+import { getCurrentSubscriptionAction, getPlansAction } from '@/actions/subscriptions'
+
+export default async function SubscriptionsPage() {
+
+    const subscription = await getCurrentSubscriptionAction()
+    const plans = await getPlansAction()
+
     return (
-        <div>SubscriptionsPage</div>
+        <SubscriptionsContainer subscription={subscription?.data ?? null} plans={plans?.data || []} />
     )
 }

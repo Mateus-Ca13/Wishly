@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import withPWAInit from "@ducanh2912/next-pwa";
+import packageJson from "./package.json";
 
 // 1. Configuração do PWA
 const withPWA = withPWAInit({
@@ -12,6 +13,11 @@ const withPWA = withPWAInit({
 
 // 2. Sua Configuração Original do Next.js
 const nextConfig: NextConfig = {
+
+
+  env: {
+    NEXT_PUBLIC_APP_VERSION: packageJson.version,
+  },
   images: {
     remotePatterns: [
       {

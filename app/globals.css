@@ -20,8 +20,12 @@
   --font-afacad: var(--font-afacad);
 }
 
-@utility gradient-text {
+@utility text-gradient {
   @apply bg-linear-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent;
+}
+
+@utility bg-gradient {
+  @apply bg-linear-to-tr from-primary-500 to-secondary-500;
 }
 
 :root {

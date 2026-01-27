@@ -1,10 +1,10 @@
 'use server'
 import { createClient } from "@/lib/supabase/server"
-import { Subscription } from "@/types/entities"
+import { Plan, Subscription } from "@/types/entities"
 import { ActionResponse } from "@/types/response"
 import { sendErrorResponse, sendSuccessResponse } from "@/utils/response"
 
-export async function getSubscriptionAction(): Promise<ActionResponse<Subscription | null>> {
+export async function getCurrentSubscriptionAction(): Promise<ActionResponse<Subscription | null>> {
     const supabase = await createClient()
 
     const { data: { user }, error: userError } = await supabase.auth.getUser()
@@ -15,4 +15,14 @@ export async function getSubscriptionAction(): Promise<ActionResponse<Subscripti
 
     if (error) return sendErrorResponse(error.code, error.message, null)
     return sendSuccessResponse(200, 'Assinatura buscada com sucesso', data)
+}
+
+export async function getPlansAction(): Promise<ActionResponse<Plan[]>> {
+    const supabase = await createClient()
+
+    const { data, error } = await supabase.from('plans').select('*').eq('viewable', true)
+
+    if (error) return sendErrorResponse(error.code, error.message, null)
+
+    return sendSuccessResponse(200, 'Planos buscados com sucesso', data)
 }

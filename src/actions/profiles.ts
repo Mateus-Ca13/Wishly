@@ -4,6 +4,10 @@ import { createClient } from "@/lib/supabase/server";
 import { EditProfileSchema, editProfileSchema } from "@/schemas/auth";
 import { sendErrorResponse, sendSuccessResponse } from "@/utils/response";
 import { cache } from "react";
+import slugify from "slugify";
+import { customAlphabet } from 'nanoid'
+
+const generateSuffix = customAlphabet('abcdefghijklmnopqrstuvwxyz0123456789', 6)
 
 export const getUserBySlugAction = cache(async (slug: string) => {
     const supabase = await createClient()
@@ -46,9 +50,19 @@ export const updateProfileAction = async (profile: EditProfileSchema, userId: st
 
     const parsedProfile = editProfileSchema.parse(profile)
 
+    const baseSlug = slugify(parsedProfile.username, {
+        lower: true,
+        strict: true,
+        trim: true,
+    })
+
+    const newSlug = `${baseSlug}-${generateSuffix()}`
 
     const supabase = await createClient()
-    const { data, error } = await supabase.from('public_profiles').update(parsedProfile).eq('id', userId).select().single()
+    const { data, error } = await supabase.from('public_profiles').update({
+        ...parsedProfile,
+        slug: newSlug,
+    }).eq('id', userId).select().single()
     if (error) {
         return sendErrorResponse(error.code, error.message, error)
     }
