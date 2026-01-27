@@ -1,34 +1,36 @@
 
 'use client'
-import { useWishlist } from '@/hooks/useWishlist'
-import { MotionDiv } from '@/components/Motion/Motion'
 import ReservationButton from './ReservationButton'
 import ItemDetailsDrawer from './ItemDetailsDrawer'
-import ItemsListWithReservation from './ItemsListWithreservation'
+import ItemsListWithReservation from './GuestItemsList'
 import ConfirmReservationDialog from './ConfirmReservationDialog'
 import { Profile } from '@/types/entities'
+import CancelReservationDialog from './CancelReservationDialog'
+import { useGuestWishlist } from '@/hooks/useGuestWishlist'
+import { Item, ItemWithoutReservation } from '@/types/entities'
 
-type WishlistItemContainerProps = {
+type GuestWishlistContainerProps = {
     userId: string
-    initialItems: any[]
+    initialItems: {items:Item[] | ItemWithoutReservation[], count:number}
     currentUser: Profile
 }
 
-export default function WishlistItemContainer({ userId, initialItems, currentUser }: WishlistItemContainerProps) {
+export default function GuestWishlistContainer({ userId, initialItems, currentUser }: GuestWishlistContainerProps) {
     
     const { 
         items, search, setSearch, isLoading, 
         isReservationMode, toggleReservationMode, 
         selectedItem, handleItemClick,
         isConfirmReservationDialogOpen, closeConfirmReservationDialog,
-        isDrawerOpen, closeDrawer,
-        handleConfirmReservation
-    } = useWishlist(userId, initialItems)
+        isItemInfoDrawerOpen, closeItemInfoDrawer,
+        handleConfirmReservation,
+        isCancelReservationDialogOpen, closeCancelReservationDialog,
+        handleCancelReservation,
+        handleOpenCancelReservation
+    } = useGuestWishlist(userId, initialItems)
 
     return (
-        <div className='w-full relative min-h-screen'>
-            <MotionDiv>
-
+        <div className='w-full'>
                 <ItemsListWithReservation 
                     search={search}
                     setSearch={setSearch}
@@ -38,7 +40,6 @@ export default function WishlistItemContainer({ userId, initialItems, currentUse
                     onItemClick={handleItemClick}
                 />
 
-            </MotionDiv>
 
             <ReservationButton 
                 isActive={isReservationMode}
@@ -46,10 +47,18 @@ export default function WishlistItemContainer({ userId, initialItems, currentUse
             />
             
             <ItemDetailsDrawer 
+                onOpenCancelReservation={handleOpenCancelReservation}
                 currentUser={currentUser}
                 item={selectedItem}
-                isOpen={isDrawerOpen}
-                onClose={closeDrawer}
+                isOpen={isItemInfoDrawerOpen}
+                onClose={closeItemInfoDrawer}
+            />
+
+            <CancelReservationDialog
+                onConfirm={handleCancelReservation}
+                item={selectedItem}
+                open={isCancelReservationDialogOpen}
+                onClose={closeCancelReservationDialog}
             />
 
             <ConfirmReservationDialog

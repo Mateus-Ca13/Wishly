@@ -6,4 +6,12 @@
     code: string | number 
 }
 
-export type { ActionResponse }
+interface CountResponse {
+    count: number
+    error: any
+    data: any
+    status: number
+    statusText: string
+}
+
+export type { ActionResponse, CountResponse }

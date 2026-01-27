@@ -1,12 +1,12 @@
 import { getCurrentUserAction, getUserBySlugAction } from "@/actions/profiles";
-import { getItemsAction } from "../../../../src/actions/itemsActions"; // Importe a action
-import WishlistItemContainer from "./_features/WishlistItemsContainer";
+import { getItemsAction } from "../../../../src/actions/items"; // Importe a action
+import GuestWishlistContainer from "./_features/GuestWishlistContainer";
 
-type MemberWishlistPageProps = {
+type GuestWishlistPageProps = {
   params: Promise<{ slug: string }>
 }
 
-export default async function UserWishlistPage({ params }: MemberWishlistPageProps) {
+export default async function GuestWishlistPage({ params }: GuestWishlistPageProps) {
   const { slug } = await params;
 
   const userResponse = await getUserBySlugAction(slug);
@@ -17,14 +17,14 @@ export default async function UserWishlistPage({ params }: MemberWishlistPagePro
   const currentUser = currentUserResponse.data;
 
   const initialItemsResponse = await getItemsAction('', userId);
-  const initialItems = initialItemsResponse.success ? initialItemsResponse.data : [];
+  const initialItems = initialItemsResponse.success ? initialItemsResponse.data : { items: [], count: 0 };
 
   return (
     <div className='flex flex-col items-center justify-center gap-4 w-full mx-auto'>
-      <WishlistItemContainer 
-         userId={userId} 
-         currentUser={currentUser}
-         initialItems={initialItems} 
+      <GuestWishlistContainer
+        userId={userId}
+        currentUser={currentUser}
+        initialItems={initialItems}
       />
     </div>
   )

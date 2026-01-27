@@ -1,6 +1,6 @@
 
-function sendSuccessResponse (code : number, message: string ='Sucesso' , data: any) {
-
+function sendSuccessResponse(code: number, message: string = 'Sucesso', data: any) {
+    console.log({ code, message, data })
     return {
         code,
         success: true,
@@ -9,8 +9,8 @@ function sendSuccessResponse (code : number, message: string ='Sucesso' , data: 
     }
 }
 
-function sendErrorResponse (code : number | string = 500, message: string = 'Erro interno do servidor' , data: any) {
-
+function sendErrorResponse(code: number | string = 500, message: string = 'Erro interno do servidor', data: any) {
+    console.log({ code, message, data })
     return {
         code,
         success: false,

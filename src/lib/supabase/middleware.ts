@@ -2,7 +2,10 @@ import { Database } from '@/types/supabase'
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-export async function updateSession(request: NextRequest) {
+export async function updateSession(
+  request: NextRequest,
+  options: { protectedPaths: string[] } = { protectedPaths: ['/dashboard', '/invite', '/'] }
+) {
 
   let response = NextResponse.next({
     request: {
@@ -39,8 +42,12 @@ export async function updateSession(request: NextRequest) {
 
   // Cenario A: Usuário NÃO está logado
   if (!user) {
-    // Se ele tentar acessar /dashboard ou a raiz /, manda pro Login
-    if (path.startsWith('/dashboard') || path === '/') {
+    const shouldRedirect = options.protectedPaths.some((p) => {
+      if (p === '/') return path === '/'
+      return path.startsWith(p)
+    })
+
+    if (shouldRedirect) {
       return NextResponse.redirect(new URL('/login', request.url))
     }
   }

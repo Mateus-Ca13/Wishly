@@ -12,6 +12,7 @@ export const config = {
   // para não pesar o servidor à toa.
   matcher: [
     '/dashboard/:path*',
+    '/invite/:path*',
     /*
      * Match all request paths except for the ones starting with:
      * - _next/static (static files)

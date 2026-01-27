@@ -1,0 +1,30 @@
+import { MotionDiv } from '@/components/Motion/Motion'
+import { Profile, Subscription } from '@/types/entities'
+import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar'
+
+type AvatarBannerProps = {
+    user: Profile
+    subscription: Subscription | null
+}
+export default function AvatarBanner({ user, subscription }: AvatarBannerProps) {
+    const initialLetter = user.username[0]
+    return (
+        <MotionDiv
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, bounce: 0.4, type: 'spring' }}
+            className='w-full flex flex-col items-center justify-center px-4 pt-12 pb-4 bg-linear-to-bl from-secondary-50 to-primary-50 border-gray-200 border rounded-lg'>
+            <Avatar className='w-17.5 h-17.5  rounded-lg shadow-lg'>
+                <AvatarImage className='rounded-lg' src="" />
+                <AvatarFallback className='text-black font-semibold  text-3xl bg-linear-to-tr from-secondary-100 to-primary-100 w-full h-full flex items-center justify-center rounded-lg'>{initialLetter}</AvatarFallback>
+            </Avatar>
+            <div className='w-full flex flex-col items-center justify-center mt-4'>
+                <h2 className='text-xl max-w-2/3 md:text-3xl font-semibold truncate'>{user.username}</h2>
+                <p className='
+                text-base md:text-lg max-w-2/3 text-primary-700 font-semibold truncate bg-linear-to-tr 
+                from-secondary-100 to-primary-100 rounded-lg px-2 border-primary-300 
+                border mt-2'>{subscription?.plan.display_name}</p>
+            </div>
+        </MotionDiv>
+    )
+}

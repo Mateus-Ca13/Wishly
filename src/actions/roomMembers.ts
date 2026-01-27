@@ -13,7 +13,6 @@ export async function getMembersAction (search: string = '', roomId: number) {
 
     const [membersResponse, countResponse] = await Promise.all([
         
-        // 1. Busca Principal (Com filtros de nome)
         supabase
             .from('room_members')
             .select('public_profiles!inner(*)')
@@ -21,7 +20,6 @@ export async function getMembersAction (search: string = '', roomId: number) {
             .neq('user_id', user.id)
             .ilike('public_profiles.username', `%${search}%`),
 
-        // 2. Busca de Contagem Total (Sem filtro de nome, Super leve)
         supabase
             .from('room_members')
             .select('*', { count: 'exact', head: true })
@@ -29,7 +27,6 @@ export async function getMembersAction (search: string = '', roomId: number) {
             .neq('user_id', user.id) 
     ])
 
-    // Tratamento de erros
     if (membersResponse.error) return sendErrorResponse(500, "Erro na busca", membersResponse.error)
     if (countResponse.error) return sendErrorResponse(500, "Erro na contagem", countResponse.error)
 

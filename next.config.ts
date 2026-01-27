@@ -1,25 +1,33 @@
 import type { NextConfig } from "next";
+import withPWAInit from "@ducanh2912/next-pwa";
 
+// 1. Configuração do PWA
+const withPWA = withPWAInit({
+  dest: "public",
+  cacheOnFrontEndNav: true,
+  aggressiveFrontEndNavCaching: true,
+  reloadOnOnline: true,
+  disable: process.env.NODE_ENV === "development", // Desativa PWA em modo dev
+});
+
+// 2. Sua Configuração Original do Next.js
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
-    /* Liberar de todo lugar */
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**",
+        hostname: "**", // Cuidado: isso libera imagens de QUALQUER lugar
       },
     ],
-    
   },
   experimental: {
     serverActions: {
       allowedOrigins: [
         'localhost:3000',
-        'sqn0466t-3000.brs.devtunnels.ms', 
       ],
     },
   },
 };
 
-export default nextConfig;
+// 3. Exportação combinada (Envolvemos sua config com a função do PWA)
+export default withPWA(nextConfig);

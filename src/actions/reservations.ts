@@ -18,3 +18,17 @@ export const confirmReservationAction = async (itemId: number, anonymousGiver: b
     return sendSuccessResponse(200, 'Reserva confirmada com sucesso!', data)
     
 }
+
+export const cancelReservationAction = async (itemId: number) => {
+    
+    const supabase = await createClient()
+
+    const { data, error } = await supabase.from('reservations').delete().eq('item_id', itemId)
+
+    if (error) {
+        return sendErrorResponse(error.code, error.message, error)
+    }
+
+    return sendSuccessResponse(200, 'Reserva cancelada com sucesso!', data)
+    
+}
