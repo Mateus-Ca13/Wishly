@@ -15,18 +15,18 @@ interface SelectProps {
 export default function Select({ values, defaultValue, onChange, placeholder, variant = 'default', error }: SelectProps) {
 
     const variantClasses = {
-        default: 'bg-white border border-gray-300 focus:border-primary-100 focus:ring-primary-100',
-        secondary: 'bg-gray-100 border border-gray-200 focus:border-primary-100 focus:ring-primary-100',
+        default: 'bg-white border border-gray-300 focus:border-primary-100 focus:ring-primary-100 dark:bg-gray-800 dark:border-gray-700 dark:text-white',
+        secondary: 'bg-gray-100 border border-gray-200 focus:border-primary-100 focus:ring-primary-100 dark:bg-gray-800 dark:border-gray-700 dark:text-white',
     }
 
     return (
         <div className="w-full">
-            {placeholder && <Label className='text-lg md:text-xl' htmlFor="select">{placeholder}</Label>}
+            {placeholder && <Label className='text-lg md:text-xl text-primary-700 dark:text-primary-100 font-semibold' htmlFor="select">{placeholder}</Label>}
             <CnSelect defaultValue={defaultValue?.value} onValueChange={(value) => onChange(value)}>
                 <SelectTrigger className={`w-full bg-white mt-2 text-lg md:text-xl ${variantClasses[variant]}`}>
-                    <SelectValue placeholder={defaultValue?.label} />
+                    <SelectValue placeholder={placeholder} />
                 </SelectTrigger>
-                <SelectContent className="w-full bg-white text-lg md:text-xl">
+                <SelectContent className="w-full bg-white text-lg md:text-xl dark:bg-gray-800 dark:text-white">
                     {values.map((value) => (
                         <SelectItem key={value.value} value={value.value}>
                             {value.label}
@@ -34,7 +34,7 @@ export default function Select({ values, defaultValue, onChange, placeholder, va
                     ))}
                 </SelectContent>
             </CnSelect>
-            {error && <span className="text-sm md:text-base text-red-500 text-start mb-1">{error}</span>}
+            {error && <span className="text-sm md:text-base text-red-500 dark:text-red-400 text-start mb-1">{error}</span>}
         </div>
     )
 }

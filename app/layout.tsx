@@ -3,6 +3,9 @@ import { Afacad, Leckerli_One } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { ScrollToTop } from "@/components/ScrollToTop/ScrollToTop";
+import { ThemeProvider } from "@/providers/nextThemesProvider";
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale, getMessages } from "next-intl/server";
 
 const leckerliOneFont = Leckerli_One({
   weight: ['400'],
@@ -35,13 +38,27 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
+
+export default async function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
+
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="pt-BR">
+    <html lang={locale} suppressHydrationWarning>
       <body
-        className={`${afacadFont.className} ${leckerliOneFont.variable} antialiased`}
+        className={`${afacadFont.className} ${leckerliOneFont.variable} antialiased dark:bg-gray-950 `}
       >
-        {children}
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </NextIntlClientProvider>
         <Toaster position="top-center" toastOptions={{ className: 'font-afacad! text-base!' }} richColors={true} />
         <ScrollToTop />
       </body>

@@ -45,14 +45,14 @@ export default function MembersList({ members, search, setSearch, isLoading }: M
         <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-400'>
           <SearchX className='size-10 mb-2 text-primary-500' />
           <p className='text-xl font-semibold'>Nenhum participante encontrado</p>
-          <p className='text-sm'>Tente buscar por outro nome ou convide mais pessoas.</p>
+          <p className='text-sm md:text-base'>Tente buscar por outro nome ou convide mais pessoas.</p>
         </div>
 
       ) : (
         <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-400'>
           <Meh className='size-10 mb-2 text-primary-500' />
           <p className='text-xl font-semibold'>Esse grupo parece estar vazio</p>
-          <p className='text-sm'>Compartilhe o link de convite com seus amigos!</p>
+          <p className='text-sm md:text-base'>Compartilhe o link de convite com seus amigos!</p>
         </div>
       )
       }

@@ -12,7 +12,7 @@ type ConfirmReservationDialogProps = {
     onConfirm: (anonymousGiver: boolean, itemId: number) => void
 }
 
-export default function ConfirmReservationDialog({item, open, onClose, onConfirm}: ConfirmReservationDialogProps) {
+export default function ConfirmReservationDialog({ item, open, onClose, onConfirm }: ConfirmReservationDialogProps) {
 
     const [anonymous, setAnonymous] = React.useState(false)
 
@@ -22,28 +22,28 @@ export default function ConfirmReservationDialog({item, open, onClose, onConfirm
 
     return (
         <Dialog open={open} onOpenChange={onClose}>
-        <DialogContent className=' bg-white-custom border-0 flex flex-col gap-2 items-center justify-center px-4'>
-            <DialogHeader className='flex flex-col gap-2 items-center justify-center px-4'>
-            <DialogTitle className='text-center text-lg md:text-2xl'>Confirmar Reserva</DialogTitle>
-            <DialogDescription className='text-center text-base mb-4'>
-                Você tem certeza que deseja confirmar a reserva do seguinte item?             
-            </DialogDescription>
-            </DialogHeader>
-            <p className='font-bold truncate max-w-10/12 text-center text-primary-700 text-lg'>{item?.name}</p>
-            <div className='flex gap-2 max-w-10/12 items-center justify-center px-4 my-4'>
+            <DialogContent className=' bg-white-custom dark:bg-gray-900 border-0 flex flex-col gap-2 items-center justify-center px-4'>
+                <DialogHeader className='flex flex-col gap-2 items-center justify-center px-4'>
+                    <DialogTitle className='text-center text-lg md:text-2xl dark:text-white'>Confirmar Reserva</DialogTitle>
+                    <DialogDescription className='text-center text-base mb-4 dark:text-gray-300'>
+                        Você tem certeza que deseja confirmar a reserva do seguinte item?
+                    </DialogDescription>
+                </DialogHeader>
+                <p className='font-bold truncate max-w-10/12 text-center text-primary-700 dark:text-primary-100 text-lg'>{item?.name}</p>
+                <div className='flex gap-2 max-w-10/12 items-center justify-center px-4 my-4'>
 
-                    <Checkbox className='size-6'
-                    checked={anonymous}
-                    onCheckedChange={handleAnonymousChange}
+                    <Checkbox className='size-6 dark:border-gray-700 dark:bg-gray-700'
+                        checked={anonymous}
+                        onCheckedChange={handleAnonymousChange}
                     />
-                <Label htmlFor="anonymous" className='text-base'>Reservar anonimamente</Label>
-            </div>
+                    <Label htmlFor="anonymous" className='text-base dark:text-gray-300'>Reservar anonimamente</Label>
+                </div>
 
-            <DialogFooter className='w-full'>
-            <Button onClick={() => item?.id && onConfirm(anonymous, item?.id)} className='w-full' variant='contained'>Confirmar</Button>
-            </DialogFooter>
+                <DialogFooter className='w-full'>
+                    <Button onClick={() => item?.id && onConfirm(anonymous, item?.id)} className='w-full' variant='contained'>Confirmar</Button>
+                </DialogFooter>
 
-        </DialogContent>
+            </DialogContent>
         </Dialog>
     )
 }

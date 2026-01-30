@@ -59,7 +59,7 @@ export async function authRegisterAction(userData: RegisterProfileSchema) {
   })
 
   if (error) {
-    if (error.code === 'user_already_exists') return sendErrorResponse(400, 'Usuário já cadastrado', null)
+    if (error.code === 'user_already_exists') return sendErrorResponse(400, 'Este e-mail já está cadastrado', null)
     return sendErrorResponse(error.code, error.message, null)
   }
 

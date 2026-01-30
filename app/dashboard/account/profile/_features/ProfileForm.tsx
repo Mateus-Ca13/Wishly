@@ -52,13 +52,13 @@ export default function ProfileForm({ user }: ProfileFormProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5, bounce: 0.4, type: 'spring' }}
-            className='flex flex-col gap-4 p-4 rounded-xl border border-gray-200'>
+            className='flex flex-col gap-4 p-4 rounded-xl border border-gray-200 dark:border-gray-800 dark:bg-gray-900'>
 
             <div className='flex flex-col '>
-                <h2 className='text-lg md:text-2xl font-semibold whitespace-nowrap text-ellipsis min-w-0 overflow-hidden'>Editar Perfil</h2>
-                <p className='text-sm md:text-base text-gray-500'>Gerencie suas informações pessoais</p>
+                <h2 className='text-lg md:text-2xl font-semibold whitespace-nowrap text-ellipsis min-w-0 overflow-hidden dark:text-white'>Editar Perfil</h2>
+                <p className='text-sm md:text-base text-gray-500 dark:text-gray-300'>Gerencie suas informações pessoais</p>
             </div>
-            <Separator className='w-full h-px bg-gray-200' />
+            <Separator className='w-full h-px bg-gray-200 dark:bg-gray-800' />
 
 
             <form onSubmit={handleSubmit(onSubmit, onError)} className='flex flex-col gap-4 '>

@@ -1,25 +1,41 @@
-import { type NextRequest } from 'next/server'
-import { updateSession } from './src/lib/supabase/middleware'
+import { type NextRequest, NextResponse } from 'next/server'
+import { updateSession } from '@/lib/supabase/middleware'
+import { intlMiddleware } from '@/lib/i18n/middleware'
 
 export async function proxy(request: NextRequest) {
-  // Simplesmente repassa para a nossa função lógica
-  return await updateSession(request)
+  // Executa o middleware do Supabase primeiro (autenticação + sessão)
+  const supabaseResponse = await updateSession(request)
+
+  const intlResponse = intlMiddleware(request)
+
+  if (supabaseResponse && supabaseResponse.status >= 300 && supabaseResponse.status < 400) {
+
+    intlResponse.headers.forEach((value, key) => {
+      if (key.toLowerCase() !== 'x-middleware-rewrite') {
+        supabaseResponse.headers.set(key, value)
+      }
+    })
+    return supabaseResponse
+  }
+
+
+  if (supabaseResponse) {
+
+    intlResponse.headers.forEach((value, key) => {
+      if (key.toLowerCase() !== 'x-middleware-rewrite') {
+        supabaseResponse.headers.set(key, value)
+      }
+    })
+    return supabaseResponse
+  }
+
+  // Fallback: retorna o intlResponse se não houver supabaseResponse
+  return intlResponse
 }
 
 export const config = {
-  // O Matcher diz onde o middleware deve rodar.
-  // Aqui estamos excluindo arquivos estáticos (_next, imagens, favicon)
-  // para não pesar o servidor à toa.
   matcher: [
-    '/dashboard/:path*',
-    '/invite/:path*',
-    /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * Feel free to modify this pattern to include more paths.
-     */
+    // Match all paths except static files
     '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 }

@@ -27,10 +27,10 @@ export default function OwnerItemCard({ item, delay, onEditItem, onDeleteItem }:
       className="w-full"
     >
       <div onClick={() => setIsDropdownOpen(true)} className="cursor-pointer">
-        <Card className="w-full p-2 flex flex-row items-center justify-between py-3 gap-2 hover:bg-gray-100 duration-200 border-gray-300">
+        <Card className="w-full p-2 flex flex-row items-center justify-between py-3 gap-2 hover:bg-gray-100 dark:hover:bg-gray-900 dark:border-gray-700 duration-200 border-gray-300">
           <div className="flex ps-2 justify-start items-center gap-4 flex-1 min-w-0">
             <div className="min-w-0 flex-1">
-              <h2 className="text-lg font-semibold truncate max-w-xs md:max-w-3xl">
+              <h2 className="text-lg font-semibold truncate max-w-xs md:max-w-3xl dark:text-white">
                 {item.name}
               </h2>
               <div className="flex gap-2 items-center text-gray-500 text-sm md:text-base">

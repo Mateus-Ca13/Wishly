@@ -16,7 +16,7 @@ interface DatePickerProps {
     initialDate?: Date
     onDateChange?: (date: Date) => void
     variant?: 'default' | 'secondary'
-    label?: string
+    label?: React.ReactNode
     error?: string
 }
 
@@ -32,15 +32,15 @@ export function DatePicker({ initialDate, onDateChange, variant = 'default', lab
     }
 
     const variantClasses = {
-        default: 'bg-white border border-gray-300 focus:border-primary-100 focus:ring-primary-100',
-        secondary: 'bg-gray-100 border border-gray-200 focus:border-primary-100 focus:ring-primary-100',
+        default: 'bg-white border border-gray-300 focus:border-primary-100 focus:ring-primary-100 dark:bg-gray-800 dark:border-gray-700 dark:text-white',
+        secondary: 'bg-gray-100 border border-gray-200 focus:border-primary-100 focus:ring-primary-100 dark:bg-gray-800 dark:border-gray-700 dark:text-white',
     }
 
     return (
         <Popover>
             <PopoverTrigger asChild>
                 <div className="w-full items-center grid gap-2 relative">
-                    {label && <Label className='text-lg md:text-xl' htmlFor="select">{label}</Label>}
+                    {label && <Label className='text-lg md:text-xl text-primary-700 font-semibold' htmlFor="select">{label}</Label>}
                     <Button
                         type="button"
                         variant="outline"

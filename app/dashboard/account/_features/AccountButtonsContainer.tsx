@@ -22,67 +22,67 @@ export default function AccountButtonsContainer() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5, bounce: 0.4, type: 'spring' }}
-                className='w-full flex flex-col items-start justify-start gap-2 md:gap-4 shadow p-4 rounded-lg border border-gray-200 '>
-                <h2 className='text-lg md:text-2xl font-semibold whitespace-nowrap text-ellipsis min-w-0 overflow-hidden mb-2'>Minha Conta</h2>
+                className='w-full flex flex-col items-start justify-start gap-2 md:gap-4 shadow p-4 rounded-lg border border-gray-200 dark:border-gray-800 dark:bg-gray-900'>
+                <h2 className='text-lg md:text-2xl font-semibold whitespace-nowrap text-ellipsis min-w-0 overflow-hidden mb-2 dark:text-white'>Minha Conta</h2>
                 <Link href='/dashboard/account/profile' className='w-full p-2 rounded-xl flex items-center justify-start gap-3 hover:bg-primary-100/30' >
-                    <User className='size-10 bg-primary-100 p-2 rounded-lg' />
+                    <User className='size-10 bg-primary-100 dark:bg-primary-700 p-2 rounded-lg' />
                     <div className='flex flex-col items-start justify-start text-start'>
-                        <p className='text-base md:text-xl font-semibold'>Editar Perfil</p>
-                        <p className='text-sm md:text-base text-gray-500'>Gerencie suas informações pessoais</p>
+                        <p className='text-base md:text-xl font-semibold dark:text-white'>Editar Perfil</p>
+                        <p className='text-sm md:text-base text-gray-500 dark:text-gray-300'>Gerencie suas informações pessoais</p>
                     </div>
-                    <ChevronRight className='ms-auto size-5' />
+                    <ChevronRight className='ms-auto size-5 dark:text-white' />
                 </Link>
-                <Separator className='w-full bg-gray-200' />
+                <Separator className='w-full bg-gray-200 dark:bg-gray-800' />
                 <Link href='/dashboard/account/subscriptions' className='w-full p-2 rounded-xl flex items-center justify-start gap-3 hover:bg-primary-100/30' >
-                    <CircleStar className='size-10 bg-primary-100 p-2 rounded-lg' />
+                    <CircleStar className='size-10 bg-primary-100 dark:bg-primary-700 p-2 rounded-lg' />
                     <div className='flex flex-col items-start justify-start text-start'>
-                        <p className='text-base md:text-xl font-semibold'>Gerenciar assinaturas</p>
-                        <p className='text-sm md:text-base text-gray-500'>Gerencie planos e assinaturas</p>
+                        <p className='text-base md:text-xl font-semibold dark:text-white'>Gerenciar assinaturas</p>
+                        <p className='text-sm md:text-base text-gray-500 dark:text-gray-300'>Gerencie planos e assinaturas</p>
                     </div>
-                    <ChevronRight className='ms-auto size-5' />
+                    <ChevronRight className='ms-auto size-5 dark:text-white' />
                 </Link>
             </MotionDiv>
             <MotionDiv
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.5, bounce: 0.4, type: 'spring' }}
-                className='w-full flex flex-col items-start justify-start gap-2 md:gap-4 shadow p-4 rounded-lg border border-gray-200 '>
-                <h2 className='text-lg md:text-2xl font-semibold whitespace-nowrap text-ellipsis min-w-0 overflow-hidden mb-2'>Configurações</h2>
+                className='w-full flex flex-col items-start justify-start gap-2 md:gap-4 shadow p-4 rounded-lg border border-gray-200 dark:border-gray-800 dark:bg-gray-900'>
+                <h2 className='text-lg md:text-2xl font-semibold whitespace-nowrap text-ellipsis min-w-0 overflow-hidden mb-2 dark:text-white'>Configurações</h2>
                 <Link href='/dashboard/account/privacy' className='w-full p-2 rounded-xl flex items-center justify-start gap-3 hover:bg-primary-100/30' >
-                    <Shield className='size-10 bg-primary-100 p-2 rounded-lg' />
+                    <Shield className='size-10 bg-primary-100 dark:bg-primary-700 p-2 rounded-lg' />
                     <div className='flex flex-col items-start justify-start text-start'>
-                        <p className='text-base md:text-xl font-semibold'>Privacidade e Segurança</p>
+                        <p className='text-base md:text-xl font-semibold dark:text-white'>Privacidade e Segurança</p>
                     </div>
-                    <ChevronRight className='ms-auto size-5' />
+                    <ChevronRight className='ms-auto size-5 dark:text-white' />
                 </Link>
-                <Separator className='w-full bg-gray-200' />
+                <Separator className='w-full bg-gray-200 dark:bg-gray-800' />
                 <Link href='/dashboard/account/preferences' className='w-full p-2 rounded-xl flex items-center justify-start gap-3 hover:bg-primary-100/30' >
-                    <Settings className='size-10 bg-primary-100 p-2 rounded-lg' />
+                    <Settings className='size-10 bg-primary-100 dark:bg-primary-700 p-2 rounded-lg' />
                     <div className='flex flex-col items-start justify-start text-start'>
-                        <p className='text-base md:text-xl font-semibold'>Preferências</p>
+                        <p className='text-base md:text-xl font-semibold dark:text-white'>Preferências</p>
                     </div>
-                    <ChevronRight className='ms-auto size-5' />
+                    <ChevronRight className='ms-auto size-5 dark:text-white' />
                 </Link>
-                <Separator className='w-full bg-gray-200' />
+                <Separator className='w-full bg-gray-200 dark:bg-gray-800' />
                 <Link href='/dashboard/account/help' className='w-full p-2 rounded-xl flex items-center justify-start gap-3 hover:bg-primary-100/30' >
-                    <CircleQuestionMark className='size-10 bg-primary-100 p-2 rounded-lg' />
+                    <CircleQuestionMark className='size-10 bg-primary-100 dark:bg-primary-700 p-2 rounded-lg' />
                     <div className='flex flex-col items-start justify-start text-start'>
-                        <p className='text-base md:text-xl font-semibold'>Ajuda e Suporte</p>
+                        <p className='text-base md:text-xl font-semibold dark:text-white'>Ajuda e Suporte</p>
                     </div>
-                    <ChevronRight className='ms-auto size-5' />
+                    <ChevronRight className='ms-auto size-5 dark:text-white' />
                 </Link>
             </MotionDiv>
             <MotionDiv
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.5, bounce: 0.4, type: 'spring' }}
-                className='w-full flex flex-col items-start justify-start gap-2 md:gap-4 shadow p-4 rounded-lg border border-gray-200 '>
+                className='w-full flex flex-col items-start justify-start gap-2 md:gap-4 shadow p-4 rounded-lg border border-gray-200 dark:border-gray-800 dark:bg-gray-900'>
                 <Button onClick={handleLogout} className='w-full p-2 rounded-xl flex items-center justify-start gap-3 hover:bg-secondary-100/30' variant='blank' >
-                    <LogOut className='size-10 bg-secondary-100 p-2 rounded-lg' />
+                    <LogOut className='size-10 bg-secondary-100 dark:text-white dark:bg-secondary-700 p-2 rounded-lg' />
                     <div className='flex flex-col items-start justify-start text-start'>
-                        <p className='text-base md:text-xl font-semibold'>Sair</p>
+                        <p className='text-base md:text-xl font-semibold dark:text-white'>Sair</p>
                     </div>
-                    <ChevronRight className='ms-auto size-5' />
+                    <ChevronRight className='ms-auto size-5 dark:text-white' />
                 </Button>
             </MotionDiv>
 

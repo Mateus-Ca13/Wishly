@@ -54,13 +54,13 @@ export default function OwnerItemList({ search, setSearch, items, isLoading, onE
                     <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-400'>
                         <SearchX className='size-10 mb-2 text-primary-500' />
                         <p className='text-xl font-semibold'>Nenhum item encontrado</p>
-                        <p className='text-sm'>Tente buscar por outro nome ou verifique a lista mais tarde.</p>
+                        <p className='text-sm md:text-base'>Tente buscar por outro nome ou verifique a lista mais tarde.</p>
                     </div>
                 ) : (
                     <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-400'>
                         <Meh className='size-10 mb-2 text-primary-500' />
-                        <p className='text-xl font-semibold'>A lista está vazia!</p>
-                        <p className='text-sm'>Adicione itens para começar a compartilhar sua lista.</p>
+                        <p className='text-xl font-semibold'>Sua lista parece estar vazia!</p>
+                        <p className='text-sm md:text-base'>Adicione itens para começar a compartilhar sua lista.</p>
                     </div>
                 )}
             </MotionDiv>

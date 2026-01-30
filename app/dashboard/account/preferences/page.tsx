@@ -1,7 +1,7 @@
-import React from 'react'
+import PreferencesContainer from './_features/PreferencesContainer'
 
 export default function PreferencesPage() {
     return (
-        <div>PreferencesPage</div>
+        <PreferencesContainer />
     )
 }

@@ -26,27 +26,27 @@ export default function GuestItemCard({ item, delay, isReservationMode, onItemCl
       className='w-full'
     >
       <div onClick={() => onItemClick(item)} className="cursor-pointer">
-        <Card className={`w-full p-2 flex flex-row items-center justify-between py-3 gap-2 hover:bg-gray-100 duration-200 border-gray-300
+        <Card className={`w-full p-2 flex flex-row items-center justify-between py-3 gap-2 hover:bg-gray-100 duration-200 border-gray-300 dark:border-gray-700 dark:md:hover:bg-gray-900
                ${isReservationMode ? 'hover:border-primary-500 hover:bg-green-50' : 'hover:bg-gray-100'}
            `}>
           <div className='flex ps-2 justify-start items-center gap-4 flex-1 min-w-0'>
             <div className='min-w-0 flex-1'>
-              <h2 className='text-lg font-semibold truncate max-w-xs md:max-w-3xl'>{item.name}</h2>
+              <h2 className='text-lg font-semibold truncate max-w-xs md:max-w-3xl dark:text-white'>{item.name}</h2>
               <div className='flex gap-2 items-center text-gray-500 text-sm md:text-base'>
                 <span className={`${prioritiesMap[item.priority].color} flex items-center h-full gap-1 -ms-1 py-1`}>
                   {<PriorityIcon className='size-3.5' />}
                   <p className='truncate'>{formatPriority(item.priority)}</p>
                 </span>
                 <Separator orientation="vertical" className="h-4 bg-gray-200 w-px" />
-                <span className=' truncate'>R$ {formatPrice(item.price)}</span>
+                <span className=' truncate dark:text-white'>R$ {formatPrice(item.price)}</span>
               </div>
             </div>
           </div>
-          {isAlreadyReserved && <div className='border-green-700 bg-green-200 text-center text-green-700 py-1 px-4 rounded-lg text-sm md:text-base'>
+          {isAlreadyReserved && <div className='border-green-700 bg-green-200 text-center text-green-700 py-1 px-4 rounded-lg text-sm md:text-base dark:bg-green-800 dark:text-green-200'>
             Reservado
           </div>}
           <div>
-            {!isReservationMode ? <ChevronRight className='size-5' /> : <></>}
+            {!isReservationMode ? <ChevronRight className='size-5 dark:text-white' /> : <></>}
           </div>
         </Card>
       </div>

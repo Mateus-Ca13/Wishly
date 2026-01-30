@@ -55,13 +55,13 @@ export default function GuestItemsList({ items, isLoading, isReservationMode, on
                     <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-400'>
                         <SearchX className='size-10 mb-2 text-primary-500' />
                         <p className='text-xl font-semibold'>Nenhum item encontrado</p>
-                        <p className='text-sm'>Tente buscar por outro nome ou verifique a lista mais tarde.</p>
+                        <p className='text-sm md:text-base'>Tente buscar por outro nome ou verifique a lista mais tarde.</p>
                     </div>
                 ) : (
                     <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-400'>
                         <Meh className='size-10 mb-2 text-primary-500' />
-                        <p className='text-xl font-semibold'>Essa lista está vazia!</p>
-                        <p className='text-sm'>Aguarde ou avise o dono da lista para adicionar itens.</p>
+                        <p className='text-xl font-semibold'>Essa lista parece estar vazia!</p>
+                        <p className='text-sm md:text-base'>Aguarde ou avise o dono da lista para adicionar itens.</p>
                     </div>
                 )}
             </MotionDiv>

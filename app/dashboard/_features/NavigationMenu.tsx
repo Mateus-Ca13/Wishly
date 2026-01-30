@@ -25,7 +25,10 @@ export default function NavigationMenu() {
         transition={{ duration: 0.5 }}
         className='fixed bottom-0 md:bottom-8 left-1/2 -translate-x-1/2 max-w-7xl w-full md:w-11/12 z-50 '
       >
-        <Card className='rounded-none! md:rounded-2xl! border-gray-200 shadow-2xl w-full px-2 flex flex-row items-center justify-around bg-white py-0 pt-3 relative overflow-hidden'>
+        <Card className='rounded-none! md:rounded-2xl! border-gray-200 shadow-2xl 
+        w-full px-2 flex flex-row items-center justify-around bg-white py-0 pt-3 relative overflow-hidden
+        dark:bg-gray-800 dark:border-gray-700 dark:text-white
+        '>
 
           {navItems.map((item) => {
             const isActive = pathname === item.href || (item.href !== '/dashboard' && pathname.startsWith(item.href));
@@ -36,7 +39,7 @@ export default function NavigationMenu() {
                 href={item.href}
                 className={cn(
                   "relative flex flex-col items-center justify-center gap-1 pb-2 transition-colors w-full",
-                  isActive ? "text-primary-500" : "text-black-custom"
+                  isActive ? "text-primary-500 dark:text-primary-300" : "text-black-custom dark:text-white"
                 )}
               >
                 {isActive && (

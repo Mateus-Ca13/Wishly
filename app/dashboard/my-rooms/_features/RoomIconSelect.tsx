@@ -40,7 +40,7 @@ export function RoomIconSelect({ images, valueSetter }: RoomIconSelectProps) {
         {images.map((cardInfo, index) => (
           <CarouselItem onClick={() => { handleSelect(index) }} key={cardInfo.src + index} className="basis-1/3 md:basis-1/4 xl:basis-1/5">
             <div className=" cursor-pointer">
-              <Card className={`${selected == index ? 'border border-primary-500 bg-primary-100' : ''} border-gray-300`}>
+              <Card className={`${selected == index ? 'border border-primary-500 bg-primary-100 dark:bg-primary-900' : ''} border-gray-300`}>
                 <CardContent className="flex aspect-square items-center justify-center p-1">
                   <Image
                     src={cardInfo.src}

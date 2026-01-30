@@ -18,9 +18,9 @@ type EditItemFormProps = {
 export default function EditItemForm({ item, onConfirm, mode }: EditItemFormProps) {
 
     const priorities = [
-        { label: <div className='flex items-center gap-2 text-gray-800'><ChevronDown className="size-4" />Baixa prioridade</div>, value: '1' },
-        { label: <div className='flex items-center gap-2 text-green-800'><ThumbsUp className="size-4" />Tenho interesse</div>, value: '2' },
-        { label: <div className='flex items-center gap-2 text-green-600'><Heart className="size-4" />Desejo muito</div>, value: '3' }
+        { label: <div className='flex items-center gap-2 text-gray-800 dark:text-gray-300'><ChevronDown className="size-4" />Baixa prioridade</div>, value: '1' },
+        { label: <div className='flex items-center gap-2 text-green-800 dark:text-green-500'><ThumbsUp className="size-4" />Tenho interesse</div>, value: '2' },
+        { label: <div className='flex items-center gap-2 text-green-600 dark:text-green-300'><Heart className="size-4" />Desejo muito</div>, value: '3' }
     ]
 
 

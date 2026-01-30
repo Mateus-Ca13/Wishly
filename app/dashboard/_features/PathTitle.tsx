@@ -46,7 +46,7 @@ export default function PathTitle() {
                 <HoverCard message="Voltar" variant='alt' side="right">
                     <Button
                         className=''
-                        onClick={() => router.back()} variant='blank'><ChevronLeftIcon className='size-7 md:size-9' />
+                        onClick={() => router.back()} variant='blank'><ChevronLeftIcon className='size-7 md:size-9 dark:text-white' />
                     </Button>
                 </HoverCard>
             </MotionDiv>
@@ -59,12 +59,12 @@ export default function PathTitle() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.3 }}
-                    className='text-2xl md:text-3xl font-semibold'
+                    className='text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white'
                 >
                     {title}
                 </MotionH1>
             </MotionAnimatePresence>
-            <Separator orientation="horizontal" className="my-2 md:my-4 bg-primary-100 w-1/2 md:w-4/12 h-1 rounded-2xl" />
+            <Separator orientation="horizontal" className="my-2 md:my-4 bg-primary-100 dark:bg-primary-700 w-1/2 md:w-4/12 h-1 rounded-2xl" />
         </header>
     )
 }

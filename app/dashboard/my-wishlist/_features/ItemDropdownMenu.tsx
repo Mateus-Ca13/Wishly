@@ -22,14 +22,14 @@ export default function ItemDropdownMenu({
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
-        <EllipsisVertical className="size-5" />
+        <EllipsisVertical className="size-5 dark:text-white" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-white border-gray-300 w-48" align="end">
-        <DropdownMenuItem onClick={onEditItem} className="text-base hover:bg-gray-100 cursor-pointer">
+      <DropdownMenuContent className="bg-white border-gray-300 w-48 dark:bg-gray-800 dark:border-gray-800" align="end">
+        <DropdownMenuItem onClick={onEditItem} className="text-base hover:bg-gray-100 cursor-pointer dark:text-white dark:hover:bg-gray-700">
           <Pencil />
           Editar
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={onDeleteItem} className="text-red-500 text-base hover:bg-red-50 cursor-pointer">
+        <DropdownMenuItem onClick={onDeleteItem} className="text-red-500 dark:text-red-400 text-base hover:bg-red-50 dark:hover:bg-red-800/50 cursor-pointer">
           <Trash />
           Excluir
         </DropdownMenuItem>

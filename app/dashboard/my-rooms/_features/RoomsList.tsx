@@ -46,14 +46,14 @@ export default function RoomsList({ search, setSearch, isLoading, rooms }: Rooms
         <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-400'>
           <SearchX className='size-10 mb-2 text-primary-500' />
           <p className='text-xl font-semibold'>Nenhum grupo encontrado</p>
-          <p className='text-sm'>Tente buscar por outro nome ou crie um novo grupo.</p>
+          <p className='text-sm md:text-base'>Tente buscar por outro nome ou crie um novo grupo.</p>
         </div>
 
       ) : (
         <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-400'>
           <PartyPopper className='size-10 mb-2 text-primary-500' />
           <p className='text-xl font-semibold'>Seja bem-vindo(a)!</p>
-          <p className='text-sm'>Crie um novo grupo ou aceite convites de seus amigos para começar!</p>
+          <p className='text-sm md:text-base'>Crie um novo grupo ou aceite convites de seus amigos para começar!</p>
         </div>
       )}
     </MotionDiv>

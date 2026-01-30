@@ -28,11 +28,11 @@ export default function CreateRoomDrawer({ isOpen, onClose, onOpen, onCreateConf
         >
           <div className='flex items-center text-white gap-2 py-2'>
             <PlusCircle className=' size-6' />
-            <p className='font-semibold me-1'>Criar Grupos</p>
+            <p className='font-semibold me-1'>Criar Grupo</p>
           </div>
         </MotionDiv>
       </DrawerTrigger>
-      <DrawerContent className="bg-white max-h-[80vh]! ">
+      <DrawerContent className="bg-white max-h-[80vh]! dark:bg-gray-900 dark:text-white ">
         <div className="overflow-y-auto overflow-x-hidden">
           <DrawerHeader>
             <DrawerTitle className="text-2xl md:text-3xl font-semibold px-2">Criar novo grupo</DrawerTitle>

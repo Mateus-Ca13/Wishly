@@ -21,11 +21,11 @@ export default function ItemDrawer({ item, onClose, isOpen, onConfirm, itemDrawe
 
     return (
         <Drawer open={isOpen} onClose={onClose}>
-            <DrawerContent className="bg-white max-h-[80vh]! ">
+            <DrawerContent className="bg-white max-h-[80vh]! dark:bg-gray-900 ">
                 <div className="overflow-y-auto overflow-x-hidden">
                     <DrawerHeader className='flex flex-col gap-2 items-center justify-center p-0 '>
-                        <DrawerTitle className="text-xl md:text-3xl font-semibold px-2 truncate max-w-11/12 md:max-w-2xl">{DrawerTitleText}</DrawerTitle>
-                        <Separator orientation="horizontal" className="mb-2 bg-primary-100 w-3/5 md:w-1/5 h-1 rounded-2xl" />
+                        <DrawerTitle className="text-xl md:text-3xl font-semibold px-2 truncate max-w-11/12 md:max-w-2xl dark:text-white">{DrawerTitleText}</DrawerTitle>
+                        <Separator orientation="horizontal" className="mb-2 bg-primary-100 w-3/5 md:w-1/5 h-1 rounded-2xl dark:bg-primary-700" />
                     </DrawerHeader>
                     <div className="p-4 w-full flex flex-col justify-center items-center gap-4">
                         <div className='max-w-xl w-full flex flex-col gap-2 items-center justify-center text-center'>

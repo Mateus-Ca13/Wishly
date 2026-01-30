@@ -1,20 +1,22 @@
 import type { NextConfig } from "next";
 import withPWAInit from "@ducanh2912/next-pwa";
 import packageJson from "./package.json";
+import createNextIntlPlugin from 'next-intl/plugin';
 
-// 1. Configuração do PWA
+// 1. Inicializa o plugin do i18n
+const withNextIntl = createNextIntlPlugin('./src/lib/i18n/request.ts');
+
+// 2. Inicializa o plugin do PWA
 const withPWA = withPWAInit({
   dest: "public",
   cacheOnFrontEndNav: true,
   aggressiveFrontEndNavCaching: true,
   reloadOnOnline: true,
-  disable: process.env.NODE_ENV === "development", // Desativa PWA em modo dev
+  disable: process.env.NODE_ENV === "development",
 });
 
-// 2. Sua Configuração Original do Next.js
+// 3. Sua configuração base do Next.js
 const nextConfig: NextConfig = {
-
-
   env: {
     NEXT_PUBLIC_APP_VERSION: packageJson.version,
   },
@@ -22,7 +24,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**", // Cuidado: isso libera imagens de QUALQUER lugar
+        hostname: "**",
       },
     ],
   },
@@ -30,10 +32,12 @@ const nextConfig: NextConfig = {
     serverActions: {
       allowedOrigins: [
         'localhost:3000',
+        // Adicione aqui outros domínios se necessário
       ],
     },
   },
 };
 
-// 3. Exportação combinada (Envolvemos sua config com a função do PWA)
-export default withPWA(nextConfig);
+// 4. A MAGIA ACONTECE AQUI: Composição de funções
+// Pense assim: withPWA( withNextIntl( config ) )
+export default withPWA(withNextIntl(nextConfig));
