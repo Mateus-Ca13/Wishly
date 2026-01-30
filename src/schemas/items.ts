@@ -1,11 +1,12 @@
 import z from "zod";
 
-export const registerOrEditItemSchema = z.object({
-    name: z.string().min(3, 'Nome deve ter pelo menos 3 caracteres').max(100, 'Nome deve ter no máximo 100 caracteres'),
-    price: z.number().min(0, 'Preço deve ser maior ou igual a 0').max(999999, 'Preço deve ser menor ou igual a 999.999'),
-    priority: z.number().min(1, 'Prioridade deve ser maior ou igual a 1').max(3, 'Prioridade deve ser menor ou igual a 3'),
-    notes: z.string().max(500, 'Observações deve ter no máximo 500 caracteres'),
-    link: z.string().url('URL inválida').max(1000, 'URL deve ter no máximo 1000 caracteres'),
+export const getRegisterOrEditItemSchema = (t: any) => z.object({
+    name: z.string().min(3, t('nameInput.minLength')).max(100, t('nameInput.maxLength')),
+    price: z.number().min(0, t('priceInput.lowerThan')).max(999999, t('priceInput.greaterThan')),
+    priority: z.number().min(1, t('priorityInput.error')).max(3, t('priorityInput.error')),
+    notes: z.string().max(500, t('notesInput.maxLength')),
+    link: z.string().url(t('linkInput.invalid')).max(1000, t('linkInput.maxLength')),
 })
 
-export type RegisterOrEditItemSchema = z.infer<typeof registerOrEditItemSchema>
+export type RegisterOrEditItemSchema = z.infer<ReturnType<typeof getRegisterOrEditItemSchema>>
+

@@ -1,13 +1,17 @@
+'use client'
 import { MotionDiv } from '@/components/Motion/Motion'
 import React from 'react'
 import { PlusCircle } from 'lucide-react'
 import { ItemWithoutReservation } from '@/types/entities'
+import { useTranslations } from 'next-intl'
 
 type CreateItemButtonProps = {
     onClick: (item: ItemWithoutReservation | null, mode: 'create' | 'edit') => void
 }
 
 export default function CreateItemButton({ onClick }: CreateItemButtonProps) {
+    const t = useTranslations('Dashboard.MyWishlist');
+
     return (
         <MotionDiv
             initial={{ opacity: 0, y: 20 }}
@@ -20,8 +24,10 @@ export default function CreateItemButton({ onClick }: CreateItemButtonProps) {
         >
             <div className='flex items-center text-white gap-2 py-2'>
                 <PlusCircle className=' size-6' />
-                <p className='font-semibold me-1'>Criar Item</p>
+                <p className='font-semibold me-1'>{t('addItemButton')}</p>
             </div>
         </MotionDiv>
     )
 }
+
+

@@ -1,11 +1,13 @@
+'use client'
 import { ItemWithoutReservation } from "@/types/entities";
 import { MotionDiv } from "@/components/Motion/Motion";
 import { Card } from "@/components/ui/card";
 import { prioritiesMap } from "../../wishlists/[slug]/_features/utils";
 import { Separator } from "@radix-ui/react-separator";
-import { formatPrice, formatPriority } from "@/utils/format";
+import { formatPrice } from "@/utils/format";
 import { useState } from "react";
 import ItemDropdownMenu from "./ItemDropdownMenu";
+import { useTranslations } from "next-intl";
 
 type OwnerItemCardProps = {
   item: ItemWithoutReservation;
@@ -15,9 +17,16 @@ type OwnerItemCardProps = {
 };
 
 export default function OwnerItemCard({ item, delay, onEditItem, onDeleteItem }: OwnerItemCardProps) {
+  const tUtils = useTranslations('Dashboard.Utils')
 
   const PriorityIcon = prioritiesMap[item.priority].el;
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const priorityLabels: { [key: number]: string } = {
+    1: tUtils('priorities.1'),
+    2: tUtils('priorities.2'),
+    3: tUtils('priorities.3'),
+  }
 
   return (
     <MotionDiv
@@ -38,13 +47,13 @@ export default function OwnerItemCard({ item, delay, onEditItem, onDeleteItem }:
                   className={`${prioritiesMap[item.priority].color} flex items-center h-full gap-1 -ms-1 py-1`}
                 >
                   {<PriorityIcon className="size-3.5" />}
-                  <p className="truncate">{formatPriority(item.priority)}</p>
+                  <p className="truncate">{priorityLabels[item.priority]}</p>
                 </span>
                 <Separator
                   orientation="vertical"
                   className="h-4 bg-gray-200 w-px"
                 />
-                <span className=" truncate">R$ {formatPrice(item.price)}</span>
+                <span className=" truncate">{tUtils('currency')} {formatPrice(item.price)}</span>
               </div>
             </div>
           </div>
@@ -61,3 +70,4 @@ export default function OwnerItemCard({ item, delay, onEditItem, onDeleteItem }:
     </MotionDiv>
   );
 }
+

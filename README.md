@@ -16,6 +16,8 @@ Wishly é uma aplicação web estilo SPA criada em Next.js 16 & Supabase que tem
 * Framer motion
 * Slugify
 * Nanoid
+* Next-themes
+* Next-intl
 
 ## Funcionalidades
 

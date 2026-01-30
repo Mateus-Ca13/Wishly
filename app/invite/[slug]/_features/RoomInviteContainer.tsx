@@ -4,6 +4,7 @@ import Button from '@/components/Button/Button'
 import { Profile, Room } from '@/types/entities'
 import { redirect } from 'next/navigation'
 import { toast } from 'sonner'
+import { useTranslations } from 'next-intl'
 
 type RoomInviteContainerProps = {
     room: Room
@@ -11,12 +12,13 @@ type RoomInviteContainerProps = {
 }
 
 export default function RoomInviteContainer({ room, currentUser }: RoomInviteContainerProps) {
+    const t = useTranslations('Dashboard.Invite')
 
     const handleAcceptInvite = async () => {
         const response = await acceptInviteAction(room.id, currentUser.id)
 
         if (response.success) {
-            toast.success("Convite aceito com sucesso! Você será redirecionado para a sala em 3 segundos...")
+            toast.success(t('successMessage'))
             setTimeout(() => {
                 redirect(`/dashboard/my-rooms`)
             }, 3000)
@@ -27,12 +29,13 @@ export default function RoomInviteContainer({ room, currentUser }: RoomInviteCon
 
     return (
         <div className='flex flex-col items-center text-center justify-center bg-white rounded-lg p-8 border-gray-200 border shadow-lg'>
-            <h2 className='md:text-3xl text-xl font-semibold text-gradient'>Convite para sala</h2>
-            <p className='md:text-lg text-base'>Você foi convidado para participar da sala</p>
+            <h2 className='md:text-3xl text-xl font-semibold text-gradient'>{t('title')}</h2>
+            <p className='md:text-lg text-base'>{t('description')}</p>
 
             <h2 className='md:text-2xl text-lg font-semibold mt-4'>{room.name}</h2>
 
-            <Button className='cursor-pointer gap-1 text-lg w-full mt-10' variant='contained' onClick={handleAcceptInvite}>Aceitar convite</Button>
+            <Button className='cursor-pointer gap-1 text-lg w-full mt-10' variant='contained' onClick={handleAcceptInvite}>{t('button')}</Button>
         </div>
     )
 }
+

@@ -12,13 +12,18 @@
                     "placeholder": "Ex: WishList da família",
                     "label": "Nome do grupo",
                     "error": "O nome do grupo é obrigatório",
+                    "textError": "O nome do grupo deve ser um texto",
                     "minLength": "O nome do grupo deve ter pelo menos 3 caracteres",
                     "maxLength": "O nome do grupo deve ter no máximo 50 caracteres"
                 },
                 "descriptionInput": {
                     "placeholder": "Ex: Para o amigo secreto do Natal!",
                     "label": "Descrição do grupo",
+                    "textError": "A descrição deve ser um texto",
                     "maxLength": "A descrição do grupo deve ter no máximo 500 caracteres"
+                },
+                "iconInput": {
+                    "invalid": "Ícone inválido"
                 },
                 "themeInput": {
                     "label": "Tema do grupo"
@@ -40,6 +45,7 @@
             "members": "Membros",
             "searchPlaceholder": "Buscar participantes...",
             "inviteButton": "Convidar para grupo",
+            "unknownMember": "Desconhecido",
             "InviteDrawer": {
                 "title": "Convidar para grupo",
                 "description": "Compartilhe o link de convite com seus amigos para que eles possam entrar no grupo!",
@@ -69,29 +75,34 @@
             },
             "Drawer": {
                 "notes": "Observações",
-                "noNotesSpan": "Selecione os itens que deseja reservar",
+                "noNotesSpan": "Sem informações...",
                 "submitButton": "Reservar",
-                "userAlreadyReserved": "Item já reservado por você",
-                "otherUserAlreadyReserved": "Item já reservado por",
+                "userAlreadyReserved": "Este item foi reservado por você",
+                "otherUserAlreadyReserved": "Este item já foi reservado por",
                 "anonymous": "alguém (anônimo)",
-                "removeReservationButton": "Remover reserva"
+                "removeReservationButton": "Remover reserva",
+                "openLinkButton": "Abrir link",
+                "noLinkButton": "Link não informado"
             },
-            "ConfirmDialog": {
-                "title": "Confirmar reserva",
-                "description": "Você tem certeza que deseja confirmar a reserva do seguinte item?",
-                "anonymous": "Reservar anonimamente",
-                "confirmButton": "Confirmar"
-            },
-            "CancelDialog": {
-                "title": "Cancelar reserva",
-                "description": "Você tem certeza que deseja cancelar a reserva do seguinte item?",
-                "confirmButton": "Confirmar"
+            "Dialogs": {
+                "ConfirmReservation": {
+                    "title": "Confirmar reserva",
+                    "description": "Você tem certeza que deseja confirmar a reserva do seguinte item?",
+                    "anonymousCheckbox": "Reservar anonimamente",
+                    "confirmButton": "Confirmar"
+                },
+                "CancelReservation": {
+                    "title": "Cancelar reserva",
+                    "description": "Você tem certeza que deseja cancelar a reserva do seguinte item?",
+                    "confirmButton": "Confirmar"
+                }
             },
             "ToastResponses": {
                 "successReserve": "Item reservado com sucesso!",
                 "errorReserve": "Erro ao reservar item",
                 "successRemoveReservation": "Reserva removida com sucesso!",
-                "errorRemoveReservation": "Erro ao remover reserva"
+                "errorRemoveReservation": "Erro ao remover reserva",
+                "alreadyReserved": "Este item já foi reservado!"
             }
         },
         "Navbar": {
@@ -147,18 +158,25 @@
                 "description": "Você tem certeza que deseja excluir o seguinte item?",
                 "confirmButton": "Confirmar"
             },
+            "ItemDrawer": {
+                "createTitle": "Criar novo item",
+                "editTitle": "Edição de item"
+            },
             "ToastResponses": {
                 "successCreate": "Item adicionado à wishlist com sucesso!",
                 "errorCreate": "Erro ao adicionar item à wishlist",
                 "successDelete": "Item excluído com sucesso!",
                 "errorDelete": "Erro ao excluir item",
                 "successUpdate": "Item atualizado com sucesso!",
-                "errorUpdate": "Erro ao atualizar item"
+                "errorUpdate": "Erro ao atualizar item",
+                "invalidItemId": "ID do item inválido"
             },
             "ListResponses": {
                 "loading": "Carregando itens...",
                 "emptyState": "Nenhum item encontrado",
-                "emptyStateDescription": "Tente buscar por outro nome ou adicione mais itens."
+                "emptyStateDescription": "Tente buscar por outro nome ou adicione mais itens.",
+                "noItemsTitle": "Sua lista parece estar vazia!",
+                "noItemsDescription": "Adicione itens para começar a compartilhar sua lista."
             }
         },
         "Account": {
@@ -221,7 +239,11 @@
                 },
                 "GenderInput": {
                     "label": "Gênero",
-                    "error": "O gênero deve ser selecionado"
+                    "error": "O gênero deve ser selecionado",
+                    "male": "Masculino",
+                    "female": "Feminino",
+                    "other": "Outro",
+                    "preferNotToSay": "Prefiro não informar"
                 },
                 "PasswordInput": {
                     "label": "Senha",
@@ -251,6 +273,7 @@
             "CurrentPlan": {
                 "title": "Assinatura atual",
                 "description": "Sua assinatura atual é",
+                "statusTitle": "Status",
                 "status": {
                     "active": "Ativa",
                     "canceled": "Cancelada",
@@ -266,6 +289,7 @@
                 "title": "Planos",
                 "recommended": "Recomendado",
                 "details": "Ver detalhes",
+                "month": "/ mês",
                 "FREE": {
                     "title": "Plano gratuito",
                     "description": "Plano gratuito do Wishly"
@@ -312,7 +336,9 @@
             "Login": {
                 "title": "Faça login para ter acesso a sua lista de desejos!",
                 "alternate": "Não tem uma conta?",
-                "alternateLink": "Registre-se"
+                "alternateLink": "Registre-se",
+                "submitButton": "Entrar",
+                "invalidCredentials": "Email ou senha incorretos"
             },
             "Register": {
                 "title": "Cadastro",
@@ -325,12 +351,14 @@
             "title": "Convite para sala",
             "description": "Você foi convidado para participar da sala",
             "button": "Aceitar convite",
+            "successMessage": "Convite aceito com sucesso! Você será redirecionado para a sala em 3 segundos...",
             "roomDoesNotExist": "Parece que essa sala não existe. Verifique o link ou peça para que seus amigos te reenviem o convite.",
             "alreadyMember": "Você já é membro desta sala"
         },
         "Utils": {
             "currency": "R$",
             "price": "Preço",
+            "backButton": "Voltar",
             "priorities": {
                 "title": "Prioridade",
                 "1": "Baixa prioridade",

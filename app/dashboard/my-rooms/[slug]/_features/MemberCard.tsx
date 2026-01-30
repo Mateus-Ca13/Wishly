@@ -1,3 +1,4 @@
+'use client'
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Card } from '@/components/ui/card'
 import { Profile } from '@/types/entities'
@@ -6,6 +7,7 @@ import { formatDate } from '@/utils/format'
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar'
 import { Cake, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 type MemberCardProps = {
     member: Profile
@@ -13,8 +15,9 @@ type MemberCardProps = {
 }
 
 export default function MemberCard({ member, delay }: MemberCardProps) {
+    const t = useTranslations('Dashboard.RoomsDetails')
 
-    const initialLetter = `${member.username ? member.username[0] : 'Desconhecido'}`
+    const initialLetter = `${member.username ? member.username[0] : t('unknownMember')}`
 
     return (
         <MotionDiv
@@ -53,3 +56,4 @@ export default function MemberCard({ member, delay }: MemberCardProps) {
         </MotionDiv>
     )
 }
+

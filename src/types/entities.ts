@@ -60,10 +60,19 @@ const SubscriptionStatusOptions = ["ACTIVE", "EXPIRED", "CANCELED"] as const
 const SubscriptionStatusEnum = z.enum(SubscriptionStatusOptions)
 type SubscriptionStatus = z.infer<typeof SubscriptionStatusEnum>;
 
+interface PlanPrice {
+    id: number
+    plan_id: number
+    currency: string
+    amount: number
+    gateway_price_id?: string
+}
+
 interface Plan {
     id: number
     code: string
-    price: number
+    price: number // Deprecated: use prices array instead
+    prices?: PlanPrice[]
     display_name: string
     description: string
     max_items_per_wishlist: number
@@ -71,7 +80,7 @@ interface Plan {
     max_rooms: number
 }
 
-export type { Reservation, Item, ItemWithoutReservation, Profile, Room, Subscription, Plan, Gender, SubscriptionStatus }
+export type { Reservation, Item, ItemWithoutReservation, Profile, Room, Subscription, Plan, PlanPrice, Gender, SubscriptionStatus }
 
 export { GenderOptions, SubscriptionStatusOptions }
 

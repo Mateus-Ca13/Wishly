@@ -5,6 +5,7 @@ import { MotionDiv } from "@/components/Motion/Motion"
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer"
 import { getCurrentUrl } from "@/utils/url"
 import { Check, Copy, LucideShare2 } from "lucide-react"
+import { useTranslations } from "next-intl"
 import React from "react"
 
 type InviteMemberDrawerProps = {
@@ -15,6 +16,7 @@ type InviteMemberDrawerProps = {
 export default function InviteMemberDrawer({ slug }: InviteMemberDrawerProps) {
   const [isOpen, setIsOpen] = React.useState(false)
   const [copyButtonPressed, setCopyButtonPressed] = React.useState(false)
+  const t = useTranslations('Dashboard.RoomsDetails');
 
   const inviteUrl = `${getCurrentUrl('origin')}/invite/${slug}`
 
@@ -43,15 +45,15 @@ export default function InviteMemberDrawer({ slug }: InviteMemberDrawerProps) {
         >
           <div className='flex items-center text-white gap-2 py-2'>
             <LucideShare2 className='size-6' />
-            <p className='font-semibold me-1'>Convidar para grupo</p>
+            <p className='font-semibold me-1'>{t('inviteButton')}</p>
           </div>
         </MotionDiv>
       </DrawerTrigger>
       <DrawerContent className="bg-white max-h-[80vh]! dark:bg-gray-900 dark:text-white ">
         <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-center items-center">
           <DrawerHeader>
-            <DrawerTitle className="text-2xl md:text-3xl font-semibold px-2">Convide seus amigos</DrawerTitle>
-            <DrawerDescription className="md:text-xl text-lg px-2">Compartilhe o link de convite com seus amigos para que eles possam entrar no grupo!</DrawerDescription>
+            <DrawerTitle className="text-2xl md:text-3xl font-semibold px-2">{t('InviteDrawer.title')}</DrawerTitle>
+            <DrawerDescription className="md:text-xl text-lg px-2">{t('InviteDrawer.description')}</DrawerDescription>
           </DrawerHeader>
           <div className="p-4 pb-10 w-full max-w-xl flex justify-center items-center gap-4">
             <Input value={inviteUrl} className="py-6" onChange={(e) => e.preventDefault()} />
@@ -59,11 +61,11 @@ export default function InviteMemberDrawer({ slug }: InviteMemberDrawerProps) {
               {copyButtonPressed ? (
                 <>
                   <Check className="size-6" />
-                  <p>Copiado</p>
+                  <p>{t('InviteDrawer.copyButtonSuccess')}</p>
                 </>)
                 : (<>
                   <Copy className="size-6" />
-                  <p>Copiar</p>
+                  <p>{t('InviteDrawer.copyButton')}</p>
                 </>
                 )}
             </Button>
@@ -73,3 +75,4 @@ export default function InviteMemberDrawer({ slug }: InviteMemberDrawerProps) {
     </Drawer>
   )
 }
+

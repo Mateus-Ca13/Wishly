@@ -5,23 +5,25 @@ import { MotionAnimatePresence, MotionDiv, MotionH1 } from '@/components/Motion/
 import { Separator } from '@radix-ui/react-separator';
 import { ChevronLeftIcon } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 export default function PathTitle() {
+    const t = useTranslations('Dashboard')
 
     const path = usePathname();
     const router = useRouter();
 
     const navsTitles = [ // Prioridade maior para URL dinâmicas
-        { href: '/dashboard/account/profile', title: 'Perfil' },
-        { href: '/dashboard/account/subscriptions', title: 'Assinaturas' },
-        { href: '/dashboard/account/privacy', title: 'Privacidade' },
-        { href: '/dashboard/account/preferences', title: 'Preferências' },
-        { href: '/dashboard/account/help', title: 'Ajuda' },
-        { href: '/dashboard/my-rooms/', title: 'Detalhes do Grupo' },
-        { href: '/dashboard/my-rooms', title: 'Meus Grupos' },
-        { href: '/dashboard/wishlists/', title: 'Wishlist de Membro' },
-        { href: '/dashboard/my-wishlist', title: 'Minha Whishlist' },
-        { href: '/dashboard/account', title: 'Minha Conta' },
+        { href: '/dashboard/account/profile', title: t('Profile.title') },
+        { href: '/dashboard/account/subscriptions', title: t('Subscriptions.title') },
+        { href: '/dashboard/account/privacy', title: t('Account.SettingsGroup.Privacy.title') },
+        { href: '/dashboard/account/preferences', title: t('Preferences.title') },
+        { href: '/dashboard/account/help', title: t('Account.SettingsGroup.Help.title') },
+        { href: '/dashboard/my-rooms/', title: t('RoomsDetails.title') },
+        { href: '/dashboard/my-rooms', title: t('MyRooms.title') },
+        { href: '/dashboard/wishlists/', title: t('MemberWishlist.title') },
+        { href: '/dashboard/my-wishlist', title: t('MyWishlist.title') },
+        { href: '/dashboard/account', title: t('Account.title') },
     ]
 
     const pathsWithoutBackButton = [
@@ -43,7 +45,7 @@ export default function PathTitle() {
                 className='absolute left-4 top-8.5 md:top-10 -translate-y-1/2'
             >
 
-                <HoverCard message="Voltar" variant='alt' side="right">
+                <HoverCard message={t('Utils.backButton')} variant='alt' side="right">
                     <Button
                         className=''
                         onClick={() => router.back()} variant='blank'><ChevronLeftIcon className='size-7 md:size-9 dark:text-white' />

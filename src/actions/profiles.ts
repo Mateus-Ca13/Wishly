@@ -1,11 +1,12 @@
 'use server'
 
 import { createClient } from "@/lib/supabase/server";
-import { EditProfileSchema, editProfileSchema } from "@/schemas/auth";
+import { EditProfileSchema, getEditProfileSchema } from "@/schemas/auth";
 import { sendErrorResponse, sendSuccessResponse } from "@/utils/response";
 import { cache } from "react";
 import slugify from "slugify";
 import { customAlphabet } from 'nanoid'
+import { getTranslations } from "next-intl/server";
 
 const generateSuffix = customAlphabet('abcdefghijklmnopqrstuvwxyz0123456789', 6)
 
@@ -47,8 +48,16 @@ export const getCurrentUserAction = cache(async () => {
 })
 
 export const updateProfileAction = async (profile: EditProfileSchema, userId: string) => {
+    const tForm = await getTranslations('Dashboard.Profile.Form')
 
-    const parsedProfile = editProfileSchema.parse(profile)
+    // Validate with schema containing translations
+    const result = getEditProfileSchema(tForm).safeParse(profile);
+
+    if (!result.success) {
+        return sendErrorResponse(400, result.error.message, null)
+    }
+
+    const parsedProfile = result.data;
 
     const baseSlug = slugify(parsedProfile.username, {
         lower: true,
@@ -68,3 +77,4 @@ export const updateProfileAction = async (profile: EditProfileSchema, userId: st
     }
     return sendSuccessResponse(200, "Perfil atualizado com sucesso!", data)
 }
+

@@ -5,6 +5,7 @@ import Input from '@/components/Input/Input'
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Room } from '@/types/entities'
 import { useRooms } from '@/hooks/useRooms'
+import { useTranslations } from 'next-intl'
 
 type RoomsListProps = {
   search: string
@@ -14,6 +15,7 @@ type RoomsListProps = {
 }
 
 export default function RoomsList({ search, setSearch, isLoading, rooms }: RoomsListProps) {
+  const t = useTranslations('Dashboard.MyRooms');
 
   return (
     <MotionDiv
@@ -26,7 +28,7 @@ export default function RoomsList({ search, setSearch, isLoading, rooms }: Rooms
         className='w-full mb-2'
         variant='secondary'
         name='search-room'
-        placeholder='Buscar grupos...'
+        placeholder={t('searchPlaceholder')}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
@@ -34,7 +36,7 @@ export default function RoomsList({ search, setSearch, isLoading, rooms }: Rooms
       {isLoading ? (
         <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-500 animate-pulse'>
           <LoaderCircle className='size-10 animate-spin mb-2 text-primary-500' />
-          <p className='text-xl font-semibold'>Carregando seus grupos...</p>
+          <p className='text-xl font-semibold'>{t('ListResponses.loading')}</p>
         </div>
       ) : rooms.rooms.length > 0 ? (
         <div className='w-full flex flex-col gap-2'>
@@ -45,8 +47,8 @@ export default function RoomsList({ search, setSearch, isLoading, rooms }: Rooms
       ) : rooms.count > 0 ? (
         <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-400'>
           <SearchX className='size-10 mb-2 text-primary-500' />
-          <p className='text-xl font-semibold'>Nenhum grupo encontrado</p>
-          <p className='text-sm md:text-base'>Tente buscar por outro nome ou crie um novo grupo.</p>
+          <p className='text-xl font-semibold'>{t('ListResponses.emptyState')}</p>
+          <p className='text-sm md:text-base'>{t('ListResponses.emptyStateDescription')}</p>
         </div>
 
       ) : (
@@ -59,3 +61,4 @@ export default function RoomsList({ search, setSearch, isLoading, rooms }: Rooms
     </MotionDiv>
   )
 }
+

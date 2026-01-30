@@ -4,6 +4,7 @@ import RegisterRoomForm from "./RegisterRoomForm";
 import { MotionDiv } from "@/components/Motion/Motion";
 import { PlusCircle } from "lucide-react";
 import { RegisterOrEditRoomSchema } from "@/schemas/rooms";
+import { useTranslations } from "next-intl";
 
 type CreateRoomDrawerProps = {
   isOpen: boolean
@@ -12,7 +13,7 @@ type CreateRoomDrawerProps = {
   onCreateConfirm: (roomData: RegisterOrEditRoomSchema) => void
 }
 export default function CreateRoomDrawer({ isOpen, onClose, onOpen, onCreateConfirm }: CreateRoomDrawerProps) {
-
+  const t = useTranslations('Dashboard.MyRooms');
 
   return (
     <Drawer open={isOpen} onClose={onClose}>
@@ -28,15 +29,15 @@ export default function CreateRoomDrawer({ isOpen, onClose, onOpen, onCreateConf
         >
           <div className='flex items-center text-white gap-2 py-2'>
             <PlusCircle className=' size-6' />
-            <p className='font-semibold me-1'>Criar Grupo</p>
+            <p className='font-semibold me-1'>{t('createButton')}</p>
           </div>
         </MotionDiv>
       </DrawerTrigger>
       <DrawerContent className="bg-white max-h-[80vh]! dark:bg-gray-900 dark:text-white ">
         <div className="overflow-y-auto overflow-x-hidden">
           <DrawerHeader>
-            <DrawerTitle className="text-2xl md:text-3xl font-semibold px-2">Criar novo grupo</DrawerTitle>
-            <DrawerDescription className="md:text-xl text-lg px-2">Junte seus amigos e crie um novo grupo de desejos!</DrawerDescription>
+            <DrawerTitle className="text-2xl md:text-3xl font-semibold px-2">{t('Drawer.title')}</DrawerTitle>
+            <DrawerDescription className="md:text-xl text-lg px-2">{t('Drawer.description')}</DrawerDescription>
           </DrawerHeader>
           <div className="p-4  pb-10">
             <RegisterRoomForm onCreateConfirm={onCreateConfirm} />
@@ -46,3 +47,4 @@ export default function CreateRoomDrawer({ isOpen, onClose, onOpen, onCreateConf
     </Drawer>
   )
 }
+

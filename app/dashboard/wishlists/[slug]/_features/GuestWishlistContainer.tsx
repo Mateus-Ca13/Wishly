@@ -8,18 +8,28 @@ import { Profile } from '@/types/entities'
 import CancelReservationDialog from './CancelReservationDialog'
 import { useGuestWishlist } from '@/hooks/useGuestWishlist'
 import { Item, ItemWithoutReservation } from '@/types/entities'
+import { useTranslations } from 'next-intl'
 
 type GuestWishlistContainerProps = {
     userId: string
-    initialItems: {items:Item[] | ItemWithoutReservation[], count:number}
+    initialItems: { items: Item[] | ItemWithoutReservation[], count: number }
     currentUser: Profile
 }
 
 export default function GuestWishlistContainer({ userId, initialItems, currentUser }: GuestWishlistContainerProps) {
-    
-    const { 
-        items, search, setSearch, isLoading, 
-        isReservationMode, toggleReservationMode, 
+    const t = useTranslations('Dashboard.MemberWishlist.ToastResponses')
+
+    const toastMessages = {
+        successReserve: t('successReserve'),
+        errorReserve: t('errorReserve'),
+        successCancelReserve: t('successRemoveReservation'),
+        errorCancelReserve: t('errorRemoveReservation'),
+        alreadyReserved: t('alreadyReserved'),
+    }
+
+    const {
+        items, search, setSearch, isLoading,
+        isReservationMode, toggleReservationMode,
         selectedItem, handleItemClick,
         isConfirmReservationDialogOpen, closeConfirmReservationDialog,
         isItemInfoDrawerOpen, closeItemInfoDrawer,
@@ -27,26 +37,26 @@ export default function GuestWishlistContainer({ userId, initialItems, currentUs
         isCancelReservationDialogOpen, closeCancelReservationDialog,
         handleCancelReservation,
         handleOpenCancelReservation
-    } = useGuestWishlist(userId, initialItems)
+    } = useGuestWishlist(userId, initialItems, toastMessages)
 
     return (
         <div className='w-full'>
-                <ItemsListWithReservation 
-                    search={search}
-                    setSearch={setSearch}
-                    items={items}
-                    isLoading={isLoading}
-                    isReservationMode={isReservationMode}
-                    onItemClick={handleItemClick}
-                />
+            <ItemsListWithReservation
+                search={search}
+                setSearch={setSearch}
+                items={items}
+                isLoading={isLoading}
+                isReservationMode={isReservationMode}
+                onItemClick={handleItemClick}
+            />
 
 
-            <ReservationButton 
+            <ReservationButton
                 isActive={isReservationMode}
                 onClick={toggleReservationMode}
             />
-            
-            <ItemDetailsDrawer 
+
+            <ItemDetailsDrawer
                 onOpenCancelReservation={handleOpenCancelReservation}
                 currentUser={currentUser}
                 item={selectedItem}

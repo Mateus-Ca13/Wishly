@@ -34,7 +34,7 @@ export default function SelectLanguage() {
                     key={lang.code}
                     variant='blank'
                     className={`w-full flex items-center justify-between gap-2 border-2  p-4 rounded-lg transition-all ${locale === lang.code
-                        ? 'border-primary-500 bg-primary-500/10'
+                        ? 'border-primary-300 dark:border-primary-500 bg-primary-50 dark:bg-gray-800'
                         : 'border-gray-300 dark:border-gray-600 hover:border-primary-400'
                         }`}
                     onClick={() => switchLanguage(lang.code)}

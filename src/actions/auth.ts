@@ -2,16 +2,19 @@
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
-import { loginSchema, LoginSchema, registerProfileSchema, RegisterProfileSchema } from '../schemas/auth'
+import { getLoginSchema, LoginSchema, getRegisterProfileSchema, RegisterProfileSchema } from '../schemas/auth'
 import { sendErrorResponse } from '@/utils/response'
 import { customAlphabet } from 'nanoid'
 import slugify from 'slugify'
+import { getTranslations } from 'next-intl/server'
 
 const generateSuffix = customAlphabet('abcdefghijklmnopqrstuvwxyz0123456789', 6)
 
 export async function authLoginAction(data: LoginSchema) {
+  const t = await getTranslations('Dashboard.Auth.Login')
+  const tForm = await getTranslations('Dashboard.Profile.Form')
 
-  const parse = loginSchema.safeParse(data)
+  const parse = getLoginSchema(tForm).safeParse(data)
   if (!parse.success) {
     return sendErrorResponse(400, parse.error.message, null)
   }
@@ -24,7 +27,7 @@ export async function authLoginAction(data: LoginSchema) {
   })
 
   if (error) {
-    const errorMessage = error.code === 'invalid_credentials' ? 'Email ou senha incorretos' : error.message
+    const errorMessage = error.code === 'invalid_credentials' ? t('invalidCredentials') : error.message
 
     return sendErrorResponse(error.code, errorMessage, error)
   }
@@ -34,7 +37,10 @@ export async function authLoginAction(data: LoginSchema) {
 }
 
 export async function authRegisterAction(userData: RegisterProfileSchema) {
-  const parse = registerProfileSchema.safeParse(userData)
+  const t = await getTranslations('Dashboard.Profile.Toast')
+  const tForm = await getTranslations('Dashboard.Profile.Form')
+
+  const parse = getRegisterProfileSchema(tForm).safeParse(userData)
   if (!parse.success) return sendErrorResponse(400, parse.error.message, null)
 
 
@@ -59,7 +65,7 @@ export async function authRegisterAction(userData: RegisterProfileSchema) {
   })
 
   if (error) {
-    if (error.code === 'user_already_exists') return sendErrorResponse(400, 'Este e-mail já está cadastrado', null)
+    if (error.code === 'user_already_exists') return sendErrorResponse(400, t('alreadyExists'), null)
     return sendErrorResponse(error.code, error.message, null)
   }
 
@@ -68,6 +74,7 @@ export async function authRegisterAction(userData: RegisterProfileSchema) {
   revalidatePath('/', 'layout')
   redirect('/dashboard/my-rooms')
 }
+
 
 export async function authLogoutAction() {
   const supabase = await createClient()

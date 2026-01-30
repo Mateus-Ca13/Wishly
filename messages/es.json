@@ -1,5 +1,376 @@
 {
     "Dashboard": {
-        "Title": "Dashboard"
+        "MyRooms": {
+            "title": "Mis Grupos",
+            "members": "Miembros",
+            "searchPlaceholder": "Buscar grupos...",
+            "createButton": "Crear grupo",
+            "Drawer": {
+                "title": "Crear nuevo grupo",
+                "description": "¡Reúne a tus amigos y crea un nuevo grupo de deseos!",
+                "nameInput": {
+                    "placeholder": "Ej: WishList de la familia",
+                    "label": "Nombre del grupo",
+                    "error": "El nombre del grupo es obligatorio",
+                    "textError": "El nombre del grupo debe ser texto",
+                    "minLength": "El nombre del grupo debe tener al menos 3 caracteres",
+                    "maxLength": "El nombre del grupo debe tener como máximo 50 caracteres"
+                },
+                "descriptionInput": {
+                    "placeholder": "Ej: ¡Para el amigo secreto de Navidad!",
+                    "label": "Descripción del grupo",
+                    "textError": "La descripción debe ser texto",
+                    "maxLength": "La descripción del grupo debe tener como máximo 500 caracteres"
+                },
+                "iconInput": {
+                    "invalid": "Icono inválido"
+                },
+                "themeInput": {
+                    "label": "Tema del grupo"
+                },
+                "submitButton": "Crear grupo"
+            },
+            "ToastResponses": {
+                "success": "¡Grupo creado con éxito!",
+                "error": "Error al crear grupo"
+            },
+            "ListResponses": {
+                "loading": "Cargando tus grupos...",
+                "emptyState": "No se encontraron grupos",
+                "emptyStateDescription": "Intenta buscar por otro nombre o crea un nuevo grupo."
+            }
+        },
+        "RoomsDetails": {
+            "title": "Detalles del Grupo",
+            "members": "Miembros",
+            "searchPlaceholder": "Buscar miembros...",
+            "inviteButton": "Invitar al grupo",
+            "unknownMember": "Desconocido",
+            "InviteDrawer": {
+                "title": "Invitar al grupo",
+                "description": "¡Comparte el enlace de invitación con tus amigos para que puedan unirse al grupo!",
+                "copyButton": "Copiar",
+                "copyButtonSuccess": "Copiado"
+            },
+            "ListResponses": {
+                "loading": "Cargando miembros...",
+                "emptyState": "No se encontraron miembros",
+                "emptyStateDescription": "Intenta buscar otro nombre o invita a más personas."
+            }
+        },
+        "MemberWishlist": {
+            "title": "Wishlist del Miembro",
+            "searchPlaceholder": "Buscar artículos de la wishlist...",
+            "reserveButton": "Reservar artículos",
+            "reservedBadge": "Reservado",
+            "reserveButtonsMode": {
+                "selectModetitle": "Modo de reserva activo:",
+                "selectModeDescription": "Selecciona los artículos que deseas reservar",
+                "cancelButton": "Cancelar"
+            },
+            "ListResponses": {
+                "loading": "Cargando artículos...",
+                "emptyState": "No se encontraron artículos",
+                "emptyStateDescription": "Intenta buscar por otro nombre o revisa la lista más tarde."
+            },
+            "Drawer": {
+                "notes": "Notas",
+                "noNotesSpan": "Sin información...",
+                "submitButton": "Reservar",
+                "userAlreadyReserved": "Este artículo fue reservado por ti",
+                "otherUserAlreadyReserved": "Este artículo ya fue reservado por",
+                "anonymous": "alguien (anónimo)",
+                "removeReservationButton": "Eliminar reserva",
+                "openLinkButton": "Abrir enlace",
+                "noLinkButton": "Enlace no proporcionado"
+            },
+            "Dialogs": {
+                "ConfirmReservation": {
+                    "title": "Confirmar Reserva",
+                    "description": "¿Estás seguro de que deseas confirmar la reserva del siguiente artículo?",
+                    "anonymousCheckbox": "Reservar anónimamente",
+                    "confirmButton": "Confirmar"
+                },
+                "CancelReservation": {
+                    "title": "Cancelar Reserva",
+                    "description": "¿Estás seguro de que deseas cancelar la reserva del siguiente artículo?",
+                    "confirmButton": "Confirmar"
+                }
+            },
+            "ToastResponses": {
+                "successReserve": "¡Artículo reservado con éxito!",
+                "errorReserve": "Error al reservar artículo",
+                "successRemoveReservation": "¡Reserva eliminada con éxito!",
+                "errorRemoveReservation": "Error al eliminar reserva",
+                "alreadyReserved": "¡Este artículo ya ha sido reservado!"
+            }
+        },
+        "Navbar": {
+            "rooms": "Grupos",
+            "wishlist": "Wishlist",
+            "account": "Cuenta"
+        },
+        "MyWishlist": {
+            "title": "Mi Wishlist",
+            "searchPlaceholder": "Buscar artículos de la wishlist...",
+            "addItemButton": "Agregar artículo",
+            "Drawer": {
+                "nameInput": {
+                    "placeholder": "Ej: Libro",
+                    "label": "Nombre",
+                    "error": "El nombre del artículo es obligatorio",
+                    "minLength": "El nombre del artículo debe tener al menos 3 caracteres",
+                    "maxLength": "El nombre del artículo debe tener como máximo 100 caracteres"
+                },
+                "priceInput": {
+                    "placeholder": "Ej: 10.00",
+                    "label": "Precio",
+                    "error": "El precio del artículo es obligatorio",
+                    "lowerThan": "El precio del artículo debe ser mayor o igual a 0",
+                    "greaterThan": "El precio del artículo debe ser menor o igual a 999.999"
+                },
+                "linkInput": {
+                    "placeholder": "https://www.ejemplo.com",
+                    "label": "Enlace",
+                    "invalid": "URL inválida",
+                    "maxLength": "El enlace del artículo debe tener como máximo 1000 caracteres"
+                },
+                "notesInput": {
+                    "placeholder": "Tamaño, color, etc.",
+                    "label": "Notas",
+                    "maxLength": "Las notas del artículo deben tener como máximo 500 caracteres"
+                },
+                "priorityInput": {
+                    "label": "Prioridad",
+                    "error": "La prioridad del artículo es obligatoria",
+                    "1": "Prioridad baja",
+                    "2": "Me interesa",
+                    "3": "¡Lo deseo mucho!"
+                },
+                "submitButton": "Guardar"
+            },
+            "ActionsMenu": {
+                "deleteButton": "Eliminar",
+                "editButton": "Editar"
+            },
+            "DeleteDialog": {
+                "title": "Eliminar artículo",
+                "description": "¿Estás seguro de que deseas eliminar el siguiente artículo?",
+                "confirmButton": "Confirmar"
+            },
+            "ItemDrawer": {
+                "createTitle": "Agregar nuevo artículo",
+                "editTitle": "Editar artículo"
+            },
+            "ToastResponses": {
+                "successCreate": "¡Artículo agregado a la wishlist con éxito!",
+                "errorCreate": "Error al agregar artículo a la wishlist",
+                "successDelete": "¡Artículo eliminado con éxito!",
+                "errorDelete": "Error al eliminar artículo",
+                "successUpdate": "¡Artículo actualizado con éxito!",
+                "errorUpdate": "Error al actualizar artículo",
+                "invalidItemId": "ID de artículo inválido"
+            },
+            "ListResponses": {
+                "loading": "Cargando artículos...",
+                "emptyState": "No se encontraron artículos",
+                "emptyStateDescription": "Intenta buscar por otro nombre o agrega más artículos.",
+                "noItemsTitle": "¡Tu lista parece estar vacía!",
+                "noItemsDescription": "Agrega artículos para empezar a compartir tu lista."
+            }
+        },
+        "Account": {
+            "title": "Mi Cuenta",
+            "MyAccountGroup": {
+                "title": "Mi Cuenta",
+                "EditProfile": {
+                    "title": "Editar Perfil",
+                    "description": "Gestiona la información de tu perfil"
+                },
+                "Subscription": {
+                    "title": "Gestionar suscripciones",
+                    "description": "Gestiona planes y suscripciones"
+                }
+            },
+            "SettingsGroup": {
+                "title": "Configuración",
+                "Privacy": {
+                    "title": "Privacidad y Seguridad"
+                },
+                "Preferences": {
+                    "title": "Preferencias"
+                },
+                "Help": {
+                    "title": "Ayuda y Soporte"
+                }
+            },
+            "Exit": {
+                "title": "Cerrar sesión"
+            }
+        },
+        "Profile": {
+            "title": "Perfil",
+            "Form": {
+                "title": "Editar Perfil",
+                "description": "Gestiona la información de tu perfil",
+                "NameInput": {
+                    "label": "Nombre completo",
+                    "placeholder": "Ej: Juan García",
+                    "error": "El nombre completo es obligatorio",
+                    "minLength": "El nombre completo debe tener al menos 5 caracteres",
+                    "maxLength": "El nombre completo debe tener como máximo 200 caracteres"
+                },
+                "UsernameInput": {
+                    "label": "Usuario",
+                    "labelNote": "(cómo se mostrará en tu perfil)",
+                    "error": "El nombre de usuario es obligatorio",
+                    "minLength": "El nombre de usuario debe tener al menos 3 caracteres",
+                    "maxLength": "El nombre de usuario debe tener como máximo 200 caracteres"
+                },
+                "BirthdayInput": {
+                    "label": "Fecha de nacimiento",
+                    "futureDateError": "La fecha de nacimiento debe ser anterior a hoy",
+                    "invalidDateError": "Fecha de nacimiento inválida"
+                },
+                "EmailInput": {
+                    "label": "Correo electrónico",
+                    "error": "El correo electrónico es obligatorio",
+                    "invalidEmailError": "Correo electrónico inválido"
+                },
+                "GenderInput": {
+                    "label": "Género",
+                    "error": "Se debe seleccionar un género",
+                    "male": "Masculino",
+                    "female": "Femenino",
+                    "other": "Otro",
+                    "preferNotToSay": "Prefiero no decir"
+                },
+                "PasswordInput": {
+                    "label": "Contraseña",
+                    "error": "La contraseña debe tener al menos 6 caracteres",
+                    "minLength": "La contraseña debe tener al menos 6 caracteres",
+                    "maxLength": "La contraseña debe tener como máximo 50 caracteres"
+                },
+                "ConfirmPasswordInput": {
+                    "label": "Confirmar contraseña",
+                    "error": "Las contraseñas no coinciden",
+                    "minLength": "La contraseña debe tener al menos 6 caracteres",
+                    "maxLength": "La contraseña debe tener como máximo 50 caracteres",
+                    "matchError": "Las contraseñas no coinciden"
+                }
+            },
+            "Toast": {
+                "updateSuccess": "¡Perfil actualizado con éxito!",
+                "updateError": "Error al actualizar perfil",
+                "alreadyExists": "Este correo electrónico ya está registrado"
+            },
+            "saveButton": "Guardar",
+            "registerButton": "Registrarse",
+            "finishRegisterButton": "Finalizar"
+        },
+        "Subscriptions": {
+            "title": "Suscripciones",
+            "CurrentPlan": {
+                "title": "Suscripción actual",
+                "description": "Tu suscripción actual es",
+                "statusTitle": "Estado",
+                "status": {
+                    "active": "Activa",
+                    "canceled": "Cancelada",
+                    "expired": "Expirada"
+                },
+                "startedAt": "Iniciada el",
+                "endedAt": {
+                    "title": "Termina el",
+                    "indeterminate": "Indeterminada"
+                }
+            },
+            "Plans": {
+                "title": "Planes",
+                "recommended": "Recomendado",
+                "details": "Ver detalles",
+                "month": "/ mes",
+                "FREE": {
+                    "title": "Plan gratuito",
+                    "description": "Plan gratuito de Wishly"
+                },
+                "BETA-FREE": {
+                    "title": "Plan gratuito (Beta)",
+                    "description": "Plan gratuito de Wishly para usuarios de la BETA"
+                },
+                "PREMIUM": {
+                    "title": "Plan premium",
+                    "description": "Experiencia superior con muchas más posibilidades"
+                },
+                "Info": {
+                    "rooms": "grupos",
+                    "members": "miembros por sala",
+                    "items": "artículos por lista",
+                    "notifications": "Notificaciones personalizadas",
+                    "unlimited": "ilimitadas"
+                },
+                "ToastResponses": {
+                    "warning": "El sistema de suscripciones aún está en desarrollo"
+                }
+            }
+        },
+        "Preferences": {
+            "title": "Preferencias",
+            "Themes": {
+                "title": "Apariencia",
+                "description": "Gestiona la apariencia de Wishly",
+                "light": "Claro",
+                "dark": "Oscuro",
+                "system": "Sistema"
+            },
+            "Language": {
+                "title": "Idioma",
+                "description": "Gestiona el idioma de Wishly",
+                "pt": "Portugués (BR)",
+                "en": "Inglés (US)",
+                "es": "Español (ES)"
+            }
+        },
+        "Auth": {
+            "welcome": "Bienvenido a",
+            "Login": {
+                "title": "¡Inicia sesión para acceder a tu lista de deseos!",
+                "alternate": "¿No tienes una cuenta?",
+                "alternateLink": "Regístrate",
+                "submitButton": "Iniciar sesión",
+                "invalidCredentials": "Cooreo electrónico o contraseña incorrectos"
+            },
+            "Register": {
+                "title": "Registro",
+                "description": "¡Crea tu cuenta y comienza tu lista de deseos!",
+                "alternate": "¿Ya tienes una cuenta?",
+                "alternateLink": "Inicia sesión"
+            }
+        },
+        "Invite": {
+            "title": "Invitación a sala",
+            "description": "Has sido invitado a unirte a la sala",
+            "button": "Aceptar invitación",
+            "successMessage": "¡Invitación aceptada con éxito! Serás redirigido a la sala en 3 segundos...",
+            "roomDoesNotExist": "Parece que esta sala no existe. Verifica el enlace o pide a tus amigos que te reenvíen la invitación.",
+            "alreadyMember": "Ya eres miembro de esta sala"
+        },
+        "Utils": {
+            "currency": "€",
+            "price": "Precio",
+            "backButton": "Volver",
+            "priorities": {
+                "title": "Prioridad",
+                "1": "Prioridad baja",
+                "2": "Me interesa",
+                "3": "¡Lo deseo mucho!"
+            },
+            "appInfo": {
+                "title": "Wishly",
+                "copyright": "Todos los derechos reservados.",
+                "developer": "Desarrollado por",
+                "version": "Versión"
+            }
+        }
     }
 }

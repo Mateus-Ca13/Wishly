@@ -1,14 +1,16 @@
 import { Plan } from '@/types/entities'
-import React from 'react'
 import PlanCard from './PlanCard'
 import { Separator } from '@/components/ui/separator'
 import { MotionH1 } from '@/components/Motion/Motion'
+import { getTranslations } from 'next-intl/server'
 
 type PlansListProps = {
     plans: Plan[]
+    country: string
 }
 
-export default function PlansList({ plans }: PlansListProps) {
+export default async function PlansList({ plans, country }: PlansListProps) {
+    const t = await getTranslations('Dashboard.Subscriptions.Plans');
 
     const delay = 0.2
 
@@ -19,15 +21,16 @@ export default function PlansList({ plans }: PlansListProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay, duration: 0.5, bounce: 0.4, type: 'spring' }}
                 className='text-lg flex flex-col items-center justify-between md:text-2xl font-semibold whitespace-nowrap text-ellipsis min-w-0 overflow-hidden'>
-                Planos
+                {t('title')}
 
                 <Separator orientation='horizontal' className='w-24! h-0.5! rounded-full bg-primary-100 my-0' />
             </MotionH1>
             <div className='flex flex-col gap-4 md:gap-8 w-full justify-center items-center my-4'>
                 {plans.map((plan, index) => (
-                    <PlanCard key={plan.id} plan={plan} delay={delay * (index + 1)} />
+                    <PlanCard key={plan.id} plan={plan} delay={delay * (index + 1)} country={country} />
                 ))}
             </div>
         </div>
     )
 }
+

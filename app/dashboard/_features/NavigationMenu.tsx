@@ -3,22 +3,23 @@ import { MotionDiv } from '@/components/Motion/Motion';
 import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils';
 import { Sparkles, User, Users } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export default function NavigationMenu() {
+  const t = useTranslations('Dashboard.Navbar');
 
   const navItems = [
-    { href: '/dashboard/my-rooms', label: 'Grupos', icon: Users },
-    { href: '/dashboard/my-wishlist', label: 'Wishlist', icon: Sparkles },
-    { href: '/dashboard/account', label: 'Conta', icon: User },
-
+    { href: '/dashboard/my-rooms', label: t('rooms'), icon: Users },
+    { href: '/dashboard/my-wishlist', label: t('wishlist'), icon: Sparkles },
+    { href: '/dashboard/account', label: t('account'), icon: User },
   ]
   const pathname = usePathname();
 
   return (
     <>
-      <div className="w-full h-36 md:h-48"></div> {/*Adicionado para dar margem abaixo do NavigationMenu*/}
+      <div className="w-full h-30 md:h-42"></div> {/*Adicionado para dar margem abaixo do NavigationMenu*/}
       <MotionDiv
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

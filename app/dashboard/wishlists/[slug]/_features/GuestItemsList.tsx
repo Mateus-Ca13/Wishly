@@ -4,6 +4,7 @@ import Input from '@/components/Input/Input'
 import { LoaderCircle, Meh, SearchX } from 'lucide-react'
 import GuestItemCard from './GuestItemCard'
 import { Item } from '@/types/entities'
+import { useTranslations } from 'next-intl'
 
 type GuestItemsListProps = {
     items: { items: Item[], count: number }
@@ -15,6 +16,7 @@ type GuestItemsListProps = {
 }
 
 export default function GuestItemsList({ items, isLoading, isReservationMode, onItemClick, search, setSearch }: GuestItemsListProps) {
+    const t = useTranslations('Dashboard.MemberWishlist');
 
     return (
         <div className='w-full relative'>
@@ -29,7 +31,7 @@ export default function GuestItemsList({ items, isLoading, isReservationMode, on
                         value={search}
                         className='w-full'
                         variant='secondary'
-                        placeholder='Buscar itens da wishlist...'
+                        placeholder={t('searchPlaceholder')}
                         onChange={(e) => setSearch(e.target.value)}
                     />
                 </div>
@@ -37,7 +39,7 @@ export default function GuestItemsList({ items, isLoading, isReservationMode, on
                 {isLoading ? (
                     <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-500 animate-pulse'>
                         <LoaderCircle className='size-10 animate-spin mb-2 text-primary-500' />
-                        <p className='text-xl font-semibold'>Carregando os itens...</p>
+                        <p className='text-xl font-semibold'>{t('ListResponses.loading')}</p>
                     </div>
                 ) : items.items.length > 0 ? (
                     <div className='w-full flex flex-col gap-2'>
@@ -54,8 +56,8 @@ export default function GuestItemsList({ items, isLoading, isReservationMode, on
                 ) : items.count !== 0 ? (
                     <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-400'>
                         <SearchX className='size-10 mb-2 text-primary-500' />
-                        <p className='text-xl font-semibold'>Nenhum item encontrado</p>
-                        <p className='text-sm md:text-base'>Tente buscar por outro nome ou verifique a lista mais tarde.</p>
+                        <p className='text-xl font-semibold'>{t('ListResponses.emptyState')}</p>
+                        <p className='text-sm md:text-base'>{t('ListResponses.emptyStateDescription')}</p>
                     </div>
                 ) : (
                     <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-400'>

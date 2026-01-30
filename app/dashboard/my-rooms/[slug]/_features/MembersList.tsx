@@ -4,6 +4,7 @@ import Input from '@/components/Input/Input'
 import { MotionDiv } from '@/components/Motion/Motion'
 import MemberCard from './MemberCard'
 import { Profile } from '@/types/entities'
+import { useTranslations } from 'next-intl'
 
 type MembersListProps = {
   search: string
@@ -13,6 +14,7 @@ type MembersListProps = {
 }
 
 export default function MembersList({ members, search, setSearch, isLoading }: MembersListProps) {
+  const t = useTranslations('Dashboard.RoomsDetails');
 
   return (
     <MotionDiv
@@ -25,7 +27,7 @@ export default function MembersList({ members, search, setSearch, isLoading }: M
         className='w-full mb-2'
         variant='secondary'
         name='search-members'
-        placeholder='Buscar participantes...'
+        placeholder={t('searchPlaceholder')}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
@@ -33,7 +35,7 @@ export default function MembersList({ members, search, setSearch, isLoading }: M
       {isLoading ? (
         <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-500 animate-pulse'>
           <LoaderCircle className='size-10 animate-spin mb-2 text-primary-500' />
-          <p className='text-xl font-semibold'>Carregando participantes...</p>
+          <p className='text-xl font-semibold'>{t('ListResponses.loading')}</p>
         </div>
       ) : members.members.length > 0 ? (
         <div className='w-full flex flex-col gap-2'>
@@ -44,8 +46,8 @@ export default function MembersList({ members, search, setSearch, isLoading }: M
       ) : members.count > 0 ? (
         <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-400'>
           <SearchX className='size-10 mb-2 text-primary-500' />
-          <p className='text-xl font-semibold'>Nenhum participante encontrado</p>
-          <p className='text-sm md:text-base'>Tente buscar por outro nome ou convide mais pessoas.</p>
+          <p className='text-xl font-semibold'>{t('ListResponses.emptyState')}</p>
+          <p className='text-sm md:text-base'>{t('ListResponses.emptyStateDescription')}</p>
         </div>
 
       ) : (
@@ -59,3 +61,4 @@ export default function MembersList({ members, search, setSearch, isLoading }: M
     </MotionDiv>
   )
 }
+

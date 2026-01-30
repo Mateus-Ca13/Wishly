@@ -4,7 +4,15 @@ import { toast } from 'sonner'
 import { confirmReservationAction, cancelReservationAction } from '@/actions/reservations'
 import { Item, ItemWithoutReservation } from '@/types/entities'
 
-export function useGuestWishlist(userId: string, initialItems: {items:Item[] | ItemWithoutReservation[], count:number}) {
+type ToastMessages = {
+    successReserve: string
+    errorReserve: string
+    successCancelReserve: string
+    errorCancelReserve: string
+    alreadyReserved: string
+}
+
+export function useGuestWishlist(userId: string, initialItems: { items: Item[] | ItemWithoutReservation[], count: number }, messages: ToastMessages) {
     // 1. Usa a lógica compartilhada (com reservas = true)
     const { items, search, setSearch, isLoading, refresh } = useWishlistData(userId, initialItems, true)
 
@@ -23,42 +31,42 @@ export function useGuestWishlist(userId: string, initialItems: {items:Item[] | I
 
     const handleConfirmReservation = async (anonymous: boolean, itemId: number) => {
         setIsConfirmReservationDialogOpen(false)
-        
+
         const reservationResponse = await confirmReservationAction(itemId, anonymous)
-        
-        if(reservationResponse.success){
-            toast.success('Reserva confirmada!')
+
+        if (reservationResponse.success) {
+            toast.success(messages.successReserve)
             setSelectedItem(null)
         } else {
-            toast.error('Erro ao confirmar reserva!')
+            toast.error(messages.errorReserve)
         }
         await refresh()
     }
 
     const handleCancelReservation = async (itemId: number) => {
-         setIsCancelReservationDialogOpen(false)
-        
+        setIsCancelReservationDialogOpen(false)
+
         const reservationResponse = await cancelReservationAction(itemId)
-        
-        if(reservationResponse.success){
-            toast.success('Reserva cancelada!')
+
+        if (reservationResponse.success) {
+            toast.success(messages.successCancelReserve)
             setSelectedItem(null)
         } else {
-            toast.error('Erro ao cancelar!')
+            toast.error(messages.errorCancelReserve)
         }
         await refresh()
     }
 
     const handleOpenCancelReservation = () => {
         setIsCancelReservationDialogOpen(true)
-        setIsItemInfoDrawerOpen(false)  
+        setIsItemInfoDrawerOpen(false)
     }
 
-     const handleItemClick = (item: Item) => {
+    const handleItemClick = (item: Item) => {
         setSelectedItem(item)
         if (isReservationMode) {
-            if(item.reservations){
-                toast.error('Item já reservado!')
+            if (item.reservations) {
+                toast.error(messages.alreadyReserved)
                 return
             }
             setIsConfirmReservationDialogOpen(true)
@@ -67,9 +75,9 @@ export function useGuestWishlist(userId: string, initialItems: {items:Item[] | I
         }
     }
 
-    const closeCancelReservationDialog = () => {setIsCancelReservationDialogOpen(false); setSelectedItem(null)}
-    const closeConfirmReservationDialog = () => {setIsConfirmReservationDialogOpen(false); setSelectedItem(null)}
-    const closeItemInfoDrawer = () => {setSelectedItem(null); setIsItemInfoDrawerOpen(false)}
+    const closeCancelReservationDialog = () => { setIsCancelReservationDialogOpen(false); setSelectedItem(null) }
+    const closeConfirmReservationDialog = () => { setIsConfirmReservationDialogOpen(false); setSelectedItem(null) }
+    const closeItemInfoDrawer = () => { setSelectedItem(null); setIsItemInfoDrawerOpen(false) }
 
     return {
         items, search, setSearch, isLoading,

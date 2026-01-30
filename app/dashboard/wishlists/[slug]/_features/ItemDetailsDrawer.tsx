@@ -1,12 +1,13 @@
 'use client'
 import Button from '@/components/Button/Button'
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
-import { formatPrice, formatPriority } from '@/utils/format'
+import { formatPrice } from '@/utils/format'
 import { Separator } from '@radix-ui/react-separator'
 import Link from 'next/link'
 import { prioritiesMap } from './utils'
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Item, Profile } from '@/types/entities'
+import { useTranslations } from 'next-intl'
 
 type ItemDetailsDrawerProps = {
 	item: Item | null
@@ -17,10 +18,18 @@ type ItemDetailsDrawerProps = {
 }
 
 export default function ItemDetailsDrawer({ item, currentUser, isOpen, onClose, onOpenCancelReservation }: ItemDetailsDrawerProps) {
+	const t = useTranslations('Dashboard.MemberWishlist.Drawer')
+	const tUtils = useTranslations('Dashboard.Utils')
 
 	const PriorityIcon = item?.priority ? prioritiesMap[item.priority].el : prioritiesMap[1].el;
 	const userGiverId = item?.reservations?.user_id
-	const userGiverName = userGiverId ? item?.reservations?.profile?.username : 'alguém (anônimo)'
+	const userGiverName = userGiverId ? item?.reservations?.profile?.username : t('anonymous')
+
+	const priorityLabels: { [key: number]: string } = {
+		1: tUtils('priorities.1'),
+		2: tUtils('priorities.2'),
+		3: tUtils('priorities.3'),
+	}
 
 	if (!item) return null
 
@@ -35,19 +44,19 @@ export default function ItemDetailsDrawer({ item, currentUser, isOpen, onClose, 
 					<div className="p-4 w-full flex flex-col justify-center items-center gap-4">
 						<div className='max-w-xl w-full flex flex-col gap-2 items-center justify-center text-center'>
 							<div className='w-full flex bg-gray-100 dark:bg-gray-800 px-4 pt-2 pb-4 rounded-lg flex-col gap-2 items-center justify-start overflow-y-auto max-h-32'>
-								<h3 className='text-gray-500 dark:text-gray-300 font-semibold'>Observações</h3>
-								<p className={item.notes ? 'text-gray-500 dark:text-gray-300 wrap-anywhere' : 'text-gray-400 dark:text-gray-500'}>{item.notes || 'Sem informações...'}</p>
+								<h3 className='text-gray-500 dark:text-gray-300 font-semibold'>{t('notes')}</h3>
+								<p className={item.notes ? 'text-gray-500 dark:text-gray-300 wrap-anywhere' : 'text-gray-400 dark:text-gray-500'}>{item.notes || t('noNotesSpan')}</p>
 							</div>
 							<div className='w-full my-8 fle'>
 								<div className='flex justify-between items-center gap-2 border-b-gray-200 dark:border-b-gray-700 border-b pb-2 mb-2'>
-									<p className='text-gray-500 dark:text-gray-300 font-semibold'>Preço</p>
-									<p className='text-gray-500 dark:text-gray-300'>R$ {formatPrice(item.price)}</p>
+									<p className='text-gray-500 dark:text-gray-300 font-semibold'>{tUtils('price')}</p>
+									<p className='text-gray-500 dark:text-gray-300'>{tUtils('currency')} {formatPrice(item.price)}</p>
 								</div>
 								<div className='flex justify-between items-center gap-2 border-b-gray-200 dark:border-b-gray-700 border-b pb-2 mb-2'>
-									<p className='text-gray-500 dark:text-gray-300 font-semibold'>Prioridade</p>
+									<p className='text-gray-500 dark:text-gray-300 font-semibold'>{tUtils('priorities.title')}</p>
 									<div className={`flex items-center gap-1 text-gray-500 ${prioritiesMap[item.priority].color} ${prioritiesMap[item.priority].bg} rounded-full px-3 py-1`}>
 										<PriorityIcon className='size-4' />
-										<p>{formatPriority(item.priority)}</p>
+										<p>{priorityLabels[item.priority]}</p>
 									</div>
 								</div>
 								{item.reservations && <div className='flex justify-center my-4 p-4 items-center gap-2 bg-primary-50 dark:bg-primary-900 rounded-lg'>
@@ -57,7 +66,7 @@ export default function ItemDetailsDrawer({ item, currentUser, isOpen, onClose, 
 											animate={{ opacity: 1, y: 0 }}
 											transition={{ duration: 0.5 }}
 											className='flex items-center gap-1 flex-wrap justify-center text-sm md:text-base  font-semibold w-full'>
-											<p className='text-gray-600 dark:text-gray-300'>Este item já foi reservado por</p>
+											<p className='text-gray-600 dark:text-gray-300'>{t('otherUserAlreadyReserved')}</p>
 											<p className='text-gray-600 dark:text-gray-300 truncate '>{userGiverName}</p>
 										</MotionDiv>
 										:
@@ -66,17 +75,17 @@ export default function ItemDetailsDrawer({ item, currentUser, isOpen, onClose, 
 											animate={{ opacity: 1, y: 0 }}
 											transition={{ duration: 0.5 }}
 											className='flex items-center gap-2 flex-col text-sm md:text-base  font-semibold'>
-											<p className='text-gray-600 dark:text-gray-300'>Este item foi reservado por você</p>
-											<Button onClick={onOpenCancelReservation} variant='outlined' className='w-full rounded-full '>Remover reserva</Button>
+											<p className='text-gray-600 dark:text-gray-300'>{t('userAlreadyReserved')}</p>
+											<Button onClick={onOpenCancelReservation} variant='outlined' className='w-full rounded-full '>{t('removeReservationButton')}</Button>
 										</MotionDiv>
 									}
 								</div>}
 								<div className='flex justify-center items-center w-full mt-8'>
 									{item.link.length > 0 ?
 										<Link href={item.link} target="_blank" className='w-full'>
-											<Button className='w-full rounded-full py-4' variant='contained'>Abrir link</Button>
+											<Button className='w-full rounded-full py-4' variant='contained'>{t('openLinkButton')}</Button>
 										</Link> :
-										<Button className='w-full border-2 py-4! border-gray-200 rounded-full' variant='blank' disabled>Link não informado</Button>
+										<Button className='w-full border-2 py-4! border-gray-200 rounded-full' variant='blank' disabled>{t('noLinkButton')}</Button>
 									}
 								</div>
 							</div>
@@ -89,3 +98,4 @@ export default function ItemDetailsDrawer({ item, currentUser, isOpen, onClose, 
 		</Drawer>
 	)
 }
+

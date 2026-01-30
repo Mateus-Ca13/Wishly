@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import {
   DropdownMenu,
@@ -7,6 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { EllipsisVertical, Pencil, Trash } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function ItemDropdownMenu({
   isOpen,
@@ -19,6 +21,8 @@ export default function ItemDropdownMenu({
   onEditItem: () => void;
   onDeleteItem: () => void;
 }) {
+  const t = useTranslations('Dashboard.MyWishlist.ActionsMenu')
+
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
@@ -27,13 +31,14 @@ export default function ItemDropdownMenu({
       <DropdownMenuContent className="bg-white border-gray-300 w-48 dark:bg-gray-800 dark:border-gray-800" align="end">
         <DropdownMenuItem onClick={onEditItem} className="text-base hover:bg-gray-100 cursor-pointer dark:text-white dark:hover:bg-gray-700">
           <Pencil />
-          Editar
+          {t('editButton')}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={onDeleteItem} className="text-red-500 dark:text-red-400 text-base hover:bg-red-50 dark:hover:bg-red-800/50 cursor-pointer">
           <Trash />
-          Excluir
+          {t('deleteButton')}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
 }
+

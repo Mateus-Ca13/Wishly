@@ -1,3 +1,4 @@
+'use client'
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Card } from '@/components/ui/card'
 import { Room } from '@/types/entities'
@@ -5,6 +6,7 @@ import { Database } from '@/types/supabase'
 import { ChevronRight, UsersRound } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 type RoomCardProps = {
   room: Room
@@ -12,6 +14,7 @@ type RoomCardProps = {
 }
 
 export default function RoomCard({ room, delay }: RoomCardProps) {
+  const t = useTranslations('Dashboard.MyRooms')
 
   return (
     <MotionDiv
@@ -33,7 +36,7 @@ export default function RoomCard({ room, delay }: RoomCardProps) {
               <h2 className='text-lg md:text-xl font-semibold whitespace-nowrap text-ellipsis min-w-0 overflow-hidden dark:text-white'>{room.name}</h2>
               <div className='flex items-center gap-1 justify-start text-gray-500 dark:text-gray-400'>
                 <UsersRound className='size-4' />
-                <p className=''>{room.room_members[0].count} membro(s)</p>
+                <p className=''>{room.room_members[0].count} {t('members')}</p>
               </div>
             </div>
           </div>
@@ -45,3 +48,4 @@ export default function RoomCard({ room, delay }: RoomCardProps) {
     </MotionDiv>
   )
 }
+

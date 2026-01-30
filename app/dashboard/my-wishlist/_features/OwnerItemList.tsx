@@ -1,9 +1,11 @@
+'use client'
 import Input from '@/components/Input/Input'
 import { MotionDiv } from '@/components/Motion/Motion'
 import React from 'react'
 import { LoaderCircle, Meh, SearchX } from 'lucide-react'
 import { Item, ItemWithoutReservation } from '@/types/entities'
 import OwnerItemCard from './OwnerItemCard'
+import { useTranslations } from 'next-intl'
 
 type OwnerItemListProps = {
     search: string
@@ -15,6 +17,8 @@ type OwnerItemListProps = {
 }
 
 export default function OwnerItemList({ search, setSearch, items, isLoading, onEditItem, onDeleteItem }: OwnerItemListProps) {
+    const t = useTranslations('Dashboard.MyWishlist');
+
     return (
         <div className='w-full'>
             <MotionDiv
@@ -28,7 +32,7 @@ export default function OwnerItemList({ search, setSearch, items, isLoading, onE
                         value={search}
                         className='w-full'
                         variant='secondary'
-                        placeholder='Buscar itens da wishlist...'
+                        placeholder={t('searchPlaceholder')}
                         onChange={(e) => setSearch(e.target.value)}
                     />
                 </div>
@@ -36,7 +40,7 @@ export default function OwnerItemList({ search, setSearch, items, isLoading, onE
                 {isLoading ? (
                     <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-500 animate-pulse'>
                         <LoaderCircle className='size-10 animate-spin mb-2 text-primary-500' />
-                        <p className='text-xl font-semibold'>Carregando os itens...</p>
+                        <p className='text-xl font-semibold'>{t('ListResponses.loading')}</p>
                     </div>
                 ) : items.items.length > 0 ? (
                     <div className='w-full flex flex-col gap-2'>
@@ -53,17 +57,19 @@ export default function OwnerItemList({ search, setSearch, items, isLoading, onE
                 ) : items.count !== 0 ? (
                     <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-400'>
                         <SearchX className='size-10 mb-2 text-primary-500' />
-                        <p className='text-xl font-semibold'>Nenhum item encontrado</p>
-                        <p className='text-sm md:text-base'>Tente buscar por outro nome ou verifique a lista mais tarde.</p>
+                        <p className='text-xl font-semibold'>{t('ListResponses.emptyState')}</p>
+                        <p className='text-sm md:text-base'>{t('ListResponses.emptyStateDescription')}</p>
                     </div>
                 ) : (
                     <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-400'>
                         <Meh className='size-10 mb-2 text-primary-500' />
-                        <p className='text-xl font-semibold'>Sua lista parece estar vazia!</p>
-                        <p className='text-sm md:text-base'>Adicione itens para começar a compartilhar sua lista.</p>
+                        <p className='text-xl font-semibold'>{t('ListResponses.noItemsTitle')}</p>
+                        <p className='text-sm md:text-base'>{t('ListResponses.noItemsDescription')}</p>
                     </div>
                 )}
             </MotionDiv>
         </div>
     )
 }
+
+

@@ -5,7 +5,8 @@ import { getCurrentUserAction } from "./profiles"
 import { Item, ItemWithoutReservation } from "@/types/entities"
 import { ActionResponse, CountResponse } from "@/types/response"
 import { log } from "console"
-import { registerOrEditItemSchema, RegisterOrEditItemSchema } from "@/schemas/items"
+import { getRegisterOrEditItemSchema, RegisterOrEditItemSchema } from "@/schemas/items"
+import { getTranslations } from "next-intl/server"
 
 export async function getItemsAction(search: string = '', ownerId: string, includeReservations: boolean = true): Promise<ActionResponse<{ items: Item[] | ItemWithoutReservation[], count: number }>> {
     const supabase = await createClient()
@@ -64,8 +65,9 @@ export async function getItemsAction(search: string = '', ownerId: string, inclu
 }
 
 export async function createItemAction(itemData: RegisterOrEditItemSchema) {
+    const t = await getTranslations('Dashboard.MyWishlist.Drawer')
 
-    const parse = registerOrEditItemSchema.safeParse(itemData)
+    const parse = getRegisterOrEditItemSchema(t).safeParse(itemData)
 
     if (!parse.success) {
         return sendErrorResponse(400, parse.error.message, null)
@@ -85,7 +87,9 @@ export async function createItemAction(itemData: RegisterOrEditItemSchema) {
 }
 
 export async function updateItemAction(id: number, itemData: RegisterOrEditItemSchema) {
-    const parse = registerOrEditItemSchema.safeParse(itemData)
+    const t = await getTranslations('Dashboard.MyWishlist.Drawer')
+
+    const parse = getRegisterOrEditItemSchema(t).safeParse(itemData)
 
     if (!parse.success) {
         return sendErrorResponse(400, parse.error.message, null)
@@ -104,6 +108,7 @@ export async function updateItemAction(id: number, itemData: RegisterOrEditItemS
 
     return sendSuccessResponse(200, "Item atualizado com sucesso!", data)
 }
+
 
 export async function deleteItemAction(id: number) {
     const supabase = await createClient()

@@ -5,7 +5,17 @@ import { RegisterOrEditItemSchema } from '@/schemas/items'
 import { createItemAction, deleteItemAction, updateItemAction } from '@/actions/items'
 import { toast } from 'sonner'
 
-export function useOwnerWishlist(userId: string, initialItems: { items: Item[] | ItemWithoutReservation[], count: number }) {
+type ToastMessages = {
+    successCreate: string
+    errorCreate: string
+    successUpdate: string
+    errorUpdate: string
+    successDelete: string
+    errorDelete: string
+    invalidItemId: string
+}
+
+export function useOwnerWishlist(userId: string, initialItems: { items: Item[] | ItemWithoutReservation[], count: number }, messages: ToastMessages) {
     const { items, search, setSearch, isLoading, refresh } = useWishlistData(userId, initialItems, false)
     const [selectedItem, setSelectedItem] = useState<ItemWithoutReservation | null>(null)
     const [isItemDrawerOpen, setIsItemDrawerOpen] = useState(false)
@@ -16,15 +26,15 @@ export function useOwnerWishlist(userId: string, initialItems: { items: Item[] |
     const handleEditItem = async (itemId: number | undefined | null, itemData: RegisterOrEditItemSchema) => {
 
 
-        if (!itemId) return toast.error('ID do item inválido')
+        if (!itemId) return toast.error(messages.invalidItemId)
 
         const response = await updateItemAction(itemId, itemData)
 
         if (response.success) {
-            toast.success(response.message)
+            toast.success(messages.successUpdate)
             await refresh()
         } else {
-            toast.error(response.message)
+            toast.error(messages.errorUpdate)
         }
 
         setSelectedItem(null)
@@ -35,10 +45,10 @@ export function useOwnerWishlist(userId: string, initialItems: { items: Item[] |
         const response = await deleteItemAction(itemId)
 
         if (response.success) {
-            toast.success(response.message)
+            toast.success(messages.successDelete)
             await refresh()
         } else {
-            toast.error(response.message)
+            toast.error(messages.errorDelete)
         }
 
         closeDeleteDialog()
@@ -48,10 +58,10 @@ export function useOwnerWishlist(userId: string, initialItems: { items: Item[] |
     const handleCreateItem = async (itemData: RegisterOrEditItemSchema) => {
         const response = await createItemAction(itemData)
         if (response.success) {
-            toast.success(response.message)
+            toast.success(messages.successCreate)
             await refresh()
         } else {
-            toast.error(response.message)
+            toast.error(messages.errorCreate)
         }
         setSelectedItem(null)
         setIsItemDrawerOpen(false)

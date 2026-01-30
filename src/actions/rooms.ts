@@ -2,16 +2,18 @@
 import { createClient } from "@/lib/supabase/server";
 import slugify from 'slugify'
 import { customAlphabet } from 'nanoid'
-import { registerOrEditRoomSchema, RegisterOrEditRoomSchema } from "../schemas/rooms";
+import { getRegisterOrEditRoomSchema, RegisterOrEditRoomSchema } from "../schemas/rooms";
 import { sendErrorResponse, sendSuccessResponse } from "@/utils/response";
 import { redirect } from "next/navigation";
 import { cache } from "react";
+import { getTranslations } from "next-intl/server";
 
 const generateSuffix = customAlphabet('abcdefghijklmnopqrstuvwxyz0123456789', 6)
 
 export async function registerRoomAction(data: RegisterOrEditRoomSchema) {
+    const t = await getTranslations('Dashboard.MyRooms.Drawer')
 
-    const parse = registerOrEditRoomSchema.safeParse(data)
+    const parse = getRegisterOrEditRoomSchema(t).safeParse(data)
     if (!parse.success) {
         return sendErrorResponse(400, parse.error.message, null)
     }
@@ -68,7 +70,9 @@ export const getRoomBySlugAction = cache(async (slug: string) => {
 
 
 export async function updateRoomAction(id: number, data: RegisterOrEditRoomSchema) {
-    const parse = registerOrEditRoomSchema.safeParse(data)
+    const t = await getTranslations('Dashboard.MyRooms.Drawer')
+
+    const parse = getRegisterOrEditRoomSchema(t).safeParse(data)
     if (!parse.success) {
         return sendErrorResponse(400, parse.error.message, null)
     }
@@ -87,6 +91,7 @@ export async function updateRoomAction(id: number, data: RegisterOrEditRoomSchem
 
     return sendSuccessResponse(200, "Sala atualizada com sucesso!", room)
 }
+
 
 export async function deleteRoomAction(id: number) {
 

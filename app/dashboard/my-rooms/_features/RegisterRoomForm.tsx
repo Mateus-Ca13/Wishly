@@ -2,18 +2,20 @@
 import Button from '@/components/Button/Button'
 import Input from '@/components/Input/Input'
 import { useForm } from 'react-hook-form'
-import { registerOrEditRoomSchema, RegisterOrEditRoomSchema } from '../../../../src/schemas/rooms'
+import { getRegisterOrEditRoomSchema, RegisterOrEditRoomSchema } from '../../../../src/schemas/rooms'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Label } from '@radix-ui/react-label'
 import { RoomIconSelect, RoomIconSelectProps } from './RoomIconSelect'
 import { registerRoomAction } from '../../../../src/actions/rooms'
 import { toast } from 'sonner'
+import { useTranslations } from 'next-intl'
 
 type RegisterRoomFormProps = {
   onCreateConfirm: (roomData: RegisterOrEditRoomSchema) => void
 }
 
 export default function RegisterRoomForm({ onCreateConfirm }: RegisterRoomFormProps) {
+  const t = useTranslations('Dashboard.MyRooms.Drawer')
 
   const roomIcons: RoomIconSelectProps['images'] = [
     { src: '/room_icons/icon1.webp' },
@@ -29,8 +31,9 @@ export default function RegisterRoomForm({ onCreateConfirm }: RegisterRoomFormPr
   ]
 
   const { handleSubmit, register, setValue } = useForm<RegisterOrEditRoomSchema>({
-    resolver: zodResolver(registerOrEditRoomSchema)
+    resolver: zodResolver(getRegisterOrEditRoomSchema(t))
   })
+
 
   const onSubmit = async (data: RegisterOrEditRoomSchema) => {
     onCreateConfirm(data)
@@ -44,27 +47,28 @@ export default function RegisterRoomForm({ onCreateConfirm }: RegisterRoomFormPr
           {...register('name')}
           variant='secondary'
           name="name"
-          label="Nome do grupo"
+          label={t('nameInput.label')}
           type="text"
           required
-          placeholder='Ex: Wishilist da família'
+          placeholder={t('nameInput.placeholder')}
           className='w-full' />
         <Input
           {...register('description')}
           variant='secondary'
           name="description"
-          label="Descrição (opcional)"
+          label={t('descriptionInput.label')}
           type="text"
-          placeholder='Ex: Para o amigo secreto do natal!'
+          placeholder={t('descriptionInput.placeholder')}
           className='w-full' />
         <div>
-          <Label className='text-lg md:text-xl text-start w-full'>Tema do grupo</Label>
+          <Label className='text-lg md:text-xl text-start w-full'>{t('themeInput.label')}</Label>
           <RoomIconSelect images={roomIcons} valueSetter={setValue} />
         </div>
 
-        <Button variant='contained' className='mt-4 py-4 w-full text-lg' type='submit'>Criar Grupo</Button>
+        <Button variant='contained' className='mt-4 py-4 w-full text-lg' type='submit'>{t('submitButton')}</Button>
 
       </form>
     </div>
   )
 }
+

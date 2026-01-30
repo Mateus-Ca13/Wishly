@@ -1,13 +1,15 @@
+'use client'
 import Button from '@/components/Button/Button'
 import Input from '@/components/Input/Input'
 import Select from '@/components/Select/Select'
 import TextArea from '@/components/TextArea/TextArea'
-import { registerOrEditItemSchema, RegisterOrEditItemSchema } from '@/schemas/items'
+import { getRegisterOrEditItemSchema, RegisterOrEditItemSchema } from '@/schemas/items'
 import { ItemWithoutReservation } from '@/types/entities'
 import { formatPrice } from '@/utils/format'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ChevronDown, Heart, ThumbsUp } from 'lucide-react'
 import { useForm } from 'react-hook-form'
+import { useTranslations } from 'next-intl'
 
 type EditItemFormProps = {
     item: ItemWithoutReservation | null
@@ -16,18 +18,20 @@ type EditItemFormProps = {
 }
 
 export default function EditItemForm({ item, onConfirm, mode }: EditItemFormProps) {
+    const t = useTranslations('Dashboard.MyWishlist.Drawer')
+    const tUtils = useTranslations('Dashboard.Utils')
 
     const priorities = [
-        { label: <div className='flex items-center gap-2 text-gray-800 dark:text-gray-300'><ChevronDown className="size-4" />Baixa prioridade</div>, value: '1' },
-        { label: <div className='flex items-center gap-2 text-green-800 dark:text-green-500'><ThumbsUp className="size-4" />Tenho interesse</div>, value: '2' },
-        { label: <div className='flex items-center gap-2 text-green-600 dark:text-green-300'><Heart className="size-4" />Desejo muito</div>, value: '3' }
+        { label: <div className='flex items-center gap-2 text-gray-800 dark:text-gray-300'><ChevronDown className="size-4" />{t('priorityInput.1')}</div>, value: '1' },
+        { label: <div className='flex items-center gap-2 text-green-800 dark:text-green-500'><ThumbsUp className="size-4" />{t('priorityInput.2')}</div>, value: '2' },
+        { label: <div className='flex items-center gap-2 text-green-600 dark:text-green-300'><Heart className="size-4" />{t('priorityInput.3')}</div>, value: '3' }
     ]
 
 
     const defaultValue = priorities.find((priority) => priority.value === item?.priority?.toString()) || priorities[0]
 
     const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<RegisterOrEditItemSchema>({
-        resolver: zodResolver(registerOrEditItemSchema),
+        resolver: zodResolver(getRegisterOrEditItemSchema(t)),
         defaultValues: {
             name: item?.name || '',
             price: item?.price || 0,
@@ -59,9 +63,9 @@ export default function EditItemForm({ item, onConfirm, mode }: EditItemFormProp
             <Input
                 {...register('name')}
                 name="name"
-                label="Nome"
+                label={t('nameInput.label')}
                 variant='secondary'
-                placeholder="Nome"
+                placeholder={t('nameInput.placeholder')}
                 error={errors.name?.message}
                 required
             />
@@ -69,21 +73,21 @@ export default function EditItemForm({ item, onConfirm, mode }: EditItemFormProp
                 <Input
                     {...register('link')}
                     name="link"
-                    label="Link"
+                    label={t('linkInput.label')}
                     variant='secondary'
-                    placeholder="https://exemplo.com"
+                    placeholder={t('linkInput.placeholder')}
                     error={errors.link?.message}
 
                 />
             </div>
             <Input
-                startIcon={<span className="text-lg md:text-xl text-gray-500">R$</span>}
+                startIcon={<span className="text-lg md:text-xl text-gray-500">{tUtils('currency')}</span>}
                 onChange={onChangePrice}
                 value={formatPrice(price)}
                 name="price"
-                label="Preço"
+                label={t('priceInput.label')}
                 variant='secondary'
-                placeholder="R$ 0,00"
+                placeholder={t('priceInput.placeholder')}
                 error={errors.price?.message}
                 required
             />
@@ -91,20 +95,21 @@ export default function EditItemForm({ item, onConfirm, mode }: EditItemFormProp
                 {...register('notes')}
                 name="notes"
                 className='resize-none h-26'
-                label="Observações"
+                label={t('notesInput.label')}
                 variant='secondary'
-                placeholder="Tamanho, cor, etc."
+                placeholder={t('notesInput.placeholder')}
                 error={errors.notes?.message}
             />
             <Select
                 values={priorities}
                 defaultValue={defaultValue}
                 onChange={(value) => setValue('priority', Number(value))}
-                placeholder="Prioridade"
+                placeholder={t('priorityInput.label')}
                 variant='secondary'
                 error={errors.priority?.message}
             />
-            <Button type="submit" variant='contained' className='w-full rounded-full py-4 mb-4 mt-8'>Salvar</Button>
+            <Button type="submit" variant='contained' className='w-full rounded-full py-4 mb-4 mt-8'>{t('submitButton')}</Button>
         </form>
     )
 }
+

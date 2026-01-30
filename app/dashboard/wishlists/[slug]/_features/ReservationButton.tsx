@@ -2,6 +2,7 @@
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Card } from '@/components/ui/card'
 import { Bookmark, X } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 type ReservationButtonProps = {
     isActive: boolean
@@ -9,7 +10,7 @@ type ReservationButtonProps = {
 }
 
 export default function ReservationButton({ isActive, onClick }: ReservationButtonProps) {
-
+    const t = useTranslations('Dashboard.MemberWishlist');
 
     return (
         <div className={`fixed flex bottom-20 right-4 ${isActive ? 'left-4' : ''} md:right-12 md:bottom-30 xl:right-1/2 xl:translate-x-1/2 gap-2 `}>
@@ -21,7 +22,7 @@ export default function ReservationButton({ isActive, onClick }: ReservationButt
         cursor-pointer bg-primary-100 dark:bg-primary-700 rounded-full w-full"
             >
                 <div className=" text-primary-700 dark:text-primary-100 text-sm flex justify-center items-center h-full  font-bold text-center animate-pulse">
-                    <span className='hidden md:block mr-1'>Modo de reserva ativo:</span> Selecione os itens para reservar
+                    <span className='hidden md:block mr-1'>{t('reserveButtonsMode.selectModetitle')}</span> {t('reserveButtonsMode.selectModeDescription')}
                 </div>
             </MotionDiv>
             }
@@ -40,12 +41,12 @@ export default function ReservationButton({ isActive, onClick }: ReservationButt
                     {isActive ? (
                         <div className="flex items-center text-white gap-2 py-2">
                             <X className='size-6' />
-                            <span className="font-bold pr-2">Cancelar</span>
+                            <span className="font-bold pr-2">{t('reserveButtonsMode.cancelButton')}</span>
                         </div>
                     ) : (
                         <div className="flex items-center text-white gap-2 py-2">
                             <Bookmark className='size-6' />
-                            <span className="font-bold pr-2">Reservar Itens</span>
+                            <span className="font-bold pr-2">{t('reserveButton')}</span>
                         </div>
                     )}
                 </Card>

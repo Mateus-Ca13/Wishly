@@ -2,5 +2,9 @@
     "css.lint.unknownAtRules": "ignore",
     "files.associations": {
         "*.css": "tailwindcss"
-    }
+    },
+    "i18n-ally.localesPaths": [
+        "messages",
+        "src/lib/i18n"
+    ]
 }

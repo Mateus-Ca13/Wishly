@@ -1,3 +1,4 @@
+'use client'
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer'
 import { ItemWithoutReservation } from '@/types/entities'
 import { Separator } from '@radix-ui/react-separator'
@@ -5,6 +6,7 @@ import EditItemForm from './ItemForm'
 import { RegisterOrEditItemSchema } from '@/schemas/items'
 import { MotionDiv } from '@/components/Motion/Motion'
 import { PlusCircle } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 type ItemDrawerProps = {
     item: ItemWithoutReservation | null
@@ -15,8 +17,9 @@ type ItemDrawerProps = {
 }
 
 export default function ItemDrawer({ item, onClose, isOpen, onConfirm, itemDrawerMode }: ItemDrawerProps) {
+    const t = useTranslations('Dashboard.MyWishlist.ItemDrawer')
 
-    const DrawerTitleText = itemDrawerMode === 'edit' ? 'Edição de item' : 'Criar novo item'
+    const DrawerTitleText = itemDrawerMode === 'edit' ? t('editTitle') : t('createTitle')
     if (!item) return null
 
     return (
@@ -37,3 +40,4 @@ export default function ItemDrawer({ item, onClose, isOpen, onConfirm, itemDrawe
         </Drawer>
     )
 }
+
