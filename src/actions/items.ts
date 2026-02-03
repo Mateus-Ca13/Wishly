@@ -30,7 +30,9 @@ export async function getItemsAction(search: string = '', ownerId: string, inclu
 
     ])
 
-    if (!includeReservations) return sendSuccessResponse(200, "Lista de itens retornada com sucesso!", { items: itemsResponse.data, count: countResponse.count })
+    const t = await getTranslations('Dashboard.Responses')
+
+    if (!includeReservations) return sendSuccessResponse(200, t('Items.Get.success'), { items: itemsResponse.data, count: countResponse.count })
     if (itemsResponse.error) return sendErrorResponse(itemsResponse.error.code, itemsResponse.error.message, itemsResponse.error)
     if (countResponse.error) return sendErrorResponse(countResponse.error.code, countResponse.error.message, countResponse.error)
 
@@ -61,7 +63,7 @@ export async function getItemsAction(search: string = '', ownerId: string, inclu
         return item
     })
 
-    return sendSuccessResponse(200, "Lista de itens retornada com sucesso!", { items: sanitizedItems, count: countResponse.count })
+    return sendSuccessResponse(200, t('Items.Get.success'), { items: sanitizedItems, count: countResponse.count })
 }
 
 export async function createItemAction(itemData: RegisterOrEditItemSchema) {
@@ -73,6 +75,7 @@ export async function createItemAction(itemData: RegisterOrEditItemSchema) {
         return sendErrorResponse(400, parse.error.message, null)
     }
 
+    const tResponse = await getTranslations('Dashboard.Responses')
     const supabase = await createClient()
 
     const { data, error } = await supabase
@@ -83,7 +86,7 @@ export async function createItemAction(itemData: RegisterOrEditItemSchema) {
 
     if (error) return sendErrorResponse(error.code, error.message, error)
 
-    return sendSuccessResponse(200, "Item criado com sucesso!", data)
+    return sendSuccessResponse(200, tResponse('Items.Create.success'), data)
 }
 
 export async function updateItemAction(id: number, itemData: RegisterOrEditItemSchema) {
@@ -95,6 +98,7 @@ export async function updateItemAction(id: number, itemData: RegisterOrEditItemS
         return sendErrorResponse(400, parse.error.message, null)
     }
 
+    const tResponse = await getTranslations('Dashboard.Responses')
     const supabase = await createClient()
 
     const { data, error } = await supabase
@@ -106,18 +110,19 @@ export async function updateItemAction(id: number, itemData: RegisterOrEditItemS
 
     if (error) return sendErrorResponse(error.code, error.message, error)
 
-    return sendSuccessResponse(200, "Item atualizado com sucesso!", data)
+    return sendSuccessResponse(200, tResponse('Items.Update.success'), data)
 }
 
 
 export async function deleteItemAction(id: number) {
     const supabase = await createClient()
 
+    const t = await getTranslations('Dashboard.Responses')
     const { error } = await supabase.from('items').delete().eq('id', id)
     if (error) {
         return sendErrorResponse(error.code, error.message, error)
     }
 
-    return sendSuccessResponse(200, "Item deletado com sucesso!", null)
+    return sendSuccessResponse(200, t('Items.Delete.success'), null)
 }
 

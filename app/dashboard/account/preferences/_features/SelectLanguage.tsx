@@ -9,6 +9,9 @@ const languages = [
     { code: 'pt', label: 'Português (BR)', flag: '🇧🇷' },
     { code: 'en', label: 'English (US)', flag: '🇺🇸' },
     { code: 'es', label: 'Español (ES)', flag: '🇪🇸' },
+    { code: 'fr', label: 'Français (FR)', flag: '🇫🇷' },
+    { code: 'ja', label: '日本語 (JP)', flag: '🇯🇵' },
+
 ] as const;
 
 export default function SelectLanguage() {
@@ -20,9 +23,7 @@ export default function SelectLanguage() {
         if (newLocale === locale) return;
 
         startTransition(() => {
-            // Atualiza o cookie de locale (mesmo nome usado em request.ts)
-            document.cookie = `locale=${newLocale}; path=/; max-age=31536000`;
-
+            document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`;
             router.refresh();
         });
     };

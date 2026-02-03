@@ -1,376 +1,504 @@
 {
-    "Dashboard": {
-        "MyRooms": {
-            "title": "Meus Grupos",
-            "members": "Membros",
-            "searchPlaceholder": "Buscar grupos...",
-            "createButton": "Criar grupo",
-            "Drawer": {
-                "title": "Criar novo grupo",
-                "description": "Junte seus amigos e crie um novo grupo de desejos!",
-                "nameInput": {
-                    "placeholder": "Ex: WishList da família",
-                    "label": "Nome do grupo",
-                    "error": "O nome do grupo é obrigatório",
-                    "textError": "O nome do grupo deve ser um texto",
-                    "minLength": "O nome do grupo deve ter pelo menos 3 caracteres",
-                    "maxLength": "O nome do grupo deve ter no máximo 50 caracteres"
-                },
-                "descriptionInput": {
-                    "placeholder": "Ex: Para o amigo secreto do Natal!",
-                    "label": "Descrição do grupo",
-                    "textError": "A descrição deve ser um texto",
-                    "maxLength": "A descrição do grupo deve ter no máximo 500 caracteres"
-                },
-                "iconInput": {
-                    "invalid": "Ícone inválido"
-                },
-                "themeInput": {
-                    "label": "Tema do grupo"
-                },
-                "submitButton": "Criar grupo"
-            },
-            "ToastResponses": {
-                "success": "Grupo criado com sucesso!",
-                "error": "Erro ao criar grupo"
-            },
-            "ListResponses": {
-                "loading": "Carregando seus grupos...",
-                "emptyState": "Nenhum grupo encontrado",
-                "emptyStateDescription": "Tente buscar por outro nome ou crie um novo grupo."
-            }
+  "Dashboard": {
+    "MyRooms": {
+      "title": "Meus Grupos",
+      "members": "membro(s)",
+      "searchPlaceholder": "Buscar grupos...",
+      "createButton": "Criar grupo",
+      "Drawer": {
+        "title": "Criar novo grupo",
+        "description": "Junte seus amigos e crie um novo grupo de desejos!",
+        "nameInput": {
+          "placeholder": "Ex: WishList da família",
+          "label": "Nome do grupo",
+          "error": "O nome do grupo é obrigatório",
+          "textError": "O nome do grupo deve ser um texto",
+          "minLength": "O nome do grupo deve ter pelo menos 3 caracteres",
+          "maxLength": "O nome do grupo deve ter no máximo 50 caracteres"
         },
-        "RoomsDetails": {
-            "title": "Detalhes do Grupo",
-            "members": "Membros",
-            "searchPlaceholder": "Buscar participantes...",
-            "inviteButton": "Convidar para grupo",
-            "unknownMember": "Desconhecido",
-            "InviteDrawer": {
-                "title": "Convidar para grupo",
-                "description": "Compartilhe o link de convite com seus amigos para que eles possam entrar no grupo!",
-                "copyButton": "Copiar",
-                "copyButtonSuccess": "Copiado"
-            },
-            "ListResponses": {
-                "loading": "Carregando participantes...",
-                "emptyState": "Nenhum participante encontrado",
-                "emptyStateDescription": "Tente buscar por outro nome ou convide mais pessoas."
-            }
+        "descriptionInput": {
+          "placeholder": "Ex: Para o amigo secreto do Natal!",
+          "label": "Descrição do grupo",
+          "textError": "A descrição deve ser um texto",
+          "maxLength": "A descrição do grupo deve ter no máximo 500 caracteres"
         },
-        "MemberWishlist": {
-            "title": "Wishlist de Membro",
-            "searchPlaceholder": "Buscar itens da wishlist...",
-            "reserveButton": "Reservar itens",
-            "reservedBadge": "Reservado",
-            "reserveButtonsMode": {
-                "selectModetitle": "Modo de reserva ativo:",
-                "selectModeDescription": "Selecione os itens que deseja reservar",
-                "cancelButton": "Cancelar"
-            },
-            "ListResponses": {
-                "loading": "Carregando itens...",
-                "emptyState": "Nenhum item encontrado",
-                "emptyStateDescription": "Tente buscar por outro nome ou verifique a lista mais tarde."
-            },
-            "Drawer": {
-                "notes": "Observações",
-                "noNotesSpan": "Sem informações...",
-                "submitButton": "Reservar",
-                "userAlreadyReserved": "Este item foi reservado por você",
-                "otherUserAlreadyReserved": "Este item já foi reservado por",
-                "anonymous": "alguém (anônimo)",
-                "removeReservationButton": "Remover reserva",
-                "openLinkButton": "Abrir link",
-                "noLinkButton": "Link não informado"
-            },
-            "Dialogs": {
-                "ConfirmReservation": {
-                    "title": "Confirmar reserva",
-                    "description": "Você tem certeza que deseja confirmar a reserva do seguinte item?",
-                    "anonymousCheckbox": "Reservar anonimamente",
-                    "confirmButton": "Confirmar"
-                },
-                "CancelReservation": {
-                    "title": "Cancelar reserva",
-                    "description": "Você tem certeza que deseja cancelar a reserva do seguinte item?",
-                    "confirmButton": "Confirmar"
-                }
-            },
-            "ToastResponses": {
-                "successReserve": "Item reservado com sucesso!",
-                "errorReserve": "Erro ao reservar item",
-                "successRemoveReservation": "Reserva removida com sucesso!",
-                "errorRemoveReservation": "Erro ao remover reserva",
-                "alreadyReserved": "Este item já foi reservado!"
-            }
+        "iconInput": {
+          "invalid": "Ícone inválido"
         },
-        "Navbar": {
-            "rooms": "Grupos",
-            "wishlist": "Wishlist",
-            "account": "Conta"
+        "themeInput": {
+          "label": "Tema do grupo"
         },
-        "MyWishlist": {
-            "title": "Minha Wishlist",
-            "searchPlaceholder": "Buscar itens da wishlist...",
-            "addItemButton": "Adicionar item",
-            "Drawer": {
-                "nameInput": {
-                    "placeholder": "Ex: Livro",
-                    "label": "Nome",
-                    "error": "O nome do item é obrigatório",
-                    "minLength": "O nome do item deve ter pelo menos 3 caracteres",
-                    "maxLength": "O nome do item deve ter no máximo 100 caracteres"
-                },
-                "priceInput": {
-                    "placeholder": "Ex: 10.00",
-                    "label": "Preço",
-                    "error": "O preço do item é obrigatório",
-                    "lowerThan": "O preço do item deve ter valor maior ou igual a 0",
-                    "greaterThan": "O preço do item deve ter valor menor ou igual a 999.999"
-                },
-                "linkInput": {
-                    "placeholder": "https://www.exemplo.com",
-                    "label": "Link",
-                    "invalid": "URL inválida",
-                    "maxLength": "O link do item deve ter no máximo 1000 caracteres"
-                },
-                "notesInput": {
-                    "placeholder": "Tamanho, cor, etc.",
-                    "label": "Observações",
-                    "maxLength": "As observações do item devem ter no máximo 500 caracteres"
-                },
-                "priorityInput": {
-                    "label": "Prioridade",
-                    "error": "A prioridade do item é obrigatória",
-                    "1": "Baixa prioridade",
-                    "2": "Tenho interesse",
-                    "3": "Desejo muito!"
-                },
-                "submitButton": "Salvar"
-            },
-            "ActionsMenu": {
-                "deleteButton": "Excluir",
-                "editButton": "Editar"
-            },
-            "DeleteDialog": {
-                "title": "Excluir item",
-                "description": "Você tem certeza que deseja excluir o seguinte item?",
-                "confirmButton": "Confirmar"
-            },
-            "ItemDrawer": {
-                "createTitle": "Criar novo item",
-                "editTitle": "Edição de item"
-            },
-            "ToastResponses": {
-                "successCreate": "Item adicionado à wishlist com sucesso!",
-                "errorCreate": "Erro ao adicionar item à wishlist",
-                "successDelete": "Item excluído com sucesso!",
-                "errorDelete": "Erro ao excluir item",
-                "successUpdate": "Item atualizado com sucesso!",
-                "errorUpdate": "Erro ao atualizar item",
-                "invalidItemId": "ID do item inválido"
-            },
-            "ListResponses": {
-                "loading": "Carregando itens...",
-                "emptyState": "Nenhum item encontrado",
-                "emptyStateDescription": "Tente buscar por outro nome ou adicione mais itens.",
-                "noItemsTitle": "Sua lista parece estar vazia!",
-                "noItemsDescription": "Adicione itens para começar a compartilhar sua lista."
-            }
+        "submitButton": "Criar grupo",
+        "submitButtonUpdate": "Salvar alterações"
+      },
+      "ToastResponses": {
+        "success": "Grupo criado com sucesso!",
+        "error": "Erro ao criar grupo",
+        "successUpdate": "Grupo atualizado com sucesso!",
+        "errorUpdate": "Erro ao atualizar grupo"
+      },
+      "ListResponses": {
+        "loading": "Carregando seus grupos...",
+        "emptyState": "Nenhum grupo encontrado",
+        "emptyStateDescription": "Tente buscar por outro nome ou crie um novo grupo."
+      }
+    },
+    "RoomSettings": {
+      "title": "Configurações do Grupo",
+      "formTitle": "Editar informações do grupo",
+      "formDescription": "Edite as informações do grupo",
+      "removeRoomButton": "Excluir grupo",
+      "removeRoomTitle": "Excluir grupo",
+      "removeRoomDescription": "Ao excluir o grupo, todos os dados serão perdidos.",
+      "RemoveMemberDialog": {
+        "title": "Remover membro",
+        "description": "Você tem certeza que deseja remover o membro do grupo?",
+        "confirmButton": "Remover"
+      },
+      "RemoveRoomDialog": {
+        "title": "Excluir grupo",
+        "description": "Você tem certeza que deseja excluir o grupo?",
+        "confirmButton": "Excluir",
+        "inputLabel": "Digite o nome do grupo para confirmar a exclusão."
+      },
+      "membersTitle": "Membros",
+      "membersDescription": "Lista de membros do grupo"
+    },
+    "RoomsDetails": {
+      "title": "Detalhes do Grupo",
+      "searchPlaceholder": "Buscar participantes...",
+      "inviteButton": "Convidar para grupo",
+      "settingsButton": "Configurações do grupo",
+      "unknownMember": "Desconhecido",
+      "InviteDrawer": {
+        "title": "Convidar para grupo",
+        "description": "Compartilhe o link de convite com seus amigos para que eles possam entrar no grupo!",
+        "copyButton": "Copiar",
+        "copyButtonSuccess": "Copiado"
+      },
+      "InfoDialog": {
+        "title": "Informações do Grupo",
+        "description": "Informações do grupo"
+      },
+      "ListResponses": {
+        "loading": "Carregando participantes...",
+        "emptyState": "Nenhum participante encontrado",
+        "emptyStateDescription": "Tente buscar por outro nome ou convide mais pessoas."
+      }
+    },
+    "MemberWishlist": {
+      "title": "Wishlist de Membro",
+      "searchPlaceholder": "Buscar itens da wishlist...",
+      "reserveButton": "Reservar itens",
+      "reservedBadge": "Reservado",
+      "reserveButtonsMode": {
+        "selectModetitle": "Modo de reserva ativo:",
+        "selectModeDescription": "Selecione os itens que deseja reservar",
+        "cancelButton": "Cancelar"
+      },
+      "ListResponses": {
+        "loading": "Carregando itens...",
+        "emptyState": "Nenhum item encontrado",
+        "emptyStateDescription": "Tente buscar por outro nome ou verifique a lista mais tarde."
+      },
+      "Drawer": {
+        "notes": "Observações",
+        "noNotesSpan": "Sem informações...",
+        "submitButton": "Reservar",
+        "userAlreadyReserved": "Este item foi reservado por você",
+        "otherUserAlreadyReserved": "Este item já foi reservado por",
+        "anonymous": "alguém (anônimo)",
+        "removeReservationButton": "Remover reserva",
+        "openLinkButton": "Abrir link",
+        "noLinkButton": "Link não informado"
+      },
+      "Dialogs": {
+        "ConfirmReservation": {
+          "title": "Confirmar reserva",
+          "description": "Você tem certeza que deseja confirmar a reserva do seguinte item?",
+          "anonymousCheckbox": "Reservar anonimamente",
+          "confirmButton": "Confirmar"
         },
-        "Account": {
-            "title": "Minha Conta",
-            "MyAccountGroup": {
-                "title": "Minha Conta",
-                "EditProfile": {
-                    "title": "Editar Perfil",
-                    "description": "Gerencie suas informações de perfil"
-                },
-                "Subscription": {
-                    "title": "Gerenciar assinaturas",
-                    "description": "Gerencie planos e assinaturas"
-                }
-            },
-            "SettingsGroup": {
-                "title": "Configurações",
-                "Privacy": {
-                    "title": "Privacidade e Segurança"
-                },
-                "Preferences": {
-                    "title": "Preferências"
-                },
-                "Help": {
-                    "title": "Ajuda e Suporte"
-                }
-            },
-            "Exit": {
-                "title": "Sair"
-            }
+        "CancelReservation": {
+          "title": "Cancelar reserva",
+          "description": "Você tem certeza que deseja cancelar a reserva do seguinte item?",
+          "confirmButton": "Confirmar"
+        }
+      },
+      "ToastResponses": {
+        "successReserve": "Item reservado com sucesso!",
+        "errorReserve": "Erro ao reservar item",
+        "successRemoveReservation": "Reserva removida com sucesso!",
+        "errorRemoveReservation": "Erro ao remover reserva",
+        "alreadyReserved": "Este item já foi reservado!"
+      }
+    },
+    "Navbar": {
+      "rooms": "Grupos",
+      "wishlist": "Wishlist",
+      "account": "Conta"
+    },
+    "MyWishlist": {
+      "title": "Minha Wishlist",
+      "searchPlaceholder": "Buscar itens da wishlist...",
+      "addItemButton": "Adicionar item",
+      "Drawer": {
+        "nameInput": {
+          "placeholder": "Ex: Livro",
+          "label": "Nome",
+          "error": "O nome do item é obrigatório",
+          "minLength": "O nome do item deve ter pelo menos 3 caracteres",
+          "maxLength": "O nome do item deve ter no máximo 100 caracteres"
         },
-        "Profile": {
-            "title": "Perfil",
-            "Form": {
-                "title": "Editar Perfil",
-                "description": "Gerencie suas informações de perfil",
-                "NameInput": {
-                    "label": "Nome completo",
-                    "placeholder": "Ex: João Silva",
-                    "error": "O nome completo é obrigatório",
-                    "minLength": "O nome completo deve ter pelo menos 5 caracteres",
-                    "maxLength": "O nome completo deve ter no máximo 200 caracteres"
-                },
-                "UsernameInput": {
-                    "label": "Usuário",
-                    "labelNote": "(como será exibido no perfil)",
-                    "error": "O nome de usuário é obrigatório",
-                    "minLength": "O nome de usuário deve ter pelo menos 3 caracteres",
-                    "maxLength": "O nome de usuário deve ter no máximo 200 caracteres"
-                },
-                "BirthdayInput": {
-                    "label": "Data de nascimento",
-                    "futureDateError": "A data de nascimento deve ser menor que a data atual",
-                    "invalidDateError": "Data de nascimento inválida"
-                },
-                "EmailInput": {
-                    "label": "E-mail",
-                    "error": "O e-mail é obrigatório",
-                    "invalidEmailError": "E-mail inválido"
-                },
-                "GenderInput": {
-                    "label": "Gênero",
-                    "error": "O gênero deve ser selecionado",
-                    "male": "Masculino",
-                    "female": "Feminino",
-                    "other": "Outro",
-                    "preferNotToSay": "Prefiro não informar"
-                },
-                "PasswordInput": {
-                    "label": "Senha",
-                    "error": "A senha deve ter pelo menos 6 caracteres",
-                    "minLength": "A senha deve ter pelo menos 6 caracteres",
-                    "maxLength": "A senha deve ter no máximo 50 caracteres"
-                },
-                "ConfirmPasswordInput": {
-                    "label": "Confirmar senha",
-                    "error": "As senhas não coincidem",
-                    "minLength": "A senha deve ter pelo menos 6 caracteres",
-                    "maxLength": "A senha deve ter no máximo 50 caracteres",
-                    "matchError": "As senhas não coincidem"
-                }
-            },
-            "Toast": {
-                "updateSuccess": "Perfil atualizado com sucesso!",
-                "updateError": "Erro ao atualizar perfil",
-                "alreadyExists": "Este e-mail já está cadastrado"
-            },
-            "saveButton": "Salvar",
-            "registerButton": "Cadastrar",
-            "finishRegisterButton": "Concluir"
+        "priceInput": {
+          "placeholder": "Ex: 10.00",
+          "label": "Preço",
+          "error": "O preço do item é obrigatório",
+          "lowerThan": "O preço do item deve ter valor maior ou igual a 0",
+          "greaterThan": "O preço do item deve ter valor menor ou igual a 999.999"
         },
-        "Subscriptions": {
-            "title": "Assinaturas",
-            "CurrentPlan": {
-                "title": "Assinatura atual",
-                "description": "Sua assinatura atual é",
-                "statusTitle": "Status",
-                "status": {
-                    "active": "Ativa",
-                    "canceled": "Cancelada",
-                    "expired": "Expirada"
-                },
-                "startedAt": "Iniciada em",
-                "endedAt": {
-                    "title": "Termina em",
-                    "indeterminate": "Indeterminada"
-                }
-            },
-            "Plans": {
-                "title": "Planos",
-                "recommended": "Recomendado",
-                "details": "Ver detalhes",
-                "month": "/ mês",
-                "FREE": {
-                    "title": "Plano gratuito",
-                    "description": "Plano gratuito do Wishly"
-                },
-                "BETA-FREE": {
-                    "title": "Plano gratuito (Beta)",
-                    "description": "Plano gratuito do Wishly para usuários da BETA"
-                },
-                "PREMIUM": {
-                    "title": "Plano premium",
-                    "description": "Experiência superior com muito mais possibilidades"
-                },
-                "Info": {
-                    "rooms": "grupos",
-                    "members": "membros por sala",
-                    "items": "itens por lista",
-                    "notifications": "Notificações personalizadas",
-                    "unlimited": "ilimitadas"
-                },
-                "ToastResponses": {
-                    "warning": "O sistema de assinaturas ainda está em desenvolvimento"
-                }
-            }
+        "linkInput": {
+          "placeholder": "https://www.exemplo.com",
+          "label": "Link",
+          "invalid": "URL inválida",
+          "maxLength": "O link do item deve ter no máximo 1000 caracteres"
+        },
+        "notesInput": {
+          "placeholder": "Tamanho, cor, etc.",
+          "label": "Observações",
+          "maxLength": "As observações do item devem ter no máximo 500 caracteres"
+        },
+        "priorityInput": {
+          "1": "Baixa prioridade",
+          "2": "Tenho interesse",
+          "3": "Desejo muito!",
+          "label": "Prioridade",
+          "error": "A prioridade do item é obrigatória"
+        },
+        "submitButton": "Salvar"
+      },
+      "ActionsMenu": {
+        "deleteButton": "Excluir",
+        "editButton": "Editar"
+      },
+      "DeleteDialog": {
+        "title": "Excluir item",
+        "description": "Você tem certeza que deseja excluir o seguinte item?",
+        "confirmButton": "Confirmar"
+      },
+      "ItemDrawer": {
+        "createTitle": "Criar novo item",
+        "editTitle": "Edição de item"
+      },
+      "ToastResponses": {
+        "successCreate": "Item adicionado à wishlist com sucesso!",
+        "errorCreate": "Erro ao adicionar item à wishlist",
+        "successDelete": "Item excluído com sucesso!",
+        "errorDelete": "Erro ao excluir item",
+        "successUpdate": "Item atualizado com sucesso!",
+        "errorUpdate": "Erro ao atualizar item",
+        "invalidItemId": "ID do item inválido"
+      },
+      "ListResponses": {
+        "loading": "Carregando itens...",
+        "emptyState": "Nenhum item encontrado",
+        "emptyStateDescription": "Tente buscar por outro nome ou adicione mais itens.",
+        "noItemsTitle": "Sua lista parece estar vazia!",
+        "noItemsDescription": "Adicione itens para começar a compartilhar sua lista."
+      }
+    },
+    "Account": {
+      "title": "Minha Conta",
+      "MyAccountGroup": {
+        "title": "Minha Conta",
+        "EditProfile": {
+          "title": "Editar Perfil",
+          "description": "Gerencie suas informações de perfil"
+        },
+        "Subscription": {
+          "title": "Gerenciar assinaturas",
+          "description": "Gerencie planos e assinaturas"
+        }
+      },
+      "SettingsGroup": {
+        "title": "Configurações",
+        "Privacy": {
+          "title": "Privacidade e Segurança"
         },
         "Preferences": {
-            "title": "Preferências",
-            "Themes": {
-                "title": "Aparência",
-                "description": "Gerencie a aparência do Wishly",
-                "light": "Claro",
-                "dark": "Escuro",
-                "system": "Sistema"
-            },
-            "Language": {
-                "title": "Idioma",
-                "description": "Gerencie o idioma do Wishly",
-                "pt": "Português (BR)",
-                "en": "English (US)",
-                "es": "Espanhol (ES)"
-            }
+          "title": "Preferências"
         },
-        "Auth": {
-            "welcome": "Bem-vindo(a) ao",
-            "Login": {
-                "title": "Faça login para ter acesso a sua lista de desejos!",
-                "alternate": "Não tem uma conta?",
-                "alternateLink": "Registre-se",
-                "submitButton": "Entrar",
-                "invalidCredentials": "Email ou senha incorretos"
-            },
-            "Register": {
-                "title": "Cadastro",
-                "description": "Crie sua conta e comece a sua lista de desejos!",
-                "alternate": "Já tem uma conta?",
-                "alternateLink": "Faça login"
-            }
-        },
-        "Invite": {
-            "title": "Convite para sala",
-            "description": "Você foi convidado para participar da sala",
-            "button": "Aceitar convite",
-            "successMessage": "Convite aceito com sucesso! Você será redirecionado para a sala em 3 segundos...",
-            "roomDoesNotExist": "Parece que essa sala não existe. Verifique o link ou peça para que seus amigos te reenviem o convite.",
-            "alreadyMember": "Você já é membro desta sala"
-        },
-        "Utils": {
-            "currency": "R$",
-            "price": "Preço",
-            "backButton": "Voltar",
-            "priorities": {
-                "title": "Prioridade",
-                "1": "Baixa prioridade",
-                "2": "Tem interesse",
-                "3": "Deseja muito!"
-            },
-            "appInfo": {
-                "title": "Wishly",
-                "copyright": "Todos os direitos reservados.",
-                "developer": "Desenvolvido por",
-                "version": "Versão"
-            }
+        "Help": {
+          "title": "Ajuda e Suporte"
         }
+      },
+      "Exit": {
+        "title": "Sair"
+      }
+    },
+    "Profile": {
+      "title": "Perfil",
+      "Form": {
+        "title": "Editar Perfil",
+        "description": "Gerencie suas informações de perfil",
+        "NameInput": {
+          "label": "Nome completo",
+          "placeholder": "Ex: João Silva",
+          "error": "O nome completo é obrigatório",
+          "minLength": "O nome completo deve ter pelo menos 5 caracteres",
+          "maxLength": "O nome completo deve ter no máximo 200 caracteres"
+        },
+        "UsernameInput": {
+          "label": "Usuário",
+          "labelNote": "(como será exibido no perfil)",
+          "error": "O nome de usuário é obrigatório",
+          "minLength": "O nome de usuário deve ter pelo menos 3 caracteres",
+          "maxLength": "O nome de usuário deve ter no máximo 200 caracteres"
+        },
+        "BirthdayInput": {
+          "label": "Data de nascimento",
+          "futureDateError": "A data de nascimento deve ser menor que a data atual",
+          "invalidDateError": "Data de nascimento inválida"
+        },
+        "EmailInput": {
+          "label": "E-mail",
+          "error": "O e-mail é obrigatório",
+          "invalidEmailError": "E-mail inválido"
+        },
+        "GenderInput": {
+          "label": "Gênero",
+          "error": "O gênero deve ser selecionado",
+          "male": "Masculino",
+          "female": "Feminino",
+          "other": "Outro",
+          "preferNotToSay": "Prefiro não informar"
+        },
+        "PasswordInput": {
+          "label": "Senha",
+          "error": "A senha deve ter pelo menos 6 caracteres",
+          "minLength": "A senha deve ter pelo menos 6 caracteres",
+          "maxLength": "A senha deve ter no máximo 50 caracteres"
+        },
+        "ConfirmPasswordInput": {
+          "label": "Confirmar senha",
+          "error": "As senhas não coincidem",
+          "minLength": "A senha deve ter pelo menos 6 caracteres",
+          "maxLength": "A senha deve ter no máximo 50 caracteres",
+          "matchError": "As senhas não coincidem"
+        }
+      },
+      "Toast": {
+        "updateSuccess": "Perfil atualizado com sucesso!",
+        "updateError": "Erro ao atualizar perfil",
+        "alreadyExists": "Este e-mail já está cadastrado"
+      },
+      "saveButton": "Salvar"
+    },
+    "Subscriptions": {
+      "title": "Assinaturas",
+      "CurrentPlan": {
+        "title": "Assinatura atual",
+        "description": "Sua assinatura atual é",
+        "statusTitle": "Status",
+        "status": {
+          "active": "Ativa",
+          "canceled": "Cancelada",
+          "expired": "Expirada"
+        },
+        "startedAt": "Iniciada em",
+        "endedAt": {
+          "title": "Termina em",
+          "indeterminate": "Indeterminada"
+        }
+      },
+      "Plans": {
+        "title": "Planos",
+        "recommended": "Recomendado",
+        "details": "Ver detalhes",
+        "month": "/ mês",
+        "FREE": {
+          "title": "Plano gratuito",
+          "description": "Plano gratuito do Wishly"
+        },
+        "BETA-FREE": {
+          "title": "Plano gratuito (Beta)",
+          "description": "Plano gratuito do Wishly para usuários da BETA"
+        },
+        "PREMIUM": {
+          "title": "Plano premium",
+          "description": "Experiência superior com muito mais possibilidades"
+        },
+        "Info": {
+          "rooms": "grupos",
+          "members": "membros por grupo",
+          "items": "itens por lista",
+          "notifications": "Notificações personalizadas",
+          "unlimited": "ilimitados"
+        },
+        "ToastResponses": {
+          "warning": "O sistema de assinaturas ainda está em desenvolvimento"
+        }
+      }
+    },
+    "Preferences": {
+      "title": "Preferências",
+      "Themes": {
+        "title": "Aparência",
+        "description": "Gerencie a aparência do Wishly",
+        "light": "Claro",
+        "dark": "Escuro",
+        "system": "Sistema"
+      },
+      "Language": {
+        "title": "Idioma",
+        "description": "Gerencie o idioma do Wishly",
+        "pt": "Português (BR)",
+        "en": "English (US)",
+        "es": "Espanhol (ES)"
+      }
+    },
+    "Auth": {
+      "welcome": "Bem-vindo(a) ao",
+      "Login": {
+        "title": "Faça login para ter acesso a sua lista de desejos!",
+        "alternate": "Não tem uma conta?",
+        "alternateLink": "Registre-se",
+        "submitButton": "Entrar",
+        "invalidCredentials": "Email ou senha incorretos"
+      },
+      "Register": {
+        "title": "Cadastro",
+        "description": "Crie sua conta e comece a sua lista de desejos!",
+        "alternate": "Já tem uma conta?",
+        "alternateLink": "Faça login",
+        "registerButton": "Cadastrar",
+        "finishRegisterButton": "Concluir"
+      }
+    },
+    "Invite": {
+      "title": "Convite para grupo",
+      "description": "Você foi convidado para participar do grupo",
+      "button": "Aceitar convite",
+      "successMessage": "Convite aceito com sucesso! Você será redirecionado para o grupo em 3 segundos...",
+      "roomDoesNotExist": "Parece que esse grupo não existe. Verifique o link ou peça para que seus amigos te reenviem o convite.",
+      "alreadyMember": "Você já é membro deste grupo"
+    },
+    "Responses": {
+      "Auth": {
+        "Login": {
+          "invalidCredentials": "Email ou senha incorretos"
+        },
+        "Register": {
+          "alreadyExists": "Este e-mail já está cadastrado"
+        },
+        "unauthorized": "Usuário não autenticado"
+      },
+      "Invite": {
+        "alreadyMember": "Você já é membro deste grupo"
+      },
+      "Items": {
+        "Create": {
+          "success": "Item criado com sucesso!",
+          "error": "Erro ao criar item"
+        },
+        "Update": {
+          "success": "Item atualizado com sucesso!",
+          "error": "Erro ao atualizar item"
+        },
+        "Delete": {
+          "success": "Item deletado com sucesso!",
+          "error": "Erro ao deletar item"
+        },
+        "Get": {
+          "success": "Lista de itens retornada com sucesso!",
+          "error": "Erro ao buscar itens"
+        }
+      },
+      "Profiles": {
+        "Get": {
+          "success": "Perfil retornado com sucesso!",
+          "error": "Erro ao buscar perfil"
+        },
+        "Update": {
+          "success": "Perfil atualizado com sucesso!",
+          "error": "Erro ao atualizar perfil"
+        }
+      },
+      "Reservations": {
+        "Create": {
+          "success": "Reserva criada com sucesso!",
+          "error": "Erro ao criar reserva"
+        },
+        "Delete": {
+          "success": "Reserva deletada com sucesso!",
+          "error": "Erro ao deletar reserva"
+        }
+      },
+      "RoomMembers": {
+        "Get": {
+          "success": "Lista de membros retornada com sucesso!",
+          "error": "Erro ao buscar membros"
+        },
+        "Delete": {
+          "success": "Membro excluído com sucesso!",
+          "notFound": "Este membro não foi encontrado."
+        }
+      },
+      "Rooms": {
+        "Get": {
+          "success": "Lista de grupos retornada com sucesso!",
+          "error": "Erro ao buscar grupos"
+        },
+        "Update": {
+          "success": "Grupo atualizado com sucesso!",
+          "error": "Erro ao atualizar grupo"
+        },
+        "Delete": {
+          "success": "Grupo deletado com sucesso!",
+          "error": "Erro ao deletar grupo"
+        },
+        "Create": {
+          "success": "Grupo criado com sucesso!",
+          "error": "Erro ao criar grupo"
+        }
+      },
+      "Subscriptions": {
+        "Get": {
+          "success": "Assinatura buscada com sucesso",
+          "error": "Erro ao buscar assinatura"
+        },
+        "Plans": {
+          "success": "Planos buscados com sucesso",
+          "error": "Erro ao buscar planos"
+        }
+      },
+      "General": {
+        "error": "Ocorreu um erro inesperado",
+        "searchError": "Erro ao realizar busca",
+        "countError": "Erro ao realizar contagem"
+      }
+    },
+    "Utils": {
+      "currency": "R$",
+      "price": "Preço",
+      "backButton": "Voltar",
+      "priorities": {
+        "1": "Baixa prioridade",
+        "2": "Tem interesse",
+        "3": "Deseja muito!",
+        "title": "Prioridade"
+      },
+      "appInfo": {
+        "title": "Wishly",
+        "copyright": "Todos os direitos reservados.",
+        "developer": "Desenvolvido por",
+        "version": "Versão"
+      }
     }
+  },
+  "Metadata": {
+    "title": "Wishly - Sua lista de desejos online",
+    "description": "Crie e compartilhe suas listas de desejos com facilidade.",
+    "keywords": "lista de desejos, desejos, lista, wishly, wish, lista de desejos online, lista de desejos digital, lista de desejos online, lista de desejos digital, lista de desejos online, lista de desejos digital"
+  }
 }

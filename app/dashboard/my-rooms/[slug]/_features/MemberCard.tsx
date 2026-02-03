@@ -2,7 +2,6 @@
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Card } from '@/components/ui/card'
 import { Profile } from '@/types/entities'
-import { Database } from '@/types/supabase'
 import { formatDate } from '@/utils/format'
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar'
 import { Cake, ChevronRight } from 'lucide-react'

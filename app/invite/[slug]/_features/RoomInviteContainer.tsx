@@ -7,7 +7,7 @@ import { toast } from 'sonner'
 import { useTranslations } from 'next-intl'
 
 type RoomInviteContainerProps = {
-    room: Room
+    room: Room | null
     currentUser: Profile
 }
 
@@ -15,6 +15,7 @@ export default function RoomInviteContainer({ room, currentUser }: RoomInviteCon
     const t = useTranslations('Dashboard.Invite')
 
     const handleAcceptInvite = async () => {
+        if (!room || !currentUser) return
         const response = await acceptInviteAction(room.id, currentUser.id)
 
         if (response.success) {
@@ -27,9 +28,16 @@ export default function RoomInviteContainer({ room, currentUser }: RoomInviteCon
         }
     }
 
+    if (!room) return (
+        <div className='flex flex-col items-center text-center justify-center bg-white dark:bg-gray-800 dark:border-gray-600 rounded-lg p-8 border-gray-200 border shadow-lg'>
+            <h2 className='md:text-3xl text-xl font-semibold text-gradient mb-4'>{t('title')}</h2>
+            <p className='md:text-lg text-base'>{t('roomDoesNotExist')}</p>
+        </div>
+    )
+
     return (
-        <div className='flex flex-col items-center text-center justify-center bg-white rounded-lg p-8 border-gray-200 border shadow-lg'>
-            <h2 className='md:text-3xl text-xl font-semibold text-gradient'>{t('title')}</h2>
+        <div className='flex flex-col items-center text-center justify-center bg-white dark:bg-gray-800 dark:border-gray-600 rounded-lg p-8 border-gray-200 border shadow-lg'>
+            <h2 className='md:text-3xl text-xl font-semibold text-gradient mb-4'>{t('title')}</h2>
             <p className='md:text-lg text-base'>{t('description')}</p>
 
             <h2 className='md:text-2xl text-lg font-semibold mt-4'>{room.name}</h2>

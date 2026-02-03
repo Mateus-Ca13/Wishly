@@ -5,11 +5,13 @@ import Select from '@/components/Select/Select'
 import TextArea from '@/components/TextArea/TextArea'
 import { getRegisterOrEditItemSchema, RegisterOrEditItemSchema } from '@/schemas/items'
 import { ItemWithoutReservation } from '@/types/entities'
-import { formatPrice } from '@/utils/format'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ChevronDown, Heart, ThumbsUp } from 'lucide-react'
 import { useForm } from 'react-hook-form'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useFormatter, useLocale } from 'next-intl'
+import { useCountry, useCurrency } from '@/providers/CountryStoreProvider'
+import { getCurrencyByCountry } from '@/utils/geo'
+import { getCurrencySymbol } from '@/utils/format'
 
 type EditItemFormProps = {
     item: ItemWithoutReservation | null
@@ -19,7 +21,9 @@ type EditItemFormProps = {
 
 export default function EditItemForm({ item, onConfirm, mode }: EditItemFormProps) {
     const t = useTranslations('Dashboard.MyWishlist.Drawer')
-    const tUtils = useTranslations('Dashboard.Utils')
+    const format = useFormatter()
+    const targetCurrency = useCurrency()
+    const locale = useLocale();
 
     const priorities = [
         { label: <div className='flex items-center gap-2 text-gray-800 dark:text-gray-300'><ChevronDown className="size-4" />{t('priorityInput.1')}</div>, value: '1' },
@@ -81,9 +85,9 @@ export default function EditItemForm({ item, onConfirm, mode }: EditItemFormProp
                 />
             </div>
             <Input
-                startIcon={<span className="text-lg md:text-xl text-gray-500">{tUtils('currency')}</span>}
+                startIcon={<span className="text-lg md:text-xl text-gray-500">{getCurrencySymbol(targetCurrency, locale)}</span>}
                 onChange={onChangePrice}
-                value={formatPrice(price)}
+                value={format.number(price, { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2, currency: targetCurrency })}
                 name="price"
                 label={t('priceInput.label')}
                 variant='secondary'

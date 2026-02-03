@@ -6,10 +6,9 @@ import { getTranslations } from 'next-intl/server'
 
 type PlansListProps = {
     plans: Plan[]
-    country: string
 }
 
-export default async function PlansList({ plans, country }: PlansListProps) {
+export default async function PlansList({ plans }: PlansListProps) {
     const t = await getTranslations('Dashboard.Subscriptions.Plans');
 
     const delay = 0.2
@@ -27,7 +26,7 @@ export default async function PlansList({ plans, country }: PlansListProps) {
             </MotionH1>
             <div className='flex flex-col gap-4 md:gap-8 w-full justify-center items-center my-4'>
                 {plans.map((plan, index) => (
-                    <PlanCard key={plan.id} plan={plan} delay={delay * (index + 1)} country={country} />
+                    <PlanCard key={plan.id} plan={plan} delay={delay * (index + 1)} />
                 ))}
             </div>
         </div>

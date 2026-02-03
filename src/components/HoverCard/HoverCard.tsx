@@ -18,7 +18,7 @@ export default function HoverCard({ children, message, variant = 'default', side
 
     return (
         <CnHoverCard>
-            <HoverCardTrigger>{children}</HoverCardTrigger>
+            <HoverCardTrigger asChild>{children}</HoverCardTrigger>
             <HoverCardContent side={side} className={variantClass[variant]}>
                 {message}
             </HoverCardContent>

@@ -48,7 +48,6 @@ export default function ProfileForm({ user }: ProfileFormProps) {
     }
 
     const onError = (errors: any) => {
-        console.log(errors)
     }
 
     return (

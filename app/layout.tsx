@@ -5,7 +5,9 @@ import { Toaster } from "sonner";
 import { ScrollToTop } from "@/components/ScrollToTop/ScrollToTop";
 import { ThemeProvider } from "@/providers/nextThemesProvider";
 import { NextIntlClientProvider } from 'next-intl';
-import { getLocale, getMessages } from "next-intl/server";
+import { getLocale, getMessages, getTranslations } from "next-intl/server";
+import { CountryStoreProvider } from "@/providers/CountryStoreProvider";
+import { getCountryCode } from "@/utils/server-geo";
 
 const leckerliOneFont = Leckerli_One({
   weight: ['400'],
@@ -29,36 +31,44 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
-export const metadata: Metadata = {
-  title: "Wishly - Sua lista de desejos online",
-  description: "Crie e compartilhe suas listas de desejos com facilidade.",
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('Metadata');
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    keywords: t("keywords"),
+    icons: {
+      icon: "/favicon.ico",
+      apple: "/apple-touch-icon.png",
+    },
+  };
+}
 
 
 export default async function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
 
   const locale = await getLocale();
   const messages = await getMessages();
+  const country = await getCountryCode();
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
         className={`${afacadFont.className} ${leckerliOneFont.variable} antialiased dark:bg-gray-950 `}
       >
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-        </NextIntlClientProvider>
+        <CountryStoreProvider country={country}>
+          <NextIntlClientProvider messages={messages}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="light"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+          </NextIntlClientProvider>
+        </CountryStoreProvider>
         <Toaster position="top-center" toastOptions={{ className: 'font-afacad! text-base!' }} richColors={true} />
         <ScrollToTop />
       </body>

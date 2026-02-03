@@ -1,13 +1,13 @@
 'use client'
 import Button from '@/components/Button/Button'
-import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
-import { formatPrice } from '@/utils/format'
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
 import { Separator } from '@radix-ui/react-separator'
 import Link from 'next/link'
 import { prioritiesMap } from './utils'
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Item, Profile } from '@/types/entities'
-import { useTranslations } from 'next-intl'
+import { useFormatter, useTranslations } from 'next-intl'
+import { useCurrency } from '@/providers/CountryStoreProvider'
 
 type ItemDetailsDrawerProps = {
 	item: Item | null
@@ -20,6 +20,8 @@ type ItemDetailsDrawerProps = {
 export default function ItemDetailsDrawer({ item, currentUser, isOpen, onClose, onOpenCancelReservation }: ItemDetailsDrawerProps) {
 	const t = useTranslations('Dashboard.MemberWishlist.Drawer')
 	const tUtils = useTranslations('Dashboard.Utils')
+	const targetCurrency = useCurrency()
+	const format = useFormatter();
 
 	const PriorityIcon = item?.priority ? prioritiesMap[item.priority].el : prioritiesMap[1].el;
 	const userGiverId = item?.reservations?.user_id
@@ -50,7 +52,7 @@ export default function ItemDetailsDrawer({ item, currentUser, isOpen, onClose, 
 							<div className='w-full my-8 fle'>
 								<div className='flex justify-between items-center gap-2 border-b-gray-200 dark:border-b-gray-700 border-b pb-2 mb-2'>
 									<p className='text-gray-500 dark:text-gray-300 font-semibold'>{tUtils('price')}</p>
-									<p className='text-gray-500 dark:text-gray-300'>{tUtils('currency')} {formatPrice(item.price)}</p>
+									<p className='text-gray-500 dark:text-gray-300'>{format.number(item.price, { style: 'currency', currency: targetCurrency })}</p>
 								</div>
 								<div className='flex justify-between items-center gap-2 border-b-gray-200 dark:border-b-gray-700 border-b pb-2 mb-2'>
 									<p className='text-gray-500 dark:text-gray-300 font-semibold'>{tUtils('priorities.title')}</p>

@@ -1,13 +1,15 @@
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Profile, Subscription } from '@/types/entities'
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar'
+import { getTranslations } from 'next-intl/server'
 
 type AvatarBannerProps = {
     user: Profile
     subscription: Subscription | null
 }
-export default function AvatarBanner({ user, subscription }: AvatarBannerProps) {
+export default async function AvatarBanner({ user, subscription }: AvatarBannerProps) {
     const initialLetter = user.username[0]
+    const t = await getTranslations('Dashboard.Subscriptions');
     return (
         <MotionDiv
             initial={{ opacity: 0, y: 20 }}
@@ -22,7 +24,7 @@ export default function AvatarBanner({ user, subscription }: AvatarBannerProps) 
                 <h2 className='text-xl max-w-2/3 md:text-3xl font-semibold truncate dark:text-white'>{user.username}</h2>
                 <p className='
                 text-base md:text-lg max-w-2/3 font-semibold truncate bg-green-500 text-white rounded-lg px-2 border-primary-300 
-                border mt-2 p-1 dark:bg-green-700 dark:border-green-500'>{subscription?.plan.display_name}</p>
+                border mt-2 p-1 dark:bg-green-700 dark:border-green-500'>{t(`Plans.${subscription?.plan.code}.title`)}</p>
             </div>
         </MotionDiv>
     )

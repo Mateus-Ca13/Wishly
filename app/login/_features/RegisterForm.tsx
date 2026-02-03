@@ -15,6 +15,7 @@ interface Props {
 
 export default function RegisterForm({ onSubmit }: Props) {
   const t = useTranslations('Dashboard.Profile.Form');
+  const tAuth = useTranslations('Dashboard.Auth.Register');
   const tGender = useTranslations('Dashboard.Profile.Form.GenderInput');
 
   const gender = [
@@ -52,33 +53,32 @@ export default function RegisterForm({ onSubmit }: Props) {
   }
 
   const onError = (errors: any) => {
-    console.log(errors)
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmitForm, onError)} className='gap-2 grid w-full'>
       {formStep === 'profile' ? (
         <>
-          <Input {...register('full_name')} error={errors.full_name?.message} name="full_name" label={t('NameInput.label')} type="text" />
-          <Input {...register('email')} error={errors.email?.message} name="email" label={t('EmailInput.label')} type="email" />
-          <Input {...register('password')} error={errors.password?.message} name="password" label={t('PasswordInput.label')} type="password" />
-          <Input {...register('confirm_password')} error={errors.confirm_password?.message} name="confirm_password" label={t('ConfirmPasswordInput.label')} type="password" />
+          <Input key="full_name" {...register('full_name')} error={errors.full_name?.message} name="full_name" label={t('NameInput.label')} type="text" />
+          <Input key="email" {...register('email')} error={errors.email?.message} name="email" label={t('EmailInput.label')} type="email" />
+          <Input key="password" {...register('password')} error={errors.password?.message} name="password" label={t('PasswordInput.label')} type="password" />
+          <Input key="confirm_password" {...register('confirm_password')} error={errors.confirm_password?.message} name="confirm_password" label={t('ConfirmPasswordInput.label')} type="password" />
           <CnButton
             type="button"
             onClick={validateProfileStep}
             className='cursor-pointer text-lg md:text-xl mt-4 w-full bg-linear-to-tr to-secondary-300 from-primary-300 text-black-custom hover:saturate-150 duration-200'>
-            {t('registerButton')}
+            {tAuth('registerButton')}
           </CnButton>
         </>
       ) : (
         <>
-          <Input {...register('username')} error={errors.username?.message} name="username" label={<span>{t('UsernameInput.label')} <span className='text-gray-500 text-sm md:text-base'>{t('UsernameInput.labelNote')}</span></span>} type="text" />
-          <Input {...register('birthday')} error={errors.birthday?.message} name="birthday" label={t('BirthdayInput.label')} variant='secondary' type="date" />
-          <Select onChange={(value) => setValue('gender', value as Gender)} error={errors.gender?.message} placeholder={tGender('label')} variant='secondary' values={gender} />
+          <Input key="username" {...register('username')} error={errors.username?.message} name="username" label={<span>{t('UsernameInput.label')} <span className='text-gray-500 dark:text-gray-400 text-sm md:text-base'>{t('UsernameInput.labelNote')}</span></span>} type="text" />
+          <Input key="birthday" {...register('birthday')} error={errors.birthday?.message} name="birthday" label={t('BirthdayInput.label')} variant='secondary' type="date" />
+          <Select key="gender" onChange={(value) => setValue('gender', value as Gender)} error={errors.gender?.message} placeholder={tGender('label')} variant='secondary' values={gender} />
           <CnButton
             type="submit"
             className='cursor-pointer text-lg md:text-xl mt-4 w-full bg-linear-to-tr to-secondary-300 from-primary-300 text-black-custom hover:saturate-150 duration-200'>
-            {t('finishRegisterButton')}
+            {tAuth('finishRegisterButton')}
           </CnButton>
         </>
       )}

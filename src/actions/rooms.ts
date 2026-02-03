@@ -38,7 +38,8 @@ export async function registerRoomAction(data: RegisterOrEditRoomSchema) {
         return sendErrorResponse(error.code, error.message, error)
     }
 
-    return sendSuccessResponse(200, "Sala criada com sucesso!", room)
+    const tResponse = await getTranslations('Dashboard.Responses')
+    return sendSuccessResponse(200, tResponse('Rooms.Create.success'), room)
 }
 
 export async function getRoomsAction(search: string = '') {
@@ -53,7 +54,8 @@ export async function getRoomsAction(search: string = '') {
     if (roomsCount.error) return sendErrorResponse(roomsCount.error.code, roomsCount.error.message, roomsCount.error)
 
 
-    return sendSuccessResponse(200, "Lista de salas retornada com sucesso!", { rooms: roomsResponse.data, count: roomsCount.count })
+    const t = await getTranslations('Dashboard.Responses')
+    return sendSuccessResponse(200, t('Rooms.Get.success'), { rooms: roomsResponse.data, count: roomsCount.count })
 }
 
 export const getRoomBySlugAction = cache(async (slug: string) => {
@@ -62,10 +64,15 @@ export const getRoomBySlugAction = cache(async (slug: string) => {
     const { data, error } = await supabase.from('rooms').select('*').eq('slug', slug).single()
 
     if (error) {
+        if (error.code === 'PGRST116') return sendErrorResponse(404, 'Sala não encontrada', null)
         return sendErrorResponse(error.code, error.message, error)
     }
 
-    return sendSuccessResponse(200, "Sala retornada com sucesso!", data)
+
+
+
+    const t = await getTranslations('Dashboard.Responses')
+    return sendSuccessResponse(200, t('Rooms.Get.success'), data)
 })
 
 
@@ -89,7 +96,8 @@ export async function updateRoomAction(id: number, data: RegisterOrEditRoomSchem
         return sendErrorResponse(error.code, error.message, error)
     }
 
-    return sendSuccessResponse(200, "Sala atualizada com sucesso!", room)
+    const tResponse = await getTranslations('Dashboard.Responses')
+    return sendSuccessResponse(200, tResponse('Rooms.Update.success'), room)
 }
 
 
@@ -102,5 +110,6 @@ export async function deleteRoomAction(id: number) {
         return sendErrorResponse(error.code, error.message, error)
     }
 
-    return sendSuccessResponse(200, "Sala deletada com sucesso!", null)
+    const t = await getTranslations('Dashboard.Responses')
+    return sendSuccessResponse(200, t('Rooms.Delete.success'), null)
 }

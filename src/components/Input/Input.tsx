@@ -28,7 +28,7 @@ export default function Input({ type = 'text', placeholder = '', variant = 'defa
     secondary: 'bg-gray-100 border border-gray-200 focus:border-primary-100 focus:ring-primary-100 dark:bg-gray-800 dark:border-gray-700 dark:text-white',
   }
 
-  const iconsPadding = startIcon || endIcon ? 'pl-10 pr-10' : ''
+  const iconsPadding = startIcon || endIcon ? 'pl-12 pr-12' : ''
 
   return (
     <div className="w-full items-center grid gap-2 relative">

@@ -1,6 +1,6 @@
 import { getCurrentUserAction } from '@/actions/profiles'
-import { getRoomBySlugAction } from '@/actions/rooms'
 import RoomInviteContainer from './_features/RoomInviteContainer';
+import { getRoomPublicInfoBySlugAction } from '@/actions/invite';
 
 type RoomInvitePageProps = {
     params: Promise<{ slug: string }>
@@ -10,9 +10,10 @@ type RoomInvitePageProps = {
 export default async function RoomInvitePage({ params }: RoomInvitePageProps) {
 
     const { slug } = await params;
-    const roomResponse = await getRoomBySlugAction(slug)
+    const roomResponse = await getRoomPublicInfoBySlugAction(slug)
     const currentUser = await getCurrentUserAction()
+
     return (
-        <RoomInviteContainer room={roomResponse.data} currentUser={currentUser.data} />
+        <RoomInviteContainer room={roomResponse.success ? roomResponse.data : null} currentUser={currentUser.data} />
     )
 }

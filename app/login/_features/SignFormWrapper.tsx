@@ -28,7 +28,7 @@ export default function SignFormWrapper() {
                 className='mb-4'
             />
             <div
-                className='w-full max-w-md p-8 bg-white rounded-2xl shadow-xl space-y-6 flex flex-col items-center justify-center'>
+                className='w-full max-w-md p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-xl space-y-6 flex flex-col items-center justify-center'>
 
 
                 <h1 className="text-3xl font-bold mb-6 text-center">{t('welcome')} <span className="bg-linear-to-bl font-le from-secondary-500 to-primary-500 bg-clip-text text-transparent">Wishly!</span></h1>
@@ -36,13 +36,13 @@ export default function SignFormWrapper() {
                     <>
                         <h2 className='text-lg md:text-xl text-center'>{t('Login.title')}</h2>
                         <LoginForm onSubmit={handleLogin} />
-                        <Button className='cursor-pointer gap-1 text-lg' onClick={() => setSignMode('register')}>{t('Login.alternate')} <span className='text-primary-700'>{t('Login.alternateLink')}</span></Button>
+                        <Button className='cursor-pointer gap-1 text-lg' onClick={() => setSignMode('register')}>{t('Login.alternate')} <span className='text-primary-700 dark:text-primary-300'>{t('Login.alternateLink')}</span></Button>
                     </>
                 ) : (
                     <>
                         <h2 className='text-lg md:text-xl text-center'>{t('Register.description')}</h2>
                         <RegisterForm onSubmit={handleRegister} />
-                        <Button className='cursor-pointer gap-1 text-lg ' onClick={() => setSignMode('login')}>{t('Register.alternate')} <span className='text-primary-700'>{t('Register.alternateLink')}</span></Button>
+                        <Button className='cursor-pointer gap-1 text-lg ' onClick={() => setSignMode('login')}>{t('Register.alternate')} <span className='text-primary-700 dark:text-primary-300'>{t('Register.alternateLink')}</span></Button>
                     </>
                 )}
             </div>

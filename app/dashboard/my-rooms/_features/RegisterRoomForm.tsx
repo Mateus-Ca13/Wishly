@@ -2,12 +2,10 @@
 import Button from '@/components/Button/Button'
 import Input from '@/components/Input/Input'
 import { useForm } from 'react-hook-form'
-import { getRegisterOrEditRoomSchema, RegisterOrEditRoomSchema } from '../../../../src/schemas/rooms'
+import { getRegisterOrEditRoomSchema, RegisterOrEditRoomSchema } from '@/schemas/rooms'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Label } from '@radix-ui/react-label'
-import { RoomIconSelect, RoomIconSelectProps } from './RoomIconSelect'
-import { registerRoomAction } from '../../../../src/actions/rooms'
-import { toast } from 'sonner'
+import { RoomIconSelect, RoomIconSelectProps } from '@/components/RoomIconSelect/RoomIconSelect'
 import { useTranslations } from 'next-intl'
 
 type RegisterRoomFormProps = {

@@ -19,7 +19,8 @@ export const getUserBySlugAction = cache(async (slug: string) => {
         return sendErrorResponse(error.code, error.message, error)
     }
 
-    return sendSuccessResponse(200, "Usuário retornado com sucesso!", data)
+    const t = await getTranslations('Dashboard.Responses')
+    return sendSuccessResponse(200, t('Profiles.Get.success'), data)
 })
 
 export const getUserByIdAction = cache(async (id: string) => {
@@ -31,7 +32,8 @@ export const getUserByIdAction = cache(async (id: string) => {
         return sendErrorResponse(error.code, error.message, error)
     }
 
-    return sendSuccessResponse(200, "Usuário retornado com sucesso!", data)
+    const t = await getTranslations('Dashboard.Responses')
+    return sendSuccessResponse(200, t('Profiles.Get.success'), data)
 })
 
 export const getCurrentUserAction = cache(async () => {
@@ -44,7 +46,8 @@ export const getCurrentUserAction = cache(async () => {
 
     const { data: profile } = await supabase.from('public_profiles').select('*').eq('id', user?.id!).single()
 
-    return sendSuccessResponse(200, "Usuário retornado com sucesso!", profile)
+    const t = await getTranslations('Dashboard.Responses')
+    return sendSuccessResponse(200, t('Profiles.Get.success'), profile)
 })
 
 export const updateProfileAction = async (profile: EditProfileSchema, userId: string) => {
@@ -75,6 +78,7 @@ export const updateProfileAction = async (profile: EditProfileSchema, userId: st
     if (error) {
         return sendErrorResponse(error.code, error.message, error)
     }
-    return sendSuccessResponse(200, "Perfil atualizado com sucesso!", data)
+    const tResponse = await getTranslations('Dashboard.Responses')
+    return sendSuccessResponse(200, tResponse('Profiles.Update.success'), data)
 }
 

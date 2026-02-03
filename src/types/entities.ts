@@ -39,11 +39,13 @@ type Gender = z.infer<typeof GenderEnum>;
 interface Room {
     id: number
     name: string
+    description: string
     slug: string
     created_at: string
     owner_id: string
     cover_theme: number
     room_members: [{ count: number }]
+    requires_approval: boolean
 }
 
 interface Subscription {
@@ -71,10 +73,7 @@ interface PlanPrice {
 interface Plan {
     id: number
     code: string
-    price: number // Deprecated: use prices array instead
     prices?: PlanPrice[]
-    display_name: string
-    description: string
     max_items_per_wishlist: number
     max_members_per_room: number
     max_rooms: number

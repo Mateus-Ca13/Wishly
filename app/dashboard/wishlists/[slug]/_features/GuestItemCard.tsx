@@ -1,12 +1,12 @@
 'use client'
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Card } from '@/components/ui/card'
-import { formatPrice } from '@/utils/format'
 import { ChevronRight } from 'lucide-react'
 import { prioritiesMap } from './utils'
 import { Separator } from '@radix-ui/react-separator'
 import { Item } from '@/types/entities'
-import { useTranslations } from 'next-intl'
+import { useFormatter, useTranslations } from 'next-intl'
+import { useCurrency } from '@/providers/CountryStoreProvider'
 
 type GuestItemCardProps = {
   item: Item
@@ -18,6 +18,8 @@ type GuestItemCardProps = {
 export default function GuestItemCard({ item, delay, isReservationMode, onItemClick }: GuestItemCardProps) {
   const t = useTranslations('Dashboard.MemberWishlist')
   const tUtils = useTranslations('Dashboard.Utils')
+  const targetCurrency = useCurrency();
+  const format = useFormatter();
 
   const PriorityIcon = prioritiesMap[item.priority].el;
   const isAlreadyReserved = item.reservations === null ? false : true;
@@ -48,7 +50,7 @@ export default function GuestItemCard({ item, delay, isReservationMode, onItemCl
                   <p className='truncate'>{priorityLabels[item.priority]}</p>
                 </span>
                 <Separator orientation="vertical" className="h-4 bg-gray-200 w-px" />
-                <span className=' truncate dark:text-white'>{tUtils('currency')} {formatPrice(item.price)}</span>
+                <span className=' truncate dark:text-white'>{format.number(item.price, { style: 'currency', currency: targetCurrency })}</span>
               </div>
             </div>
           </div>

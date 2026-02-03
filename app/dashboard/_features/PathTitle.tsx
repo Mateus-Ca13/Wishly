@@ -13,27 +13,39 @@ export default function PathTitle() {
     const path = usePathname();
     const router = useRouter();
 
-    const navsTitles = [ // Prioridade maior para URL dinâmicas
+    const navsTitles = [ // Prioridade maior para rotas mais específicas (com mais segmentos)
         { href: '/dashboard/account/profile', title: t('Profile.title') },
         { href: '/dashboard/account/subscriptions', title: t('Subscriptions.title') },
         { href: '/dashboard/account/privacy', title: t('Account.SettingsGroup.Privacy.title') },
         { href: '/dashboard/account/preferences', title: t('Preferences.title') },
         { href: '/dashboard/account/help', title: t('Account.SettingsGroup.Help.title') },
-        { href: '/dashboard/my-rooms/', title: t('RoomsDetails.title') },
+        { href: '/dashboard/my-rooms/[slug]/settings', title: t('RoomsDetails.settingsButton') },
+        { href: '/dashboard/my-rooms/[slug]', title: t('RoomsDetails.title') },
         { href: '/dashboard/my-rooms', title: t('MyRooms.title') },
-        { href: '/dashboard/wishlists/', title: t('MemberWishlist.title') },
+        { href: '/dashboard/wishlists/[slug]', title: t('MemberWishlist.title') },
         { href: '/dashboard/my-wishlist', title: t('MyWishlist.title') },
         { href: '/dashboard/account', title: t('Account.title') },
     ]
+
+    // Converte um href com [param] em um regex pattern
+    const hrefToRegex = (href: string): RegExp => {
+        const pattern = href
+            .replace(/\[[\w]+\]/g, '[^/]+')
+            .replace(/\//g, '\\/');
+        return new RegExp(`^${pattern}$`);
+    };
+
+    const currentPath = navsTitles.find(nav => {
+        const regex = hrefToRegex(nav.href);
+        return regex.test(path);
+    });
+    const title = currentPath ? currentPath.title : 'Dashboard';
 
     const pathsWithoutBackButton = [
         '/dashboard/my-rooms',
         '/dashboard/my-wishlist',
         '/dashboard/account',
     ]
-
-    const currentPath = navsTitles.find(nav => path.startsWith(nav.href));
-    const title = currentPath ? currentPath.title : 'Dashboard';
 
     return (
         <header className="overflow-hidden w-full flex flex-col items-center justify-center p-4 relative max-w-7xl">

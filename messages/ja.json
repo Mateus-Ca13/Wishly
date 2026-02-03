@@ -1,0 +1,498 @@
+{
+  "Dashboard": {
+    "MyRooms": {
+      "title": "マイグループ",
+      "members": "メンバー",
+      "searchPlaceholder": "グループを検索...",
+      "createButton": "グループを作成",
+      "Drawer": {
+        "title": "新しいグループを作成",
+        "description": "友達を集めて新しいウィッシュリストグループを作成しましょう！",
+        "nameInput": {
+          "placeholder": "例：家族のウィッシュリスト",
+          "label": "グループ名",
+          "error": "グループ名は必須です",
+          "textError": "グループ名はテキストである必要があります",
+          "minLength": "グループ名は3文字以上である必要があります",
+          "maxLength": "グループ名は50文字以内である必要があります"
+        },
+        "descriptionInput": {
+          "placeholder": "例：クリスマスのシークレットサンタ用！",
+          "label": "グループの説明",
+          "textError": "説明はテキストである必要があります",
+          "maxLength": "グループの説明は500文字以内である必要があります"
+        },
+        "iconInput": {
+          "invalid": "無効なアイコン"
+        },
+        "themeInput": {
+          "label": "グループのテーマ"
+        },
+        "submitButton": "グループを作成",
+        "submitButtonUpdate": "変更を保存する"
+      },
+      "ToastResponses": {
+        "success": "グループが正常に作成されました！",
+        "error": "グループの作成中にエラーが発生しました"
+      },
+      "ListResponses": {
+        "loading": "グループを読み込んでいます...",
+        "emptyState": "グループが見つかりません",
+        "emptyStateDescription": "別の名前で検索するか、新しいグループを作成してください。"
+      }
+    },
+    "RoomsDetails": {
+      "title": "グループの詳細",
+      "searchPlaceholder": "メンバーを検索...",
+      "inviteButton": "グループに招待",
+      "unknownMember": "不明",
+      "InviteDrawer": {
+        "title": "グループに招待",
+        "description": "招待リンクを友達と共有して、グループに参加してもらいましょう！",
+        "copyButton": "コピー",
+        "copyButtonSuccess": "コピーしました"
+      },
+      "ListResponses": {
+        "loading": "メンバーを読み込んでいます...",
+        "emptyState": "メンバーが見つかりません",
+        "emptyStateDescription": "別の名前で検索するか、もっと人を招待してください。"
+      },
+      "settingsButton": "グループ設定",
+      "InfoDialog": {
+        "description": "グループ情報",
+        "title": "グループ情報"
+      }
+    },
+    "MemberWishlist": {
+      "title": "メンバーのウィッシュリスト",
+      "searchPlaceholder": "ウィッシュリストのアイテムを検索...",
+      "reserveButton": "アイテムを予約",
+      "reservedBadge": "予約済み",
+      "reserveButtonsMode": {
+        "selectModetitle": "予約モードが有効：",
+        "selectModeDescription": "予約したいアイテムを選択してください",
+        "cancelButton": "キャンセル"
+      },
+      "ListResponses": {
+        "loading": "アイテムを読み込んでいます...",
+        "emptyState": "アイテムが見つかりません",
+        "emptyStateDescription": "別の名前で検索するか、後でリストを確認してください。"
+      },
+      "Drawer": {
+        "notes": "備考",
+        "noNotesSpan": "情報なし...",
+        "submitButton": "予約",
+        "userAlreadyReserved": "このアイテムはあなたが予約しました",
+        "otherUserAlreadyReserved": "このアイテムはすでに予約されています：",
+        "anonymous": "誰か（匿名）",
+        "removeReservationButton": "予約を解除",
+        "openLinkButton": "リンクを開く",
+        "noLinkButton": "リンクが提供されていません"
+      },
+      "Dialogs": {
+        "ConfirmReservation": {
+          "title": "予約の確認",
+          "description": "次のアイテムの予約を確定してもよろしいですか？",
+          "anonymousCheckbox": "匿名で予約する",
+          "confirmButton": "確認"
+        },
+        "CancelReservation": {
+          "title": "予約のキャンセル",
+          "description": "次のアイテムの予約をキャンセルしてもよろしいですか？",
+          "confirmButton": "確認"
+        }
+      },
+      "ToastResponses": {
+        "successReserve": "アイテムが正常に予約されました！",
+        "errorReserve": "アイテムの予約中にエラーが発生しました",
+        "successRemoveReservation": "予約が正常に解除されました！",
+        "errorRemoveReservation": "予約の解除中にエラーが発生しました",
+        "alreadyReserved": "このアイテムはすでに予約されています！"
+      }
+    },
+    "Navbar": {
+      "rooms": "グループ",
+      "wishlist": "ウィッシュリスト",
+      "account": "アカウント"
+    },
+    "MyWishlist": {
+      "title": "マイウィッシュリスト",
+      "searchPlaceholder": "ウィッシュリストのアイテムを検索...",
+      "addItemButton": "アイテムを追加",
+      "Drawer": {
+        "nameInput": {
+          "placeholder": "例：本",
+          "label": "名前",
+          "error": "アイテム名は必須です",
+          "minLength": "アイテム名は3文字以上である必要があります",
+          "maxLength": "アイテム名は100文字以内である必要があります"
+        },
+        "priceInput": {
+          "placeholder": "例：1000",
+          "label": "価格",
+          "error": "アイテムの価格は必須です",
+          "lowerThan": "アイテムの価格は0以上である必要があります",
+          "greaterThan": "アイテムの価格は999,999以下である必要があります"
+        },
+        "linkInput": {
+          "placeholder": "https://www.example.com",
+          "label": "リンク",
+          "invalid": "無効なURL",
+          "maxLength": "アイテムのリンクは1000文字以内である必要があります"
+        },
+        "notesInput": {
+          "placeholder": "サイズ、色など",
+          "label": "備考",
+          "maxLength": "アイテムの備考は500文字以内である必要があります"
+        },
+        "priorityInput": {
+          "1": "低優先度",
+          "2": "興味あり",
+          "3": "強く希望！",
+          "label": "優先度",
+          "error": "アイテムの優先度は必須です"
+        },
+        "submitButton": "保存"
+      },
+      "ActionsMenu": {
+        "deleteButton": "削除",
+        "editButton": "編集"
+      },
+      "DeleteDialog": {
+        "title": "アイテムを削除",
+        "description": "次のアイテムを削除してもよろしいですか？",
+        "confirmButton": "確認"
+      },
+      "ItemDrawer": {
+        "createTitle": "新しいアイテムを追加",
+        "editTitle": "アイテムを編集"
+      },
+      "ToastResponses": {
+        "successCreate": "アイテムがウィッシュリストに正常に追加されました！",
+        "errorCreate": "ウィッシュリストへのアイテム追加中にエラーが発生しました",
+        "successDelete": "アイテムが正常に削除されました！",
+        "errorDelete": "アイテムの削除中にエラーが発生しました",
+        "successUpdate": "アイテムが正常に更新されました！",
+        "errorUpdate": "アイテムの更新中にエラーが発生しました",
+        "invalidItemId": "無効なアイテムID"
+      },
+      "ListResponses": {
+        "loading": "アイテムを読み込んでいます...",
+        "emptyState": "アイテムが見つかりません",
+        "emptyStateDescription": "別の名前で検索するか、もっとアイテムを追加してください。",
+        "noItemsTitle": "リストが空のようです！",
+        "noItemsDescription": "アイテムを追加してリストの共有を開始しましょう。"
+      }
+    },
+    "Account": {
+      "title": "マイアカウント",
+      "MyAccountGroup": {
+        "title": "マイアカウント",
+        "EditProfile": {
+          "title": "プロフィールを編集",
+          "description": "プロフィール情報を管理します"
+        },
+        "Subscription": {
+          "title": "サブスクリプションを管理",
+          "description": "プランとサブスクリプションを管理します"
+        }
+      },
+      "SettingsGroup": {
+        "title": "設定",
+        "Privacy": {
+          "title": "プライバシーとセキュリティ"
+        },
+        "Preferences": {
+          "title": "設定"
+        },
+        "Help": {
+          "title": "ヘルプとサポート"
+        }
+      },
+      "Exit": {
+        "title": "サインアウト"
+      }
+    },
+    "Profile": {
+      "title": "プロフィール",
+      "Form": {
+        "title": "プロフィールを編集",
+        "description": "プロフィール情報を管理します",
+        "NameInput": {
+          "label": "氏名",
+          "placeholder": "例：山田 太郎",
+          "error": "氏名は必須です",
+          "minLength": "氏名は5文字以上である必要があります",
+          "maxLength": "氏名は200文字以内である必要があります"
+        },
+        "UsernameInput": {
+          "label": "ユーザー名",
+          "labelNote": "（プロフィールに表示されます）",
+          "error": "ユーザー名は必須です",
+          "minLength": "ユーザー名は3文字以上である必要があります",
+          "maxLength": "ユーザー名は200文字以内である必要があります"
+        },
+        "BirthdayInput": {
+          "label": "生年月日",
+          "futureDateError": "生年月日は過去の日付である必要があります",
+          "invalidDateError": "無効な生年月日"
+        },
+        "EmailInput": {
+          "label": "メールアドレス",
+          "error": "メールアドレスは必須です",
+          "invalidEmailError": "無効なメールアドレス"
+        },
+        "GenderInput": {
+          "label": "性別",
+          "error": "性別を選択する必要があります",
+          "male": "男性",
+          "female": "女性",
+          "other": "その他",
+          "preferNotToSay": "回答しない"
+        },
+        "PasswordInput": {
+          "label": "パスワード",
+          "error": "パスワードは6文字以上である必要があります",
+          "minLength": "パスワードは6文字以上である必要があります",
+          "maxLength": "パスワードは50文字以内である必要があります"
+        },
+        "ConfirmPasswordInput": {
+          "label": "パスワード（確認）",
+          "error": "パスワードが一致しません",
+          "minLength": "パスワードは6文字以上である必要があります",
+          "maxLength": "パスワードは50文字以内である必要があります",
+          "matchError": "パスワードが一致しません"
+        }
+      },
+      "Toast": {
+        "updateSuccess": "プロフィールが正常に更新されました！",
+        "updateError": "プロフィールの更新中にエラーが発生しました",
+        "alreadyExists": "このメールアドレスは既に登録されています"
+      },
+      "saveButton": "保存"
+    },
+    "Subscriptions": {
+      "title": "サブスクリプション",
+      "CurrentPlan": {
+        "title": "現在のサブスクリプション",
+        "description": "現在のサブスクリプションは",
+        "statusTitle": "ステータス",
+        "status": {
+          "active": "有効",
+          "canceled": "キャンセル済み",
+          "expired": "期限切れ"
+        },
+        "startedAt": "開始日",
+        "endedAt": {
+          "title": "終了日",
+          "indeterminate": "未定"
+        }
+      },
+      "Plans": {
+        "title": "プラン",
+        "recommended": "おすすめ",
+        "details": "詳細を見る",
+        "month": "/ 月",
+        "FREE": {
+          "title": "無料プラン",
+          "description": "Wishlyの無料プラン"
+        },
+        "BETA-FREE": {
+          "title": "無料プラン（ベータ）",
+          "description": "BETAユーザー向けのWishlyの無料プラン"
+        },
+        "PREMIUM": {
+          "title": "プレミアムプラン",
+          "description": "より多くの可能性を秘めた優れた体験"
+        },
+        "Info": {
+          "rooms": "グループ",
+          "members": "グループごとのメンバー",
+          "items": "リストごとのアイテム",
+          "notifications": "カスタム通知",
+          "unlimited": "無制限"
+        },
+        "ToastResponses": {
+          "warning": "サブスクリプションシステムはまだ開発中です"
+        }
+      }
+    },
+    "Preferences": {
+      "title": "設定",
+      "Themes": {
+        "title": "外観",
+        "description": "Wishlyの外観を管理します",
+        "light": "ライト",
+        "dark": "ダーク",
+        "system": "システム"
+      },
+      "Language": {
+        "title": "言語",
+        "description": "Wishlyの言語を管理します",
+        "pt": "ポルトガル語 (BR)",
+        "en": "英語 (US)",
+        "es": "スペイン語 (ES)"
+      }
+    },
+    "Auth": {
+      "welcome": "ようこそ",
+      "Login": {
+        "title": "サインインしてウィッシュリストにアクセスしましょう！",
+        "alternate": "アカウントをお持ちでないですか？",
+        "alternateLink": "サインアップ",
+        "submitButton": "サインイン",
+        "invalidCredentials": "メールアドレスまたはパスワードが正しくありません"
+      },
+      "Register": {
+        "title": "登録",
+        "description": "アカウントを作成してウィッシュリストを始めましょう！",
+        "alternate": "すでにアカウントをお持ちですか？",
+        "alternateLink": "サインイン",
+        "registerButton": "登録",
+        "finishRegisterButton": "完了"
+      }
+    },
+    "Invite": {
+      "title": "グループへの招待",
+      "description": "グループに招待されました",
+      "button": "招待を承認",
+      "successMessage": "招待が正常に承認されました！3秒後にグループにリダイレクトされます...",
+      "roomDoesNotExist": "このグループは存在しないようです。リンクを確認するか、友人に招待を再送してもらってください。",
+      "alreadyMember": "あなたはすでにこのルームのメンバーです"
+    },
+    "Responses": {
+      "Auth": {
+        "Login": {
+          "invalidCredentials": "メールアドレスまたはパスワードが正しくありません"
+        },
+        "Register": {
+          "alreadyExists": "このメールアドレスは既に登録されています"
+        },
+        "unauthorized": "ユーザーが認証されていません"
+      },
+      "Invite": {
+        "alreadyMember": "あなたはすでにこのグループのメンバーです"
+      },
+      "Items": {
+        "Create": {
+          "success": "アイテムが正常に作成されました！",
+          "error": "アイテムの作成中にエラーが発生しました"
+        },
+        "Update": {
+          "success": "アイテムが正常に更新されました！",
+          "error": "アイテムの更新中にエラーが発生しました"
+        },
+        "Delete": {
+          "success": "アイテムが正常に削除されました！",
+          "error": "アイテムの削除中にエラーが発生しました"
+        },
+        "Get": {
+          "success": "アイテムリストが正常に取得されました！",
+          "error": "アイテムの取得中にエラーが発生しました"
+        }
+      },
+      "Profiles": {
+        "Get": {
+          "success": "プロフィールが正常に取得されました！",
+          "error": "プロフィールの取得中にエラーが発生しました"
+        },
+        "Update": {
+          "success": "プロフィールが正常に更新されました！",
+          "error": "プロフィールの更新中にエラーが発生しました"
+        }
+      },
+      "Reservations": {
+        "Create": {
+          "success": "予約が正常に作成されました！",
+          "error": "予約の作成中にエラーが発生しました"
+        },
+        "Delete": {
+          "success": "予約が正常に削除されました！",
+          "error": "予約の削除中にエラーが発生しました"
+        }
+      },
+      "RoomMembers": {
+        "Get": {
+          "success": "メンバーリストが正常に取得されました！",
+          "error": "メンバーの取得中にエラーが発生しました"
+        },
+        "Delete": {
+          "success": "メンバーが正常に削除されました。",
+          "notFound": "このメンバーは見つかりませんでした。"
+        }
+      },
+      "Rooms": {
+        "Get": {
+          "success": "グループリストが正常に取得されました！",
+          "error": "グループの取得中にエラーが発生しました"
+        },
+        "Update": {
+          "success": "グループが正常に更新されました！",
+          "error": "グループの更新中にエラーが発生しました"
+        },
+        "Delete": {
+          "success": "グループが正常に削除されました！",
+          "error": "グループの削除中にエラーが発生しました"
+        },
+        "Create": {
+          "success": "グループが正常に作成されました！",
+          "error": "グループの作成中にエラーが発生しました"
+        }
+      },
+      "Subscriptions": {
+        "Get": {
+          "success": "サブスクリプションが正常に取得されました",
+          "error": "サブスクリプションの取得中にエラーが発生しました"
+        },
+        "Plans": {
+          "success": "プランが正常に取得されました",
+          "error": "プランの取得中にエラーが発生しました"
+        }
+      },
+      "General": {
+        "error": "予期しないエラーが発生しました",
+        "searchError": "検索実行中にエラーが発生しました",
+        "countError": "カウント実行中にエラーが発生しました"
+      }
+    },
+    "Utils": {
+      "currency": "¥",
+      "price": "価格",
+      "backButton": "戻る",
+      "priorities": {
+        "1": "低優先度",
+        "2": "興味あり",
+        "3": "強く希望！",
+        "title": "優先度"
+      },
+      "appInfo": {
+        "title": "Wishly",
+        "copyright": "All rights reserved.",
+        "developer": "Developed by",
+        "version": "Version"
+      }
+    },
+    "RoomSettings": {
+      "removeRoomButton": "グループの削除",
+      "RemoveRoomDialog": {
+        "title": "グループの削除",
+        "description": "グループを削除してもよろしいですか?",
+        "confirmButton": "取り除く",
+        "inputLabel": "グループ名を入力して削除を確認します。"
+      },
+      "removeRoomDescription": "グループを削除すると、すべてのデータが失われます。",
+      "membersTitle": "メンバー",
+      "membersDescription": "グループメンバーのリスト",
+      "RemoveMemberDialog": {
+        "title": "メンバーの削除",
+        "description": "グループからメンバーを削除してもよろしいですか?",
+        "confirmButton": "取り除く"
+      }
+    }
+  },
+  "Metadata": {
+    "title": "Wishly - オンラインウィッシュリスト",
+    "description": "ウィッシュリストを簡単に作成・共有できます。",
+    "keywords": "ウィッシュリスト, 欲しいものリスト, リスト, wishly, wish, オンラインウィッシュリスト, デジタルウィッシュリスト, ギフトリスト, プレゼントリスト"
+  }
+}

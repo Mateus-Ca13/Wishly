@@ -7,7 +7,6 @@ export function getCurrencyByCountry(countryCode: string | null): string {
         'BR': 'BRL',
         'US': 'USD',
 
-        // Zona Euro (Principais)
         'PT': 'EUR', // Portugal
         'ES': 'EUR', // Espanha
         'DE': 'EUR', // Alemanha
@@ -18,11 +17,11 @@ export function getCurrencyByCountry(countryCode: string | null): string {
         'AT': 'EUR', // Áustria
         'IE': 'EUR', // Irlanda
         'FI': 'EUR', // Finlândia
+        'SE': 'EUR', // Suécia
+        'NO': 'EUR', // Noruega
+        'CH': 'EUR', // Suíça
+        'JP': 'JPY', // Japão
 
-        // Outros
-        'GB': 'GBP', // Reino Unido
-        'CA': 'CAD', // Canadá
-        'AU': 'AUD', // Austrália
     };
 
     return currencyMap[country] || 'USD'; // Default para USD para o resto do mundo

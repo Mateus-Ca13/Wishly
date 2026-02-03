@@ -15,7 +15,6 @@ export function useRooms(initialRooms: { rooms: Room[], count: number }) {
     const [isCreateRoomDrawerOpen, setIsCreateRoomDrawerOpen] = useState(false)
     const isFirstRender = useRef(true)
 
-
     const fetchRooms = useCallback(async (searchTerm: string, showLoader = true) => {
         if (isFirstRender.current) {
             isFirstRender.current = false

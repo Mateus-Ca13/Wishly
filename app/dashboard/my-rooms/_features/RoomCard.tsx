@@ -2,7 +2,6 @@
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Card } from '@/components/ui/card'
 import { Room } from '@/types/entities'
-import { Database } from '@/types/supabase'
 import { ChevronRight, UsersRound } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'

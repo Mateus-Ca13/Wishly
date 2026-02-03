@@ -4,10 +4,10 @@ import { MotionDiv } from "@/components/Motion/Motion";
 import { Card } from "@/components/ui/card";
 import { prioritiesMap } from "../../wishlists/[slug]/_features/utils";
 import { Separator } from "@radix-ui/react-separator";
-import { formatPrice } from "@/utils/format";
 import { useState } from "react";
 import ItemDropdownMenu from "./ItemDropdownMenu";
-import { useTranslations } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
+import { useCurrency } from "@/providers/CountryStoreProvider";
 
 type OwnerItemCardProps = {
   item: ItemWithoutReservation;
@@ -18,6 +18,8 @@ type OwnerItemCardProps = {
 
 export default function OwnerItemCard({ item, delay, onEditItem, onDeleteItem }: OwnerItemCardProps) {
   const tUtils = useTranslations('Dashboard.Utils')
+  const targetCurrency = useCurrency()
+  const format = useFormatter()
 
   const PriorityIcon = prioritiesMap[item.priority].el;
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -53,7 +55,7 @@ export default function OwnerItemCard({ item, delay, onEditItem, onDeleteItem }:
                   orientation="vertical"
                   className="h-4 bg-gray-200 w-px"
                 />
-                <span className=" truncate">{tUtils('currency')} {formatPrice(item.price)}</span>
+                <span className=" truncate">{format.number(item.price, { style: 'currency', currency: targetCurrency })}</span>
               </div>
             </div>
           </div>

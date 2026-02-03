@@ -4,25 +4,24 @@ import { Check, ChevronRight, Star } from 'lucide-react'
 import { MotionDiv } from '@/components/Motion/Motion'
 import { toast } from 'sonner'
 import { useFormatter, useTranslations } from 'next-intl'
-import { getCurrencyByCountry } from '@/utils/geo'
+import { useCurrency } from '@/providers/CountryStoreProvider'
 
 interface PlanCardProps {
     plan: Plan
     delay: number
-    country: string
 }
 
-export default function PlanCard({ plan, delay, country }: PlanCardProps) {
+export default function PlanCard({ plan, delay }: PlanCardProps) {
+    const targetCurrency = useCurrency();
     const t = useTranslations('Dashboard.Subscriptions.Plans');
     const format = useFormatter();
 
     const premium = plan.code === 'PREMIUM'
 
     const getPrice = () => {
-        const targetCurrency = getCurrencyByCountry(country);
 
         if (!plan.prices || plan.prices.length === 0) {
-            return { amount: plan.price ?? 0, currency: targetCurrency }
+            return { amount: 0, currency: targetCurrency }
         }
 
 
@@ -63,8 +62,8 @@ export default function PlanCard({ plan, delay, country }: PlanCardProps) {
                 </div>}
                 <div className='flex flex-col items-start justify-start text-start my-2'>
                     <p className='text-3xl md:text-4xl text-gradient font-semibold'>{format.number(amount, { style: 'currency', currency: currency })}<span className='text-lg md:text-xl text-black dark:text-white ms-1'>{t('month')}</span></p>
-                    <p className='text-lg md:text-xl text-primary-500 font-semibold dark:text-white'>{plan.display_name}</p>
-                    <p className='text-sm md:text-base text-gray-500 dark:text-gray-300'>{plan.description}</p>
+                    <p className='text-lg md:text-xl text-primary-500 font-semibold dark:text-white'>{t(`${plan.code}.title`)}</p>
+                    <p className='text-sm md:text-base text-gray-500 dark:text-gray-300'>{t(`${plan.code}.description`)}</p>
                 </div>
 
                 <div>

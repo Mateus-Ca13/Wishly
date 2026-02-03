@@ -1,11 +1,20 @@
-import { SubscriptionStatus } from "@/types/entities"
+export function getCurrencySymbol(currencyCode: string, locale = 'es') {
+  try {
+    const formatter = new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency: currencyCode,
+    });
 
-export function formatPrice(price: number): string {
-  return new Intl.NumberFormat('pt-BR', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(price)
+    const parts = formatter.formatToParts(0);
+    const symbol = parts.find(part => part.type === 'currency')?.value;
+
+
+    return symbol || currencyCode;
+  } catch (e) {
+    return currencyCode;
+  }
 }
+
 
 export function formatDate(date: string | null, format: 'short' | 'long' = 'short'): string {
 

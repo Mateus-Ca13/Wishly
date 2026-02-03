@@ -27,7 +27,8 @@ export async function authLoginAction(data: LoginSchema) {
   })
 
   if (error) {
-    const errorMessage = error.code === 'invalid_credentials' ? t('invalidCredentials') : error.message
+    const tResponse = await getTranslations('Dashboard.Responses')
+    const errorMessage = error.code === 'invalid_credentials' ? tResponse('Auth.Login.invalidCredentials') : error.message
 
     return sendErrorResponse(error.code, errorMessage, error)
   }
@@ -60,12 +61,15 @@ export async function authRegisterAction(userData: RegisterProfileSchema) {
         full_name: parse.data.full_name,
         username: parse.data.username,
         slug: `${baseSlug}-${generateSuffix()}`,
+        birthday: parse.data.birthday,
+        gender: parse.data.gender,
       }
     }
   })
 
   if (error) {
-    if (error.code === 'user_already_exists') return sendErrorResponse(400, t('alreadyExists'), null)
+    const tResponse = await getTranslations('Dashboard.Responses')
+    if (error.code === 'user_already_exists') return sendErrorResponse(400, tResponse('Auth.Register.alreadyExists'), null)
     return sendErrorResponse(error.code, error.message, null)
   }
 

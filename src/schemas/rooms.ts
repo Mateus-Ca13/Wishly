@@ -1,8 +1,8 @@
 import z from "zod";
 
 export const getRegisterOrEditRoomSchema = (t: any) => z.object({
-  name: z.string(t('nameInput.textError')).min(3, t('nameInput.minLength')).max(100, t('nameInput.maxLength')),
-  description: z.string(t('descriptionInput.textError')).max(300, t('descriptionInput.maxLength')).optional(),
+  name: z.string(t('nameInput.textError')).min(3, t('nameInput.minLength')).max(100, t('nameInput.maxLength')).trim(),
+  description: z.string(t('descriptionInput.textError')).max(300, t('descriptionInput.maxLength')).trim().optional(),
   icon: z.number(t('iconInput.invalid')).min(1, t('iconInput.invalid')).max(10, t('iconInput.invalid'))
 });
 
