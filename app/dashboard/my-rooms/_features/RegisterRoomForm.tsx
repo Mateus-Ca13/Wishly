@@ -29,7 +29,12 @@ export default function RegisterRoomForm({ onCreateConfirm }: RegisterRoomFormPr
   ]
 
   const { handleSubmit, register, setValue } = useForm<RegisterOrEditRoomSchema>({
-    resolver: zodResolver(getRegisterOrEditRoomSchema(t))
+    resolver: zodResolver(getRegisterOrEditRoomSchema(t)),
+    defaultValues: {
+      name: '',
+      description: '',
+      icon: 1
+    }
   })
 
 

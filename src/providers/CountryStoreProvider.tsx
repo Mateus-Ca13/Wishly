@@ -28,7 +28,7 @@ export function CountryStoreProvider({ children, country }: CountryStoreProvider
 export function useCountryStore<T>(selector: (state: CountryState) => T): T {
     const store = useContext(CountryStoreContext);
     if (!store) {
-        throw new Error('useCountryStore deve ser usado dentro de um CountryStoreProvider');
+        throw new Error('useCountryStore must be used inside a CountryStoreProvider');
     }
     return useStore(store, selector);
 }

@@ -16,7 +16,7 @@ export default function RoomInviteContainer({ room, currentUser }: RoomInviteCon
 
     const handleAcceptInvite = async () => {
         if (!room || !currentUser) return
-        const response = await acceptInviteAction(room.id, currentUser.id)
+        const response = await acceptInviteAction(room, currentUser.id)
 
         if (response.success) {
             toast.success(t('successMessage'))
@@ -42,7 +42,7 @@ export default function RoomInviteContainer({ room, currentUser }: RoomInviteCon
 
             <h2 className='md:text-2xl text-lg font-semibold mt-4'>{room.name}</h2>
 
-            <Button className='cursor-pointer gap-1 text-lg w-full mt-10' variant='contained' onClick={handleAcceptInvite}>{t('button')}</Button>
+            <Button className='cursor-pointer gap-1 text-lg w-full mt-6' variant='contained' onClick={handleAcceptInvite}>{t('button')}</Button>
         </div>
     )
 }

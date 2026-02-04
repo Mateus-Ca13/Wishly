@@ -2,15 +2,18 @@
 import Button from '@/components/Button/Button';
 import { Check } from 'lucide-react';
 import { useLocale } from 'next-intl';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 
 const languages = [
-    { code: 'pt', label: 'Português (BR)', flag: '🇧🇷' },
-    { code: 'en', label: 'English (US)', flag: '🇺🇸' },
-    { code: 'es', label: 'Español (ES)', flag: '🇪🇸' },
-    { code: 'fr', label: 'Français (FR)', flag: '🇫🇷' },
-    { code: 'ja', label: '日本語 (JP)', flag: '🇯🇵' },
+    { code: 'pt', label: 'Português (BR)' },
+    { code: 'en', label: 'English (US)' },
+    { code: 'es', label: 'Español (ES)' },
+    { code: 'it', label: 'Italiano (IT)' },
+    { code: 'fr', label: 'Français (FR)' },
+    { code: 'jp', label: '日本語 (JP)' },
+
 
 ] as const;
 
@@ -42,7 +45,9 @@ export default function SelectLanguage() {
                     disabled={isPending}
                 >
                     <span className='text-lg md:text-xl text-black dark:text-white flex items-center gap-2'>
-                        <span>{lang.flag}</span>
+                        <span>
+                            <Image src={`/country_icons/${lang.code}.png`} className='rounded-full' alt={lang.label} width={24} height={24} />
+                        </span>
                         {lang.label}
                     </span>
                     {locale === lang.code && (

@@ -75,6 +75,9 @@ export async function createItemAction(itemData: RegisterOrEditItemSchema) {
         return sendErrorResponse(400, parse.error.message, null)
     }
 
+    const checkLimitsResponse = await checkItemLimitsAction()
+    if (!checkLimitsResponse.success) return checkLimitsResponse
+
     const tResponse = await getTranslations('Dashboard.Responses')
     const supabase = await createClient()
 
@@ -126,3 +129,26 @@ export async function deleteItemAction(id: number) {
     return sendSuccessResponse(200, t('Items.Delete.success'), null)
 }
 
+async function checkItemLimitsAction() {
+    const t = await getTranslations('Dashboard.Responses')
+    const supabase = await createClient()
+
+    const currentUser = await supabase.auth.getUser()
+
+    if (!currentUser.data.user) return sendErrorResponse(401, 'Unauthorized', null)
+
+    const [itemsCountResponse, subscriptionResponse] = await Promise.all([
+        supabase.from('items').select('*', { count: 'exact', head: true }).eq('user_id', currentUser.data.user.id),
+        supabase.from('subscriptions').select('*, plan: plans(*)').eq('user_id', currentUser.data.user.id).single()
+    ])
+
+    if (itemsCountResponse.error) return sendErrorResponse(itemsCountResponse.error.code, itemsCountResponse.error.message, itemsCountResponse.error)
+    if (subscriptionResponse.error) return sendErrorResponse(subscriptionResponse.error.code, subscriptionResponse.error.message, subscriptionResponse.error)
+
+    const maxItems = subscriptionResponse.data.plan.max_items_per_wishlist
+    const currentItems = itemsCountResponse.count ?? 0
+
+    if (currentItems >= maxItems) return sendErrorResponse(426, t('Items.Limits.exceeded'), null)
+
+    return sendSuccessResponse(200, 'OK', null)
+}

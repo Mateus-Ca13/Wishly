@@ -4,9 +4,10 @@ import slugify from 'slugify'
 import { customAlphabet } from 'nanoid'
 import { getRegisterOrEditRoomSchema, RegisterOrEditRoomSchema } from "../schemas/rooms";
 import { sendErrorResponse, sendSuccessResponse } from "@/utils/response";
-import { redirect } from "next/navigation";
 import { cache } from "react";
 import { getTranslations } from "next-intl/server";
+import { Subscription } from "@/types/entities";
+
 
 const generateSuffix = customAlphabet('abcdefghijklmnopqrstuvwxyz0123456789', 6)
 
@@ -23,6 +24,9 @@ export async function registerRoomAction(data: RegisterOrEditRoomSchema) {
         strict: true,
         trim: true,
     })
+
+    const checkRegisterRoomActionResponse = await checkRegisterRoomAction()
+    if (!checkRegisterRoomActionResponse.success) return checkRegisterRoomActionResponse
 
     const supabase = await createClient()
 
@@ -112,4 +116,29 @@ export async function deleteRoomAction(id: number) {
 
     const t = await getTranslations('Dashboard.Responses')
     return sendSuccessResponse(200, t('Rooms.Delete.success'), null)
+}
+
+
+const checkRegisterRoomAction = async () => {
+    const t = await getTranslations('Dashboard.Responses.Rooms.Create')
+    const supabase = await createClient()
+    const { data: { user }, error: userError } = await supabase.auth.getUser()
+
+    if (userError || !user) return sendErrorResponse('Unauthorized', 'Unauthorized', null)
+
+    // Busca rooms count e subscription em paralelo
+    const [roomsResult, subscriptionResult] = await Promise.all([
+        supabase.from('rooms').select('*', { count: 'exact', head: true }).eq('owner_id', user.id),
+        supabase.from('subscriptions').select('*, plan: plans(*)').eq('user_id', user.id).single()
+    ])
+
+    if (roomsResult.error) return sendErrorResponse(roomsResult.error.code, roomsResult.error.message, null)
+    if (subscriptionResult.error) return sendErrorResponse(subscriptionResult.error.code, subscriptionResult.error.message, null)
+
+    const roomsCount = roomsResult.count ?? 0
+    const maxRooms = subscriptionResult.data.plan.max_rooms
+
+    if (roomsCount >= maxRooms) return sendErrorResponse(426, t('limitError'), null)
+
+    return sendSuccessResponse(200, 'OK', null)
 }

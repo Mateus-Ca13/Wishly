@@ -55,7 +55,9 @@
       "ListResponses": {
         "loading": "Chargement des participants...",
         "emptyState": "Aucun participant trouvé",
-        "emptyStateDescription": "Essayez de chercher un autre nom ou invitez plus de personnes."
+        "emptyStateDescription": "Essayez de chercher un autre nom ou invitez plus de personnes.",
+        "noMembers": "Ce groupe semble vide.",
+        "noMembersDescription": "Partagez le lien d'invitation avec vos amis !"
       },
       "settingsButton": "Paramètres du groupe",
       "InfoDialog": {
@@ -357,8 +359,7 @@
       "description": "Vous avez été invité à rejoindre le groupe",
       "button": "Accepter l'invitation",
       "successMessage": "Invitation acceptée avec succès ! Vous serez redirigé vers le groupe dans 3 secondes...",
-      "roomDoesNotExist": "Il semble que ce groupe n'existe pas. Vérifiez le lien ou demandez à vos amis de vous renvoyer l'invitation.",
-      "alreadyMember": "Vous êtes déjà membre de cette salle"
+      "roomDoesNotExist": "Il semble que ce groupe n'existe pas. Vérifiez le lien ou demandez à vos amis de vous renvoyer l'invitation."
     },
     "Responses": {
       "Auth": {
@@ -371,7 +372,9 @@
         "unauthorized": "Utilisateur non authentifié"
       },
       "Invite": {
-        "alreadyMember": "Vous êtes déjà membre de ce groupe"
+        "error": "Erreur lors de l'acceptation de l'invitation",
+        "aleradyMember": "Vous êtes déjà membre de ce groupe",
+        "roomFull": "Limite de membres atteinte."
       },
       "Items": {
         "Create": {
@@ -389,6 +392,9 @@
         "Get": {
           "success": "Liste d'articles récupérée avec succès !",
           "error": "Erreur lors de la récupération des articles"
+        },
+        "Limits": {
+          "exceeded": "Vous avez atteint la limite d'articles enregistrés."
         }
       },
       "Profiles": {
@@ -436,7 +442,8 @@
         },
         "Create": {
           "success": "Groupe créé avec succès !",
-          "error": "Erreur lors de la création du groupe"
+          "error": "Erreur lors de la création du groupe",
+          "limitError": "Vous avez atteint la limite des groupes."
         }
       },
       "Subscriptions": {
@@ -448,6 +455,9 @@
           "success": "Forfaits récupérés avec succès",
           "error": "Erreur lors de la récupération des forfaits"
         }
+      },
+      "Help": {
+        "emailCopied": "E-mail copié !"
       },
       "General": {
         "error": "Une erreur inattendue s'est produite",
@@ -473,6 +483,8 @@
       }
     },
     "RoomSettings": {
+      "formTitle": "Modifier le groupe",
+      "formDescription": "Modifier les informations du groupe",
       "removeRoomButton": "Supprimer le groupe",
       "RemoveRoomDialog": {
         "title": "Supprimer le groupe",
@@ -487,6 +499,46 @@
         "title": "Supprimer un membre",
         "description": "Êtes-vous sûr de vouloir supprimer le membre du groupe ?",
         "confirmButton": "Retirer"
+      },
+      "HoverInfo": {
+        "owner": "Vous êtes le propriétaire",
+        "removeMember": "Supprimer un membre"
+      }
+    },
+    "Privacy": {
+      "developmentWarning": "Cette page est en cours de développement. \nDe nouvelles fonctionnalités seront bientôt disponibles."
+    },
+    "Help": {
+      "FAQ": {
+        "title": "Foire aux questions",
+        "description": "Découvrez les réponses aux questions les plus courantes sur Wishly.",
+        "questions": {
+          "question1": "Qu’est-ce que Wishly ?",
+          "question2": "Comment puis-je ajouter ou modifier des articles à ma liste de souhaits ?",
+          "question3": "Comment créer un groupe ?",
+          "question4": "Comment ajouter des membres au groupe ?",
+          "question6": "Comment fonctionnent les réservations de cadeaux ?",
+          "question5": "Comment gérer un groupe ?",
+          "question7": "Puis-je rejoindre plus d’un groupe ?"
+        },
+        "answers": {
+          "answer1": "Wishly est une plateforme qui vous permet de créer des listes de souhaits et de les partager avec vos amis et votre famille. \nGrâce à lui, vous pouvez suggérer des cadeaux à recevoir lors d’occasions spéciales. \nVous pouvez consulter et réserver des cadeaux pour vos amis et votre famille. \nProfitez-en et invitez vos amis et votre famille à rejoindre Wishly !",
+          "answer2": "Grâce à l'icône « Liste de souhaits » dans le menu du bas, vous pouvez gérer vos listes de souhaits. \nDans cette interface, vous pouvez ajouter, modifier et supprimer des éléments de votre liste de souhaits. \nPour ajouter un article, cliquez sur le bouton 'Ajouter un article' et remplissez les informations demandées. \nPour modifier ou supprimer un élément, sélectionnez l'élément et cliquez sur l'icône « Modifier » ou « Supprimer » de l'élément que vous souhaitez modifier ou supprimer.",
+          "answer3": "Pour créer un groupe, cliquez sur l'icône « Groupes » dans le menu du bas. \nLà, vous pouvez créer un groupe en utilisant le bouton « Créer un groupe ».",
+          "answer4": "Pour ajouter des membres au groupe, cliquez sur le groupe souhaité. \nCliquez ensuite sur le bouton « Inviter à un groupe ». \nLà, vous pouvez copier le lien d'invitation et l'envoyer à vos amis et à votre famille.",
+          "answer5": "Pour gérer un groupe, accédez simplement au groupe souhaité et cliquez sur l'icône d'engrenage dans le coin supérieur droit. \nLà, vous pouvez modifier les informations du groupe, supprimer des membres et/ou supprimer le groupe.",
+          "answer6": "Les réservations de cadeaux peuvent être effectuées via la liste de souhaits d'un ami ou d'un membre de la famille en cliquant sur le bouton « Réserver » et en sélectionnant l'article souhaité. \nA partir de ce moment, l'article vous sera réservé et cette information sera visible par tous les membres du groupe (sauf le propriétaire de la wishlist). \nSi vous décidez de ne pas offrir de cadeau à la personne, cliquez simplement sur l'article réservé et sur le bouton « Annuler la réservation », et l'article sera à nouveau disponible à la réservation.",
+          "answer7": "Oui, vous pouvez rejoindre plusieurs groupes en même temps. \nLe nombre de groupes que vous pouvez rejoindre est défini par votre forfait."
+        }
+      },
+      "Contact": {
+        "description": "Contactez notre équipe pour poser des questions, faire des suggestions ou signaler des problèmes.",
+        "title": "Contactez-nous",
+        "ContactOptionsGroup": {
+          "Email": {
+            "title": "E-mail"
+          }
+        }
       }
     }
   },

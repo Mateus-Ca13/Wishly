@@ -5,6 +5,7 @@ import { Card } from '@/components/ui/card'
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar'
 import HoverCard from '@/components/HoverCard/HoverCard'
+import { useTranslations } from 'next-intl'
 
 interface MemberSettingsCardProps {
     member: Profile
@@ -14,7 +15,7 @@ interface MemberSettingsCardProps {
 }
 
 export default function MemberSettingsCard({ member, delay, onClick, isOwner = false }: MemberSettingsCardProps) {
-
+    const t = useTranslations("Dashboard.RoomSettings.HoverInfo")
     const initialLetter = `${member.username ? member.username[0] : 'U'}`
 
     return (
@@ -35,11 +36,11 @@ export default function MemberSettingsCard({ member, delay, onClick, isOwner = f
                     </div>
                 </div>
                 {isOwner ? (
-                    <HoverCard message='Você é o dono' variant='alt' side='left'>
+                    <HoverCard message={t('owner')} variant='alt' side='left'>
                         <Crown className='size-5 text-yellow-500 dark:text-yellow-400 mr-4' />
                     </HoverCard>
                 )
-                    : (<HoverCard message='Remover membro' variant='alt' side='left'>
+                    : (<HoverCard message={t('removeMember')} variant='alt' side='left'>
                         <Trash className='size-5 text-red-500 dark:hover:text-red-400 mr-4' />
                     </HoverCard>)}
             </Card>

@@ -62,7 +62,11 @@
         "inputLabel": "Digite o nome do grupo para confirmar a exclusão."
       },
       "membersTitle": "Membros",
-      "membersDescription": "Lista de membros do grupo"
+      "membersDescription": "Lista de membros do grupo",
+      "HoverInfo": {
+        "owner": "Você é o dono",
+        "removeMember": "Remover membro"
+      }
     },
     "RoomsDetails": {
       "title": "Detalhes do Grupo",
@@ -83,7 +87,9 @@
       "ListResponses": {
         "loading": "Carregando participantes...",
         "emptyState": "Nenhum participante encontrado",
-        "emptyStateDescription": "Tente buscar por outro nome ou convide mais pessoas."
+        "emptyStateDescription": "Tente buscar por outro nome ou convide mais pessoas.",
+        "noMembers": "Esse grupo parece estar vazio",
+        "noMembersDescription": "Compartilhe o link de convite com seus amigos!"
       }
     },
     "MemberWishlist": {
@@ -380,8 +386,48 @@
       "description": "Você foi convidado para participar do grupo",
       "button": "Aceitar convite",
       "successMessage": "Convite aceito com sucesso! Você será redirecionado para o grupo em 3 segundos...",
-      "roomDoesNotExist": "Parece que esse grupo não existe. Verifique o link ou peça para que seus amigos te reenviem o convite.",
-      "alreadyMember": "Você já é membro deste grupo"
+      "roomDoesNotExist": "Parece que esse grupo não existe. Verifique o link ou peça para que seus amigos te reenviem o convite."
+    },
+    "Help": {
+      "FAQ": {
+        "title": "Perguntas Frequentes",
+        "description": "Confira as respostas para as perguntas mais comuns sobre o Wishly.",
+        "questions": {
+          "question1": "O que é o Wishly?",
+          "question2": "Como adicionar ou editar itens na lista de desejos?",
+          "question3": "Como criar um grupo?",
+          "question4": "Como adicionar membros ao grupo?",
+          "question5": "Como gerenciar um grupo?",
+          "question6": "Como funcionam as reservas de presentes?",
+          "question7": "Posso participar de mais de um grupo?"
+        },
+        "answers": {
+          "answer1": "O Wishly é uma plataforma que permite que você crie listas de desejos e compartilhe com seus amigos e familiares. Através dele, você pode sugerir presentes para ganhar em ocasiões especiais. Pode ver e reservar presentes para seus amigos e familiares. Aproveite e convide seus amigos e familiares para participar do Wishly!",
+          "answer2": "Através do ícone de 'Wishlist' no menu inferior, você pode gerenciar suas listas de desejos. Nessa interface, você pode adicionar, editar e remover itens da sua lista de desejos. Para adicionar um item, clique no botão 'Adicionar item' e preencha as informações solicitadas. Para editar ou remover um item, selecione o item e clique no ícone de 'Editar' ou 'Excluir' no item que deseja editar ou remover.",
+          "answer3": "Para criar um grupo, clique no ícone de 'Grupos' no menu inferior. Lá você poderá criar um grupo através do botão 'Criar grupo'.",
+          "answer4": "Para adicionar membros ao grupo, clique no grupo desejado. Depois, clique no botão 'Convidar para o grupo'. Lá você poderá copiar o link de convite e enviar para seus amigos e familiares.",
+          "answer5": "Para gerenciar um grupo, basta acessar o grupo desejado e clicar no ícone de engrenagem no canto superior direito. Lá você poderá editar informações do grupo, remover membros e/ou excluir o grupo.",
+          "answer6": "As reservas de presentes podem ser feitas através da Wishlist de um amigo ou familiar, clicando no botão 'Reservar' e selecionando o item desejado. A partir desse momento, o item ficará reservado para você e essa informação será visível para todos os membros do grupo (menos para o dono da wishlist). Caso você desista de presentear a pessoa, basta clicar no item reservado e no botão 'Cancelar reserva' que o item ficará disponível para reserva novamente.",
+          "answer7": "Sim, você pode ingressar em vários grupos ao mesmo tempo. \nO número de grupos aos quais você pode ingressar é definido pelo seu plano."
+        }
+      },
+      "Contact": {
+        "title": "Fale Conosco",
+        "description": "Entre em contato com a nossa equipe para tirar dúvidas, dar sugestões ou relatar problemas.",
+        "ContactOptionsGroup": {
+          "title": "Opções de contato",
+          "description": "Escolha uma das opções abaixo para entrar em contato com a nossa equipe.",
+          "Email": {
+            "title": "E-mail",
+            "description": "Envie um email para a nossa equipe."
+          }
+        }
+      }
+    },
+    "Privacy": {
+      "title": "Privacidade",
+      "description": "Gerencie suas configurações de privacidade.",
+      "developmentWarning": "Esta página está em desenvolvimento. Novos recursos estarão disponíveis em breve."
     },
     "Responses": {
       "Auth": {
@@ -394,7 +440,9 @@
         "unauthorized": "Usuário não autenticado"
       },
       "Invite": {
-        "alreadyMember": "Você já é membro deste grupo"
+        "error": "Erro ao aceitar o convite",
+        "aleradyMember": "Você já é membro deste grupo",
+        "roomFull": "Limite de membros atingido."
       },
       "Items": {
         "Create": {
@@ -412,6 +460,9 @@
         "Get": {
           "success": "Lista de itens retornada com sucesso!",
           "error": "Erro ao buscar itens"
+        },
+        "Limits": {
+          "exceeded": "Você atingiu o limite de itens cadastrados."
         }
       },
       "Profiles": {
@@ -459,7 +510,8 @@
         },
         "Create": {
           "success": "Grupo criado com sucesso!",
-          "error": "Erro ao criar grupo"
+          "error": "Erro ao criar grupo",
+          "limitError": "Você atingiu o limite de grupos."
         }
       },
       "Subscriptions": {
@@ -471,6 +523,9 @@
           "success": "Planos buscados com sucesso",
           "error": "Erro ao buscar planos"
         }
+      },
+      "Help": {
+        "emailCopied": "E-mail copiado!"
       },
       "General": {
         "error": "Ocorreu um erro inesperado",

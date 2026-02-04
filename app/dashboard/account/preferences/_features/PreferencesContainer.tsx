@@ -13,7 +13,7 @@ export default async function PreferencesContainer() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5, bounce: 0.4, type: 'spring' }}
-            className='flex flex-col gap-4 p-4 rounded-xl border border-gray-200 dark:border-gray-800 dark:bg-gray-900'>
+            className='flex shadow flex-col gap-4 p-4 rounded-xl border border-gray-200 dark:border-gray-800 dark:bg-gray-900'>
 
             <div className='flex flex-col '>
                 <h2 className='text-lg md:text-2xl font-semibold whitespace-nowrap text-ellipsis min-w-0 overflow-hidden dark:text-white'>{t('Themes.title')}</h2>

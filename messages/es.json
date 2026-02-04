@@ -55,7 +55,9 @@
       "ListResponses": {
         "loading": "Cargando miembros...",
         "emptyState": "No se encontraron miembros",
-        "emptyStateDescription": "Intenta buscar otro nombre o invita a más personas."
+        "emptyStateDescription": "Intenta buscar otro nombre o invita a más personas.",
+        "noMembers": "Este grupo parece estar vacío.",
+        "noMembersDescription": "¡Comparte el enlace de invitación con tus amigos!"
       },
       "settingsButton": "Configuración de grupo",
       "InfoDialog": {
@@ -357,8 +359,7 @@
       "description": "Has sido invitado a unirte al grupo",
       "button": "Aceptar invitación",
       "successMessage": "¡Invitación aceptada con éxito! Serás redirigido al grupo en 3 segundos...",
-      "roomDoesNotExist": "Parece que este grupo no existe. Verifica el enlace o pide a tus amigos que te reenvíen la invitación.",
-      "alreadyMember": "Ya eres miembro de este grupo"
+      "roomDoesNotExist": "Parece que este grupo no existe. Verifica el enlace o pide a tus amigos que te reenvíen la invitación."
     },
     "Responses": {
       "Auth": {
@@ -371,7 +372,9 @@
         "unauthorized": "Usuario no autenticado"
       },
       "Invite": {
-        "alreadyMember": "Ya eres miembro de este grupo"
+        "error": "Error al aceptar la invitación",
+        "aleradyMember": "Ya eres miembro de este grupo",
+        "roomFull": "Se alcanzó el límite de miembros."
       },
       "Items": {
         "Create": {
@@ -389,6 +392,9 @@
         "Get": {
           "success": "¡Lista de artículos obtenida con éxito!",
           "error": "Error al buscar artículos"
+        },
+        "Limits": {
+          "exceeded": "Has alcanzado el límite de artículos registrados."
         }
       },
       "Profiles": {
@@ -436,7 +442,8 @@
         },
         "Create": {
           "success": "¡Grupo creado con éxito!",
-          "error": "Error al crear el grupo"
+          "error": "Error al crear el grupo",
+          "limitError": "Has alcanzado el límite de grupos."
         }
       },
       "Subscriptions": {
@@ -448,6 +455,9 @@
           "success": "Planes obtenidos con éxito",
           "error": "Error al obtener los planes"
         }
+      },
+      "Help": {
+        "emailCopied": "E-mail copiado!"
       },
       "General": {
         "error": "Ocurrió un error inesperado",
@@ -474,6 +484,8 @@
       "anonymous": ""
     },
     "RoomSettings": {
+      "formTitle": "Editar grupo",
+      "formDescription": "Editar información del grupo",
       "removeRoomButton": "Eliminar grupo",
       "RemoveRoomDialog": {
         "title": "Eliminar grupo",
@@ -488,6 +500,46 @@
         "title": "Eliminar miembro",
         "description": "¿Estás seguro de que quieres eliminar al miembro del grupo?",
         "confirmButton": "Eliminar"
+      },
+      "HoverInfo": {
+        "owner": "tu eres el dueño",
+        "removeMember": "Eliminar miembro"
+      }
+    },
+    "Privacy": {
+      "developmentWarning": "Esta página está en desarrollo. \nNuevas funciones estarán disponibles pronto."
+    },
+    "Help": {
+      "FAQ": {
+        "title": "Preguntas frecuentes",
+        "description": "Consulta las respuestas a las preguntas más comunes sobre Wishly.",
+        "questions": {
+          "question1": "¿Qué es Wishly?",
+          "question2": "¿Cómo agrego o edito artículos a mi lista de deseos?",
+          "question3": "¿Cómo creo un grupo?",
+          "question4": "¿Cómo agrego miembros al grupo?",
+          "question6": "¿Cómo funcionan las reservas de regalos?",
+          "question5": "¿Cómo gestionar un grupo?",
+          "question7": "¿Puedo unirme a más de un grupo?"
+        },
+        "answers": {
+          "answer1": "Wishly es una plataforma que te permite crear listas de deseos y compartirlas con tus amigos y familiares. \nA través de él podrás sugerir regalos para recibir en ocasiones especiales. \nPuede ver y reservar regalos para sus amigos y familiares. \n¡Disfruta e invita a tus amigos y familiares a unirse a Wishly!",
+          "answer2": "A través del icono 'Lista de deseos' en el menú inferior, puede administrar sus listas de deseos. \nEn esta interfaz, puede agregar, editar y eliminar elementos de su lista de deseos. \nPara agregar un artículo, haga clic en el botón 'Agregar artículo' y complete la información solicitada. \nPara editar o eliminar un elemento, selecciónelo y haga clic en el icono 'Editar' o 'Eliminar' en el elemento que desea editar o eliminar.",
+          "answer3": "Para crear un grupo, haga clic en el icono 'Grupos' en el menú inferior. \nAllí puedes crear un grupo usando el botón 'Crear grupo'.",
+          "answer4": "Para agregar miembros al grupo, haga clic en el grupo deseado. \nLuego, haga clic en el botón 'Invitar al grupo'. \nAllí puede copiar el enlace de invitación y enviárselo a sus amigos y familiares.",
+          "answer5": "Para administrar un grupo, simplemente acceda al grupo deseado y haga clic en el ícono de ajustes en la esquina superior derecha. \nAllí puede editar la información del grupo, eliminar miembros y/o eliminar el grupo.",
+          "answer6": "Las reservas de regalos se pueden hacer a través de la lista de deseos de un amigo o familiar haciendo clic en el botón \"Reservar\" y seleccionando el artículo deseado. \nA partir de ese momento, el artículo quedará reservado para ti y esta información será visible para todos los miembros del grupo (excepto el propietario de la lista de deseos). \nSi decide no regalarle a la persona, simplemente haga clic en el artículo reservado y en el botón \"Cancelar reserva\", y el artículo estará disponible para reserva nuevamente.",
+          "answer7": "Sí, puedes unirte a varios grupos al mismo tiempo. \nLa cantidad de grupos a los que puede unirse está definida por su plan."
+        }
+      },
+      "Contact": {
+        "description": "Póngase en contacto con nuestro equipo para hacer preguntas, hacer sugerencias o informar problemas.",
+        "title": "Contáctenos",
+        "ContactOptionsGroup": {
+          "Email": {
+            "title": "Correo electrónico"
+          }
+        }
       }
     }
   },

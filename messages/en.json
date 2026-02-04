@@ -59,7 +59,9 @@
       "ListResponses": {
         "loading": "Loading members...",
         "emptyState": "No members found",
-        "emptyStateDescription": "Try searching for another name or invite more people."
+        "emptyStateDescription": "Try searching for another name or invite more people.",
+        "noMembers": "This group seems to be empty.",
+        "noMembersDescription": "Share the invitation link with your friends!"
       },
       "settingsButton": "Group settings"
     },
@@ -357,8 +359,7 @@
       "description": "You have been invited to join the group",
       "button": "Accept invite",
       "successMessage": "Invite accepted successfully! You will be redirected to the group in 3 seconds...",
-      "roomDoesNotExist": "It seems this group doesn't exist. Check the link or ask your friends to resend the invite.",
-      "alreadyMember": "You are already a member of this room"
+      "roomDoesNotExist": "It seems this group doesn't exist. Check the link or ask your friends to resend the invite."
     },
     "Responses": {
       "Auth": {
@@ -371,7 +372,9 @@
         "unauthorized": "User not authenticated"
       },
       "Invite": {
-        "alreadyMember": "You are already a member of this group"
+        "error": "Error accepting invite",
+        "aleradyMember": "You are already a member of this group",
+        "roomFull": "Member limit reached."
       },
       "Items": {
         "Create": {
@@ -389,6 +392,9 @@
         "Get": {
           "success": "Item list fetched successfully!",
           "error": "Error fetching items"
+        },
+        "Limits": {
+          "exceeded": "You have reached the limit of registered items."
         }
       },
       "Profiles": {
@@ -437,7 +443,8 @@
         },
         "Create": {
           "success": "Group created successfully!",
-          "error": "Error creating group"
+          "error": "Error creating group",
+          "limitError": "You have reached the limit of groups."
         }
       },
       "Subscriptions": {
@@ -449,6 +456,9 @@
           "success": "Plans fetched successfully",
           "error": "Error fetching plans"
         }
+      },
+      "Help": {
+        "emailCopied": "E-mail copied!"
       },
       "General": {
         "error": "An unexpected error occurred",
@@ -474,6 +484,8 @@
       }
     },
     "RoomSettings": {
+      "formTitle": "Edit group",
+      "formDescription": "Edit group information",
       "removeRoomButton": "Delete group",
       "RemoveRoomDialog": {
         "title": "Delete group",
@@ -488,6 +500,46 @@
         "title": "Remove member",
         "description": "Are you sure you want to remove the member from the group?",
         "confirmButton": "Remove"
+      },
+      "HoverInfo": {
+        "owner": "You are the owner",
+        "removeMember": "Remove member"
+      }
+    },
+    "Privacy": {
+      "developmentWarning": "This page is under development. New features will be available soon."
+    },
+    "Help": {
+      "FAQ": {
+        "title": "Frequently Asked Questions",
+        "description": "Check out the answers to the most common questions about Wishly.",
+        "questions": {
+          "question1": "What is Wishly?",
+          "question2": "How do I add or edit items to my wishlist?",
+          "question3": "How do I create a group?",
+          "question4": "How do I add members to the group?",
+          "question5": "How to manage a group?",
+          "question6": "How do gift reservations work?",
+          "question7": "Can I join more than one group?"
+        },
+        "answers": {
+          "answer1": "Wishly is a platform that allows you to create wishlists and share them with your friends and family. Through it, you can suggest gifts to receive on special occasions. You can view and reserve gifts for your friends and family. Enjoy and invite your friends and family to join Wishly!",
+          "answer2": "Through the 'Wishlist' icon in the bottom menu, you can manage your wishlists. In this interface, you can add, edit, and remove items from your wishlist. To add an item, click on the 'Add item' button and fill in the requested information. To edit or remove an item, select the item and click on the 'Edit' or 'Delete' icon on the item you want to edit or remove.",
+          "answer3": "To create a group, click on the 'Groups' icon in the bottom menu. There you can create a group using the 'Create group' button.",
+          "answer4": "To add members to the group, click on the desired group. Then, click on the 'Invite to group' button. There you can copy the invite link and send it to your friends and family.",
+          "answer5": "To manage a group, simply access the desired group and click on the gear icon in the top right corner. There you can edit group information, remove members, and/or delete the group.",
+          "answer6": "Gift reservations can be made through a friend or family member's Wishlist by clicking on the 'Reserve' button and selecting the desired item. From that moment on, the item will be reserved for you and this information will be visible to all group members (except the wishlist owner). If you decide not to gift the person, simply click on the reserved item and the 'Cancel reservation' button, and the item will be available for reservation again.",
+          "answer7": "Yes, you can join multiple groups at the same time. The number of groups you can join is defined by your plan."
+        }
+      },
+      "Contact": {
+        "description": "Contact our team to ask questions, make suggestions, or report problems.",
+        "title": "Contact Us",
+        "ContactOptionsGroup": {
+          "Email": {
+            "title": "E-mail"
+          }
+        }
       }
     }
   },

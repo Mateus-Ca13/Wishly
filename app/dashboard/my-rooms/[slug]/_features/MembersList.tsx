@@ -16,6 +16,7 @@ type MembersListProps = {
 export default function MembersList({ members, search, setSearch, isLoading }: MembersListProps) {
   const t = useTranslations('Dashboard.RoomsDetails');
 
+
   return (
     <MotionDiv
       initial={{ opacity: 0, y: 20 }}
@@ -53,8 +54,8 @@ export default function MembersList({ members, search, setSearch, isLoading }: M
       ) : (
         <div className='flex flex-col mx-8 text-center items-center justify-center py-12 text-gray-400'>
           <Meh className='size-10 mb-2 text-primary-500' />
-          <p className='text-xl font-semibold'>Esse grupo parece estar vazio</p>
-          <p className='text-sm md:text-base'>Compartilhe o link de convite com seus amigos!</p>
+          <p className='text-xl font-semibold'>{t('ListResponses.noMembers')}</p>
+          <p className='text-sm md:text-base'>{t('ListResponses.noMembersDescription')}</p>
         </div>
       )
       }
