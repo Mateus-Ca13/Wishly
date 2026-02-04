@@ -4,7 +4,6 @@ import { Room } from "@/types/entities"
 import { redirect } from "next/navigation"
 import { useState } from "react"
 import { toast } from "sonner"
-import { useRooms } from "./useRooms"
 
 export default function useRoomSettings(room: Room) {
 

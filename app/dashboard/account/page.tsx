@@ -1,4 +1,3 @@
-import React from 'react'
 import { getCurrentUserAction } from '@/actions/profiles'
 import AvatarBanner from './_features/AvatarBanner'
 import AccountButtonsContainer from './_features/AccountButtonsContainer'

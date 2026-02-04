@@ -1,4 +1,3 @@
-import React from 'react'
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Separator } from '@/components/ui/separator'
 import ToggleTheme from './ToggleTheme'

@@ -1,6 +1,5 @@
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Separator } from '@radix-ui/react-separator'
-import React from 'react'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { useTranslations } from 'next-intl'
 

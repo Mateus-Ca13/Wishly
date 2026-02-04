@@ -1,6 +1,5 @@
 'use client'
 import { MotionDiv } from '@/components/Motion/Motion'
-import React from 'react'
 import { useTranslations } from 'next-intl'
 
 export default function AppDetails() {

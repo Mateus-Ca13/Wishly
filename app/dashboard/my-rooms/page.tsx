@@ -1,5 +1,3 @@
-import CreateRoomDrawer from './_features/CreateRoomDrawer'
-import RoomsList from './_features/RoomsList'
 import { getRoomsAction } from '@/actions/rooms'
 import { ActionResponse } from '@/types/response'
 import { Room } from '@/types/entities'

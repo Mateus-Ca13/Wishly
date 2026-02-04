@@ -4,7 +4,6 @@ import { sendErrorResponse, sendSuccessResponse } from "@/utils/response"
 import { getCurrentUserAction } from "./profiles"
 import { Item, ItemWithoutReservation } from "@/types/entities"
 import { ActionResponse, CountResponse } from "@/types/response"
-import { log } from "console"
 import { getRegisterOrEditItemSchema, RegisterOrEditItemSchema } from "@/schemas/items"
 import { getTranslations } from "next-intl/server"
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import OwnerWishlistContainer from './_features/OwnerWishlistContainer'
 import { getCurrentUserAction } from '@/actions/profiles';
 import { getItemsAction } from '@/actions/items';
@@ -7,14 +6,14 @@ import { ActionResponse } from '@/types/response';
 
 export default async function MyWishlistPage() {
 
-    const currentUserResponse = await getCurrentUserAction();
-    const initialItemsResponse: ActionResponse<{items: ItemWithoutReservation[], count: number}> = await getItemsAction('', currentUserResponse.data.id, false);
-    const initialItems = initialItemsResponse.success ? initialItemsResponse.data : {items: [], count: 0};
+  const currentUserResponse = await getCurrentUserAction();
+  const initialItemsResponse: ActionResponse<{ items: ItemWithoutReservation[], count: number }> = await getItemsAction('', currentUserResponse.data.id, false);
+  const initialItems = initialItemsResponse.success ? initialItemsResponse.data : { items: [], count: 0 };
 
   return (
-    <OwnerWishlistContainer 
-        userId={currentUserResponse.data.id}
-        initialItems={initialItems}
+    <OwnerWishlistContainer
+      userId={currentUserResponse.data.id}
+      initialItems={initialItems}
     />
   )
 }

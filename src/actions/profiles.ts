@@ -1,5 +1,4 @@
 'use server'
-
 import { createClient } from "@/lib/supabase/server";
 import { EditProfileSchema, getEditProfileSchema } from "@/schemas/auth";
 import { sendErrorResponse, sendSuccessResponse } from "@/utils/response";

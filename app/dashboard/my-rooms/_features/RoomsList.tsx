@@ -4,7 +4,6 @@ import RoomCard from './RoomCard'
 import Input from '@/components/Input/Input'
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Room } from '@/types/entities'
-import { useRooms } from '@/hooks/useRooms'
 import { useTranslations } from 'next-intl'
 
 type RoomsListProps = {

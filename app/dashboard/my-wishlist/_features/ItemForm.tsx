@@ -9,8 +9,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { ChevronDown, Heart, ThumbsUp } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { useTranslations, useFormatter, useLocale } from 'next-intl'
-import { useCountry, useCurrency } from '@/providers/CountryStoreProvider'
-import { getCurrencyByCountry } from '@/utils/geo'
+import { useCurrency } from '@/providers/CountryStoreProvider'
 import { getCurrencySymbol } from '@/utils/format'
 
 type EditItemFormProps = {

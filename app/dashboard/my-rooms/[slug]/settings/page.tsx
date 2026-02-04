@@ -7,7 +7,7 @@ import { getCurrentSubscriptionAction } from '@/actions/subscriptions'
 import { getCurrentUserAction } from '@/actions/profiles'
 
 interface GroupSettingsPageProps {
-    params: { slug: string }
+    params: Promise<{ slug: string }>
 }
 
 export default async function GroupSettingsPage({ params }: GroupSettingsPageProps) {

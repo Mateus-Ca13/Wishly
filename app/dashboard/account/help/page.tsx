@@ -1,4 +1,3 @@
-import React from 'react'
 import FAQCard from './_features/FAQCard'
 import Contact from './_features/Contact'
 

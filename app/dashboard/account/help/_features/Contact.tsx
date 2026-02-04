@@ -1,10 +1,8 @@
 'use client'
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Separator } from '@/components/ui/separator'
-import React from 'react'
 import { useTranslations } from 'next-intl'
 import { ChevronRight, Mail } from 'lucide-react'
-import Link from 'next/link'
 import { toast } from 'sonner'
 
 export default function Contact() {

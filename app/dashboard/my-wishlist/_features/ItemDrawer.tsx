@@ -1,11 +1,9 @@
 'use client'
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer'
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
 import { ItemWithoutReservation } from '@/types/entities'
 import { Separator } from '@radix-ui/react-separator'
 import EditItemForm from './ItemForm'
 import { RegisterOrEditItemSchema } from '@/schemas/items'
-import { MotionDiv } from '@/components/Motion/Motion'
-import { PlusCircle } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 type ItemDrawerProps = {

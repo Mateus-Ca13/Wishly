@@ -12,7 +12,6 @@ export function useOwnerWishlist(userId: string, initialItems: { items: Item[] |
     const [itemDrawerMode, setItemDrawerMode] = useState<'edit' | 'create'>('edit')
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
 
-    // 3. Lógica exclusiva do Dono
     const handleEditItem = async (itemId: number | undefined | null, itemData: RegisterOrEditItemSchema) => {
         if (!itemId) return toast.error('Invalid item ID')
 

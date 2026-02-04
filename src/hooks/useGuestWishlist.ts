@@ -13,17 +13,14 @@ type ToastMessages = {
 }
 
 export function useGuestWishlist(userId: string, initialItems: { items: Item[] | ItemWithoutReservation[], count: number }, messages: ToastMessages) {
-    // 1. Usa a lógica compartilhada (com reservas = true)
     const { items, search, setSearch, isLoading, refresh } = useWishlistData(userId, initialItems, true)
 
-    // 2. Estados exclusivos do Visitante
     const [isReservationMode, setReservationMode] = useState(false)
     const [selectedItem, setSelectedItem] = useState<Item | null>(null)
     const [isItemInfoDrawerOpen, setIsItemInfoDrawerOpen] = useState(false)
     const [isConfirmReservationDialogOpen, setIsConfirmReservationDialogOpen] = useState(false)
     const [isCancelReservationDialogOpen, setIsCancelReservationDialogOpen] = useState(false)
 
-    // 3. Lógica exclusiva do Visitante
     const toggleReservationMode = () => {
         setReservationMode(prev => !prev)
         setSelectedItem(null)

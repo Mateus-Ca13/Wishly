@@ -1,5 +1,5 @@
 import { getCurrentUserAction, getUserBySlugAction } from "@/actions/profiles";
-import { getItemsAction } from "../../../../src/actions/items"; // Importe a action
+import { getItemsAction } from "../../../../src/actions/items";
 import GuestWishlistContainer from "./_features/GuestWishlistContainer";
 
 type GuestWishlistPageProps = {

@@ -7,7 +7,6 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import { format } from "date-fns"
-// 1. Importe o locale do português
 import { ptBR } from "date-fns/locale"
 import { ChevronDownIcon } from "lucide-react"
 import { Label } from "@radix-ui/react-label"

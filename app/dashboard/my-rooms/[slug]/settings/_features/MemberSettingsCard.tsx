@@ -1,6 +1,5 @@
-import React from 'react'
 import { Profile } from '@/types/entities'
-import { Crown, Link, Trash } from 'lucide-react'
+import { Crown, Trash } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar'

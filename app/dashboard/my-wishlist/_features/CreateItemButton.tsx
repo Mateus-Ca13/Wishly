@@ -1,6 +1,5 @@
 'use client'
 import { MotionDiv } from '@/components/Motion/Motion'
-import React from 'react'
 import { PlusCircle } from 'lucide-react'
 import { ItemWithoutReservation } from '@/types/entities'
 import { useTranslations } from 'next-intl'

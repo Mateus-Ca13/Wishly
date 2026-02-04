@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import Button from '@/components/Button/Button'
 import { useTranslations } from 'next-intl'
 import Input from '@/components/Input/Input'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { redirect } from 'next/navigation'
 
 interface RemoveRoomDialogProps {

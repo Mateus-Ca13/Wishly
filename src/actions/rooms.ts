@@ -6,8 +6,6 @@ import { getRegisterOrEditRoomSchema, RegisterOrEditRoomSchema } from "../schema
 import { sendErrorResponse, sendSuccessResponse } from "@/utils/response";
 import { cache } from "react";
 import { getTranslations } from "next-intl/server";
-import { Subscription } from "@/types/entities";
-
 
 const generateSuffix = customAlphabet('abcdefghijklmnopqrstuvwxyz0123456789', 6)
 

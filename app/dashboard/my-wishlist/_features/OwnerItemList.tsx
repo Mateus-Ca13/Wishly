@@ -1,7 +1,6 @@
 'use client'
 import Input from '@/components/Input/Input'
 import { MotionDiv } from '@/components/Motion/Motion'
-import React from 'react'
 import { LoaderCircle, Meh, SearchX } from 'lucide-react'
 import { Item, ItemWithoutReservation } from '@/types/entities'
 import OwnerItemCard from './OwnerItemCard'

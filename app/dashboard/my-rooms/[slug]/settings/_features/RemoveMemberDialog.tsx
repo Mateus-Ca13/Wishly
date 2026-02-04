@@ -1,7 +1,6 @@
 'use client'
 import { Profile } from '@/types/entities'
-import React from 'react'
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import Button from '@/components/Button/Button'
 import { useTranslations } from 'next-intl'
 
