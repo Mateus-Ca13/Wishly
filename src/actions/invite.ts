@@ -1,6 +1,7 @@
 'use server'
 
 import { createClient } from "@/lib/supabase/server"
+import { createClientAdmin } from "@/lib/supabase/admin"
 import { sendErrorResponse, sendSuccessResponse } from "@/utils/response"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
@@ -20,7 +21,6 @@ export async function getRoomPublicInfoBySlugAction(slug: string) {
 
 export async function acceptInviteAction(room: Room, userId: string) {
     const t = await getTranslations('Dashboard.Responses')
-
     const checkUserRoomMemberResponse = await checkUserRoomMemberAction(room)
     if (!checkUserRoomMemberResponse.success) return checkUserRoomMemberResponse
 
@@ -44,8 +44,8 @@ export async function acceptInviteAction(room: Room, userId: string) {
 
 async function checkUserRoomMemberAction(room: Room) {
     const t = await getTranslations('Dashboard.Responses')
-    const supabase = await createClient()
 
+    const supabase = await createClientAdmin()
 
     const [membersCountResponse, roomLimitsResponse] = await Promise.all([
         supabase.from('room_members').select('*', { count: 'exact', head: true }).eq('room_id', room.id),
