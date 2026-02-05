@@ -38,7 +38,6 @@ export async function authLoginAction(data: LoginSchema) {
 }
 
 export async function authRegisterAction(userData: RegisterProfileSchema) {
-  const t = await getTranslations('Dashboard.Profile.Toast')
   const tForm = await getTranslations('Dashboard.Profile.Form')
 
   const parse = getRegisterProfileSchema(tForm).safeParse(userData)
@@ -68,8 +67,8 @@ export async function authRegisterAction(userData: RegisterProfileSchema) {
   })
 
   if (error) {
-    const tResponse = await getTranslations('Dashboard.Responses')
-    if (error.code === 'user_already_exists') return sendErrorResponse(400, tResponse('Auth.Register.alreadyExists'), null)
+    const t = await getTranslations('Dashboard.Responses')
+    if (error.code === 'user_already_exists') return sendErrorResponse(400, t('Auth.Register.alreadyExists'), null)
     return sendErrorResponse(error.code, error.message, null)
   }
 
