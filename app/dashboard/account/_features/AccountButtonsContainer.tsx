@@ -10,12 +10,7 @@ import { toast } from 'sonner'
 
 export default function AccountButtonsContainer() {
     const t = useTranslations('Dashboard.Account');
-
     const { handleLogout } = useAuth()
-
-    const handleUnavailableButton = () => {
-        toast.info('Funcionalidade indisponível no momento')
-    }
 
     return (
         <div className='w-full flex flex-col items-center justify-center gap-4'>

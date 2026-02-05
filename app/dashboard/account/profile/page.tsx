@@ -1,11 +1,12 @@
-import { getCurrentUserAction } from "@/actions/profiles";
-import ProfileForm from "./_features/ProfileForm";
+import { Suspense } from 'react'
+import ProfileDataLoader from './_features/ProfileDataLoader'
+import Loading from './loading'
 
-export default async function ProfilePage() {
-    const user = await getCurrentUserAction()
+export default function ProfilePage() {
     return (
-        <div>
-            <ProfileForm user={user.data} />
-        </div>
+        <Suspense fallback={<Loading />}>
+            <ProfileDataLoader />
+        </Suspense>
     )
 }
+

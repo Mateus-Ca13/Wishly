@@ -1,19 +1,12 @@
-import OwnerWishlistContainer from './_features/OwnerWishlistContainer'
-import { getCurrentUserAction } from '@/actions/profiles';
-import { getItemsAction } from '@/actions/items';
-import { ItemWithoutReservation } from '@/types/entities';
-import { ActionResponse } from '@/types/response';
+import { Suspense } from 'react'
+import WishlistDataLoader from './_features/WishlistDataLoader'
+import CardsListSkeleton from '@/components/CardsListSkeleton/CardsListSkeleton'
 
-export default async function MyWishlistPage() {
-
-  const currentUserResponse = await getCurrentUserAction();
-  const initialItemsResponse: ActionResponse<{ items: ItemWithoutReservation[], count: number }> = await getItemsAction('', currentUserResponse.data.id, false);
-  const initialItems = initialItemsResponse.success ? initialItemsResponse.data : { items: [], count: 0 };
-
+export default function MyWishlistPage() {
   return (
-    <OwnerWishlistContainer
-      userId={currentUserResponse.data.id}
-      initialItems={initialItems}
-    />
+    <Suspense fallback={<CardsListSkeleton />}>
+      <WishlistDataLoader />
+    </Suspense>
   )
 }
+

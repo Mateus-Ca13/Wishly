@@ -45,6 +45,7 @@ export async function registerRoomAction(data: RegisterOrEditRoomSchema) {
 }
 
 export async function getRoomsAction(search: string = '') {
+
     const supabase = await createClient()
 
     const [roomsResponse, roomsCount] = await Promise.all([

@@ -1,15 +1,13 @@
-import { getRoomsAction } from '@/actions/rooms'
-import { ActionResponse } from '@/types/response'
-import { Room } from '@/types/entities'
-import RoomsContainer from './_features/RoomsContainer'
+import { Suspense } from 'react'
+import RoomsDataLoader from './_features/RoomsDataLoader'
+import CardsListSkeleton from '@/components/CardsListSkeleton/CardsListSkeleton'
 
-export default async function RoomsPage() {
-
-  const roomsResponse: ActionResponse<{ rooms: Room[], count: number }> = await getRoomsAction()
-
+export default function RoomsPage() {
   return (
     <div>
-      <RoomsContainer initialRooms={roomsResponse.success ? roomsResponse.data : { rooms: [], count: 0 }} />
+      <Suspense fallback={<CardsListSkeleton />}>
+        <RoomsDataLoader />
+      </Suspense>
     </div>
   )
 }

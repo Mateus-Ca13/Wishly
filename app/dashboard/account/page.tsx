@@ -1,19 +1,18 @@
-import { getCurrentUserAction } from '@/actions/profiles'
-import AvatarBanner from './_features/AvatarBanner'
+import { Suspense } from 'react'
+import AvatarBannerDataLoader from './_features/AvatarBannerDataLoader'
+import AvatarBannerSkeleton from './_features/AvatarBannerSkeleton'
 import AccountButtonsContainer from './_features/AccountButtonsContainer'
-import { getCurrentSubscriptionAction } from '@/actions/subscriptions'
 import AppDetails from './_features/AppDetails'
 
-export default async function AccountPage() {
-
-  const user = await getCurrentUserAction()
-  const subscription = await getCurrentSubscriptionAction()
-
+export default function AccountPage() {
   return (
     <div className='w-full flex flex-col items-center justify-center gap-4'>
-      <AvatarBanner user={user.data} subscription={subscription.data} />
+      <Suspense fallback={<AvatarBannerSkeleton />}>
+        <AvatarBannerDataLoader />
+      </Suspense>
       <AccountButtonsContainer />
       <AppDetails />
     </div>
   )
 }
+
