@@ -11,10 +11,11 @@ import Button from '@/components/Button/Button'
 import { Separator } from '@radix-ui/react-separator'
 import { MotionDiv } from '@/components/Motion/Motion'
 import TextArea from '@/components/TextArea/TextArea'
+import { LoaderCircle } from 'lucide-react'
 
 interface EditRoomFormProps {
     room: Room
-    onSubmit: (data: RegisterOrEditRoomSchema) => void
+    onSubmit: (data: RegisterOrEditRoomSchema) => Promise<void>
 }
 
 export default function EditRoomForm({ room, onSubmit }: EditRoomFormProps) {
@@ -34,7 +35,7 @@ export default function EditRoomForm({ room, onSubmit }: EditRoomFormProps) {
         { src: '/room_icons/icon10.webp' }
     ]
 
-    const { control, register, setValue, handleSubmit, formState: { errors } } = useForm<RegisterOrEditRoomSchema>({
+    const { control, register, setValue, handleSubmit, formState: { errors, isSubmitting } } = useForm<RegisterOrEditRoomSchema>({
         resolver: zodResolver(getRegisterOrEditRoomSchema(t)),
         defaultValues: {
             name: room.name,
@@ -44,7 +45,7 @@ export default function EditRoomForm({ room, onSubmit }: EditRoomFormProps) {
     })
 
     const onSubmitHandler = async (data: RegisterOrEditRoomSchema) => {
-        onSubmit(data)
+        await onSubmit(data)
     }
 
     const onError = (errors: any) => {
@@ -93,7 +94,7 @@ export default function EditRoomForm({ room, onSubmit }: EditRoomFormProps) {
                     <RoomIconSelect images={roomIcons} valueSetter={setValue} initialValue={room.cover_theme} />
                 </div>
 
-                <Button variant='contained' className='mt-4 py-4 w-full text-lg' type='submit'>{t('submitButtonUpdate')}</Button>
+                <Button disabled={isSubmitting} variant='contained' className='mt-4 py-4 w-full text-lg flex items-center justify-center' type='submit'>{isSubmitting ? <LoaderCircle className='animate-spin' /> : t('submitButtonUpdate')}</Button>
             </form>
         </MotionDiv >
     )

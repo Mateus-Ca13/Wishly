@@ -12,7 +12,7 @@ const languages = [
     { code: 'es', label: 'Español (ES)' },
     { code: 'it', label: 'Italiano (IT)' },
     { code: 'fr', label: 'Français (FR)' },
-    { code: 'jp', label: '日本語 (JP)' },
+    { code: 'ja', label: '日本語 (JP)' },
 
 
 ] as const;

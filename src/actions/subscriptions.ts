@@ -24,7 +24,7 @@ export async function getPlansAction(): Promise<ActionResponse<Plan[]>> {
     const supabase = await createClient()
     const t = await getTranslations('Dashboard.Responses')
 
-    const { data, error } = await supabase.from('plans').select('*, prices:plan_prices(*)').eq('viewable', true)
+    const { data, error } = await supabase.from('plans').select('*, prices:plan_prices(*)').eq('viewable', true).order('id', { ascending: true })
 
     if (error) return sendErrorResponse(error.code, error.message, null)
 

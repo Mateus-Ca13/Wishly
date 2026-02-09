@@ -1,5 +1,5 @@
 'use client'
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
+import { Drawer, DrawerContent, DrawerHandle, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
 import { ItemWithoutReservation } from '@/types/entities'
 import { Separator } from '@radix-ui/react-separator'
 import EditItemForm from './ItemForm'
@@ -10,7 +10,7 @@ type ItemDrawerProps = {
     item: ItemWithoutReservation | null
     isOpen: boolean
     onClose: () => void
-    onConfirm: { edit: (itemId: number | null | undefined, item: RegisterOrEditItemSchema) => void, create: (item: RegisterOrEditItemSchema) => void }
+    onConfirm: { edit: (itemId: number | null | undefined, item: RegisterOrEditItemSchema) => Promise<void>, create: (item: RegisterOrEditItemSchema) => Promise<void> }
     itemDrawerMode: 'edit' | 'create'
 }
 
@@ -18,13 +18,16 @@ export default function ItemDrawer({ item, onClose, isOpen, onConfirm, itemDrawe
     const t = useTranslations('Dashboard.MyWishlist.ItemDrawer')
 
     const DrawerTitleText = itemDrawerMode === 'edit' ? t('editTitle') : t('createTitle')
+
     if (!item) return null
 
     return (
-        <Drawer open={isOpen} onClose={onClose}>
-            <DrawerContent className="bg-white max-h-[80vh]! dark:bg-gray-900 ">
-                <div className="overflow-y-auto overflow-x-hidden">
-                    <DrawerHeader className='flex flex-col gap-2 items-center justify-center p-0 '>
+        <Drawer open={isOpen} handleOnly onClose={onClose} closeThreshold={0.9}>
+            <DrawerContent className="bg-white max-h-[80vh]! dark:bg-gray-900">
+                <DrawerHandle className="cursor-grab w-[100px]! mb-4" />
+                <div className="overflow-y-auto overflow-x-hidden ">
+
+                    <DrawerHeader className='flex flex-col gap-2 items-center justify-center p-0 relative'>
                         <DrawerTitle className="text-xl md:text-3xl font-semibold px-2 truncate max-w-11/12 md:max-w-2xl dark:text-white">{DrawerTitleText}</DrawerTitle>
                         <Separator orientation="horizontal" className="mb-2 bg-primary-100 w-3/5 md:w-1/5 h-1 rounded-2xl dark:bg-primary-700" />
                     </DrawerHeader>
@@ -38,4 +41,3 @@ export default function ItemDrawer({ item, onClose, isOpen, onConfirm, itemDrawe
         </Drawer>
     )
 }
-

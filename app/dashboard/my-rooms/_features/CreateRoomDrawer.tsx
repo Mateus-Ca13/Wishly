@@ -1,5 +1,5 @@
 'use client'
-import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
+import { Drawer, DrawerContent, DrawerDescription, DrawerHandle, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import RegisterRoomForm from "./RegisterRoomForm";
 import { MotionDiv } from "@/components/Motion/Motion";
 import { PlusCircle } from "lucide-react";
@@ -10,13 +10,13 @@ type CreateRoomDrawerProps = {
   isOpen: boolean
   onClose: () => void
   onOpen: () => void
-  onCreateConfirm: (roomData: RegisterOrEditRoomSchema) => void
+  onCreateConfirm: (roomData: RegisterOrEditRoomSchema) => Promise<void>
 }
 export default function CreateRoomDrawer({ isOpen, onClose, onOpen, onCreateConfirm }: CreateRoomDrawerProps) {
   const t = useTranslations('Dashboard.MyRooms');
 
   return (
-    <Drawer open={isOpen} onClose={onClose}>
+    <Drawer open={isOpen} onClose={onClose} handleOnly>
       <DrawerTrigger>
         <MotionDiv
           initial={{ opacity: 0, y: 20 }}
@@ -34,12 +34,13 @@ export default function CreateRoomDrawer({ isOpen, onClose, onOpen, onCreateConf
         </MotionDiv>
       </DrawerTrigger>
       <DrawerContent className="bg-white max-h-[80vh]! dark:bg-gray-900 dark:text-white ">
+        <DrawerHandle className="cursor-grab w-[100px]! mb-4" />
         <div className="overflow-y-auto overflow-x-hidden">
           <DrawerHeader>
             <DrawerTitle className="text-2xl md:text-3xl font-semibold px-2">{t('Drawer.title')}</DrawerTitle>
             <DrawerDescription className="md:text-xl text-lg px-2">{t('Drawer.description')}</DrawerDescription>
           </DrawerHeader>
-          <div className="p-4  pb-10">
+          <div className="p-4 pb-10">
             <RegisterRoomForm onCreateConfirm={onCreateConfirm} />
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 type ButtonProps = {
-  variant?: 'default' | 'contained' | 'outlined' | 'blank' | 'card' | 'destructive'
+  variant?: 'default' | 'contained' | 'outlined' | 'blank' | 'card' | 'destructive' | 'destructiveOutlined'
   children: React.ReactNode
   onClick?: () => void
 
@@ -17,7 +17,8 @@ export default function Button({ children, variant = 'default', className, ...pr
     outlined: `border-primary-300 border-3 font-semibold py-2 px-4 rounded text-primary-500 font-semibold hover:bg-primary-100/30 dark:text-primary-100`,
     blank: `text-gray-800`,
     card: `bg-white border-gray-200 border rounded-lg shadow-md hover:bg-gray-50 transition-shadow duration-200 cursor-pointer`,
-    destructive: `bg-red-500 hover:bg-red-600 dark:bg-red-800 dark:hover:bg-red-700 text-white font-semibold py-2 px-4 rounded`,
+    destructive: `bg-red-500 hover:bg-red-600! dark:bg-red-800 dark:hover:bg-red-700 text-white font-semibold py-2 px-4 rounded`,
+    destructiveOutlined: `border-red-500 border-3 font-semibold py-2 px-4 rounded text-red-500 font-semibold hover:bg-red-100/30 dark:text-red-100`,
   }
 
 

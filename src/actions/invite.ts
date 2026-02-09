@@ -19,12 +19,40 @@ export async function getRoomPublicInfoBySlugAction(slug: string) {
     return sendSuccessResponse(200, t('Rooms.Get.success'), data)
 }
 
-export async function acceptInviteAction(room: Room, userId: string) {
+export async function getRoomJoinRequestsByIdAction(id: number) {
+    const supabase = await createClient()
+    const { data, error } = await supabase.from('room_join_requests').select('*, profile: public_profiles(*)').eq('room_id', id)
+
+    if (error) return sendErrorResponse(error.code, error.message, error)
+
     const t = await getTranslations('Dashboard.Responses')
+    return sendSuccessResponse(200, t('Invite.Get.success'), data)
+}
+
+export async function joinRoomAction(room: Room, userId: string) {
+    const t = await getTranslations('Dashboard.Responses')
+
+    const supabase = await createClient()
+
+    const needsApproval = room.requires_approval
+    console.log('precisa de aprovação: ', needsApproval ? 'Sim' : 'Não');
+    console.log('room: ', room);
+
+    if (needsApproval) {
+        const { error } = await supabase.from('room_join_requests').insert({
+            room_id: room.id,
+            user_id: userId,
+        })
+        if (error) {
+            console.log('error: ', error);
+            if (error.code === "23505") return sendErrorResponse(error.code, t('Invite.aleradyRequest'), null)
+            return sendErrorResponse(error.code, error.message, error)
+        }
+        return sendSuccessResponse(200, t('Invite.requestSent'), null)
+    }
     const checkUserRoomMemberResponse = await checkUserRoomMemberAction(room)
     if (!checkUserRoomMemberResponse.success) return checkUserRoomMemberResponse
 
-    const supabase = await createClient()
     const { error } = await supabase.from('room_members').insert({
         room_id: room.id,
         user_id: userId,
@@ -39,7 +67,49 @@ export async function acceptInviteAction(room: Room, userId: string) {
     }
 
     revalidatePath('/dashboard/my-rooms')
-    redirect('/dashboard/my-rooms')
+    return sendSuccessResponse(200, t('Invite.successMessage'), null)
+}
+
+export async function acceptJoinRequestAction(room: Room, userId: string) {
+    const t = await getTranslations('Dashboard.Responses')
+    const supabase = await createClient()
+    const checkUserRoomMemberResponse = await checkUserRoomMemberAction(room)
+    if (!checkUserRoomMemberResponse.success) return checkUserRoomMemberResponse
+
+    const { error: insertError } = await supabase.from('room_members').insert({
+        room_id: room.id,
+        user_id: userId,
+        role: 'USER'
+    })
+
+    if (insertError) {
+        if (insertError.code === "23505") return sendErrorResponse(insertError.code, t('Invite.aleradyMemberToHost'), null)
+        return sendErrorResponse(insertError.code, insertError.message, null)
+    }
+
+    const { error: deleteError } = await supabase.from('room_join_requests').delete().match({ room_id: room.id, user_id: userId })
+
+    if (deleteError) {
+        // Rollback manual
+        await supabase.from('room_members').delete().match({ room_id: room.id, user_id: userId })
+
+        return sendErrorResponse(deleteError.code, deleteError.message, deleteError)
+    }
+
+    revalidatePath(`/dashboard/my-rooms/${room.slug}/invites`)
+    return sendSuccessResponse(200, t('JoinRequest.successMessage'), null)
+}
+
+export async function declineJoinRequestAction(room: Room, userId: string) {
+    const t = await getTranslations('Dashboard.Responses')
+    const supabase = await createClient()
+
+    const { error } = await supabase.from('room_join_requests').delete().match({ room_id: room.id, user_id: userId })
+
+    if (error) return sendErrorResponse(error.code, error.message, error)
+
+    revalidatePath(`/dashboard/my-rooms/${room.slug}/invites`)
+    return sendSuccessResponse(200, t('JoinRequest.declineSuccessMessage'), null)
 }
 
 async function checkUserRoomMemberAction(room: Room) {

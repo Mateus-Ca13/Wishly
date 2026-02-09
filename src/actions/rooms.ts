@@ -2,7 +2,7 @@
 import { createClient } from "@/lib/supabase/server";
 import slugify from 'slugify'
 import { customAlphabet } from 'nanoid'
-import { getRegisterOrEditRoomSchema, RegisterOrEditRoomSchema } from "../schemas/rooms";
+import { getRegisterOrEditRoomSchema, getRoomApprovalSchema, RegisterOrEditRoomSchema, RoomApprovalSchema } from "../schemas/rooms";
 import { sendErrorResponse, sendSuccessResponse } from "@/utils/response";
 import { cache } from "react";
 import { getTranslations } from "next-intl/server";
@@ -101,6 +101,28 @@ export async function updateRoomAction(id: number, data: RegisterOrEditRoomSchem
 
     const tResponse = await getTranslations('Dashboard.Responses')
     return sendSuccessResponse(200, tResponse('Rooms.Update.success'), room)
+}
+
+export async function updateRoomApprovalAction(id: number, data: RoomApprovalSchema) {
+    const t = await getTranslations('Dashboard.MyRooms.Drawer')
+
+    const parse = getRoomApprovalSchema(t).safeParse(data)
+    if (!parse.success) {
+        return sendErrorResponse(400, parse.error.message, null)
+    }
+
+    const supabase = await createClient()
+
+    const { error, data: room } = await supabase.from('rooms').update({
+        requires_approval: parse.data.requiresApproval
+    }).eq('id', id).select()
+
+    if (error) {
+        return sendErrorResponse(error.code, error.message, error)
+    }
+
+    const tResponse = await getTranslations('Dashboard.Responses')
+    return sendSuccessResponse(200, tResponse('Rooms.Update.joinRuleSuccess'), room)
 }
 
 

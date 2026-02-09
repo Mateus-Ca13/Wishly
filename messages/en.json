@@ -54,7 +54,8 @@
       },
       "InfoDialog": {
         "title": "Group Information",
-        "description": "Group information"
+        "description": "Group information",
+        "created": "Created on "
       },
       "ListResponses": {
         "loading": "Loading members...",
@@ -358,7 +359,6 @@
       "title": "Group Invite",
       "description": "You have been invited to join the group",
       "button": "Accept invite",
-      "successMessage": "Invite accepted successfully! You will be redirected to the group in 3 seconds...",
       "roomDoesNotExist": "It seems this group doesn't exist. Check the link or ask your friends to resend the invite."
     },
     "Responses": {
@@ -374,7 +374,14 @@
       "Invite": {
         "error": "Error accepting invite",
         "aleradyMember": "You are already a member of this group",
-        "roomFull": "Member limit reached."
+        "roomFull": "Member limit reached.",
+        "requestSent": "Entry request sent!",
+        "aleradyMemberToHost": "This user is already a member of the group!",
+        "successMessage": "Invitation successfully accepted! \nYou will be redirected to the group in 5 seconds...",
+        "Get": {
+          "success": "List of incoming requests returned successfully!"
+        },
+        "aleradyRequest": "You have already requested to join this group!"
       },
       "Items": {
         "Create": {
@@ -435,7 +442,9 @@
         },
         "Update": {
           "success": "Group updated successfully!",
-          "error": "Error updating group"
+          "error": "Error updating group",
+          "joinRuleSuccess": "Entry rule updated successfully!",
+          "joinRuleError": "Error updating entry rule"
         },
         "Delete": {
           "success": "Group deleted successfully!",
@@ -446,6 +455,10 @@
           "error": "Error creating group",
           "limitError": "You have reached the limit of groups."
         }
+      },
+      "JoinRequest": {
+        "successMessage": "Entry request accepted successfully!",
+        "declineSuccessMessage": "Entry request declined successfully!"
       },
       "Subscriptions": {
         "Get": {
@@ -504,7 +517,24 @@
       "HoverInfo": {
         "owner": "You are the owner",
         "removeMember": "Remove member"
-      }
+      },
+      "noDescription": "No description",
+      "editRoomLink": "Edit group information",
+      "membersInviteRequest": "Inbound requests",
+      "InviteRequests": {
+        "title": "Inbound requests",
+        "description": "People who requested to join the group",
+        "emptyState": "No pending requests",
+        "acceptButton": "Accept",
+        "declineButton": "Decline",
+        "Switch": {
+          "title": "Request approval for entry?",
+          "onTrue": "Yes (entry must be approved)",
+          "onFalse": "No (members join automatically)"
+        }
+      },
+      "noMembers": "You are the only member of this group. \nInvite more people to participate!",
+      "infoTitle": "Group information"
     },
     "Privacy": {
       "developmentWarning": "This page is under development. New features will be available soon."
@@ -541,6 +571,10 @@
           }
         }
       }
+    },
+    "Changelog": {
+      "title": "Update wall",
+      "version": "Version"
     }
   },
   "Metadata": {

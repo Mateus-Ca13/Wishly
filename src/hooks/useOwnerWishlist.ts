@@ -13,7 +13,10 @@ export function useOwnerWishlist(userId: string, initialItems: { items: Item[] |
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
 
     const handleEditItem = async (itemId: number | undefined | null, itemData: RegisterOrEditItemSchema) => {
-        if (!itemId) return toast.error('Invalid item ID')
+        if (!itemId) {
+            toast.error('Invalid item ID')
+            return Promise.reject('Invalid item ID')
+        }
 
         const response = await updateItemAction(itemId, itemData)
 

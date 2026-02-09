@@ -79,7 +79,16 @@ interface Plan {
     max_rooms: number
 }
 
-export type { Reservation, Item, ItemWithoutReservation, Profile, Room, Subscription, Plan, PlanPrice, Gender, SubscriptionStatus }
+interface JoinRequest {
+    id: number
+    room_id: number
+    user_id: string
+    requested_at: string
+    profile?: Profile
+    room?: Room
+}
+
+export type { Reservation, Item, ItemWithoutReservation, Profile, Room, JoinRequest, Subscription, Plan, PlanPrice, Gender, SubscriptionStatus }
 
 export { GenderOptions, SubscriptionStatusOptions }
 

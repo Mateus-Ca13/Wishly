@@ -1,5 +1,5 @@
 'use client'
-import { acceptInviteAction } from '@/actions/invite'
+import { joinRoomAction } from '@/actions/invite'
 import Button from '@/components/Button/Button'
 import { Profile, Room } from '@/types/entities'
 import { redirect } from 'next/navigation'
@@ -16,13 +16,13 @@ export default function RoomInviteContainer({ room, currentUser }: RoomInviteCon
 
     const handleAcceptInvite = async () => {
         if (!room || !currentUser) return
-        const response = await acceptInviteAction(room, currentUser.id)
+        const response = await joinRoomAction(room, currentUser.id)
 
         if (response.success) {
-            toast.success(t('successMessage'))
+            toast.success(response.message)
             setTimeout(() => {
                 redirect(`/dashboard/my-rooms`)
-            }, 3000)
+            }, 5000)
         } else {
             toast.error(response.message)
         }

@@ -32,13 +32,13 @@ export default function RoomInfoDialog({ room }: RoomInfoDialogProps) {
                 <DialogFooter className='w-full'>
                     <div className='w-full flex items-center justify-center flex-col'>
                         <div className='p-3 rounded-md w-full text-center'>
-                            <p className=' text-center text-primary-700 text-lg dark:text-primary-100 truncate'>{room.name}</p>
+                            <p className=' text-center text-primary-700 text-lg font-semibold dark:text-primary-100 truncate'>{room.name}</p>
                         </div>
                         <div className='p-3 rounded-md w-full h-32 overflow-y-auto'>
                             <p className='text-center text-gray-700 dark:text-gray-300'>{room.description}</p>
                         </div>
                         <p className='text-center text-sm md:text-base mt-4 text-gray-400 dark:text-gray-500'>
-                            Criado em {formatDate(room.created_at, 'short')}
+                            {t('created')} {formatDate(room.created_at, 'short')}
                         </p>
                     </div>
 

@@ -10,10 +10,11 @@ interface HoverCardProps {
 
 export default function HoverCard({ children, message, variant = 'default', side = 'top' }: HoverCardProps) {
 
+
     const variantClass = {
-        default: 'bg-gray-50 text-gray-500 dark:bg-gray-800 dark:text-gray-400',
-        alt: 'bg-gray-50 text-gray-500 w-fit py-0 dark:bg-gray-800 dark:text-gray-400',
-        destructive: 'bg-red-50 text-red-500 dark:bg-red-800 dark:text-red-400'
+        default: 'bg-gray-50 text-gray-500 dark:bg-gray-800 dark:text-gray-400 hidden md:block',
+        alt: 'bg-gray-50 text-gray-500 w-fit py-0 dark:bg-gray-800 dark:text-gray-400 hidden md:block',
+        destructive: 'bg-red-50 text-red-500 dark:bg-red-800 dark:text-red-400 hidden md:block'
     }
 
     return (

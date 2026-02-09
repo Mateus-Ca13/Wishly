@@ -62,7 +62,8 @@
       "settingsButton": "Paramètres du groupe",
       "InfoDialog": {
         "description": "Informations sur le groupe",
-        "title": "Informations sur le groupe"
+        "title": "Informations sur le groupe",
+        "created": "Créé le "
       }
     },
     "MemberWishlist": {
@@ -358,7 +359,6 @@
       "title": "Invitation au groupe",
       "description": "Vous avez été invité à rejoindre le groupe",
       "button": "Accepter l'invitation",
-      "successMessage": "Invitation acceptée avec succès ! Vous serez redirigé vers le groupe dans 3 secondes...",
       "roomDoesNotExist": "Il semble que ce groupe n'existe pas. Vérifiez le lien ou demandez à vos amis de vous renvoyer l'invitation."
     },
     "Responses": {
@@ -374,7 +374,14 @@
       "Invite": {
         "error": "Erreur lors de l'acceptation de l'invitation",
         "aleradyMember": "Vous êtes déjà membre de ce groupe",
-        "roomFull": "Limite de membres atteinte."
+        "roomFull": "Limite de membres atteinte.",
+        "requestSent": "Demande d'inscription envoyée !",
+        "aleradyMemberToHost": "Cet utilisateur est déjà membre du groupe !",
+        "successMessage": "Invitation acceptée avec succès ! Vous serez redirigé vers le groupe dans 5 secondes...",
+        "Get": {
+          "success": "Liste des demandes entrantes renvoyées avec succès !"
+        },
+        "aleradyRequest": "Vous avez déjà demandé à rejoindre ce groupe !"
       },
       "Items": {
         "Create": {
@@ -434,7 +441,9 @@
         },
         "Update": {
           "success": "Groupe mis à jour avec succès !",
-          "error": "Erreur lors de la mise à jour du groupe"
+          "error": "Erreur lors de la mise à jour du groupe",
+          "joinRuleSuccess": "Règle d'entrée mise à jour avec succès !",
+          "joinRuleError": "Erreur lors de la mise à jour de la règle d'entrée"
         },
         "Delete": {
           "success": "Groupe supprimé avec succès !",
@@ -445,6 +454,10 @@
           "error": "Erreur lors de la création du groupe",
           "limitError": "Vous avez atteint la limite des groupes."
         }
+      },
+      "JoinRequest": {
+        "successMessage": "Demande d'entrée acceptée avec succès !",
+        "declineSuccessMessage": "Demande d'entrée refusée avec succès !"
       },
       "Subscriptions": {
         "Get": {
@@ -503,7 +516,22 @@
       "HoverInfo": {
         "owner": "Vous êtes le propriétaire",
         "removeMember": "Supprimer un membre"
-      }
+      },
+      "editRoomLink": "Modifier les informations du groupe",
+      "noDescription": "Pas de description",
+      "membersInviteRequest": "Demandes entrantes",
+      "noMembers": "Vous êtes le seul membre de ce groupe. Invitez plus de personnes à participer !",
+      "InviteRequests": {
+        "Switch": {
+          "title": "Demander une approbation pour l’entrée ?",
+          "onTrue": "Oui (l'entrée doit être approuvée)",
+          "onFalse": "Non (les membres adhèrent automatiquement)"
+        },
+        "title": "Demandes entrantes",
+        "description": "Personnes qui ont demandé à rejoindre le groupe",
+        "emptyState": "Aucune demande en attente"
+      },
+      "infoTitle": "Informations sur le groupe"
     },
     "Privacy": {
       "developmentWarning": "Cette page est en cours de développement. \nDe nouvelles fonctionnalités seront bientôt disponibles."
@@ -540,6 +568,10 @@
           }
         }
       }
+    },
+    "Changelog": {
+      "title": "Mettre à jour le mur",
+      "version": "Version"
     }
   },
   "Metadata": {

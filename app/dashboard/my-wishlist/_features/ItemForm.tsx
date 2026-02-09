@@ -6,7 +6,7 @@ import TextArea from '@/components/TextArea/TextArea'
 import { getRegisterOrEditItemSchema, RegisterOrEditItemSchema } from '@/schemas/items'
 import { ItemWithoutReservation } from '@/types/entities'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ChevronDown, Heart, ThumbsUp } from 'lucide-react'
+import { ChevronDown, Heart, Loader2, ThumbsUp } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { useTranslations, useFormatter, useLocale } from 'next-intl'
 import { useCurrency } from '@/providers/CountryStoreProvider'
@@ -14,7 +14,7 @@ import { getCurrencySymbol } from '@/utils/format'
 
 type EditItemFormProps = {
     item: ItemWithoutReservation | null
-    onConfirm: { edit: (itemId: number | null | undefined, item: RegisterOrEditItemSchema) => void, create: (item: RegisterOrEditItemSchema) => void }
+    onConfirm: { edit: (itemId: number | null | undefined, item: RegisterOrEditItemSchema) => Promise<void>, create: (item: RegisterOrEditItemSchema) => Promise<void> }
     mode: 'edit' | 'create'
 }
 
@@ -30,10 +30,9 @@ export default function EditItemForm({ item, onConfirm, mode }: EditItemFormProp
         { label: <div className='flex items-center gap-2 text-green-600 dark:text-green-300'><Heart className="size-4" />{t('priorityInput.3')}</div>, value: '3' }
     ]
 
-
     const defaultValue = priorities.find((priority) => priority.value === item?.priority?.toString()) || priorities[0]
 
-    const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<RegisterOrEditItemSchema>({
+    const { register, handleSubmit, setValue, watch, formState: { errors, isSubmitting } } = useForm<RegisterOrEditItemSchema>({
         resolver: zodResolver(getRegisterOrEditItemSchema(t)),
         defaultValues: {
             name: item?.name || '',
@@ -46,11 +45,11 @@ export default function EditItemForm({ item, onConfirm, mode }: EditItemFormProp
 
     const price = watch('price')
 
-    const onSubmit = (data: RegisterOrEditItemSchema) => {
+    const onSubmit = async (data: RegisterOrEditItemSchema) => {
         if (mode === 'edit') {
-            onConfirm.edit(item?.id, data)
+            await onConfirm.edit(item?.id, data)
         } else {
-            onConfirm.create(data)
+            await onConfirm.create(data)
         }
     }
 
@@ -111,7 +110,7 @@ export default function EditItemForm({ item, onConfirm, mode }: EditItemFormProp
                 variant='secondary'
                 error={errors.priority?.message}
             />
-            <Button type="submit" variant='contained' className='w-full rounded-full py-4 mb-4 mt-8'>{t('submitButton')}</Button>
+            <Button type="submit" variant='contained' className='w-full rounded-full py-4 mb-4 mt-8 flex items-center justify-center' disabled={isSubmitting}>{isSubmitting ? <Loader2 className='animate-spin' /> : t('submitButton')}</Button>
         </form>
     )
 }

@@ -8,20 +8,20 @@ import { LoaderCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 interface Props {
-  onSubmit: (data: LoginSchema) => void
+  onSubmit: (data: LoginSchema) => Promise<void>
 }
 
 export default function LoginForm({ onSubmit }: Props) {
   const t = useTranslations('Dashboard.Profile.Form');
   const tAuth = useTranslations('Dashboard.Auth.Login');
 
-  const { control, handleSubmit, formState: { errors, isLoading }, register } = useForm<LoginSchema>({
+  const { control, handleSubmit, formState: { errors, isSubmitting }, register } = useForm<LoginSchema>({
     resolver: zodResolver(getLoginSchema(t))
   });
 
 
   const onSubmitForm = async (data: LoginSchema) => {
-    onSubmit(data)
+    await onSubmit(data)
   }
 
 
@@ -32,8 +32,8 @@ export default function LoginForm({ onSubmit }: Props) {
       <Input {...register('password')} error={errors.password?.message} name="password" label={t('PasswordInput.label')} type="password" />
       <CnButton
         type="submit"
-        className='cursor-pointer text-lg md:text-xl mt-4 w-full bg-linear-to-tr to-secondary-300 from-primary-300 text-black-custom hover:saturate-150 duration-200'>
-        {isLoading ? <LoaderCircle className='spin-in' /> : tAuth('submitButton')}
+        className='cursor-pointer flex items-center justify-center text-lg md:text-xl mt-4 w-full bg-linear-to-tr to-secondary-300 from-primary-300 text-black-custom hover:saturate-150 duration-200'>
+        {isSubmitting ? <LoaderCircle className='animate-spin' /> : tAuth('submitButton')}
       </CnButton>
     </form>
   )

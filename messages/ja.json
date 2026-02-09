@@ -62,7 +62,8 @@
       "settingsButton": "グループ設定",
       "InfoDialog": {
         "description": "グループ情報",
-        "title": "グループ情報"
+        "title": "グループ情報",
+        "created": "作成年"
       }
     },
     "MemberWishlist": {
@@ -358,7 +359,6 @@
       "title": "グループへの招待",
       "description": "グループに招待されました",
       "button": "招待を承認",
-      "successMessage": "招待が正常に承認されました！3秒後にグループにリダイレクトされます...",
       "roomDoesNotExist": "このグループは存在しないようです。リンクを確認するか、友人に招待を再送してもらってください。"
     },
     "Responses": {
@@ -374,7 +374,14 @@
       "Invite": {
         "error": "招待の受け入れエラー",
         "aleradyMember": "あなたはすでにこのグループのメンバーです",
-        "roomFull": "会員数の上限に達しました。"
+        "roomFull": "会員数の上限に達しました。",
+        "requestSent": "エントリーリクエスト送信しました！",
+        "aleradyMemberToHost": "このユーザーはすでにグループのメンバーです。",
+        "successMessage": "招待は正常に受理されました。 5 秒後にグループにリダイレクトされます...",
+        "Get": {
+          "success": "受信リクエストのリストが正常に返されました。"
+        },
+        "aleradyRequest": "あなたはすでにこのグループへの参加をリクエストしています。"
       },
       "Items": {
         "Create": {
@@ -434,7 +441,9 @@
         },
         "Update": {
           "success": "グループが正常に更新されました！",
-          "error": "グループの更新中にエラーが発生しました"
+          "error": "グループの更新中にエラーが発生しました",
+          "joinRuleSuccess": "参加ルールが正常に更新されました！",
+          "joinRuleError": "参加ルールの更新中にエラーが発生しました"
         },
         "Delete": {
           "success": "グループが正常に削除されました！",
@@ -445,6 +454,10 @@
           "error": "グループの作成中にエラーが発生しました",
           "limitError": "グループの制限に達しました。"
         }
+      },
+      "JoinRequest": {
+        "successMessage": "参加リクエストが正常に承認されました！",
+        "declineSuccessMessage": "参加リクエストが正常に拒否されました！"
       },
       "Subscriptions": {
         "Get": {
@@ -503,7 +516,22 @@
       "HoverInfo": {
         "owner": "あなたがオーナーです",
         "removeMember": "メンバーの削除"
-      }
+      },
+      "editRoomLink": "グループ情報の編集",
+      "noDescription": "説明なし",
+      "membersInviteRequest": "インバウンドリクエスト",
+      "noMembers": "このグループのメンバーはあなただけです。もっと多くの人を招待して参加してください!",
+      "InviteRequests": {
+        "Switch": {
+          "title": "エントリーの承認をリクエストしますか?",
+          "onTrue": "はい（エントリーは承認が必要です）",
+          "onFalse": "いいえ (メンバーは自動的に参加します)"
+        },
+        "title": "インバウンドリクエスト",
+        "description": "グループへの参加を希望した人",
+        "emptyState": "保留中のリクエストはありません"
+      },
+      "infoTitle": "グループ情報"
     },
     "Privacy": {
       "developmentWarning": "このページは開発中です。\n新機能は間もなく利用可能になります。"
@@ -540,6 +568,10 @@
           }
         }
       }
+    },
+    "Changelog": {
+      "title": "壁を更新する",
+      "version": "バージョン"
     }
   },
   "Metadata": {

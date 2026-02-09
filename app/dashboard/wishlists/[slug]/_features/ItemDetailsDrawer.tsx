@@ -1,6 +1,6 @@
 'use client'
 import Button from '@/components/Button/Button'
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
+import { Drawer, DrawerContent, DrawerHandle, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
 import { Separator } from '@radix-ui/react-separator'
 import Link from 'next/link'
 import { prioritiesMap } from './utils'
@@ -36,8 +36,9 @@ export default function ItemDetailsDrawer({ item, currentUser, isOpen, onClose, 
 	if (!item) return null
 
 	return (
-		<Drawer open={isOpen} onClose={onClose}>
+		<Drawer open={isOpen} onClose={onClose} handleOnly>
 			<DrawerContent className="bg-white dark:bg-gray-900 max-h-[80vh]! ">
+				<DrawerHandle className="cursor-grab w-[100px]! mb-4" />
 				<div className="overflow-y-auto overflow-x-hidden">
 					<DrawerHeader className='flex flex-col gap-2 items-center justify-center p-0 '>
 						<DrawerTitle className="text-xl md:text-3xl font-semibold px-2 truncate max-w-11/12 md:max-w-2xl dark:text-white">{item.name}</DrawerTitle>

@@ -29,7 +29,7 @@ export default function RoomCard({ room, delay }: RoomCardProps) {
               alt="Room Avatar"
               width={70}
               height={70}
-              className="rounded-lg p-2 aspect-square outline-1 outline-primary-300 bg-linear-to-tr from-secondary-100 to-primary-100 dark:to-secondary-900! dark:from-primary-900!"
+              className="rounded-lg p-2 aspect-square border-2 border-primary-300 bg-linear-to-tr from-secondary-100 to-primary-100 dark:to-secondary-900! dark:from-primary-900!"
             />
             <div className='min-w-0 flex-1'>
               <h2 className='text-lg md:text-xl font-semibold whitespace-nowrap text-ellipsis min-w-0 overflow-hidden dark:text-white'>{room.name}</h2>

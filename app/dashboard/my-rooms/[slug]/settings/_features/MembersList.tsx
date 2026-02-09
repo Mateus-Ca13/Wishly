@@ -1,18 +1,21 @@
-import { Profile } from '@/types/entities'
+import { Profile, Room } from '@/types/entities'
 import MemberSettingsCard from './MemberSettingsCard'
 import { Separator } from '@radix-ui/react-separator'
 import { MotionDiv } from '@/components/Motion/Motion'
 import { Subscription } from '@/types/entities'
 import { useTranslations } from 'next-intl'
+import LinkCard from '@/components/LinkCard/LinkCard'
+import { MailPlusIcon } from 'lucide-react'
 
 interface SettingsMembersListProps {
     members: { members: Profile[], count: number }
     onClick: (member: Profile) => void
     currentSubscription: Subscription | null
     currentUser: Profile
+    room: Room
 }
 
-export default function SettingsMembersList({ members, onClick, currentSubscription, currentUser }: SettingsMembersListProps) {
+export default function SettingsMembersList({ members, onClick, currentSubscription, currentUser, room }: SettingsMembersListProps) {
     const t = useTranslations('Dashboard.RoomSettings')
     const totalMembers = members.count + 1
     const maxMembers = currentSubscription?.plan.max_members_per_room
@@ -38,8 +41,14 @@ export default function SettingsMembersList({ members, onClick, currentSubscript
                     <MemberSettingsCard key={member.id} member={member} delay={index * 0.2} onClick={onClick} />
                 ))
             ) : (
-                <p className='text-sm md:text-base text-gray-500 dark:text-gray-300 text-center py-8'></p>
+                <p className='text-sm md:text-base text-gray-500 dark:text-gray-300 text-center pt-4'>{t('noMembers')}</p>
             )}
+            <Separator className='w-full h-px bg-gray-200 dark:bg-gray-800 my-4' />
+            <LinkCard
+                icon={MailPlusIcon}
+                title={t('membersInviteRequest')}
+                href={`/dashboard/my-rooms/${room.slug}/invites`}
+            />
         </MotionDiv>
     )
 }

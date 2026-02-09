@@ -23,7 +23,7 @@ export default function RemoveRoomButton({ onClick }: RemoveRoomButtonProps) {
             </div>
             <Separator className='w-full h-px bg-gray-200 dark:bg-gray-800 mb-4' />
 
-            <Button className='w-full py-4 font-semibold text-base md:text-lg' variant='destructive' onClick={onClick}>
+            <Button className='w-full py-4 font-semibold text-base md:text-lg' variant='destructiveOutlined' onClick={onClick}>
                 {t('removeRoomButton')}
             </Button>
         </MotionDiv>

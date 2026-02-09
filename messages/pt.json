@@ -46,6 +46,7 @@
     "RoomSettings": {
       "title": "Configurações do Grupo",
       "formTitle": "Editar informações do grupo",
+      "infoTitle": "Informações do grupo",
       "formDescription": "Edite as informações do grupo",
       "removeRoomButton": "Excluir grupo",
       "removeRoomTitle": "Excluir grupo",
@@ -66,6 +67,22 @@
       "HoverInfo": {
         "owner": "Você é o dono",
         "removeMember": "Remover membro"
+      },
+      "noDescription": "Sem descrição",
+      "editRoomLink": "Editar informações do grupo",
+      "membersInviteRequest": "Solicitações de entrada",
+      "noMembers": "Você é o único membro deste grupo. Convide mais pessoas para participar!",
+      "InviteRequests": {
+        "title": "Solicitações de entrada",
+        "description": "Pessoas que solicitaram entrada no grupo",
+        "emptyState": "Nenhuma solicitação pendente",
+        "acceptButton": "Aceitar",
+        "declineButton": "Recusar",
+        "Switch": {
+          "title": "Solicitar aprovação para entrada?",
+          "onTrue": "Sim (entrada deve ser aprovada)",
+          "onFalse": "Não (membros entram automaticamente)"
+        }
       }
     },
     "RoomsDetails": {
@@ -81,6 +98,7 @@
         "copyButtonSuccess": "Copiado"
       },
       "InfoDialog": {
+        "created": "Criado em ",
         "title": "Informações do Grupo",
         "description": "Informações do grupo"
       },
@@ -385,7 +403,6 @@
       "title": "Convite para grupo",
       "description": "Você foi convidado para participar do grupo",
       "button": "Aceitar convite",
-      "successMessage": "Convite aceito com sucesso! Você será redirecionado para o grupo em 3 segundos...",
       "roomDoesNotExist": "Parece que esse grupo não existe. Verifique o link ou peça para que seus amigos te reenviem o convite."
     },
     "Help": {
@@ -442,7 +459,14 @@
       "Invite": {
         "error": "Erro ao aceitar o convite",
         "aleradyMember": "Você já é membro deste grupo",
-        "roomFull": "Limite de membros atingido."
+        "roomFull": "Limite de membros atingido.",
+        "requestSent": "Solicitação de entrada enviada!",
+        "aleradyMemberToHost": "Este usuário já é membro do grupo!",
+        "successMessage": "Convite aceito com sucesso! Você será redirecionado para o grupo em 5 segundos...",
+        "Get": {
+          "success": "Lista de solicitações de entrada retornada com sucesso!"
+        },
+        "aleradyRequest": "Você já solicitou para entrar nesse grupo!"
       },
       "Items": {
         "Create": {
@@ -502,7 +526,9 @@
         },
         "Update": {
           "success": "Grupo atualizado com sucesso!",
-          "error": "Erro ao atualizar grupo"
+          "error": "Erro ao atualizar grupo",
+          "joinRuleSuccess": "Regra de entrada atualizada com sucesso!",
+          "joinRuleError": "Erro ao atualizar regra de entrada"
         },
         "Delete": {
           "success": "Grupo deletado com sucesso!",
@@ -513,6 +539,10 @@
           "error": "Erro ao criar grupo",
           "limitError": "Você atingiu o limite de grupos."
         }
+      },
+      "JoinRequest": {
+        "successMessage": "Solicitação de entrada aceita com sucesso!",
+        "declineSuccessMessage": "Solicitação de entrada recusada com sucesso!"
       },
       "Subscriptions": {
         "Get": {
@@ -549,6 +579,10 @@
         "developer": "Desenvolvido por",
         "version": "Versão"
       }
+    },
+    "Changelog": {
+      "title": "Mural de atualizações",
+      "version": "Versão"
     }
   },
   "Metadata": {

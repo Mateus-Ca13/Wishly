@@ -7,9 +7,10 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Label } from '@radix-ui/react-label'
 import { RoomIconSelect, RoomIconSelectProps } from '@/components/RoomIconSelect/RoomIconSelect'
 import { useTranslations } from 'next-intl'
+import { LoaderCircle } from 'lucide-react'
 
 type RegisterRoomFormProps = {
-  onCreateConfirm: (roomData: RegisterOrEditRoomSchema) => void
+  onCreateConfirm: (roomData: RegisterOrEditRoomSchema) => Promise<void>
 }
 
 export default function RegisterRoomForm({ onCreateConfirm }: RegisterRoomFormProps) {
@@ -28,7 +29,7 @@ export default function RegisterRoomForm({ onCreateConfirm }: RegisterRoomFormPr
     { src: '/room_icons/icon10.webp' }
   ]
 
-  const { handleSubmit, register, setValue } = useForm<RegisterOrEditRoomSchema>({
+  const { handleSubmit, register, setValue, formState: { isSubmitting } } = useForm<RegisterOrEditRoomSchema>({
     resolver: zodResolver(getRegisterOrEditRoomSchema(t)),
     defaultValues: {
       name: '',
@@ -39,7 +40,7 @@ export default function RegisterRoomForm({ onCreateConfirm }: RegisterRoomFormPr
 
 
   const onSubmit = async (data: RegisterOrEditRoomSchema) => {
-    onCreateConfirm(data)
+    await onCreateConfirm(data)
   }
 
   return (
@@ -63,12 +64,12 @@ export default function RegisterRoomForm({ onCreateConfirm }: RegisterRoomFormPr
           type="text"
           placeholder={t('descriptionInput.placeholder')}
           className='w-full' />
-        <div>
+        <div className='w-full'>
           <Label className='text-lg md:text-xl text-start w-full'>{t('themeInput.label')}</Label>
           <RoomIconSelect images={roomIcons} valueSetter={setValue} />
         </div>
 
-        <Button variant='contained' className='mt-4 py-4 w-full text-lg' type='submit'>{t('submitButton')}</Button>
+        <Button disabled={isSubmitting} variant='contained' className='rounded-full mt-4 py-4 w-full text-lg flex items-center justify-center' type='submit'>{isSubmitting ? <LoaderCircle className='animate-spin' /> : t('submitButton')}</Button>
 
       </form>
     </div>

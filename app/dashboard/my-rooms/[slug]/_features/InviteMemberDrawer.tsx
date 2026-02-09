@@ -2,7 +2,7 @@
 import Button from "@/components/Button/Button"
 import Input from "@/components/Input/Input"
 import { MotionDiv } from "@/components/Motion/Motion"
-import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer"
+import { Drawer, DrawerContent, DrawerDescription, DrawerHandle, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer"
 import { getCurrentUrl } from "@/utils/url"
 import { Check, Copy, LucideShare2 } from "lucide-react"
 import { useTranslations } from "next-intl"
@@ -32,7 +32,7 @@ export default function InviteMemberDrawer({ slug }: InviteMemberDrawerProps) {
 
 
   return (
-    <Drawer open={isOpen} onOpenChange={setIsOpen}>
+    <Drawer open={isOpen} onOpenChange={setIsOpen} handleOnly>
       <DrawerTrigger>
         <MotionDiv
           initial={{ opacity: 0, y: 20 }}
@@ -50,6 +50,7 @@ export default function InviteMemberDrawer({ slug }: InviteMemberDrawerProps) {
         </MotionDiv>
       </DrawerTrigger>
       <DrawerContent className="bg-white max-h-[80vh]! dark:bg-gray-900 dark:text-white ">
+        <DrawerHandle className="cursor-grab w-[100px]! mb-4" />
         <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-center items-center">
           <DrawerHeader>
             <DrawerTitle className="text-2xl md:text-3xl font-semibold px-2">{t('InviteDrawer.title')}</DrawerTitle>

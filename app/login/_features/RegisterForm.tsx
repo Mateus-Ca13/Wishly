@@ -8,9 +8,10 @@ import { useState } from 'react';
 import Select from '@/components/Select/Select';
 import { Gender } from '@/types/entities';
 import { useTranslations } from 'next-intl';
+import { LoaderCircle } from 'lucide-react';
 
 interface Props {
-  onSubmit: (data: RegisterProfileSchema) => void
+  onSubmit: (data: RegisterProfileSchema) => Promise<void>
 }
 
 export default function RegisterForm({ onSubmit }: Props) {
@@ -26,12 +27,12 @@ export default function RegisterForm({ onSubmit }: Props) {
   ]
 
   const [formStep, setFormStep] = useState<'profile' | 'details'>('profile')
-  const { handleSubmit, formState: { errors }, register, setValue, getValues, setError, clearErrors } = useForm<RegisterProfileSchema>({
+  const { handleSubmit, formState: { errors, isSubmitting }, register, setValue, getValues, setError, clearErrors } = useForm<RegisterProfileSchema>({
     resolver: zodResolver(getRegisterProfileSchema(t))
   });
 
-  const onSubmitForm = (data: RegisterProfileSchema) => {
-    onSubmit(data)
+  const onSubmitForm = async (data: RegisterProfileSchema) => {
+    await onSubmit(data)
   }
 
   const validateProfileStep = async () => {
@@ -77,8 +78,8 @@ export default function RegisterForm({ onSubmit }: Props) {
           <Select key="gender" onChange={(value) => setValue('gender', value as Gender)} error={errors.gender?.message} placeholder={tGender('label')} variant='secondary' values={gender} />
           <CnButton
             type="submit"
-            className='cursor-pointer text-lg md:text-xl mt-4 w-full bg-linear-to-tr to-secondary-300 from-primary-300 text-black-custom hover:saturate-150 duration-200'>
-            {tAuth('finishRegisterButton')}
+            className='cursor-pointer flex items-center justify-center text-lg md:text-xl mt-4 w-full bg-linear-to-tr to-secondary-300 from-primary-300 text-black-custom hover:saturate-150 duration-200'>
+            {isSubmitting ? <LoaderCircle className='animate-spin' /> : tAuth('finishRegisterButton')}
           </CnButton>
         </>
       )}
