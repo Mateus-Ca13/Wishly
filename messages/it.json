@@ -344,6 +344,7 @@
         "alternate": "Non hai un account?",
         "alternateLink": "Registrati",
         "submitButton": "Accedi",
+        "forgetPassword": "Password dimenticata?",
         "invalidCredentials": "Email o password non validi"
       },
       "Register": {
@@ -369,7 +370,10 @@
         "Register": {
           "alreadyExists": "Questa email è già registrata"
         },
-        "unauthorized": "Utente non autenticato"
+        "unauthorized": "Utente non autenticato",
+        "UpdatePassword": {
+          "samePassword": "La nuova password deve essere diversa dalla vecchia password."
+        }
       },
       "Invite": {
         "error": "Errore nell'accettazione dell'invito",
@@ -573,6 +577,23 @@
     "Changelog": {
       "title": "Aggiorna il muro",
       "version": "Versione"
+    },
+    "ForgetPassword": {
+      "title": "Recupera la password",
+      "description": "Inserisci la tua email per ricevere un collegamento per la reimpostazione della password.",
+      "EmailInput": {
+        "label": "E-mail"
+      },
+      "submitButton": "Invia link",
+      "backToLogin": "Torna al login"
+    },
+    "UpdatePassword": {
+      "title": "Cambiare la password",
+      "description": "Reimposta la tua password compilando i campi sottostanti.",
+      "submitButton": "Cambiare la password",
+      "backToLogin": "Torna al login",
+      "finishedTitle": "E-mail inviata!",
+      "finishedDescription": "Un'e-mail di reimpostazione della password è stata inviata alla tua casella di posta."
     }
   },
   "Metadata": {

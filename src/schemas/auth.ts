@@ -30,6 +30,7 @@ export const getEditProfileSchema = (t: any) => z.object({
   gender: z.enum(GenderOptions, { message: t('GenderInput.error') })
 });
 
+
 export type RegisterProfileSchema = z.infer<ReturnType<typeof getRegisterProfileSchema>>;
 export type EditProfileSchema = z.infer<ReturnType<typeof getEditProfileSchema>>;
 
@@ -39,3 +40,19 @@ export const getLoginSchema = (t: any) => z.object({
 });
 
 export type LoginSchema = z.infer<ReturnType<typeof getLoginSchema>>;
+
+export const getForgetPasswordSchema = (t: any) => z.object({
+  email: z.string().email(t('EmailInput.invalidEmailError')).trim(),
+});
+
+export const getResetPasswordSchema = (t: any) => z.object({
+  password: z.string().min(6, t('PasswordInput.minLength')),
+  confirm_password: z.string().min(6, t('ConfirmPasswordInput.minLength')),
+}).refine((data) => data.password === data.confirm_password, {
+  message: t('ConfirmPasswordInput.matchError'),
+  path: ['confirm_password']
+});
+
+export type ResetPasswordSchema = z.infer<ReturnType<typeof getResetPasswordSchema>>;
+export type ForgetPasswordSchema = z.infer<ReturnType<typeof getForgetPasswordSchema>>;
+

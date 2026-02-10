@@ -53,9 +53,9 @@ export default function ChangelogDialog() {
                                 <li className='flex flex-col gap-0' key={index}>
                                     <div className='flex items-center'>
                                         <Dot className='w-8 h-8 text-primary-500 dark:text-primary-300' />
-                                        <span className='text-sm md:text-base font-semibold text-gray-800 dark:text-white'>{update.title}</span>
+                                        <span className='text-base font-semibold text-gray-800 dark:text-white'>{update.title}</span>
                                     </div>
-                                    <span className='text-xs md:text-sm text-gray-600 dark:text-gray-400 ml-3'>{update.description}</span>
+                                    <span className='text-sm text-gray-600 dark:text-gray-400 ml-3'>{update.description}</span>
                                 </li>
                             ))}
                         </ul>

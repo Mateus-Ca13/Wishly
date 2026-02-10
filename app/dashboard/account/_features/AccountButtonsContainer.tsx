@@ -6,11 +6,10 @@ import useAuth from '@/hooks/useAuth'
 import { ChevronRight, CircleQuestionMark, CircleStar, LogOut, Settings, Shield, User } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { toast } from 'sonner'
 
 export default function AccountButtonsContainer() {
     const t = useTranslations('Dashboard.Account');
-    const { handleLogout } = useAuth()
+    const { handleLogout } = useAuth({})
 
     return (
         <div className='w-full flex flex-col items-center justify-center gap-4'>

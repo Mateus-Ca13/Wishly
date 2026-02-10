@@ -388,6 +388,7 @@
         "alternate": "Não tem uma conta?",
         "alternateLink": "Registre-se",
         "submitButton": "Entrar",
+        "forgetPassword": "Esqueceu sua senha?",
         "invalidCredentials": "Email ou senha incorretos"
       },
       "Register": {
@@ -454,7 +455,10 @@
         "Register": {
           "alreadyExists": "Este e-mail já está cadastrado"
         },
-        "unauthorized": "Usuário não autenticado"
+        "unauthorized": "Usuário não autenticado",
+        "UpdatePassword": {
+          "samePassword": "A nova senha deve ser diferente da antiga senha."
+        }
       },
       "Invite": {
         "error": "Erro ao aceitar o convite",
@@ -583,6 +587,23 @@
     "Changelog": {
       "title": "Mural de atualizações",
       "version": "Versão"
+    },
+    "ForgetPassword": {
+      "title": "Recuperar senha",
+      "description": "Informe seu e-mail para receber um link de redefinição de senha.",
+      "EmailInput": {
+        "label": "E-mail"
+      },
+      "submitButton": "Enviar link",
+      "backToLogin": "Voltar ao login",
+      "finishedTitle": "E-mail enviado!",
+      "finishedDescription": "Um e-mail de redefinição de senha foi enviado para sua caixa de entrada."
+    },
+    "UpdatePassword": {
+      "title": "Alterar senha",
+      "description": "Redefina sua senha preenchendo os campos abaixo.",
+      "submitButton": "Alterar senha",
+      "backToLogin": "Voltar ao login"
     }
   },
   "Metadata": {

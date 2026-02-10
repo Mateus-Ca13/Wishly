@@ -344,6 +344,7 @@
         "alternate": "アカウントをお持ちでないですか？",
         "alternateLink": "サインアップ",
         "submitButton": "サインイン",
+        "forgetPassword": "パスワードを忘れましたか？",
         "invalidCredentials": "メールアドレスまたはパスワードが正しくありません"
       },
       "Register": {
@@ -369,7 +370,10 @@
         "Register": {
           "alreadyExists": "このメールアドレスは既に登録されています"
         },
-        "unauthorized": "ユーザーが認証されていません"
+        "unauthorized": "ユーザーが認証されていません",
+        "UpdatePassword": {
+          "samePassword": "新しいパスワードは古いパスワードとは異なる必要があります。"
+        }
       },
       "Invite": {
         "error": "招待の受け入れエラー",
@@ -572,6 +576,23 @@
     "Changelog": {
       "title": "壁を更新する",
       "version": "バージョン"
+    },
+    "ForgetPassword": {
+      "title": "パスワードを回復する",
+      "description": "メールアドレスを入力してパスワードのリセットリンクを受け取ります。",
+      "EmailInput": {
+        "label": "メールアドレス"
+      },
+      "submitButton": "リンクを送信する",
+      "backToLogin": "ログインに戻る",
+      "finishedTitle": "メールを送信しました!",
+      "finishedDescription": "パスワードリセットメールが受信箱に送信されました。"
+    },
+    "UpdatePassword": {
+      "title": "パスワードを変更する",
+      "description": "以下のフィールドに入力してパスワードをリセットします。",
+      "submitButton": "パスワードを変更する",
+      "backToLogin": "ログインに戻る"
     }
   },
   "Metadata": {

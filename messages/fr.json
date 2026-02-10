@@ -344,6 +344,7 @@
         "alternate": "Vous n'avez pas de compte ?",
         "alternateLink": "Inscrivez-vous",
         "submitButton": "Entrer",
+        "forgetPassword": "Mot de passe oublié ?",
         "invalidCredentials": "E-mail ou mot de passe incorrects"
       },
       "Register": {
@@ -369,7 +370,10 @@
         "Register": {
           "alreadyExists": "Cet e-mail est déjà enregistré"
         },
-        "unauthorized": "Utilisateur non authentifié"
+        "unauthorized": "Utilisateur non authentifié",
+        "UpdatePassword": {
+          "samePassword": "Le nouveau mot de passe doit être différent de l'ancien mot de passe."
+        }
       },
       "Invite": {
         "error": "Erreur lors de l'acceptation de l'invitation",
@@ -572,6 +576,23 @@
     "Changelog": {
       "title": "Mettre à jour le mur",
       "version": "Version"
+    },
+    "ForgetPassword": {
+      "title": "Récupérer le mot de passe",
+      "description": "Entrez votre e-mail pour recevoir un lien de réinitialisation de mot de passe.",
+      "EmailInput": {
+        "label": "E-mail"
+      },
+      "submitButton": "Envoyer le lien",
+      "backToLogin": "Retour à la connexion",
+      "finishedTitle": "E-mail envoyé !",
+      "finishedDescription": "Un e-mail de réinitialisation du mot de passe a été envoyé dans votre boîte de réception."
+    },
+    "UpdatePassword": {
+      "title": "Changer le mot de passe",
+      "description": "Réinitialisez votre mot de passe en remplissant les champs ci-dessous.",
+      "submitButton": "Changer le mot de passe",
+      "backToLogin": "Retour à la connexion"
     }
   },
   "Metadata": {

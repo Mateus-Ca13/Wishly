@@ -4,7 +4,7 @@ import { NextResponse, type NextRequest } from 'next/server'
 
 export async function updateSession(
   request: NextRequest,
-  options: { protectedPaths: string[] } = { protectedPaths: ['/dashboard', '/invite', '/'] }
+  options: { protectedPaths: string[] } = { protectedPaths: ['/dashboard', '/invite'] }
 ) {
 
   let response = NextResponse.next({
@@ -35,27 +35,31 @@ export async function updateSession(
     }
   )
 
-  // IMPORTANTE: getUser() é mais seguro que getSession() aqui
   const { data: { user } } = await supabase.auth.getUser()
 
   const path = request.nextUrl.pathname
+  console.log('path', path);
+
 
   // Cenario A: Usuário NÃO está logado
   if (!user) {
-    const shouldRedirect = options.protectedPaths.some((p) => {
-      if (p === '/') return path === '/'
-      return path.startsWith(p)
-    })
+    const isProtected = options.protectedPaths.some((p) => path.startsWith(p))
 
-    if (shouldRedirect) {
-      return NextResponse.redirect(new URL('/login', request.url))
+    if (isProtected) {
+      //Salva a URL que ele tentou acessar
+      const loginUrl = new URL('/login', request.url)
+
+      //Adiciona ?next=/invite/slug na URL de login
+      loginUrl.searchParams.set('next', path)
+
+      return NextResponse.redirect(loginUrl)
     }
   }
 
   // Cenario B: Usuário ESTÁ logado
   if (user) {
-    // Se ele tentar acessar /login ou a raiz /, manda pro Dashboard
-    if (path.startsWith('/login') || path === '/') {
+
+    if (path.startsWith('/login')) {
       return NextResponse.redirect(new URL('/dashboard', request.url))
     }
   }

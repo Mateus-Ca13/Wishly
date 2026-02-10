@@ -344,6 +344,7 @@
         "alternate": "¿No tienes una cuenta?",
         "alternateLink": "Regístrate",
         "submitButton": "Iniciar sesión",
+        "forgetPassword": "¿Olvidaste tu contraseña?",
         "invalidCredentials": "Cooreo electrónico o contraseña incorrectos"
       },
       "Register": {
@@ -369,7 +370,10 @@
         "Register": {
           "alreadyExists": "Este correo electrónico ya está registrado"
         },
-        "unauthorized": "Usuario no autenticado"
+        "unauthorized": "Usuario no autenticado",
+        "UpdatePassword": {
+          "samePassword": "La nueva contraseña debe ser diferente de la antigua."
+        }
       },
       "Invite": {
         "error": "Error al aceptar la invitación",
@@ -575,6 +579,23 @@
     "Changelog": {
       "title": "Actualizar muro",
       "version": "Versión"
+    },
+    "ForgetPassword": {
+      "title": "recuperar contraseña",
+      "description": "Ingrese su correo electrónico para recibir un enlace para restablecer su contraseña.",
+      "EmailInput": {
+        "label": "Correo electrónico"
+      },
+      "submitButton": "Enviar enlace",
+      "backToLogin": "Volver al inicio de sesión"
+    },
+    "UpdatePassword": {
+      "title": "Cambiar la contraseña",
+      "description": "Restablezca su contraseña completando los campos a continuación.",
+      "submitButton": "Cambiar la contraseña",
+      "backToLogin": "Volver al inicio de sesión",
+      "finishedTitle": "Correo electrónico enviado!",
+      "finishedDescription": "Se ha enviado un correo electrónico para restablecer la contraseña a su bandeja de entrada."
     }
   },
   "Metadata": {

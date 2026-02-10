@@ -344,6 +344,7 @@
         "alternate": "Don't have an account?",
         "alternateLink": "Sign up",
         "submitButton": "Sign in",
+        "forgetPassword": "Forgot password?",
         "invalidCredentials": "Invalid email or password"
       },
       "Register": {
@@ -369,7 +370,10 @@
         "Register": {
           "alreadyExists": "This email is already registered"
         },
-        "unauthorized": "User not authenticated"
+        "unauthorized": "User not authenticated",
+        "UpdatePassword": {
+          "samePassword": "The new password must be different from the old password."
+        }
       },
       "Invite": {
         "error": "Error accepting invite",
@@ -575,6 +579,23 @@
     "Changelog": {
       "title": "Update wall",
       "version": "Version"
+    },
+    "ForgetPassword": {
+      "title": "Recover password",
+      "description": "Enter your email to receive a password reset link.",
+      "EmailInput": {
+        "label": "E-mail"
+      },
+      "submitButton": "Send link",
+      "backToLogin": "Back to login",
+      "finishedTitle": "Email sent!",
+      "finishedDescription": "A password reset email has been sent to your inbox."
+    },
+    "UpdatePassword": {
+      "title": "Change password",
+      "description": "Reset your password by filling in the fields below.",
+      "submitButton": "Change password",
+      "backToLogin": "Back to login"
     }
   },
   "Metadata": {

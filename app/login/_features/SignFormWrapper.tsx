@@ -7,10 +7,13 @@ import { CnButton as Button } from '@/components/ui/button';
 import Image from 'next/image';
 import useAuth from '@/hooks/useAuth';
 import { useTranslations } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
 
 export default function SignFormWrapper() {
+    const searchParams = useSearchParams()
+    const nextUrl = searchParams.get('next') || '/dashboard/my-rooms'
     const [signMode, setSignMode] = React.useState<'login' | 'register'>('login');
-    const { handleLogin, handleRegister } = useAuth();
+    const { handleLogin, handleRegister } = useAuth({ nextUrl });
     const t = useTranslations('Dashboard.Auth');
 
     return (
