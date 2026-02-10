@@ -593,6 +593,11 @@
       "description": "Réinitialisez votre mot de passe en remplissant les champs ci-dessous.",
       "submitButton": "Changer le mot de passe",
       "backToLogin": "Retour à la connexion"
+    },
+    "AuthCodeError": {
+      "title": "Erreur d'authentification",
+      "description": "Votre session ne peut pas être validée. Revenez à la connexion et réessayez.",
+      "backToLogin": "Retour à la connexion"
     }
   },
   "Metadata": {

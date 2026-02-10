@@ -28,12 +28,18 @@ export default function ChangelogDialog() {
 
     // TODO: Adicionar chaves de tradução para as atualizações futuras
     const updates = [
-        { title: 'Mural de atualizações', description: 'Agora você pode acompanhar todas as novidades em um só lugar.' },
-        { title: 'Menus inferiores aprimorados', description: 'Agora há uma barra superior para arrastar e fechar, evitando fechamentos acidentais.' },
-        { title: 'Bloqueio visual em formulários', description: 'Exibimos um "spinner" enquanto o sistema processa, evitando cliques repetidos.' },
-        { title: 'Solicitações de entrada em grupos', description: 'Agora o dono pode aprovar ou recusar novos membros.' },
-        { title: 'Visual de gerenciamento redesenhado', description: 'Interface mais clara e agradável na página de gerenciamento de grupos.' },
-        { title: 'Correção no idioma japonês', description: 'Ajustes para permitir a visualização correta.' },
+        {
+            title: 'Redirecionamento automático para convites',
+            description: 'Agora, quando usuários deslogados que entrarem em um link de convite fizerem login, serão redirecionados automaticamente para a página do convite, e não para o dashboard.'
+        },
+        {
+            title: 'Redefinição de senha',
+            description: 'A opção de "Esqueci minha senha" agora está disponível no menu de login. Ao informar o email cadastrado, um link será enviado para redefinir a senha.'
+        },
+        {
+            title: 'Correções e melhorias',
+            description: 'Algumas correções de redirecionamento entre interfaces foram feitas.'
+        }
     ]
 
     return (
@@ -53,9 +59,9 @@ export default function ChangelogDialog() {
                                 <li className='flex flex-col gap-0' key={index}>
                                     <div className='flex items-center'>
                                         <Dot className='w-8 h-8 text-primary-500 dark:text-primary-300' />
-                                        <span className='text-base font-semibold text-gray-800 dark:text-white'>{update.title}</span>
+                                        <span className='text-base md:text-lg font-semibold text-gray-800 dark:text-white'>{update.title}</span>
                                     </div>
-                                    <span className='text-sm text-gray-600 dark:text-gray-400 ml-3'>{update.description}</span>
+                                    <span className='text-sm md:text-base text-gray-600 dark:text-gray-400 ml-3'>{update.description}</span>
                                 </li>
                             ))}
                         </ul>

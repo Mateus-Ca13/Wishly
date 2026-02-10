@@ -594,6 +594,11 @@
       "backToLogin": "Torna al login",
       "finishedTitle": "E-mail inviata!",
       "finishedDescription": "Un'e-mail di reimpostazione della password è stata inviata alla tua casella di posta."
+    },
+    "AuthCodeError": {
+      "title": "Errore di autenticazione",
+      "description": "La tua sessione non può essere convalidata. Torna al login e riprova.",
+      "backToLogin": "Torna al login"
     }
   },
   "Metadata": {

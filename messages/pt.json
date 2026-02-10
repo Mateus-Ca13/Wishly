@@ -604,6 +604,11 @@
       "description": "Redefina sua senha preenchendo os campos abaixo.",
       "submitButton": "Alterar senha",
       "backToLogin": "Voltar ao login"
+    },
+    "AuthCodeError": {
+      "title": "Erro de autenticação",
+      "description": "Sua sessão não pode ser validada. Retorne para o login e tente novamente .",
+      "backToLogin": "Voltar ao login"
     }
   },
   "Metadata": {

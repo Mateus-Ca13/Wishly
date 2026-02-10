@@ -596,6 +596,11 @@
       "description": "Reset your password by filling in the fields below.",
       "submitButton": "Change password",
       "backToLogin": "Back to login"
+    },
+    "AuthCodeError": {
+      "title": "Authentication error",
+      "description": "Your session cannot be validated. \nReturn to login and try again.",
+      "backToLogin": "Back to login"
     }
   },
   "Metadata": {

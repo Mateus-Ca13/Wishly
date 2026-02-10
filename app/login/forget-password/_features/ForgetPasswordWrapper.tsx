@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import ForgetPasswordForm from './ForgetPasswordForm';
 import { useState } from 'react';
+import { ArrowLeft, CircleCheck } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ForgetPasswordWrapper() {
     const t = useTranslations('Dashboard.ForgetPassword');
@@ -35,8 +37,16 @@ export default function ForgetPasswordWrapper() {
                     </>
                 ) : (
                     <>
-                        <h1 className="text-3xl font-bold mb-4 text-center text-gradient">{t('finishedTitle')}</h1>
+                        <CircleCheck className='size-12 text-green-500' />
+                        <h1 className="text-3xl font-bold mb-2 text-center">{t('finishedTitle')}</h1>
                         <p className="text-base md:text-lg text-center text-gray-600 dark:text-gray-400">{t('finishedDescription')}</p>
+
+                        <Link
+                            href="/login"
+                            className='flex items-center justify-center gap-2 text-center mt-4 text-primary-700 dark:text-primary-300 hover:underline'>
+                            <ArrowLeft className='size-4' />
+                            {t('backToLogin')}
+                        </Link>
                     </>
                 )}
             </div>

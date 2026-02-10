@@ -596,6 +596,11 @@
       "backToLogin": "Volver al inicio de sesión",
       "finishedTitle": "Correo electrónico enviado!",
       "finishedDescription": "Se ha enviado un correo electrónico para restablecer la contraseña a su bandeja de entrada."
+    },
+    "AuthCodeError": {
+      "title": "Error de autenticación",
+      "description": "Su sesión no puede ser validada. Vuelve a iniciar sesión e inténtalo de nuevo.",
+      "backToLogin": "Volver a iniciar sesión"
     }
   },
   "Metadata": {
