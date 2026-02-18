@@ -7,7 +7,7 @@ import Image from 'next/image'
 
 export default function Banner() {
     return (
-        <div className='py-16 md:py-24 bg-linear-to-tr from-primary-50 to-secondary-50 min-h-screen sm:px-6 lg:px-20'>
+        <div className='py-16 md:py-24 bg-linear-to-tr from-primary-50 to-secondary-50 md:min-h-screen sm:px-6 lg:px-20'>
             <div className='w-full h-full pt-12 flex items-center justify-center gap-12 lg:gap-6 xl:gap-12 flex-col lg:flex-row'>
                 <MotionDiv
                     initial={{ opacity: 0, y: 20 }}
@@ -30,18 +30,18 @@ export default function Banner() {
                             </div>
                         </Button>
                     </div>
-                    <div className='flex gap-4 m-6'>
-                        <div className='flex items-center gap-2'>
+                    <div className='flex flex-wrap justify-center gap-2 md:gap-4 m-6'>
+                        <div className='flex  items-center gap-2'>
                             <ShieldCheck className='size-5 text-primary-500' />
-                            <p className='text-primary-500/70 md:text-lg text-base font-semibold'>100% Seguro</p>
+                            <p className='text-primary-500/70 md:text-lg text-sm font-semibold'>100% Seguro</p>
                         </div>
                         <div className='flex items-center gap-2'>
                             <BadgeDollarSign className='size-5 text-primary-500' />
-                            <p className='text-primary-500/70 md:text-lg text-base font-semibold'>Gratuito</p>
+                            <p className='text-primary-500/70 md:text-lg text-sm font-semibold'>Gratuito</p>
                         </div>
                         <div className='flex items-center gap-2'>
                             <Baby className='size-5 text-primary-500' />
-                            <p className='text-primary-500/70 md:text-lg text-base font-semibold'>Para a Família</p>
+                            <p className='text-primary-500/70 md:text-lg text-sm font-semibold'>Para a Família</p>
                         </div>
                     </div>
                 </MotionDiv>

@@ -55,9 +55,23 @@ export async function updateSession(
       return NextResponse.redirect(loginUrl)
     }
 
-    // Evita que o usuário acesse a raiz da aplicação em caso de PWA
+    // Evita que o usuário acesse a landing page em caso de PWA
+    // Seta um cookie persistente na primeira visita com ?source=pwa
     const isPwaSource = searchParams.get('source') === 'pwa'
-    if (path === '/' && isPwaSource) {
+    const isPwaCookie = request.cookies.get('pwa')?.value === 'true'
+
+    if (isPwaSource && !isPwaCookie) {
+      const redirectUrl = new URL('/login', request.url)
+      const redirectResponse = NextResponse.redirect(redirectUrl)
+      redirectResponse.cookies.set('pwa', 'true', {
+        path: '/',
+        maxAge: 60 * 60 * 24 * 365, // 1 ano
+        sameSite: 'lax',
+      })
+      return redirectResponse
+    }
+
+    if (path === '/' && (isPwaSource || isPwaCookie)) {
       return NextResponse.redirect(new URL('/login', request.url))
     }
   }
