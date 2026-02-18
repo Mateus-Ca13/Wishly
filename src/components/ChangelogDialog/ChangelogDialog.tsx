@@ -45,12 +45,8 @@ export default function ChangelogDialog() {
             description: 'Agora o Wishly possui uma página de apresentação super interessante e informativa!'
         },
         {
-            title: 'Termos de Uso e Política de Privacidade',
-            description: 'Agora o Wishly possui termos de uso e política de privacidade.'
-        },
-        {
-            title: 'Correção de PWA',
-            description: 'Correção no trecho de código que permitia que PWA abrissem a landing page. '
+            title: 'Correções e melhorias',
+            description: 'Algumas correções de redirecionamento entre interfaces foram feitas.'
         }
     ]
 
