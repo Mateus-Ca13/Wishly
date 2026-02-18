@@ -49,7 +49,7 @@
       "InviteDrawer": {
         "title": "グループに招待",
         "description": "招待リンクを友達と共有して、グループに参加してもらいましょう！",
-        "copyButton": "コピー",
+        "copyButton": "リンクを共有する",
         "copyButtonSuccess": "コピーしました"
       },
       "ListResponses": {
@@ -90,7 +90,8 @@
         "anonymous": "誰か（匿名）",
         "removeReservationButton": "予約を解除",
         "openLinkButton": "リンクを開く",
-        "noLinkButton": "リンクが提供されていません"
+        "noLinkButton": "リンクが提供されていません",
+        "editButton": "項目を編集する"
       },
       "Dialogs": {
         "ConfirmReservation": {
@@ -373,6 +374,15 @@
         "unauthorized": "ユーザーが認証されていません",
         "UpdatePassword": {
           "samePassword": "新しいパスワードは古いパスワードとは異なる必要があります。"
+        },
+        "DeleteAccount": {
+          "usernameMismatch": "入力されたユーザー名がプロフィールと一致しません。",
+          "error": "アカウントの削除中にエラーが発生しました。後でもう一度お試しください。",
+          "success": "アカウントが正常に削除されました。"
+        },
+        "ChangePassword": {
+          "wrongCurrentPassword": "入力された現在のパスワードが正しくありません。",
+          "success": "パスワードが正常に変更されました！"
         }
       },
       "Invite": {
@@ -538,7 +548,31 @@
       "infoTitle": "グループ情報"
     },
     "Privacy": {
-      "developmentWarning": "このページは開発中です。\n新機能は間もなく利用可能になります。"
+      "developmentWarning": "このページは開発中です。\n新機能は間もなく利用可能になります。",
+      "Secure": {
+        "title": "安全"
+      },
+      "ChangePassword": {
+        "description": "アクセスパスワードを更新してください",
+        "title": "パスワードを変更する"
+      },
+      "ChangePasswordDialog": {
+        "title": "パスワードを変更",
+        "description": "現在のパスワードを入力し、アカウントの新しいパスワードを設定してください。",
+        "currentPasswordLabel": "現在のパスワード",
+        "confirmButton": "パスワードを変更"
+      },
+      "DeleteAccount": {
+        "description": "Wishly アカウントを完全に削除する",
+        "title": "アカウントを削除する"
+      },
+      "DeleteAccountDialog": {
+        "title": "アカウントを完全に削除",
+        "description": "この操作は取り消すことができません。すべてのデータ、ウィッシュリスト、グループ、予約が完全に削除されます。",
+        "confirmLabel": "確認のため、ユーザー名を入力してください：",
+        "confirmButton": "アカウントを削除",
+        "cancelButton": "キャンセル"
+      }
     },
     "Help": {
       "FAQ": {

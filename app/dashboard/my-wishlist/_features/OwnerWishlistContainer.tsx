@@ -5,6 +5,7 @@ import OwnerItemList from "./OwnerItemList"
 import DeleteitemDialog from "./DeleteitemDialog"
 import ItemDrawer from "./ItemDrawer"
 import CreateItemButton from "./CreateItemButton"
+import OwnerItemViewerDrawer from "./OwnerItemViewerDrawer"
 
 
 type MyWishlistContainerProps = {
@@ -14,7 +15,7 @@ type MyWishlistContainerProps = {
 
 export default function OwnerWishlistContainer({ userId, initialItems }: MyWishlistContainerProps) {
 
-    const { items, search, setSearch, isLoading, isItemDrawerOpen, itemDrawerMode, isDeleteDialogOpen, handleOpenDeleteDialog, handleOpenItemDrawer, handleEditItem, handleCreateItem, handleDeleteItem, selectedItem, closeItemDrawer, closeDeleteDialog } = useOwnerWishlist(userId, initialItems)
+    const { items, search, setSearch, isLoading, isItemDrawerOpen, isViewerDrawerOpen, itemDrawerMode, isDeleteDialogOpen, handleOpenDeleteDialog, handleOpenItemDrawer, handleOpenViewerDrawer, handleEditItem, handleCreateItem, handleDeleteItem, selectedItem, closeItemDrawer, closeDeleteDialog, closeViewerDrawer } = useOwnerWishlist(userId, initialItems)
 
     return (
         <div className='w-full'>
@@ -23,6 +24,7 @@ export default function OwnerWishlistContainer({ userId, initialItems }: MyWishl
                 setSearch={setSearch}
                 items={items}
                 isLoading={isLoading}
+                onViewItem={handleOpenViewerDrawer}
                 onEditItem={handleOpenItemDrawer}
                 onDeleteItem={handleOpenDeleteDialog}
             />
@@ -42,6 +44,13 @@ export default function OwnerWishlistContainer({ userId, initialItems }: MyWishl
                 isOpen={isDeleteDialogOpen}
                 onConfirm={handleDeleteItem}
                 onClose={closeDeleteDialog}
+            />
+
+            <OwnerItemViewerDrawer
+                item={selectedItem}
+                isOpen={isViewerDrawerOpen}
+                onClose={closeViewerDrawer}
+                onEditItem={handleOpenItemDrawer}
             />
         </div>
     )

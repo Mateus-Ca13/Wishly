@@ -38,7 +38,7 @@ export async function updateSession(
   const { data: { user } } = await supabase.auth.getUser()
 
   const path = request.nextUrl.pathname
-  console.log('path', path);
+  const searchParams = request.nextUrl.searchParams
 
 
   // Cenario A: Usuário NÃO está logado
@@ -54,12 +54,18 @@ export async function updateSession(
 
       return NextResponse.redirect(loginUrl)
     }
+
+    // Evita que o usuário acesse a raiz da aplicação em caso de PWA
+    const isPwaSource = searchParams.get('source') === 'pwa'
+    if (path === '/' && isPwaSource) {
+      return NextResponse.redirect(new URL('/login', request.url))
+    }
   }
 
   // Cenario B: Usuário ESTÁ logado
   if (user) {
 
-    if (path.startsWith('/login')) {
+    if (path.startsWith('/login') || path === '/') {
       return NextResponse.redirect(new URL('/dashboard', request.url))
     }
   }

@@ -12,11 +12,12 @@ import { useCurrency } from "@/providers/CountryStoreProvider";
 type OwnerItemCardProps = {
   item: ItemWithoutReservation;
   delay: number;
+  onViewItem: (item: ItemWithoutReservation) => void;
   onEditItem: (item: ItemWithoutReservation, mode: "edit" | "create") => void;
   onDeleteItem: (item: ItemWithoutReservation) => void;
 };
 
-export default function OwnerItemCard({ item, delay, onEditItem, onDeleteItem }: OwnerItemCardProps) {
+export default function OwnerItemCard({ item, delay, onViewItem, onEditItem, onDeleteItem }: OwnerItemCardProps) {
   const tUtils = useTranslations('Dashboard.Utils')
   const targetCurrency = useCurrency()
   const format = useFormatter()
@@ -37,7 +38,7 @@ export default function OwnerItemCard({ item, delay, onEditItem, onDeleteItem }:
       transition={{ delay, duration: 0.5 }}
       className="w-full"
     >
-      <div onClick={() => setIsDropdownOpen(true)} className="cursor-pointer">
+      <div onClick={() => onViewItem(item)} className="cursor-pointer">
         <Card className="w-full p-2 flex flex-row items-center justify-between py-3 gap-2 hover:bg-gray-100 dark:hover:bg-gray-900 dark:border-gray-700 duration-200 border-gray-300">
           <div className="flex ps-2 justify-start items-center gap-4 flex-1 min-w-0">
             <div className="min-w-0 flex-1">
@@ -59,7 +60,7 @@ export default function OwnerItemCard({ item, delay, onEditItem, onDeleteItem }:
               </div>
             </div>
           </div>
-          <div>
+          <div onClick={(e) => e.stopPropagation()}>
             <ItemDropdownMenu
               isOpen={isDropdownOpen}
               setIsOpen={setIsDropdownOpen}

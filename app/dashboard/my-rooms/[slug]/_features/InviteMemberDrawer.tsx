@@ -3,8 +3,9 @@ import Button from "@/components/Button/Button"
 import Input from "@/components/Input/Input"
 import { MotionDiv } from "@/components/Motion/Motion"
 import { Drawer, DrawerContent, DrawerDescription, DrawerHandle, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer"
+import { handleShare } from "@/utils/share"
 import { getCurrentUrl } from "@/utils/url"
-import { Check, Copy, LucideShare2 } from "lucide-react"
+import { Check, Copy, LucideShare2, Share2 } from "lucide-react"
 import { useTranslations } from "next-intl"
 import React from "react"
 
@@ -15,18 +16,13 @@ type InviteMemberDrawerProps = {
 
 export default function InviteMemberDrawer({ slug }: InviteMemberDrawerProps) {
   const [isOpen, setIsOpen] = React.useState(false)
-  const [copyButtonPressed, setCopyButtonPressed] = React.useState(false)
   const t = useTranslations('Dashboard.RoomsDetails');
 
   const inviteUrl = `${getCurrentUrl('origin')}/invite/${slug}`
 
 
-  const handleCopyButton = () => {
-    navigator.clipboard.writeText(inviteUrl)
-    setCopyButtonPressed(true)
-    setTimeout(() => {
-      setCopyButtonPressed(false)
-    }, 2000)
+  const handleCopyButton = async () => {
+    await handleShare(inviteUrl, "Wishly", "Convite para grupo!")
 
   }
 
@@ -58,17 +54,9 @@ export default function InviteMemberDrawer({ slug }: InviteMemberDrawerProps) {
           </DrawerHeader>
           <div className="p-4 pb-10 w-full max-w-xl flex justify-center items-center gap-4">
             <Input value={inviteUrl} className="py-6" onChange={(e) => e.preventDefault()} />
-            <Button variant="outlined" className="flex items-center justify-center gap-1 min-w-2/5 lg:min-w-1/4" onClick={handleCopyButton}>
-              {copyButtonPressed ? (
-                <>
-                  <Check className="size-6" />
-                  <p>{t('InviteDrawer.copyButtonSuccess')}</p>
-                </>)
-                : (<>
-                  <Copy className="size-6" />
-                  <p>{t('InviteDrawer.copyButton')}</p>
-                </>
-                )}
+            <Button variant="outlined" className="flex items-center justify-center gap-1" onClick={handleCopyButton}>
+              <Share2 className="size-6" />
+              <p>{t('InviteDrawer.copyButton')}</p>
             </Button>
           </div>
         </div>

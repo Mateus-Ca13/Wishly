@@ -49,7 +49,7 @@
       "InviteDrawer": {
         "title": "Inviter au groupe",
         "description": "Partagez le lien d'invitation avec vos amis pour qu'ils puissent rejoindre le groupe !",
-        "copyButton": "Copier",
+        "copyButton": "Partager",
         "copyButtonSuccess": "Copié"
       },
       "ListResponses": {
@@ -90,7 +90,8 @@
         "anonymous": "quelqu'un (anonyme)",
         "removeReservationButton": "Supprimer la réservation",
         "openLinkButton": "Ouvrir le lien",
-        "noLinkButton": "Lien non renseigné"
+        "noLinkButton": "Lien non renseigné",
+        "editButton": "Modifier l'élément"
       },
       "Dialogs": {
         "ConfirmReservation": {
@@ -373,6 +374,15 @@
         "unauthorized": "Utilisateur non authentifié",
         "UpdatePassword": {
           "samePassword": "Le nouveau mot de passe doit être différent de l'ancien mot de passe."
+        },
+        "DeleteAccount": {
+          "usernameMismatch": "Le nom d'utilisateur fourni ne correspond pas à votre profil.",
+          "error": "Erreur lors de la suppression du compte. Veuillez réessayer plus tard.",
+          "success": "Compte supprimé avec succès."
+        },
+        "ChangePassword": {
+          "wrongCurrentPassword": "Le mot de passe actuel fourni est incorrect.",
+          "success": "Mot de passe changé avec succès !"
         }
       },
       "Invite": {
@@ -538,7 +548,31 @@
       "infoTitle": "Informations sur le groupe"
     },
     "Privacy": {
-      "developmentWarning": "Cette page est en cours de développement. \nDe nouvelles fonctionnalités seront bientôt disponibles."
+      "developmentWarning": "Cette page est en cours de développement. \nDe nouvelles fonctionnalités seront bientôt disponibles.",
+      "Secure": {
+        "title": "Sécurité"
+      },
+      "ChangePassword": {
+        "description": "Mettez à jour votre mot de passe d'accès",
+        "title": "Changer le mot de passe"
+      },
+      "ChangePasswordDialog": {
+        "title": "Changer le mot de passe",
+        "description": "Entrez votre mot de passe actuel et définissez un nouveau mot de passe pour votre compte.",
+        "currentPasswordLabel": "Mot de passe actuel",
+        "confirmButton": "Changer le mot de passe"
+      },
+      "DeleteAccount": {
+        "description": "Supprimez définitivement votre compte Wishly",
+        "title": "Supprimer mon compte"
+      },
+      "DeleteAccountDialog": {
+        "title": "Supprimer le compte définitivement",
+        "description": "Cette action est irréversible. Toutes vos données, listes de souhaits, groupes et réservations seront définitivement supprimés.",
+        "confirmLabel": "Pour confirmer, tapez votre nom d'utilisateur :",
+        "confirmButton": "Supprimer mon compte",
+        "cancelButton": "Annuler"
+      }
     },
     "Help": {
       "FAQ": {
