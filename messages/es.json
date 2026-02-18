@@ -49,7 +49,7 @@
       "InviteDrawer": {
         "title": "Invitar al grupo",
         "description": "¡Comparte el enlace de invitación con tus amigos para que puedan unirse al grupo!",
-        "copyButton": "Copiar",
+        "copyButton": "Compartir",
         "copyButtonSuccess": "Copiado"
       },
       "ListResponses": {
@@ -90,7 +90,8 @@
         "anonymous": "alguien (anónimo)",
         "removeReservationButton": "Eliminar reserva",
         "openLinkButton": "Abrir enlace",
-        "noLinkButton": "Enlace no proporcionado"
+        "noLinkButton": "Enlace no proporcionado",
+        "editButton": "Editar elemento"
       },
       "Dialogs": {
         "ConfirmReservation": {
@@ -373,6 +374,15 @@
         "unauthorized": "Usuario no autenticado",
         "UpdatePassword": {
           "samePassword": "La nueva contraseña debe ser diferente de la antigua."
+        },
+        "DeleteAccount": {
+          "usernameMismatch": "El nombre de usuario proporcionado no corresponde a tu perfil.",
+          "error": "Error al eliminar la cuenta. Inténtalo de nuevo más tarde.",
+          "success": "Cuenta eliminada con éxito."
+        },
+        "ChangePassword": {
+          "wrongCurrentPassword": "La contraseña actual proporcionada es incorrecta.",
+          "success": "¡Contraseña cambiada con éxito!"
         }
       },
       "Invite": {
@@ -541,7 +551,31 @@
       "infoTitle": "Información del grupo"
     },
     "Privacy": {
-      "developmentWarning": "Esta página está en desarrollo. \nNuevas funciones estarán disponibles pronto."
+      "developmentWarning": "Esta página está en desarrollo. \nNuevas funciones estarán disponibles pronto.",
+      "Secure": {
+        "title": "Seguridad"
+      },
+      "ChangePassword": {
+        "description": "Actualiza tu contraseña de acceso",
+        "title": "Cambiar la contraseña"
+      },
+      "ChangePasswordDialog": {
+        "title": "Cambiar contraseña",
+        "description": "Ingresa tu contraseña actual y define una nueva contraseña para tu cuenta.",
+        "currentPasswordLabel": "Contraseña actual",
+        "confirmButton": "Cambiar contraseña"
+      },
+      "DeleteAccount": {
+        "description": "Elimina permanentemente tu cuenta Wishly",
+        "title": "Eliminar mi cuenta"
+      },
+      "DeleteAccountDialog": {
+        "title": "Eliminar cuenta permanentemente",
+        "description": "Esta acción es irreversible. Todos tus datos, listas de deseos, grupos y reservas serán eliminados permanentemente.",
+        "confirmLabel": "Para confirmar, escribe tu nombre de usuario:",
+        "confirmButton": "Eliminar mi cuenta",
+        "cancelButton": "Cancelar"
+      }
     },
     "Help": {
       "FAQ": {

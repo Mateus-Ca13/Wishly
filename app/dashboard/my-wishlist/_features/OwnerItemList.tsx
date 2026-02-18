@@ -11,11 +11,12 @@ type OwnerItemListProps = {
     setSearch: (search: string) => void
     items: { items: Item[], count: number }
     isLoading: boolean
+    onViewItem: (item: ItemWithoutReservation) => void
     onEditItem: (item: ItemWithoutReservation, mode: "edit" | "create") => void
     onDeleteItem: (item: ItemWithoutReservation) => void
 }
 
-export default function OwnerItemList({ search, setSearch, items, isLoading, onEditItem, onDeleteItem }: OwnerItemListProps) {
+export default function OwnerItemList({ search, setSearch, items, isLoading, onViewItem, onEditItem, onDeleteItem }: OwnerItemListProps) {
     const t = useTranslations('Dashboard.MyWishlist');
 
     return (
@@ -48,6 +49,7 @@ export default function OwnerItemList({ search, setSearch, items, isLoading, onE
                                 key={item.id}
                                 item={item}
                                 delay={index * 0.05}
+                                onViewItem={onViewItem}
                                 onEditItem={onEditItem}
                                 onDeleteItem={onDeleteItem}
                             />

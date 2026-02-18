@@ -11,6 +11,7 @@ export function useOwnerWishlist(userId: string, initialItems: { items: Item[] |
     const [isItemDrawerOpen, setIsItemDrawerOpen] = useState(false)
     const [itemDrawerMode, setItemDrawerMode] = useState<'edit' | 'create'>('edit')
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
+    const [isViewerDrawerOpen, setIsViewerDrawerOpen] = useState(false)
 
     const handleEditItem = async (itemId: number | undefined | null, itemData: RegisterOrEditItemSchema) => {
         if (!itemId) {
@@ -62,12 +63,25 @@ export function useOwnerWishlist(userId: string, initialItems: { items: Item[] |
         setItemDrawerMode(mode)
         setIsItemDrawerOpen(true)
         setIsDeleteDialogOpen(false)
+        setIsViewerDrawerOpen(false)
     }
 
     const handleOpenDeleteDialog = (item: ItemWithoutReservation) => {
         setSelectedItem(item)
         setIsDeleteDialogOpen(true)
         setIsItemDrawerOpen(false)
+    }
+
+    const handleOpenViewerDrawer = (item: ItemWithoutReservation) => {
+        setSelectedItem(item)
+        setIsViewerDrawerOpen(true)
+        setIsItemDrawerOpen(false)
+        setIsDeleteDialogOpen(false)
+    }
+
+    const closeViewerDrawer = () => {
+        setIsViewerDrawerOpen(false)
+        setSelectedItem(null)
     }
 
     const closeItemDrawer = () => {
@@ -83,14 +97,16 @@ export function useOwnerWishlist(userId: string, initialItems: { items: Item[] |
     return {
         items, search, setSearch, isLoading,
         isItemDrawerOpen,
+        isViewerDrawerOpen,
         handleEditItem, handleDeleteItem, handleCreateItem,
         itemDrawerMode,
         selectedItem,
         closeItemDrawer,
         closeDeleteDialog,
+        closeViewerDrawer,
         isDeleteDialogOpen,
         handleOpenItemDrawer,
         handleOpenDeleteDialog,
-
+        handleOpenViewerDrawer,
     }
 }

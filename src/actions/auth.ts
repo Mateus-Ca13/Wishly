@@ -2,7 +2,7 @@
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
-import { getLoginSchema, LoginSchema, getRegisterProfileSchema, RegisterProfileSchema, ForgetPasswordSchema, getForgetPasswordSchema, ResetPasswordSchema, getResetPasswordSchema } from '../schemas/auth'
+import { getLoginSchema, LoginSchema, getRegisterProfileSchema, RegisterProfileSchema, ForgetPasswordSchema, getForgetPasswordSchema, ResetPasswordSchema, getResetPasswordSchema, ChangePasswordSchema, getChangePasswordSchema } from '../schemas/auth'
 import { sendErrorResponse, sendSuccessResponse } from '@/utils/response'
 import { customAlphabet } from 'nanoid'
 import slugify from 'slugify'
@@ -134,4 +134,83 @@ export async function authUpdatePasswordAction(userData: ResetPasswordSchema) {
   revalidatePath('/', 'layout')
   redirect('/login')
 }
+
+export async function authDeleteAccountAction(confirmUsername: string) {
+  const t = await getTranslations('Dashboard.Responses')
+
+  const supabase = await createClient()
+
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+
+  if (authError || !user) {
+    return sendErrorResponse(401, t('Auth.unauthorized'), null)
+  }
+
+  const { data: profile, error: profileError } = await supabase
+    .from('profiles')
+    .select('username')
+    .eq('id', user.id)
+    .single()
+
+  if (profileError || !profile) {
+    return sendErrorResponse(500, t('General.error'), null)
+  }
+
+  if (profile.username !== confirmUsername) {
+    return sendErrorResponse(400, t('Auth.DeleteAccount.usernameMismatch'), null)
+  }
+
+  const { createClientAdmin } = await import('@/lib/supabase/admin')
+  const adminClient = await createClientAdmin()
+
+  const { error: deleteError } = await adminClient.auth.admin.deleteUser(user.id)
+
+  if (deleteError) {
+    return sendErrorResponse(500, t('Auth.DeleteAccount.error'), null)
+  }
+
+  await supabase.auth.signOut()
+
+  revalidatePath('/', 'layout')
+  redirect('/login')
+}
+
+export async function authChangePasswordAction(data: ChangePasswordSchema) {
+  const tForm = await getTranslations('Dashboard.Profile.Form')
+  const t = await getTranslations('Dashboard.Responses')
+
+  const parse = getChangePasswordSchema(tForm).safeParse(data)
+  if (!parse.success) return sendErrorResponse(400, parse.error.message, null)
+
+  const supabase = await createClient()
+
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+
+  if (authError || !user || !user.email) {
+    return sendErrorResponse(401, t('Auth.unauthorized'), null)
+  }
+
+  // Verify current password by re-authenticating
+  const { error: signInError } = await supabase.auth.signInWithPassword({
+    email: user.email,
+    password: parse.data.current_password,
+  })
+
+  if (signInError) {
+    return sendErrorResponse(400, t('Auth.ChangePassword.wrongCurrentPassword'), null)
+  }
+
+  // Update to new password
+  const { error: updateError } = await supabase.auth.updateUser({
+    password: parse.data.password,
+  })
+
+  if (updateError) {
+    if (updateError.code === 'same_password') return sendErrorResponse(400, t('Auth.UpdatePassword.samePassword'), null)
+    return sendErrorResponse(500, t('General.error'), null)
+  }
+
+  return sendSuccessResponse(200, t('Auth.ChangePassword.success'), null)
+}
+
 

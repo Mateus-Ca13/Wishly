@@ -8,6 +8,7 @@ import { MotionDiv } from '@/components/Motion/Motion'
 import { Item, Profile } from '@/types/entities'
 import { useFormatter, useTranslations } from 'next-intl'
 import { useCurrency } from '@/providers/CountryStoreProvider'
+import { ExternalLinkIcon } from 'lucide-react'
 
 type ItemDetailsDrawerProps = {
 	item: Item | null
@@ -18,8 +19,8 @@ type ItemDetailsDrawerProps = {
 }
 
 export default function ItemDetailsDrawer({ item, currentUser, isOpen, onClose, onOpenCancelReservation }: ItemDetailsDrawerProps) {
-	const t = useTranslations('Dashboard.MemberWishlist.Drawer')
 	const tUtils = useTranslations('Dashboard.Utils')
+	const t = useTranslations('Dashboard.MemberWishlist.Drawer')
 	const targetCurrency = useCurrency()
 	const format = useFormatter();
 
@@ -86,7 +87,13 @@ export default function ItemDetailsDrawer({ item, currentUser, isOpen, onClose, 
 								<div className='flex justify-center items-center w-full mt-8'>
 									{item.link.length > 0 ?
 										<Link href={item.link} target="_blank" className='w-full'>
-											<Button className='w-full rounded-full py-4' variant='contained'>{t('openLinkButton')}</Button>
+											<Button className='w-full rounded-full py-4 flex flex-col justify-center items-center' variant='contained'>
+												<div className='flex gap-2 w-full justify-center items-center'>
+													<ExternalLinkIcon className='size-4' />
+													{t('openLinkButton')}
+												</div>
+												<span className='truncate font-extralight text-sm text-primary-100 w-full text-center px-4'>{item.link}/calca-regata-id-948449?test=123&outra=coisa&mais=uma&parametro=valor&outro=parametro</span>
+											</Button>
 										</Link> :
 										<Button className='w-full border-2 py-4! border-gray-200 rounded-full' variant='blank' disabled>{t('noLinkButton')}</Button>
 									}

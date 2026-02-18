@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
         name: 'Wishly - Sua lista de desejos online',
         short_name: 'Wishly',
         description: 'Crie e compartilhe suas listas de desejos com facilidade.',
-        start_url: '/',
+        start_url: '/?source=pwa',
         display: 'standalone',
         background_color: '#ffffff',
         theme_color: '#ffffff',

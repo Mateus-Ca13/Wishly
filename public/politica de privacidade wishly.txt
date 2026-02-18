@@ -1,0 +1,57 @@
+1. Dados Coletados
+O Wishly coleta o mínimo de informações necessárias para o funcionamento da plataforma e a melhoria da experiência do usuário. Os dados coletados são:
+
+Dados de Cadastro: Nome completo, endereço de e-mail e um apelido (username) escolhido por você.
+
+Dados Opcionais: Gênero e data de nascimento (informados apenas se o usuário desejar).
+
+Dados de Uso e Conteúdo: Listas de desejos criadas, links de produtos, fotos de perfil (se houver), histórico de itens reservados em grupos e interações dentro da plataforma.
+
+Dados de Pagamento: Quando você assina um plano, os dados de faturamento (cartão, CPF, etc.) são coletados e processados diretamente pelo Stripe. O Wishly não armazena o número do seu cartão de crédito.
+
+Dados Técnicos: Endereço IP, tipo de navegador, sistema operacional e registros de acesso (logs), coletados automaticamente para segurança e diagnóstico.
+
+2. Finalidade do Tratamento de Dados
+Tratamos seus dados com objetivos específicos, em conformidade com a LGPD:
+
+Prestação do Serviço: Usamos seu e-mail e apelido para identificar sua conta, permitir o acesso e possibilitar que amigos te encontrem para formar grupos.
+
+Funcionalidade de Listas (Data de Aniversário): A data de nascimento é utilizada para verificar a idade do usuário e, opcionalmente, para notificar membros do seu grupo sobre a proximidade do seu aniversário, facilitando a organização dos presentes.
+
+Personalização (Gênero): Quando fornecido, o gênero é usado apenas para fins estatísticos e para melhorar a comunicação da plataforma com o usuário.
+
+Comunicação: Enviamos notificações sobre reservas de itens em suas listas, atualizações no serviço ou informações sobre sua assinatura.
+
+Segurança: Utilizamos logs de acesso e dados técnicos para prevenir fraudes, ataques hackers e garantir a integridade dos grupos familiares.
+
+3. Compartilhamento de Dados com Terceiros
+O Wishly não vende nem comercializa seus dados pessoais para fins publicitários. O compartilhamento ocorre apenas quando estritamente necessário para o funcionamento da plataforma:
+
+Processamento de Pagamentos (Stripe): Para processar as subscrições e planos premium, os dados de faturamento são transmitidos diretamente à Stripe. O Wishly não tem acesso a dados sensíveis de pagamento, apenas à confirmação de que o pagamento foi realizado com sucesso.
+
+Serviços de Infraestrutura: Seus dados são armazenados em servidores de nuvem de alta segurança (como AWS ou Google Cloud), que seguem padrões internacionais de proteção de dados.
+
+Cumprimento Legal: Poderemos compartilhar dados caso sejamos obrigados por lei, ordem judicial ou para proteger os direitos e a segurança de nossos usuários e da própria plataforma.
+
+4. Segurança e Retenção de Dados
+4.1. Medidas de Segurança: Implementamos medidas técnicas e organizacionais para proteger seus dados contra acessos não autorizados, perda, alteração ou destruição. Isso inclui o uso de protocolos de criptografia (HTTPS/TLS) para o tráfego de informações. 4.2. Retenção de Dados: Mantemos seus dados pessoais enquanto sua conta estiver ativa ou enquanto forem necessários para fornecer os serviços. 4.3. Prazo de Logs: Conforme exigido pelo Marco Civil da Internet (Lei nº 12.965/14), os registros de acesso (logs) são mantidos por um período mínimo de 6 (seis) meses em ambiente controlado e seguro. 4.4. Descarte Seguro: Após o encerramento da conta ou o fim da finalidade do tratamento, os dados são excluídos ou anonimizados, exceto quando a retenção é exigida por obrigação legal ou regulatória.
+
+5. Seus Direitos (Direitos do Titular - LGPD)
+Em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/18), o Wishly garante que você possa exercer seus direitos sobre seus dados a qualquer momento:
+
+Acesso e Correção: Você pode visualizar e editar seus dados (Nome, E-mail, Apelido, Aniversário e Gênero) diretamente nas configurações do seu perfil.
+
+Portabilidade: Você tem o direito de solicitar uma cópia dos dados que forneceu à plataforma em formato estruturado.
+
+Exclusão Definitiva: Você pode solicitar a exclusão de sua conta e de todos os seus dados pessoais. O Wishly processará essa exclusão, mantendo apenas o que for estritamente exigido por lei (como logs de acesso).
+
+Revogação de Consentimento: Caso não concorde mais com o tratamento de algum dado opcional, você pode retirá-lo de seu perfil ou encerrar o uso da plataforma.
+
+6. Cookies e Tecnologias de Rastreio
+O Wishly utiliza cookies e tecnologias similares para melhorar sua experiência de navegação:
+
+Cookies Essenciais: Necessários para que o site funcione. Eles permitem que você permaneça logado enquanto navega entre diferentes páginas e grupos.
+
+Cookies de Preferência: Armazenam escolhas que você faz (como idioma ou configurações de exibição) para que você não precise configurá-las todas as vezes.
+
+Gestão de Cookies: Você pode configurar seu navegador para bloquear ou alertar sobre esses cookies, mas algumas partes da plataforma (como o acesso à conta) podem não funcionar corretamente sem eles.

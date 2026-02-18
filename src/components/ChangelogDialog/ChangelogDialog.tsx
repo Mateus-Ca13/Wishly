@@ -29,16 +29,28 @@ export default function ChangelogDialog() {
     // TODO: Adicionar chaves de tradução para as atualizações futuras
     const updates = [
         {
-            title: 'Redirecionamento automático para convites',
-            description: 'Agora, quando usuários deslogados que entrarem em um link de convite fizerem login, serão redirecionados automaticamente para a página do convite, e não para o dashboard.'
+            title: 'Alterar senha',
+            description: 'Agora é possível alterar a senha de sua conta na página de privacidade e segurança, em configurações de conta.'
         },
         {
-            title: 'Redefinição de senha',
-            description: 'A opção de "Esqueci minha senha" agora está disponível no menu de login. Ao informar o email cadastrado, um link será enviado para redefinir a senha.'
+            title: 'Excluir conta',
+            description: 'Usuários agora podem excluir a conta na página de privacidade e segurança, em configurações de conta.'
         },
         {
-            title: 'Correções e melhorias',
-            description: 'Algumas correções de redirecionamento entre interfaces foram feitas.'
+            title: 'Visualização rápida de itens',
+            description: 'Ao selecionar um item da lista de desejos, agora é possível visualizar os detalhes do item, além de editá-lo ou excluí-lo.'
+        },
+        {
+            title: 'Landing Page',
+            description: 'Agora o Wishly possui uma página de apresentação super interessante e informativa!'
+        },
+        {
+            title: 'Termos de Uso e Política de Privacidade',
+            description: 'Agora o Wishly possui termos de uso e política de privacidade.'
+        },
+        {
+            title: 'Correção de PWA',
+            description: 'Correção no trecho de código que permitia que PWA abrissem a landing page. '
         }
     ]
 

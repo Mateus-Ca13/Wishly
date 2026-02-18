@@ -1,0 +1,47 @@
+Termos de Uso: Wishly (Seções 1 a 3)
+1. Definições e Objeto
+1.1. O Serviço: O Wishly é uma plataforma de software como serviço (SaaS) que permite a organização, criação e compartilhamento de listas de desejos (wishlists) em grupos privados ou públicos. 1.2. Grupos e Visibilidade: A plataforma facilita a interação entre usuários conhecidos, permitindo que membros de um mesmo grupo visualizem os itens desejados uns dos outros e utilizem o sistema de "Reserva de Itens" para coordenar a aquisição de presentes, evitando duplicidades. 1.3. Natureza do Serviço: O Wishly atua estritamente como um facilitador de organização e hospedagem de conteúdo. A plataforma não comercializa produtos, não é parte em transações de compra e venda e não se responsabiliza pela entrega ou qualidade dos itens listados pelos usuários.
+
+2. Elegibilidade e Cadastro
+2.1. Criação de Conta: Para utilizar as funcionalidades do Wishly, o usuário deve realizar um cadastro fornecendo dados verídicos, incluindo Nome, E-mail, Data de Nascimento, Gênero e um Apelido de sua escolha. 2.2. Segurança da Conta: O usuário é o único responsável pela confidencialidade de suas credenciais de acesso. Qualquer atividade realizada sob sua conta será de sua integral responsabilidade. 2.3. Atualização de Dados: O usuário compromete-se a manter seus dados atualizados, podendo editá-los a qualquer momento através das configurações de perfil na plataforma.
+
+3. Uso por Menores e Consentimento Parental
+3.1. Classificação Etária: O Wishly possui natureza familiar e não veicula deliberadamente conteúdo restrito. Dessa forma, a plataforma é aberta a usuários de diversas faixas etárias, incluindo crianças e adolescentes. 3.2. Presunção de Consentimento: Ao permitir que um menor de idade acesse e utilize a plataforma, o Wishly subentende e presume que houve o consentimento prévio e a supervisão direta de seus pais ou responsáveis legais. 3.3. Isenção de Responsabilidade: A plataforma não solicita, controla ou armazena comprovantes de autorização parental no ato do cadastro. É de responsabilidade exclusiva dos pais ou tutores legais monitorar o uso da ferramenta por menores, bem como os grupos em que estes ingressam, isentando o Wishly de qualquer responsabilidade por uso não autorizado ou inadequado por parte de incapazes.
+
+4. Assinaturas e Pagamentos (SaaS)
+4.1. Planos e Assinaturas: O Wishly oferece diferentes modalidades de planos, incluindo versões gratuitas e subscrições pagas ("Premium"). As funcionalidades específicas, limites de criação de grupos, quantidade de itens por lista e ferramentas exclusivas de usabilidade variam de acordo com o plano escolhido pelo usuário no ato da contratação. 4.2. Processamento por Terceiros (Stripe): Todos os pagamentos e transações financeiras são processados através da plataforma Stripe. O Wishly não armazena dados sensíveis de cartões de crédito em seus próprios servidores. Ao realizar uma assinatura, o usuário concorda com os Termos de Serviço e Política de Privacidade da Stripe. 4.3. Renovação e Cancelamento: As assinaturas são renovadas automaticamente ao final de cada período (mensal ou anual), a menos que o usuário solicite o cancelamento através do painel de configurações. O cancelamento interrompe a cobrança do próximo ciclo, mantendo o acesso premium até o fim do período já pago. 4.4. Alteração de Planos (Upgrade/Downgrade): O usuário pode alterar seu plano a qualquer momento. Em casos de upgrade, a cobrança proporcional será aplicada imediatamente. Em casos de downgrade, as novas limitações de uso serão aplicadas no próximo ciclo de faturamento.
+
+5. Conteúdo do Usuário e Isenção de Responsabilidade
+5.1. Responsabilidade pelo Conteúdo: O Wishly é uma plataforma de hospedagem técnica. Todo e qualquer conteúdo inserido (textos, links de produtos ou descrições de desejos) é de responsabilidade exclusiva e integral do usuário que o publicou. 5.2. Natureza da Plataforma: Como o Wishly é um app de uso familiar e restrito a grupos (geralmente compostos por conhecidos), a plataforma não realiza moderação prévia de conteúdos. No entanto, o usuário compromete-se a não postar conteúdos ilícitos, ofensivos, pornográficos ou que violem direitos autorais de terceiros. 5.3. Ausência de Endosso: A inclusão de um link ou produto em uma wishlist não implica em endosso, verificação de segurança ou garantia por parte do Wishly. A plataforma não se responsabiliza por danos decorrentes de links externos ou transações comerciais realizadas fora de seu ambiente. 5.4. Reserva de Itens: O sistema de "Reserva de Itens" é uma ferramenta de coordenação logística entre usuários. O Wishly não garante que um item reservado será efetivamente comprado, nem se responsabiliza por falhas de comunicação entre os membros do grupo.
+
+6. Regras de Conduta e Moderação
+6.1. Uso Aceitável: O usuário compromete-se a utilizar o Wishly de forma ética e legal. É terminantemente proibido utilizar a plataforma para:
+
+Assediar, intimidar ou expor outros membros do grupo;
+
+Publicar conteúdos que promovam discurso de ódio, violência ou atividades ilegais;
+
+Tentar burlar sistemas de segurança ou acessar dados de terceiros sem autorização. 6.2. Denúncia de Conteúdo: Caso um usuário identifique um comportamento inadequado ou conteúdo proibido dentro de um grupo, deverá reportar o incidente através dos canais oficiais de suporte do Wishly. 6.3. Poder de Moderação: O Wishly reserva-se o direito de suspender ou banir contas que violem estes termos, bem como remover conteúdos sinalizados como impróprios, sem aviso prévio.
+
+7. Encerramento e Exclusão de Conta
+7.1. Direito de Exclusão: O usuário possui total autonomia para encerrar sua conta no Wishly a qualquer momento, diretamente através das configurações do perfil. 7.2. Efeito da Exclusão: Ao excluir a conta, todos os dados pessoais associados serão removidos de nossas bases de dados ativas, respeitando os prazos legais de guarda de logs. Informações compartilhadas em grupos (como reservas de itens feitas no passado) podem permanecer visíveis para os outros membros para manter o histórico do grupo, porém de forma anonimizada ou desvinculada do perfil excluído. 7.3. Suspensão por Inatividade: O Wishly reserva-se o direito de desativar contas que permaneçam inativas por um período superior a 12 (doze) meses, mediante aviso prévio por e-mail.
+
+8. Limitação de Responsabilidade e Foro
+8.1. Disponibilidade do Serviço: O Wishly é fornecido "como está". Embora busquemos a máxima estabilidade, não garantimos que o serviço será ininterrupto ou livre de erros técnicos pontuais. 8.2. Danos Indiretos: Em nenhuma circunstância o Wishly será responsável por lucros cessantes ou danos indiretos resultantes do uso ou da incapacidade de usar a plataforma. 8.3. Legislação e Foro: Estes Termos são regidos pelas leis da República Federativa do Brasil. Para dirimir quaisquer controvérsias oriundas deste documento, as partes elegem o foro da comarca de São José/SC, com renúncia expressa a qualquer outro, por mais privilegiado que seja.
+
+9. Natureza Experimental (Versão Beta) e Isenção de Garantias
+9.1. Versão Beta: O Usuário compreende e aceita que o Wishly encontra-se em estágio "Beta". Isso significa que a plataforma é uma versão experimental, em fase de testes e aprimoramento constante, podendo conter erros, instabilidades técnicas ou falhas de segurança ainda não identificadas.
+
+9.2. Isenção Total de Garantias: O serviço é fornecido "COMO ESTÁ" e "CONFORME DISPONÍVEL", sem qualquer garantia de desempenho, disponibilidade ininterrupta ou adequação a um propósito específico. O Wishly não garante que o serviço funcionará sem erros ou que os dados armazenados estarão permanentemente seguros contra perdas técnicas.
+
+9.3. Direito de Encerramento e Descontinuidade: O Wishly reserva-se o direito de, a qualquer momento e a seu exclusivo critério, sem aviso prévio e sem qualquer ônus ou penalidade:
+
+Modificar, suspender ou encerrar permanentemente qualquer funcionalidade;
+
+Encerrar a operação completa da plataforma por inviabilidade econômica, técnica ou mudança de estratégia de negócio;
+
+Deletar bases de dados inteiras em caso de atualizações críticas de infraestrutura.
+
+9.4. Limitação de Danos: Em nenhuma hipótese o desenvolvedor ou o Wishly serão responsáveis por quaisquer danos diretos, indiretos, incidentais ou consequentes (incluindo, mas não se limitando a, perda de dados, frustração de expectativas de presentes ou interrupção de uso) decorrentes da utilização ou da impossibilidade de utilização da plataforma, mesmo que tenhamos sido avisados da possibilidade de tais danos.
+
+9.5. Backup por conta do Usuário: É de responsabilidade exclusiva do usuário manter cópias externas ou backups de qualquer informação importante inserida na plataforma, ciente de que o Wishly pode sofrer "resets" de banco de dados durante esta fase de testes.

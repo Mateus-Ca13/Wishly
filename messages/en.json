@@ -49,7 +49,7 @@
       "InviteDrawer": {
         "title": "Invite to group",
         "description": "Share the invite link with your friends so they can join the group!",
-        "copyButton": "Copy",
+        "copyButton": "Share ",
         "copyButtonSuccess": "Copied"
       },
       "InfoDialog": {
@@ -90,7 +90,8 @@
         "anonymous": "someone (anonymous)",
         "removeReservationButton": "Remove reservation",
         "openLinkButton": "Open link",
-        "noLinkButton": "Link not provided"
+        "noLinkButton": "Link not provided",
+        "editButton": "Edit item"
       },
       "Dialogs": {
         "ConfirmReservation": {
@@ -373,6 +374,15 @@
         "unauthorized": "User not authenticated",
         "UpdatePassword": {
           "samePassword": "The new password must be different from the old password."
+        },
+        "DeleteAccount": {
+          "usernameMismatch": "The username provided does not match your profile.",
+          "error": "Error deleting account. Please try again later.",
+          "success": "Account deleted successfully."
+        },
+        "ChangePassword": {
+          "wrongCurrentPassword": "The current password provided is incorrect.",
+          "success": "Password changed successfully!"
         }
       },
       "Invite": {
@@ -541,7 +551,31 @@
       "infoTitle": "Group information"
     },
     "Privacy": {
-      "developmentWarning": "This page is under development. New features will be available soon."
+      "developmentWarning": "This page is under development. New features will be available soon.",
+      "Secure": {
+        "title": "Security"
+      },
+      "ChangePassword": {
+        "description": "Update your access password",
+        "title": "Change password"
+      },
+      "ChangePasswordDialog": {
+        "title": "Change password",
+        "description": "Enter your current password and set a new password for your account.",
+        "currentPasswordLabel": "Current password",
+        "confirmButton": "Change password"
+      },
+      "DeleteAccount": {
+        "description": "Permanently remove your Wishly account",
+        "title": "Delete my account"
+      },
+      "DeleteAccountDialog": {
+        "title": "Permanently delete account",
+        "description": "This action is irreversible. All your data, wishlists, groups, and reservations will be permanently deleted.",
+        "confirmLabel": "To confirm, type your username:",
+        "confirmButton": "Delete my account",
+        "cancelButton": "Cancel"
+      }
     },
     "Help": {
       "FAQ": {

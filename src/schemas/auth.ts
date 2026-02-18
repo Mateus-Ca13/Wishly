@@ -56,3 +56,14 @@ export const getResetPasswordSchema = (t: any) => z.object({
 export type ResetPasswordSchema = z.infer<ReturnType<typeof getResetPasswordSchema>>;
 export type ForgetPasswordSchema = z.infer<ReturnType<typeof getForgetPasswordSchema>>;
 
+export const getChangePasswordSchema = (t: any) => z.object({
+  current_password: z.string().min(6, t('PasswordInput.minLength')),
+  password: z.string().min(6, t('PasswordInput.minLength')).max(50, t('PasswordInput.maxLength')),
+  confirm_password: z.string().min(6, t('ConfirmPasswordInput.minLength')).max(50, t('ConfirmPasswordInput.maxLength')),
+}).refine((data) => data.password === data.confirm_password, {
+  message: t('ConfirmPasswordInput.matchError'),
+  path: ['confirm_password']
+});
+
+export type ChangePasswordSchema = z.infer<ReturnType<typeof getChangePasswordSchema>>;
+

@@ -94,7 +94,7 @@
       "InviteDrawer": {
         "title": "Convidar para grupo",
         "description": "Compartilhe o link de convite com seus amigos para que eles possam entrar no grupo!",
-        "copyButton": "Copiar",
+        "copyButton": "Compartilhar",
         "copyButtonSuccess": "Copiado"
       },
       "InfoDialog": {
@@ -134,7 +134,9 @@
         "anonymous": "alguém (anônimo)",
         "removeReservationButton": "Remover reserva",
         "openLinkButton": "Abrir link",
-        "noLinkButton": "Link não informado"
+        "noLinkButton": "Link não informado",
+        "editButton": "Editar item",
+        "linkPreview": "Preview"
       },
       "Dialogs": {
         "ConfirmReservation": {
@@ -445,7 +447,42 @@
     "Privacy": {
       "title": "Privacidade",
       "description": "Gerencie suas configurações de privacidade.",
-      "developmentWarning": "Esta página está em desenvolvimento. Novos recursos estarão disponíveis em breve."
+      "developmentWarning": "Esta página está em desenvolvimento. Novos recursos estarão disponíveis em breve.",
+      "Secure": {
+        "title": "Segurança"
+      },
+      "ChangePassword": {
+        "title": "Alterar senha",
+        "description": "Atualize sua senha de acesso"
+      },
+      "ChangePasswordDialog": {
+        "title": "Alterar senha",
+        "description": "Informe sua senha atual e defina uma nova senha para sua conta.",
+        "currentPasswordLabel": "Senha atual",
+        "confirmButton": "Alterar senha"
+      },
+      "DeleteAccount": {
+        "title": "Excluir minha conta",
+        "description": "Remover permanentemente sua conta do Wishly"
+      },
+      "DeleteAccountDialog": {
+        "title": "Excluir conta permanentemente",
+        "description": "Esta ação é irreversível. Todos os seus dados, listas de desejos, grupos e reservas serão permanentemente excluídos.",
+        "confirmLabel": "Para confirmar, digite seu nome de usuário:",
+        "confirmButton": "Excluir minha conta",
+        "cancelButton": "Cancelar"
+      },
+      "DeleteAccountPage": {
+        "title": "Excluir minha conta",
+        "description": "Ao excluir sua conta, todos os seus dados serão permanentemente removidos. Esta ação não pode ser desfeita.",
+        "deleteButton": "Quero excluir minha conta",
+        "consequences": {
+          "wishlists": "Todas as suas listas de desejos serão excluídas",
+          "groups": "Você será removido de todos os grupos",
+          "reservations": "Todas as suas reservas de presentes serão canceladas",
+          "subscription": "Sua assinatura será cancelada imediatamente"
+        }
+      }
     },
     "Responses": {
       "Auth": {
@@ -458,6 +495,15 @@
         "unauthorized": "Usuário não autenticado",
         "UpdatePassword": {
           "samePassword": "A nova senha deve ser diferente da antiga senha."
+        },
+        "DeleteAccount": {
+          "usernameMismatch": "O nome de usuário informado não corresponde ao seu perfil.",
+          "error": "Erro ao excluir conta. Tente novamente mais tarde.",
+          "success": "Conta excluída com sucesso."
+        },
+        "ChangePassword": {
+          "wrongCurrentPassword": "A senha atual informada está incorreta.",
+          "success": "Senha alterada com sucesso!"
         }
       },
       "Invite": {

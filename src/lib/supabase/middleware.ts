@@ -38,7 +38,7 @@ export async function updateSession(
   const { data: { user } } = await supabase.auth.getUser()
 
   const path = request.nextUrl.pathname
-  console.log('path', path);
+  const searchParams = request.nextUrl.searchParams
 
 
   // Cenario A: Usuário NÃO está logado
@@ -54,12 +54,32 @@ export async function updateSession(
 
       return NextResponse.redirect(loginUrl)
     }
+
+    // Evita que o usuário acesse a landing page em caso de PWA
+    // Seta um cookie persistente na primeira visita com ?source=pwa
+    const isPwaSource = searchParams.get('source') === 'pwa'
+    const isPwaCookie = request.cookies.get('pwa')?.value === 'true'
+
+    if (isPwaSource && !isPwaCookie) {
+      const redirectUrl = new URL('/login', request.url)
+      const redirectResponse = NextResponse.redirect(redirectUrl)
+      redirectResponse.cookies.set('pwa', 'true', {
+        path: '/',
+        maxAge: 60 * 60 * 24 * 365, // 1 ano
+        sameSite: 'lax',
+      })
+      return redirectResponse
+    }
+
+    if (path === '/' && (isPwaSource || isPwaCookie)) {
+      return NextResponse.redirect(new URL('/login', request.url))
+    }
   }
 
   // Cenario B: Usuário ESTÁ logado
   if (user) {
 
-    if (path.startsWith('/login')) {
+    if (path.startsWith('/login') || path === '/') {
       return NextResponse.redirect(new URL('/dashboard', request.url))
     }
   }

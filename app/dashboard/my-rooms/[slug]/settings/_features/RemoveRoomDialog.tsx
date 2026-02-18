@@ -26,10 +26,13 @@ export default function RemoveRoomDialog({ isOpen, onClose, onConfirm, room }: R
             <DialogContent className='bg-white-custom border-0 flex flex-col gap-2 items-center justify-center px-4 dark:bg-gray-800'>
                 <DialogHeader className='flex flex-col gap-2 items-center justify-center px-4'>
                     <DialogTitle className='text-center text-lg md:text-2xl dark:text-white'>{t('title')}</DialogTitle>
-                    <DialogDescription className='text-center text-base mb-2 dark:text-gray-300'>
-                        {t('inputLabel')}
+                    <DialogDescription className='text-center text-base md:text-lg mb-2 dark:text-gray-300'>
+                        {t('description')}
                     </DialogDescription>
                 </DialogHeader>
+                <p className='text-sm text-gray-500 dark:text-gray-400 text-center'>
+                    {t('inputLabel')}
+                </p>
                 <p className='font-bold truncate max-w-10/12 text-center text-primary-700 text-lg dark:text-primary-100'>{room?.name}</p>
                 <DialogFooter className='w-full mt-2 flex flex-col! gap-2 items-center justify-center'>
                     <Input
